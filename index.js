@@ -5,7 +5,8 @@ const path = require('path');
 const businessRouter = require('./src/dataSnatcher');
 
 const app = express();
-const pathToYelpAPI = `https://api.yelp.com/v3/businesses/`
+//const pathToYelpAPI = `https://api.yelp.com/v3/businesses/`
+//const pathToYelpAPI = `some string`
 
 /* Added on 3/5/2019
  * 1. body parser middleware
