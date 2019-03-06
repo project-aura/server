@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const businessRouter = require('./src/dataSnatcher');
+const dataSnatcher = require('./src/dataSnatcher');
 
 const app = express();
 //const pathToYelpAPI = `https://api.yelp.com/v3/businesses/`
@@ -13,6 +13,9 @@ const pathToYelpAPI = `some string`
  * 2. form data
  * 3. CORS middleware
  */
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  }); 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cors());
@@ -23,7 +26,7 @@ app.use(express.static(path.join(__dirname, "public")));
  * Route and Set endpoints. 
  * BE MINDFUL OF the 1st parameter! Seriously!
  */
-app.use(pathToYelpAPI, businessRouter);
+app.use('/api/businessAPI', dataSnatcher);
 
 const PORT = process.env.PORT || 3500;
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
