@@ -8,7 +8,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'exotic': True, 'touristy': True}"
         },
-        "categories": "Mexican, Restaurants, Organic"
+        "categories": "Eating, Mexican, Restaurants, Organic"
       },
       {
         "name": "Raffaello Ristorante",
@@ -19,7 +19,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'romantic': True, 'exotic': False, 'touristy': False, 'hipster': False}"
         },
-        "categories": "Italian, Restaurants, Vegetarian-Friendly"
+        "categories": "Eating, Italian, Restaurants, Vegetarian-Friendly"
       },
       {
         "name": "Sushi Gen",
@@ -30,7 +30,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'romantic': False, 'exotic': True, 'touristy': False, 'hipster': False, 'peaceful': True}"
         },
-        "categories": "Japanese, Asian, Sushi, Restaurants"
+        "categories": "Eating, Japanese, Asian, Sushi, Restaurants"
       },
       {
         "name": "Madeo",
@@ -39,9 +39,9 @@ const businessLA = [
         "state": "CA",
         "postal_code": "90048",
         "attributes": {
-          "Ambience": "{'romantic': True, 'formal': True, exotic': False, 'touristy': False, 'hipster': False}"
+          "Ambience": "{'romantic': True, 'upscale': True, 'exotic': False, 'touristy': False, 'hipster': False}"
         },
-        "categories": "Italian, Restaurants, Vegetarian-Friendly, Vegan-Options, Upscale"
+        "categories": "Eating, Dating, Italian, Restaurants, Vegetarian-Friendly, Vegan-Options, Upscale"
       },
       {
         "name": "Melody Bar and Grill",
@@ -52,7 +52,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'romantic': False, exotic': False, 'touristy': False, 'lively': True, 'groovy': True}"
         },
-        "categories": "Coffee, Bar, Pub, Cafe"
+        "categories": "Drinking, Dating, Coffee, Bar, Pub, Cafe"
       },
       {
         "name": "Aroma Cafe",
@@ -63,7 +63,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'lively': True, 'romantic': True, 'hipster': True}"
         },
-        "categories": "Coffee, Tea, Bar, Pub, Cafe"
+        "categories": "Dating, Coffee, Tea, Bar, Pub, Cafe"
       },
       {
         "name": "Cafe Gratitude",
@@ -74,7 +74,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'lively': True, 'romantic': True, 'imaginative': True}"
         },
-        "categories": "Coffee, Tea, Bar, Pub, Cafe, Vegetarian-Friendly, Vegan-Options"
+        "categories": "Dating, Coffee, Tea, Bar, Pub, Cafe, Vegetarian-Friendly, Vegan-Options"
       },
       {
         "name": "Javista Organic Coffee Bar",
@@ -83,9 +83,9 @@ const businessLA = [
         "state": "CA",
         "postal_code": "90028",
         "attributes": {
-          "Ambience": "{'lively': True, 'romantic': True, 'hipster': True, 'imaginative: True}"
+          "Ambience": "{'lively': False, 'romantic': True, 'hipster': True, 'imaginative': True}"
         },
-        "categories": "Coffee, Tea, Organic, Bar, Pub, Cafe, Vegetarian-Friendly, Vegan-Options"
+        "categories": "Studying, Dating, Coffee, Tea, Organic, Bar, Pub, Cafe, Vegetarian-Friendly, Vegan-Options"
       },
       {
         "name": "Blu Jam Cafe",
@@ -96,7 +96,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'groovy': True, 'romantic': False, 'hipster': False}"
         },
-        "categories": "Coffee, Tea, Bar, Pub, Cafe, Vegetarian-Friendly, Vegan-Options"
+        "categories": "Drinking, Coffee, Tea, Bar, Pub, Cafe, Vegetarian-Friendly, Vegan-Options"
       },
       {
         "name": "Cafe Intelligentsia",
@@ -107,7 +107,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'imaginative': True, 'romantic': True, 'hipster': False}"
         },
-        "categories": "Coffee, Tea, Bar, Pub, Cafe, Breakfast"
+        "categories": "Relaxing, Studying, Coffee, Tea, Bar, Pub, Cafe, Breakfast"
       },
       {
         "name": "Angel City Brewery",
@@ -118,7 +118,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'lively': True, 'silly': True}"
         },
-        "categories": "Nightlife, Food & Drink, Pub, Bar, Club"
+        "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Club"
       },
       {
         "name": "No Vacancy",
@@ -129,7 +129,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'lively': True, 'groovy': True}"
         },
-        "categories": "Nightlife, Food & Drink, Pub, Bar, Club"
+        "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Club"
       },
       {
         "name": "Mondrian's Skybar",
@@ -140,7 +140,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'lively': True, 'groovy': True}"
         },
-        "categories": "Nightlife, Food & Drink, Pub, Bar, Club"
+        "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Club"
       },
       {
         "name": "The Federal",
@@ -151,7 +151,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'peaceful': True, 'hipster': True}"
         },
-        "categories": "Nightlife, Food & Drink, Pub, Bar, Club"
+        "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Club"
       },
       {
         "name": "Seven Bar Lounge",
@@ -162,7 +162,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'romantic': True 'peaceful': True, 'silly': False}"
         },
-        "categories": "Nightlife, Food & Drink, Pub, Bar, Upscale, Club"
+        "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Upscale, Club"
       },
       {
         "name": "Boardner's",
@@ -173,7 +173,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'lively': True, 'groovy': True, 'exotic': True}"
         },
-        "categories": "Nightlife, Food & Drink, Pub, Bar, Club, Shows"
+        "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Club, Shows"
       },
       {
         "name": "Black Rabbit Hose",
@@ -184,7 +184,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'romantic': True, 'silly': False}"
         },
-        "categories": "Nightlife, Food & Drink, Pub, Bar, Club, Shows"
+        "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Club, Shows"
       },
       {
         "name": "The Rooftop at the Standard  Downtown LA",
@@ -195,7 +195,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'romantic': True, 'groovy': True}"
         },
-        "categories": "Nightlife, Food & Drink, Pub, Bar, Music"
+        "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Music"
       },
       {
         "name": "Howl at the Moon",
@@ -206,7 +206,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'lively': True, 'silly': True, 'groovy': True}"
         },
-        "categories": "Nightlife, Food & Drink, Pub, Bar, Music"
+        "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Music"
       },
       {
         "name": "4Play The Gentleman's Club",
@@ -217,7 +217,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'lively': True, 'touristy': True, 'romantic': True}"
         },
-        "categories": "Nightlife, Nightclub, Upscale, Adult Entertainment, Strip Club"
+        "categories": "Drinking, Nightlife, Nightclub, Upscale, Adult Entertainment, Strip Club"
       },
       {
         "name": "Spearmint Rhino Gentlemen's Club Los Angeles",
@@ -228,7 +228,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'lively': True, 'touristy': True, 'romantic': True}"
         },
-        "categories": "Nightlife, Nightclub, Adult Entertainment, Strip Club"
+        "categories": "Drinking, Nightlife, Nightclub, Adult Entertainment, Strip Club"
       },
       {
         "name": "Synn Gentlemen's Club",
@@ -239,7 +239,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'lively': True, 'exotic': True}"
         },
-        "categories": "Nightlife, Nightclub, Adult Entertainment, Strip Club"
+        "categories": "Drinking, Nightlife, Nightclub, Adult Entertainment, Strip Club"
       },
       {
         "name": "The Playpen",
@@ -250,7 +250,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'lively': True, 'exotic': True}"
         },
-        "categories": "Nightlife, Nightclub, Adult Entertainment, Strip Club"
+        "categories": "Drinking, Nightlife, Nightclub, Adult Entertainment, Strip Club"
       },
       {
         "name": "Blue Whale",
@@ -261,7 +261,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'romantic': True, 'groovy': True}"
         },
-        "categories": "Nightlife, Concerts, Shows"
+        "categories": "Drinking, Nightlife, Concerts, Shows"
       },
       {
         "name": "Izakaya & Bar Fu-ga",
@@ -272,7 +272,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'peaceful': True, 'exotic': True}"
         },
-        "categories": "Nightlife, Restaurants, Food & Drink, Bar, Club, Japanese, Asian"
+        "categories": "Drinking, Relaxing, Nightlife, Restaurants, Food & Drink, Bar, Club, Japanese, Asian"
       },
       {
         "name": "The Cow's End Cafe",
@@ -283,7 +283,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'romantic': True, 'peaceful': True}"
         },
-        "categories": "Coffee, Tea, Cafe, Deli, Food & Drink"
+        "categories": "Studying, Dating, Relaxing, Coffee, Tea, Cafe, Deli, Food & Drink"
       },
       {
         "name": "Menotti's Coffee Shop",
@@ -294,7 +294,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'groovy': True, 'hipster': True}"
         },
-        "categories": "Coffee, Tea, Cafe, Food & Drink"
+        "categories": "Relaxing, Coffee, Tea, Cafe, Food & Drink"
       },
       {
         "name": "Rise N Grind",
@@ -305,7 +305,7 @@ const businessLA = [
         "attributes": {
           "Ambience": "{'imaginative': True, 'peaceful': True}"
         },
-        "categories": "Coffee, Tea, Cafe, Food & Drink, Vegetarian-Friendly, Vegan-Options"
+        "categories": "Studying, Relaxing, Coffee, Tea, Cafe, Food & Drink, Vegetarian-Friendly, Vegan-Options"
       }
 ];
 
