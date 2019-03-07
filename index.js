@@ -5,17 +5,12 @@ const path = require('path');
 const dataSnatcher = require('./src/dataSnatcher');
 
 const app = express();
-//const pathToYelpAPI = `https://api.yelp.com/v3/businesses/`
-const pathToYelpAPI = `some string`
 
 /* Added on 3/5/2019
  * 1. body parser middleware
  * 2. form data
  * 3. CORS middleware
  */
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-  }); 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cors());
