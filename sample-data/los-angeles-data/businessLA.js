@@ -6,7 +6,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90094',
     attributes: {
-      Ambience: "{'exotic': True, 'touristy': True}",
+      Aura: 'exotic, touristy',
     },
     categories: 'Eating, Mexican, Restaurants, Organic',
   },
@@ -17,7 +17,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90731',
     attributes: {
-      Ambience: "{'romantic': True, 'exotic': False, 'touristy': False, 'hipster': False}",
+      Aura: 'romantic',
     },
     categories: 'Eating, Italian, Restaurants, Vegetarian-Friendly',
   },
@@ -28,7 +28,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90012',
     attributes: {
-      Ambience: "{'romantic': False, 'exotic': True, 'touristy': False, 'hipster': False, 'peaceful': True}",
+      Aura: 'exotic, peaceful',
     },
     categories: 'Eating, Japanese, Asian, Sushi, Restaurants',
   },
@@ -39,7 +39,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90048',
     attributes: {
-      Ambience: "{'romantic': True, 'upscale': True, 'exotic': False, 'touristy': False, 'hipster': False}",
+      Aura: 'romantic, upscale',
     },
     img:
       'https://cdn.vox-cdn.com/thumbor/JwfflVMxdLEIoXrMdsvOCRc-Mog=/0x0:2599x1354/1200x800/filters:focal(1093x470:1507x884)/cdn.vox-cdn.com/uploads/chorus_image/image/58942599/madeo_restaurant_google.0.png',
@@ -52,7 +52,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90045',
     attributes: {
-      Ambience: "{'romantic': False, exotic': False, 'touristy': False, 'lively': True, 'groovy': True}",
+      Aura: 'lively, groovy',
     },
     categories: 'Drinking, Dating, Coffee, Bar, Pub, Cafe',
   },
@@ -63,7 +63,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '91604',
     attributes: {
-      Ambience: "{'lively': True, 'romantic': True, 'hipster': True}",
+      Aura: 'lively, romantic, hipster',
     },
     categories: 'Dating, Coffee, Tea, Bar, Pub, Cafe',
   },
@@ -74,7 +74,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90004',
     attributes: {
-      Ambience: "{'lively': True, 'romantic': True, 'imaginative': True}",
+      Aura: 'lively, romantic, imaginative',
     },
     categories: 'Dating, Coffee, Tea, Bar, Pub, Cafe, Vegetarian-Friendly, Vegan-Options',
   },
@@ -85,7 +85,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90028',
     attributes: {
-      Ambience: "{'lively': False, 'romantic': True, 'hipster': True, 'imaginative': True}",
+      Aura: 'romantic, hipster, imaginative',
     },
     img: 'https://s3-media1.fl.yelpcdn.com/bphoto/dbZ2-LzBc-VVTgM7J7djCQ/o.jpg',
     categories: 'Studying, Dating, Coffee, Tea, Organic, Bar, Pub, Cafe, Vegetarian-Friendly, Vegan-Options',
@@ -97,7 +97,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '91403',
     attributes: {
-      Ambience: "{'groovy': True, 'romantic': False, 'hipster': False}",
+      Aura: 'groovy',
     },
     categories: 'Drinking, Coffee, Tea, Bar, Pub, Cafe, Vegetarian-Friendly, Vegan-Options',
   },
@@ -108,7 +108,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90291',
     attributes: {
-      Ambience: "{'imaginative': True, 'romantic': True, 'hipster': False}",
+      Aura: 'imaginative, romantic',
     },
     categories: 'Relaxing, Studying, Coffee, Tea, Bar, Pub, Cafe, Breakfast',
   },
@@ -119,7 +119,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90012',
     attributes: {
-      Ambience: "{'lively': True, 'silly': True}",
+      Aura: 'lively, silly',
     },
     img: 'https://floridabeerblog.files.wordpress.com/2016/09/wp-1474495706370.jpg',
     categories: 'Drinking, Nightlife, Food & Drink, Pub, Bar, Club',
@@ -131,7 +131,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90028',
     attributes: {
-      Ambience: "{'lively': True, 'groovy': True}",
+      Aura: 'lively, groovy',
     },
     img: 'https://assets3.thrillist.com/v1/image/1616705/size/tmg-slideshow_l.jpg',
     categories: 'Drinking, Nightlife, Food & Drink, Pub, Bar, Club',
@@ -143,7 +143,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90069',
     attributes: {
-      Ambience: "{'lively': True, 'groovy': True}",
+      Aura: 'lively, groovy',
     },
     categories: 'Drinking, Nightlife, Food & Drink, Pub, Bar, Club',
   },
@@ -154,7 +154,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '91601',
     attributes: {
-      Ambience: "{'peaceful': True, 'hipster': True}",
+      Aura: 'peaceful, hipster',
     },
     img: 'http://nh.thefederalbar.com/wp-content/gallery/federal/MG_2043-edited-72.jpg',
     categories: 'Drinking, Nightlife, Food & Drink, Pub, Bar, Club',
@@ -166,7 +166,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90014',
     attributes: {
-      Ambience: "{'romantic': True 'peaceful': True, 'silly': False}",
+      Aura: 'romantic, peaceful',
     },
     categories: 'Drinking, Nightlife, Food & Drink, Pub, Bar, Upscale, Club',
   },
@@ -177,7 +177,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90028',
     attributes: {
-      Ambience: "{'lively': True, 'groovy': True, 'exotic': True}",
+      Aura: 'lively, groovy, exotic',
     },
     categories: 'Drinking, Nightlife, Food & Drink, Pub, Bar, Club, Shows',
   },
@@ -188,7 +188,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90028',
     attributes: {
-      Ambience: "{'romantic': True, 'silly': False}",
+      Aura: 'romantic, silly',
     },
     categories: 'Drinking, Nightlife, Food & Drink, Pub, Bar, Club, Shows',
   },
@@ -199,7 +199,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90071',
     attributes: {
-      Ambience: "{'romantic': True, 'groovy': True}",
+      Aura: 'romantic, groovy',
     },
     categories: 'Drinking, Nightlife, Food & Drink, Pub, Bar, Music',
   },
@@ -210,7 +210,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '91608',
     attributes: {
-      Ambience: "{'lively': True, 'silly': True, 'groovy': True}",
+      Aura: 'lively, silly, groovy',
     },
     categories: 'Drinking, Nightlife, Food & Drink, Pub, Bar, Music',
   },
@@ -221,7 +221,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90064',
     attributes: {
-      Ambience: "{'lively': True, 'touristy': True, 'romantic': True}",
+      Aura: 'lively, touristy, romantic',
     },
     categories: 'Drinking, Nightlife, Nightclub, Upscale, Adult Entertainment, Strip Club',
   },
@@ -232,7 +232,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90021',
     attributes: {
-      Ambience: "{'lively': True, 'touristy': True, 'romantic': True}",
+      Aura: 'lively, touristy, romantic',
     },
     categories: 'Drinking, Nightlife, Nightclub, Adult Entertainment, Strip Club',
   },
@@ -243,7 +243,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90048',
     attributes: {
-      Ambience: "{'lively': True, 'exotic': True}",
+      Aura: 'lively, exotic',
     },
     categories: 'Drinking, Nightlife, Nightclub, Adult Entertainment, Strip Club',
   },
@@ -254,7 +254,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90021',
     attributes: {
-      Ambience: "{'lively': True, 'exotic': True}",
+      Aura: 'lively, exotic',
     },
     categories: 'Drinking, Nightlife, Nightclub, Adult Entertainment, Strip Club',
   },
@@ -265,7 +265,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90012',
     attributes: {
-      Ambience: "{'romantic': True, 'groovy': True}",
+      Aura: 'romantic, groovy',
     },
     categories: 'Drinking, Nightlife, Concerts, Shows',
   },
@@ -276,7 +276,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90012',
     attributes: {
-      Ambience: "{'peaceful': True, 'exotic': True}",
+      Aura: 'peaceful, exotic',
     },
     categories: 'Drinking, Relaxing, Nightlife, Restaurants, Food & Drink, Bar, Club, Japanese, Asian',
   },
@@ -287,7 +287,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90292',
     attributes: {
-      Ambience: "{'romantic': True, 'peaceful': True}",
+      Aura: 'romantic, peaceful',
     },
     categories: 'Studying, Dating, Relaxing, Coffee, Tea, Cafe, Deli, Food & Drink',
   },
@@ -298,7 +298,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90291',
     attributes: {
-      Ambience: "{'groovy': True, 'hipster': True}",
+      Aura: 'groovy, hipster',
     },
     categories: 'Relaxing, Coffee, Tea, Cafe, Food & Drink',
   },
@@ -309,7 +309,7 @@ const businessLA = [
     state: 'CA',
     postal_code: '90028',
     attributes: {
-      Ambience: "{'imaginative': True, 'peaceful': True}",
+      Aura: 'imaginative, peaceful',
     },
     categories: 'Studying, Relaxing, Coffee, Tea, Cafe, Food & Drink, Vegetarian-Friendly, Vegan-Options',
   },
