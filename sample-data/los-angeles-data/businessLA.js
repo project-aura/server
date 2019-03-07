@@ -8,6 +8,8 @@ const businessLA = [
     attributes: {
       Ambience: "{'exotic': True, 'touristy': True}",
     },
+    img:
+      'https://cdn.vox-cdn.com/thumbor/i-k0g-R7OIflrCFEEuj9oPZkcOE=/0x0:4800x3300/1200x800/filters:focal(2016x1266:2784x2034)/cdn.vox-cdn.com/uploads/chorus_image/image/58929673/Overview.0.jpg',
     categories: 'Eating, Mexican, Restaurants, Organic',
   },
   {
@@ -19,6 +21,7 @@ const businessLA = [
     attributes: {
       Ambience: "{'romantic': True, 'exotic': False, 'touristy': False, 'hipster': False}",
     },
+    img: 'https://s3-media4.fl.yelpcdn.com/bphoto/Z8pYS63MoKt3lpux-XV-_w/o.jpg',
     categories: 'Eating, Italian, Restaurants, Vegetarian-Friendly',
   },
   {
@@ -30,6 +33,8 @@ const businessLA = [
     attributes: {
       Ambience: "{'romantic': False, 'exotic': True, 'touristy': False, 'hipster': False, 'peaceful': True}",
     },
+    img:
+      'https://otg.imgix.net/assets/grid/los-angeles/little-tokyo/sushi-gen/IMG_3858.jpg?auto=format%2Ccompress&crop=focalpoint&fit=min&fm=jpg&fp-x=0.5&fp-y=0.5&ixlib=php-1.1.0&q=80&w=1200&s=76b3cd369e29963fee8df6e5206d1ee7',
     categories: 'Eating, Japanese, Asian, Sushi, Restaurants',
   },
   {
@@ -54,6 +59,7 @@ const businessLA = [
     attributes: {
       Ambience: "{'romantic': False, exotic': False, 'touristy': False, 'lively': True, 'groovy': True}",
     },
+    img: 'https://s3-media4.fl.yelpcdn.com/bphoto/Kxhb6z2Zxf-VDamHyXhj0A/o.jpg',
     categories: 'Drinking, Dating, Coffee, Bar, Pub, Cafe',
   },
   {
@@ -65,6 +71,7 @@ const businessLA = [
     attributes: {
       Ambience: "{'lively': True, 'romantic': True, 'hipster': True}",
     },
+    img: 'https://s3-media2.fl.yelpcdn.com/bphoto/P79kCPWjBTpgd_vgw_VpyA/o.jpg',
     categories: 'Dating, Coffee, Tea, Bar, Pub, Cafe',
   },
   {
@@ -76,6 +83,8 @@ const businessLA = [
     attributes: {
       Ambience: "{'lively': True, 'romantic': True, 'imaginative': True}",
     },
+    img:
+      'https://cdn.vox-cdn.com/thumbor/jET-16qat4gkFm9yjyIv_fjOD2U=/51x0:845x596/1200x800/filters:focal(51x0:845x596)/cdn.vox-cdn.com/uploads/chorus_image/image/49434451/cafe-gratitude-arts-district.0.0.png',
     categories: 'Dating, Coffee, Tea, Bar, Pub, Cafe, Vegetarian-Friendly, Vegan-Options',
   },
   {
@@ -99,6 +108,8 @@ const businessLA = [
     attributes: {
       Ambience: "{'groovy': True, 'romantic': False, 'hipster': False}",
     },
+    img:
+      'https://cdn.vox-cdn.com/thumbor/30-F1nuWN0Vmd1O8zJOwraVkwMQ=/0x0:2000x1331/1200x800/filters:focal(840x506:1160x826)/cdn.vox-cdn.com/uploads/chorus_image/image/56861945/2015-10-23-maru-005.0.0.jpg',
     categories: 'Drinking, Coffee, Tea, Bar, Pub, Cafe, Vegetarian-Friendly, Vegan-Options',
   },
   {
@@ -110,6 +121,7 @@ const businessLA = [
     attributes: {
       Ambience: "{'imaginative': True, 'romantic': True, 'hipster': False}",
     },
+    img: 'https://www.intelligentsiacoffee.com/media/wysiwyg/cms/locations/Venice/Venice-ADDRESS-BLOCK.jpg',
     categories: 'Relaxing, Studying, Coffee, Tea, Bar, Pub, Cafe, Breakfast',
   },
   {
@@ -145,6 +157,7 @@ const businessLA = [
     attributes: {
       Ambience: "{'lively': True, 'groovy': True}",
     },
+    img: 'https://www.therooftopguide.com/rooftop-bars-in-los-angeles/Bilder/SkybarattheMandarinHotel_4_slide.jpg',
     categories: 'Drinking, Nightlife, Food & Drink, Pub, Bar, Club',
   },
   {
@@ -168,6 +181,7 @@ const businessLA = [
     attributes: {
       Ambience: "{'romantic': True 'peaceful': True, 'silly': False}",
     },
+    img: 'https://res.cloudinary.com/ddr1rxq1v/image/upload/q_auto:low/v1490565034/x0j0t6yboexiokgn9nh1.jpg',
     categories: 'Drinking, Nightlife, Food & Drink, Pub, Bar, Upscale, Club',
   },
   {
@@ -179,6 +193,8 @@ const businessLA = [
     attributes: {
       Ambience: "{'lively': True, 'groovy': True, 'exotic': True}",
     },
+    img:
+      'https://7e512d47533b372e0cf7-0fcb01ade5e30f5e05136adbd496363c.ssl.cf1.rackcdn.com/334/boardners_3_650x300.jpg',
     categories: 'Drinking, Nightlife, Food & Drink, Pub, Bar, Club, Shows',
   },
   {
@@ -190,6 +206,7 @@ const businessLA = [
     attributes: {
       Ambience: "{'romantic': True, 'silly': False}",
     },
+    img: 'https://media.timeout.com/images/103813861/630/472/image.jpg',
     categories: 'Drinking, Nightlife, Food & Drink, Pub, Bar, Club, Shows',
   },
   {
@@ -201,6 +218,7 @@ const businessLA = [
     attributes: {
       Ambience: "{'romantic': True, 'groovy': True}",
     },
+    img: 'https://images.trvl-media.com/hotels/1000000/890000/887000/886918/f0662efd_z.jpg',
     categories: 'Drinking, Nightlife, Food & Drink, Pub, Bar, Music',
   },
   {
@@ -212,6 +230,8 @@ const businessLA = [
     attributes: {
       Ambience: "{'lively': True, 'silly': True, 'groovy': True}",
     },
+    img:
+      'https://cdn.wedding-spot.com/images/venues/9680/Howl-at-the-Moon-Hollywood-Wedding-Los-Angeles-CA-3_main.1482484227.jpg',
     categories: 'Drinking, Nightlife, Food & Drink, Pub, Bar, Music',
   },
   {
@@ -267,6 +287,8 @@ const businessLA = [
     attributes: {
       Ambience: "{'romantic': True, 'groovy': True}",
     },
+    img:
+      'https://static1.squarespace.com/static/56fa25d28259b56d9b432b84/57004d7e01dbae8fc9b4f0c9/57008bb407eaa0a58ec47065/1459653564254/DSC_4982_1980.jpg?format=750w',
     categories: 'Drinking, Nightlife, Concerts, Shows',
   },
   {
@@ -278,6 +300,7 @@ const businessLA = [
     attributes: {
       Ambience: "{'peaceful': True, 'exotic': True}",
     },
+    img: 'http://urbandiningguide.com/wp-content/uploads/2014/05/izakayafugalosangeles.jpg',
     categories: 'Drinking, Relaxing, Nightlife, Restaurants, Food & Drink, Bar, Club, Japanese, Asian',
   },
   {
@@ -289,6 +312,7 @@ const businessLA = [
     attributes: {
       Ambience: "{'romantic': True, 'peaceful': True}",
     },
+    img: 'https://cdn.workfrom.co/files/usermedia/36734-Du4osHUSmSEoPjllWiug-los-angeles-cows-end-3.jpg',
     categories: 'Studying, Dating, Relaxing, Coffee, Tea, Cafe, Deli, Food & Drink',
   },
   {
@@ -300,6 +324,8 @@ const businessLA = [
     attributes: {
       Ambience: "{'groovy': True, 'hipster': True}",
     },
+    img:
+      'https://cdn.vox-cdn.com/thumbor/uPZTk5wPj_mXnsgDFV8WHu5eifg=/0x0:753x526/1200x800/filters:focal(317x203:437x323)/cdn.vox-cdn.com/uploads/chorus_image/image/62656516/menotti_s.0.0.jpg',
     categories: 'Relaxing, Coffee, Tea, Cafe, Food & Drink',
   },
   {
@@ -311,6 +337,8 @@ const businessLA = [
     attributes: {
       Ambience: "{'imaginative': True, 'peaceful': True}",
     },
+    img:
+      'http://res.cloudinary.com/spothopper/image/fetch/f_auto,q_80,c_fit,h_864/http://static.spotapps.co/spots/53/4a7a40f7e911e7906349d5a639d4f5/:original',
     categories: 'Studying, Relaxing, Coffee, Tea, Cafe, Food & Drink, Vegetarian-Friendly, Vegan-Options',
   },
 ];
