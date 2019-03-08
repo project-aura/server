@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, "public")));
  * Route and Set endpoints. 
  * BE MINDFUL OF the 1st parameter! Seriously!
  */
-app.use('/api/businessAPI', dataSnatcher);
+app.use('/', dataSnatcher);
 
 const PORT = process.env.PORT || 3500;
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
