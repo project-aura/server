@@ -19,7 +19,11 @@ const router = express.Router();
 
 // GET request
 router.get('/', (req, res) => {
-  const businessData = db.get('businessData').value();
+  let businessData = db.get('businessData').value();
+  if (req.query.aura) {
+    const { aura } = req.query;
+    businessData = businessData.filter(venue => venue.attributes.Aura.includes(aura));
+  }
   res.json(businessData);
 });
 
