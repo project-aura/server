@@ -97,7 +97,8 @@ const businessLA = [
       Aura: 'romantic, hipster, imaginative',
     },
     img: 'https://s3-media1.fl.yelpcdn.com/bphoto/dbZ2-LzBc-VVTgM7J7djCQ/o.jpg',
-    categories: 'Studying, Dating, Coffee, Tea, Organic, Bar, Pub, Cafe, Vegetarian-Friendly, Vegan-Options',
+    categories:
+      'Studying, Dating, Coffee, Tea, Organic, Bar, Pub, Cafe, Vegetarian-Friendly, Vegan-Options',
   },
   {
     name: 'Blu Jam Cafe',
@@ -121,7 +122,8 @@ const businessLA = [
     attributes: {
       Aura: 'imaginative, romantic',
     },
-    img: 'https://www.intelligentsiacoffee.com/media/wysiwyg/cms/locations/Venice/Venice-ADDRESS-BLOCK.jpg',
+    img:
+      'https://www.intelligentsiacoffee.com/media/wysiwyg/cms/locations/Venice/Venice-ADDRESS-BLOCK.jpg',
     categories: 'Relaxing, Studying, Coffee, Tea, Bar, Pub, Cafe, Breakfast',
   },
   {
@@ -157,7 +159,8 @@ const businessLA = [
     attributes: {
       Aura: 'lively, groovy',
     },
-    img: 'https://www.therooftopguide.com/rooftop-bars-in-los-angeles/Bilder/SkybarattheMandarinHotel_4_slide.jpg',
+    img:
+      'https://www.therooftopguide.com/rooftop-bars-in-los-angeles/Bilder/SkybarattheMandarinHotel_4_slide.jpg',
     categories: 'Drinking, Nightlife, Food & Drink, Pub, Bar, Club',
   },
   {
@@ -181,7 +184,8 @@ const businessLA = [
     attributes: {
       Aura: 'romantic, peaceful',
     },
-    img: 'https://res.cloudinary.com/ddr1rxq1v/image/upload/q_auto:low/v1490565034/x0j0t6yboexiokgn9nh1.jpg',
+    img:
+      'https://res.cloudinary.com/ddr1rxq1v/image/upload/q_auto:low/v1490565034/x0j0t6yboexiokgn9nh1.jpg',
     categories: 'Drinking, Nightlife, Food & Drink, Pub, Bar, Upscale, Club',
   },
   {
@@ -301,7 +305,8 @@ const businessLA = [
       Aura: 'peaceful, exotic',
     },
     img: 'http://urbandiningguide.com/wp-content/uploads/2014/05/izakayafugalosangeles.jpg',
-    categories: 'Drinking, Relaxing, Nightlife, Restaurants, Food & Drink, Bar, Club, Japanese, Asian',
+    categories:
+      'Drinking, Relaxing, Nightlife, Restaurants, Food & Drink, Bar, Club, Japanese, Asian',
   },
   {
     name: "The Cow's End Cafe",
@@ -312,7 +317,8 @@ const businessLA = [
     attributes: {
       Aura: 'romantic, peaceful',
     },
-    img: 'https://cdn.workfrom.co/files/usermedia/36734-Du4osHUSmSEoPjllWiug-los-angeles-cows-end-3.jpg',
+    img:
+      'https://cdn.workfrom.co/files/usermedia/36734-Du4osHUSmSEoPjllWiug-los-angeles-cows-end-3.jpg',
     categories: 'Studying, Dating, Relaxing, Coffee, Tea, Cafe, Deli, Food & Drink',
   },
   {
@@ -339,7 +345,8 @@ const businessLA = [
     },
     img:
       'http://res.cloudinary.com/spothopper/image/fetch/f_auto,q_80,c_fit,h_864/http://static.spotapps.co/spots/53/4a7a40f7e911e7906349d5a639d4f5/:original',
-    categories: 'Studying, Relaxing, Coffee, Tea, Cafe, Food & Drink, Vegetarian-Friendly, Vegan-Options',
+    categories:
+      'Studying, Relaxing, Coffee, Tea, Cafe, Food & Drink, Vegetarian-Friendly, Vegan-Options',
   },
 ];
 

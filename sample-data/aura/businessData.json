@@ -9,9 +9,9 @@
   "stars": 0,
   "reviewCount": 0,
   "novelty": 0,
+  "aura": "",
   "attributes": {
     "wifi": "",
-    "aura": "",
     "alcohol": "",
     "bestNights": {
       "monday": false,
@@ -54,15 +54,41 @@
     },
     "smoking": ""
   },
-  "categories": [""],
+  "categories": [
+    {
+      "alias": "",
+      "title": ""
+    }
+  ],
   "hours": {
-    "monday": "",
-    "tuesday": "",
-    "wednesday": "",
-    "thursday": "",
-    "friday": "",
-    "saturday": "",
-    "sunday": ""
-  },
-  "openNow": false
+    "monday": {
+      "start": "",
+      "end": ""
+    },
+    "tuesday": {
+      "start": "",
+      "end": ""
+    },
+    "wednesday": {
+      "start": "",
+      "end": ""
+    },
+    "thursday": {
+      "start": "",
+      "end": ""
+    },
+    "friday": {
+      "start": "",
+      "end": ""
+    },
+    "saturday": {
+      "start": "",
+      "end": ""
+    },
+    "sunday": {
+      "start": "",
+      "end": ""
+    },
+    "openNow": false
+  }
 }
