@@ -1,5 +1,4 @@
 const { yelpAPI } = require('./API');
-
 /**
  * Seed the database with the 3rd-party API business data
  * @param {Object} database
