@@ -1,12 +1,13 @@
-require('dotenv').config({path: '__dirname/../.env'});
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 // NOTE: the __dirname is needed for windows users. Not necessary for Mac
 const Axios = require('axios');
+
 const yelpApiKey = process.env.YELP_API_KEY;
 const yelpBaseUrl = 'https://api.yelp.com/v3/';
 const yelpHeaders = {
   Authorization: `bearer ${yelpApiKey}`,
 };
-
 
 const yelpAPI = {
   // ================  Business Information ==================
@@ -32,7 +33,6 @@ const yelpAPI = {
       headers: yelpHeaders,
     }),
 };
-
 
 module.exports = {
   yelpAPI,
