@@ -19,7 +19,7 @@ const db = lowdb(adapter);
 const router = express.Router();
 
 // GET request
-router.get('/api/businessAPI', (req, res) => {
+router.get('/api/resources', (req, res) => {
   let businessData = db.get('businessData').value();
   if (req.query.aura) {
     const { aura } = req.query;
