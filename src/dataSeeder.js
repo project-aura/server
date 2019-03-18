@@ -1,4 +1,5 @@
 const { yelpAPI } = require('./API');
+const { dataMaster } = require('./dataMaster');
 /**
  * Seed the database with the 3rd-party API business data
  * @param {Object} database
@@ -36,6 +37,7 @@ const businessDataSeeder = database => {
 
   // Put this array of objects into a database somehow...
   // database.send(detailedBusinessList)
+  dataMaster.dbAdd(objectEntry);
 };
 
 businessDataSeeder('hello');
