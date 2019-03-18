@@ -1,39 +1,74 @@
+const lowdb = require('lowdb');
 const { yelpAPI } = require('./API');
+const { transformer } = require('./transformers');
+
+const resolveYelpBusinessApiPromiseData = promises => {
+  // Get all businesses objects and stuff them in businessesData
+  const businessesData = [];
+  promises.forEach(promise =>
+    promise.then(response => {
+      const businessArray = response.data.businesses;
+      businessArray.forEach(business => {
+        businessesData.push(business);
+      });
+    })
+  );
+  // console.log(businessesData); // TEST Call to see all business objects
+  return businessesData;
+};
+
 const { dataMaster } = require('./dataMaster');
 /**
  * Seed the database with the 3rd-party API business data
  * @param {Object} database
  */
-const businessDataSeeder = database => {
-  let culverCityResponse = {};
-  yelpAPI
-    .getBusinessesByLocation('Los Angeles')
-    .then(res => {
-      console.log(res);
-      culverCityResponse = res.data;
-    })
-    .catch(err => console.error(err, 'On Error'));
-  console.log('Response', culverCityResponse);
+const businessDataSeeder = async database => {
+  // ============================== INITIAL BUSINESS CALLS =================================
+  // Make requests to yelp api with each zip location.
+  const locationResponses = [];
+  try {
+    // locationResponses.push(yelpAPI.getBusinesses({ location: '90404', radius: 40000 }));
+    locationResponses.push(yelpAPI.getBusinesses({ location: '90230', radius: 300 }));
+    // locationResponses.push(yelpAPI.getBusinesses({ location: '90014', radius: 40000 }));
+    // locationResponses.push(yelpAPI.getBusinesses({ location: '90036', radius: 40000 }));
+    await Promise.all(locationResponses);
+  } catch (err) {
+    console.error(err);
+  }
 
-  // const culverCityBusinessList = culverCityResponse.data.businesses;
-  // const detailedBusinessList = [];
+  // Strip the business data objects
+  const businessesData = await resolveYelpBusinessApiPromiseData(locationResponses);
 
-  // Get the detailed list of each business
+  // ================================ DETAILED BUSINESS CALLS ================================
 
-  // WOAH!!! Not running this yet, because I don't want to kill our api calls.
-  // culverCityBusinessList.forEach(business => {
-  //   yelpAPI.getBusinessByAlias(business.alias).then(res => {
-  //     detailedBusinessList.push(res.data);
-  //   });
-  // });
+  // Perform an api call to yelp with each of the business object aliases in businessesData
+  const detailedBusinessesData = [];
+  for (const business of businessesData) {
+    detailedBusinessesData.push((await yelpAPI.getBusinessByAlias(business.alias)).data);
+  }
+  // console.log(detailedBusinessesData);
+
+  // ====================================== TRANSFORMING DATA ==============================
+  const transformedBusinessData = [];
+  for (const business of detailedBusinessesData) {
+    // call the transformer and make all values into our data format.
+    transformedBusinessData.push(transformer.yelpToAura(business));
+  }
+  console.log(transformedBusinessData);
+
+  // ======================================= DATA INJECTION ==================================
+
+  // ======================================= DATA SCRAPING ==================================
 
   // Scrape each of the business pages
-  // detailedBusinessList.forEach(business => {
+  // for (const business of transformedBusinessData) {
   //   parser.scrapeForAmbiances(business.url).then(response => {
   //     business.auras = response.ambiances;
   //   });
-  //   // TODO: how do we check for duplicates??
-  // });
+  // }
+  // Let the database handle all duplicate values.
+
+  // ===================================== DATA STORAGE ====================================
 
   // Put this array of objects into a database somehow...
   // database.send(detailedBusinessList)
