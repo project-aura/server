@@ -11,24 +11,25 @@ const yelpHeaders = {
 
 const yelpAPI = {
   // ================  Business Information ==================
-  getBusinessesByLocation: location =>
+  getBusinesses: options =>
     Axios.get(`${yelpBaseUrl}businesses/search`, {
       headers: yelpHeaders,
       params: {
-        location,
+        location: options.location,
+        radius: options.radius,
       },
     }),
-  getBusinessById: id =>
+  getBusinessById: (id, options) =>
     Axios.get(`${yelpBaseUrl}businesses/${id}`, {
       headers: yelpHeaders,
     }),
 
-  getBusinessByAlias: alias =>
+  getBusinessByAlias: (alias, options) =>
     Axios.get(`${yelpBaseUrl}businesses/${alias}`, {
       headers: yelpHeaders,
     }),
 
-  getReviewsByBusinessId: id =>
+  getReviewsByBusinessId: (id, options) =>
     Axios.get(`${yelpBaseUrl}businesses/${id}/reviews`, {
       headers: yelpHeaders,
     }),
