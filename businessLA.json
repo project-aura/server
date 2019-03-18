@@ -331,6 +331,558 @@
       },
       "img": "http://res.cloudinary.com/spothopper/image/fetch/f_auto,q_80,c_fit,h_864/http://static.spotapps.co/spots/53/4a7a40f7e911e7906349d5a639d4f5/:original",
       "categories": "Studying, Relaxing, Coffee, Tea, Cafe, Food & Drink, Vegetarian-Friendly, Vegan-Options"
+    },
+    {
+      "name": "The Serving Spoon",
+      "address": "1403 Centinela Ave",
+      "city": "Inglewood, Los Angeles",
+      "state": "CA",
+      "postal_code": "90302",
+      "attributes": {
+        "Aura": "casual"
+      },
+      "img": "https://s3-media4.fl.yelpcdn.com/bphoto/WiwSlvNcJ521_vlszL4e-A/o.jpg",
+      "categories": "Eating, Coffee, Tea, Relaxing, Brunch, Soul Food, Breakfast"
+    },
+    {
+      "name": "Conservatory For Coffee, Tea & Cocoa",
+      "address": "10117 Washington Blvd",
+      "city": "Culver City, Los Angeles",
+      "state": "CA",
+      "postal_code": "90232",
+      "attributes": {
+        "Aura": "trendy"
+      },
+      "img": "http://static1.squarespace.com/static/578fb6425016e1565263b5d6/t/58c0521a440243ea38ad5513/1488998941602/IMG_1202.JPG?format=1500w",
+      "categories": "Drinking, Studying, Eating, Relaxing"
+    },
+    {
+      "name": "Baldwin Hills Scenic Overlook",
+      "address": "6300 Hetzler Rd",
+      "city": "Culver City, Los Angeles",
+      "state": "CA",
+      "postal_code": "90232",
+      "attributes": {
+        "Aura": "touristy, inspired, peaceful"
+      },
+      "img": "https://modernhiker.com/wp-content/uploads/2013/01/baldwin-hills-overlook-11.jpg",
+      "categories": "Relaxing, Hiking, Hangout, Adventure, Outdoors, Nature, Dog Friendly"
+    },
+    {
+      "name": "Father's Office",
+      "address": "3229 Helms Ave",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90034",
+      "attributes": {
+        "Aura": "trendy, casual"
+      },
+      "img": "https://d37219swed47g7.cloudfront.net/media/images/guides/the-culver-city-after-work-drinks-guide/FO%20Interior2.jpg",
+      "categories": "Eating, Drinking, American, Burgers, Pub"
+    },
+    {
+      "name": "Hokkaido Ramen Santouka",
+      "address": "3760 Centinela Ave",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90066",
+      "attributes": {
+        "Aura": "Casual, Exotic"
+      },
+      "img": "https://s3-media3.fl.yelpcdn.com/bphoto/OHwF3d_kq2etctEoFfDvrg/o.jpg",
+      "categories": "Eating, Restaurant, Japanese, Asian"
+    },
+    {
+      "name": "Copenhagen Pastry",
+      "address": "11113 Washington Blvd",
+      "city": "Culver City, Los Angeles",
+      "state": "CA",
+      "postal_code": "90232",
+      "attributes": {
+        "Aura": "peaceful, classy"
+      },
+      "img": "https://s3-media1.fl.yelpcdn.com/bphoto/uDUbJK-p-yw85HdW9YoNDg/o.jpg",
+      "categories": "Eating, Pastry, Bakery"
+    },
+    {
+      "name": "The Griddle Cafe",
+      "address": "7916 W Sunset Blvd",
+      "city": "Hollywood, Los Angeles",
+      "state": "CA",
+      "postal_code": "90046",
+      "attributes": {
+        "Aura": "casual, romantic"
+      },
+      "img": "",
+      "categories": "Eating, Breakfast, Brunch, Drinking, Tea, Drinking, Studying"
+    },
+    {
+      "name": "Sushi By H",
+      "address": "480 San Vicente Blvd",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90048",
+      "attributes": {
+        "Aura": "casual, romantic"
+      },
+      "img": "",
+      "categories": "Eating, Drinking, Japanese, Sushi, Asian"
+    },
+    {
+      "name": "Tatsu Ramen",
+      "address": "2123 Sawtelle Blvd",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90025",
+      "attributes": {
+        "Aura": "casual, peaceful"
+      },
+      "img": "",
+      "categories": "Eating, Japanese, Drinking, Asian, Ramen"
+    },
+    {
+      "name": "Fogo de Chão Brazilian Steakhouse",
+      "address": "133 N La Cienega Blvd",
+      "city": "Beverly Hills, Los Angeles",
+      "state": "CA",
+      "postal_code": "90211",
+      "attributes": {
+        "Aura": "classy"
+      },
+      "img": "",
+      "categories": "Eating, Drinking, Restaurant, Brazilian, Steak"
+    },
+    {
+      "name": "El Chato Taco Truck",
+      "address": "5300 W Olympic Blvd",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90019",
+      "attributes": {
+        "Aura": "cheerful, casual, exotic"
+      },
+      "img": "",
+      "categories": "Eating, Mexican, Food Truck"
+    },
+    {
+      "name": "Yuko Kitchen",
+      "address": "5484 Wilshire Blvd",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90036",
+      "attributes": {
+        "Aura": "peaceful, casual"
+      },
+      "img": "",
+      "categories": "Eating, Japanese, Asian"
+    },
+    {
+      "name": "Angelini Osteria",
+      "address": "7313 Beverly Blvd",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90036",
+      "attributes": {
+        "Aura": "classy, trendy"
+      },
+      "img": "",
+      "categories": "Eating, Drinking, Italian, Pasta"
+    },
+    {
+      "name": " Pizzeria Mozza",
+      "address": "641 N Highland Ave",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90036",
+      "attributes": {
+        "Aura": "inspired, trendy"
+      },
+      "img": "",
+      "categories": "Eating, Drinking, Italian"
+    },
+    {
+      "name": "The Bazaar by José Andrés",
+      "address": "465 South La Cienega Blvd",
+      "city": "Beverly Hills, Los Angeles",
+      "state": "CA",
+      "postal_code": "90048",
+      "attributes": {
+        "Aura": "upscale, trendy, romantic"
+      },
+      "img": "",
+      "categories": "Eating, Drinking, Restaurant, Dating"
+    },
+    {
+      "name": "Los Angeles County Museum of Art",
+      "address": "5905 Wilshire Blvd",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90036",
+      "attributes": {
+        "Aura": "touristy, inspired, trendy"
+      },
+      "img": "",
+      "categories": "Hangout, Museum, Art, Photos"
+    },
+    {
+      "name": "Milk Jar Cookies",
+      "address": "5466 Wilshire Blvd",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90036",
+      "attributes": {
+        "Aura": "inspired, hipster"
+      },
+      "img": "",
+      "categories": "Eating, Drinking, Bakery, Pastries, Coffee, Tea"
+    },
+    {
+      "name": "Salt & Straw",
+      "address": "240 N Larchmont Blvd",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90004",
+      "attributes": {
+        "Aura": "trendy, inspired, casual"
+      },
+      "img": "",
+      "categories": "Eating, Coffee, Dessert, Ice Cream"
+    },
+    {
+      "name": "Lawry's The Prime Rib - Beverly Hills",
+      "address": "100 N La Cienega Blvd",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90211",
+      "attributes": {
+        "Aura": "classy, upscale"
+      },
+      "img": "",
+      "categories": "Eating, Fancy, Restaurant, Drinking"
+    },
+    {
+      "name": "Animal",
+      "address": "435 N Fairfax Ave",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90036",
+      "attributes": {
+        "Aura": "trendy"
+      },
+      "img": "",
+      "categories": "Eating, Drinking, Breakfast, Brunch, Coffee, American"
+    },
+    {
+      "name": "Providence",
+      "address": "5955 Melrose Ave",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90038",
+      "attributes": {
+        "Aura": "classy, upscale"
+      },
+      "img": "",
+      "categories": "Eating, Drinking, Dating"
+    },
+    {
+      "name": "Genwa Korean BBQ",
+      "address": "5115 Wilshire Blvd",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90036",
+      "attributes": {
+        "Aura": "exotic, trendy"
+      },
+      "img": "",
+      "categories": "Eating, Drinking, Asian, Korean"
+    },
+    {
+      "name": "Milk",
+      "address": "7290 Beverly Blvd",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90036",
+      "attributes": {
+        "Aura": "hipster"
+      },
+      "img": "",
+      "categories": "Dessert, Eating, Ice Cream, Pastries, Relaxing"
+    },
+    {
+      "name": "Blu Jam Café",
+      "address": "7371 Melrose Ave",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90046",
+      "attributes": {
+        "Aura": "casual"
+      },
+      "img": "",
+      "categories": "Relaxing, Eating, Drinking, Studying"
+    },
+    {
+      "name": "SK Donuts & Croissant",
+      "address": "5850 W 3rd St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90036",
+      "attributes": {
+        "Aura": "inspired, peaceful"
+      },
+      "img": "",
+      "categories": "Relaxing, Studying, Eating, Drinking, Coffee, Tea"
+    },
+    {
+      "name": "République",
+      "address": "624 S La Brea Ave",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90036",
+      "attributes": {
+        "Aura": "touristy, trendy"
+      },
+      "img": "",
+      "categories": "Eating, Relaxing, Breakfast, Brunch, French"
+    },
+    {
+      "name": "Grand Central Market",
+      "address": "317 S Broadway",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90013",
+      "attributes": {
+        "Aura": "casual"
+      },
+      "img": "",
+      "categories": "Eating, Breakfast, Lunch, Drinking"
+    },
+    {
+      "name": "The Broad",
+      "address": "221 S Grand Ave",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90012",
+      "attributes": {
+        "Aura": "inspired, imaginative"
+      },
+      "img": "",
+      "categories": "Art, Museum, Relaxing, Hangout"
+    },
+    {
+      "name": "The Pie Hole",
+      "address": "714 Traction Ave",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90013",
+      "attributes": {
+        "Aura": "hipster, casual, trendy"
+      },
+      "img": "",
+      "categories": "Cofee, Tea, Pastries, Dessert, Breakfast, Brunch, Relaxing, Studying"
+    },
+    {
+      "name": "Guisados DTLA",
+      "address": "541 S Spring St Suite 101",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90013",
+      "attributes": {
+        "Aura": "casual, exotic"
+      },
+      "img": "",
+      "categories": "Eating, Drinking, Mexican, Restaurant"
+    },
+    {
+      "name": "Bäco Mercat",
+      "address": "408 S Main St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90013",
+      "attributes": {
+        "Aura": "hipster, trendy"
+      },
+      "img": "",
+      "categories": "Restaurant, Eating, Relaxing, Mediterranean, African, Sandwiches"
+    },
+    {
+      "name": "Philippe the Original",
+      "address": "1001 N Alameda St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90012",
+      "attributes": {
+        "Aura": "casual, lively"
+      },
+      "img": "",
+      "categories": "Eating, Breakfast, Brunch, American, Sandwiches"
+    },
+    {
+      "name": "Maccheroni Republic",
+      "address": "322 S Broadway",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90013",
+      "attributes": {
+        "Aura": "casual"
+      },
+      "img": "",
+      "categories": "Italian, Wine, Bars, Eating, Drinking, Relaxing"
+    },
+    {
+      "name": "Tea Master Matcha Cafe & Green Tea Shop",
+      "address": "450 E 2nd St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90012",
+      "attributes": {
+        "Aura": "hipster, trendy"
+      },
+      "img": "",
+      "categories": "Studying, Relaxing, Eating, Desserts"
+    },
+    {
+      "name": "Langer's",
+      "address": "704 S Alvarado St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90057",
+      "attributes": {
+        "Aura": "casual"
+      },
+      "img": "",
+      "categories": "Deli, Sandwiches, Eating, Hangout"
+    },
+    {
+      "name": "Urth Caffé- Downtown LA",
+      "address": "451 S Hewitt St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90013",
+      "attributes": {
+        "Aura": "hipster, casual, trendy"
+      },
+      "img": "",
+      "categories": "Studying, Eating, Coffee, Tea, Relaxing"
+    },
+    {
+      "name": "Sushi Gen",
+      "address": "422 E 2nd St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90012",
+      "attributes": {
+        "Aura": "casual"
+      },
+      "img": "",
+      "categories": "Eating, Japanese, Asian, Sushi, Drinking, Relaxing"
+    },
+    {
+      "name": "Marugame Monzo",
+      "address": "329 E 1st St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90012",
+      "attributes": {
+        "Aura": "casual"
+      },
+      "img": "",
+      "categories": "Eating, Drinking, Relaxing, Japanese, Asian"
+    },
+    {
+      "name": "Eggslut",
+      "address": "317 S Broadway, Grand Central Market",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90013",
+      "attributes": {
+        "Aura": "hipster, inspired"
+      },
+      "img": "",
+      "categories": "Breakfast, Brunch, Eating, Hangout"
+    },
+    {
+      "name": "KazuNori | The Original Hand Roll Bar",
+      "address": "421 S Main St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90013",
+      "attributes": {
+        "Aura": "casual, trendy"
+      },
+      "img": "",
+      "categories": "Eating, Sushi Bar, Japanese, Asian, Drinking"
+    },
+    {
+      "name": "Perch",
+      "address": "448 S Hill St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90013",
+      "attributes": {
+        "Aura": "classy"
+      },
+      "img": "",
+      "categories": "Eating, Relaxing, Lounge, French, Hangout"
+    },
+    {
+      "name": "Bestia",
+      "address": "2121 E 7th Pl",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90021",
+      "attributes": {
+        "Aura": "trendy"
+      },
+      "img": "",
+      "categories": "Italian, Cocktail Bars, Pizza, Eating, Drinking, Hangout"
+    },
+    {
+      "name": "Wurstküche",
+      "address": "800 E 3rd St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90013",
+      "attributes": {
+        "Aura": "hipster, casual"
+      },
+      "img": "",
+      "categories": "Hot Dogs, German, Gastropubs, Eating, Drinking, Hangout"
+    },
+    {
+      "name": "Daikokuya Little Tokyo",
+      "address": "327 E 1st St",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90012",
+      "attributes": {
+        "Aura": "casual"
+      },
+      "img": "",
+      "categories": "Eating, Drinking, Japanese, Asian, Hangout"
+    },
+    {
+      "name": "Howlin' Ray's",
+      "address": "727 N Broadway St, Suite 128",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90012",
+      "attributes": {
+        "Aura": "casual, trendy"
+      },
+      "img": "",
+      "categories": "Eating, Hangout, Southern, Chicken Shop, American"
+    },
+    {
+      "name": "Bottega Louie",
+      "address": "700 S Grand Ave",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postal_code": "90017",
+      "attributes": {
+        "Aura": "upscale, classy, trendy"
+      },
+      "img": "",
+      "categories": "Italian, Bakeries, Breakfast, Brunch, Eating, Drinking, Hangout, Pastries, Dessert"
     }
   ]
 }
