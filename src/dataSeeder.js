@@ -79,7 +79,12 @@ const businessDataSeeder = async database => {
   // Put this array of objects into a database somehow...
   for (const business of transformedBusinessData) {
     // Send each business to the database
-    // dataMaster.dbAdd(business);
+    // Regarding dataMaster.dbAdd() :
+    // @arg1 -> name of the JSON file to be passed on to FileSync
+    // @arg2 -> name of the array that holds JSON objects. Yes,
+    // arg2 is inside arg1. IMPORTANT: NO NEED to specify paths 
+    // for arg1 and arg2. 
+    // dataMaster.dbAdd(arg1, arg2, business);
   }
 };
 
