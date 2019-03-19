@@ -1,5 +1,5 @@
 {
-  "businessID": "",
+  "id": "",
   "address": "",
   "city": "",
   "state": "",
@@ -59,36 +59,5 @@
       "alias": "",
       "title": ""
     }
-  ],
-  "hours": {
-    "monday": {
-      "start": "",
-      "end": ""
-    },
-    "tuesday": {
-      "start": "",
-      "end": ""
-    },
-    "wednesday": {
-      "start": "",
-      "end": ""
-    },
-    "thursday": {
-      "start": "",
-      "end": ""
-    },
-    "friday": {
-      "start": "",
-      "end": ""
-    },
-    "saturday": {
-      "start": "",
-      "end": ""
-    },
-    "sunday": {
-      "start": "",
-      "end": ""
-    },
-    "openNow": false
-  }
+  ]
 }

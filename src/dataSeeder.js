@@ -1,6 +1,7 @@
-const lowdb = require('lowdb');
 const { yelpAPI } = require('./API');
 const { transformer } = require('./transformers');
+const { dataMaster } = require('./dataMaster');
+const businessPhotosLA = require('../sample-data/los-angeles-data/businessPhotosLA');
 
 const resolveYelpBusinessApiPromiseData = promises => {
   // Get all businesses objects and stuff them in businessesData
@@ -17,7 +18,6 @@ const resolveYelpBusinessApiPromiseData = promises => {
   return businessesData;
 };
 
-const { dataMaster } = require('./dataMaster');
 /**
  * Seed the database with the 3rd-party API business data
  * @param {Object} database
@@ -27,10 +27,10 @@ const businessDataSeeder = async database => {
   // Make requests to yelp api with each zip location.
   const locationResponses = [];
   try {
-    // locationResponses.push(yelpAPI.getBusinesses({ location: '90404', radius: 40000 }));
-    locationResponses.push(yelpAPI.getBusinesses({ location: '90230', radius: 300 }));
-    // locationResponses.push(yelpAPI.getBusinesses({ location: '90014', radius: 40000 }));
-    // locationResponses.push(yelpAPI.getBusinesses({ location: '90036', radius: 40000 }));
+    locationResponses.push(yelpAPI.getBusinesses({ location: '90404', radius: 40000, limit: 50 }));
+    locationResponses.push(yelpAPI.getBusinesses({ location: '90230', radius: 40000, limit: 50 }));
+    locationResponses.push(yelpAPI.getBusinesses({ location: '90014', radius: 40000, limit: 50 }));
+    locationResponses.push(yelpAPI.getBusinesses({ location: '90036', radius: 40000, limit: 50 }));
     await Promise.all(locationResponses);
   } catch (err) {
     console.error(err);
@@ -41,22 +41,28 @@ const businessDataSeeder = async database => {
 
   // ================================ DETAILED BUSINESS CALLS ================================
 
+  // Ask the group if they need the (few) extra attributes
+
   // Perform an api call to yelp with each of the business object aliases in businessesData
-  const detailedBusinessesData = [];
-  for (const business of businessesData) {
-    detailedBusinessesData.push((await yelpAPI.getBusinessByAlias(business.alias)).data);
-  }
+  // const detailedBusinessesData = [];
+  // for (const business of businessesData) {
+  //   detailedBusinessesData.push((await yelpAPI.getBusinessByAlias(business.alias)).data);
+  // }
   // console.log(detailedBusinessesData);
 
   // ====================================== TRANSFORMING DATA ==============================
   const transformedBusinessData = [];
-  for (const business of detailedBusinessesData) {
+  for (const business of businessesData) {
     // call the transformer and make all values into our data format.
     transformedBusinessData.push(transformer.yelpToAura(business));
   }
   console.log(transformedBusinessData);
 
   // ======================================= DATA INJECTION ==================================
+  // Grab all excess data to append to yelp's data
+  // for (const business of transformedBusinessData) {
+  //   // business.imageUrl = something...
+  // }
 
   // ======================================= DATA SCRAPING ==================================
 
@@ -71,8 +77,10 @@ const businessDataSeeder = async database => {
   // ===================================== DATA STORAGE ====================================
 
   // Put this array of objects into a database somehow...
-  // database.send(detailedBusinessList)
-  dataMaster.dbAdd(objectEntry);
+  for (const business of transformedBusinessData) {
+    // Send each business to the database
+    // dataMaster.dbAdd(business);
+  }
 };
 
 businessDataSeeder('hello');
