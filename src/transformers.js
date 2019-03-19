@@ -1,9 +1,4 @@
 const transformer = {
-  testTransformer: yelpData => ({
-    address: `${yelpData.location.address1}${
-      yelpData.location.address2 ? ` ${yelpData.location.address2}` : ''
-    }${yelpData.location.address3 ? ` ${yelpData.location.address3}` : ''}`,
-  }),
   yelpToAura: yelpData => ({
     id: yelpData.id,
     address: `${yelpData.location.address1}${
@@ -64,7 +59,6 @@ const transformer = {
       smoking: '',
     },
     categories: yelpData.categories, // uses objects {alias: '', title: ''} in categories array
-    hours: yelpData.hours || [], // change this to be more specific in the future.
   }),
 };
 
