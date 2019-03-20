@@ -36,6 +36,11 @@ const transformData = yelpBusiness => {
   // parser.scrapeForAmbiances(business.url).then(response => {
   //     business.auras = response.ambiances;
   //   });
+  // YOU HAVE ENTERED THE BLACK HOLE, GOOD LUCK GETTING OUT.
+  // You must use the gray-hat-alchemist program to scrape 
+  // const { invokeMysticalPowers } = require('../gray-hat-alchemist/main');
+  // invokeMysticalPowers(business.url)
+  //    .then(scrapedAura => business.attributes.Aura = scrapedAura);
   // Let the database handle all duplicate values.
 
   return updatedAuraBusiness;
@@ -87,6 +92,10 @@ const businessDataSeeder = async database => {
     // @arg2 -> name of the array that holds JSON objects. Yes,
     // arg2 is inside arg1. IMPORTANT: NO NEED to specify paths 
     // for arg1 and arg2. 
+    // @business is the business object needing to be passed. 
+    // USE THESE PARAMS FOR TESTING for arg1 and arg2 only
+    // arg1 -> 'businessLAFake.json'
+    // arg2 -> 'businessDataFake'
     // dataMaster.dbAdd(arg1, arg2, business);
   }
 };
