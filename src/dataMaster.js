@@ -47,5 +47,5 @@ const dataMaster = {
 }
 
 module.exports = {
-    dataMaster,
+  dataMaster,
 };
