@@ -1,6 +1,6 @@
 const { yelpAPI } = require('./API');
 const { transformer } = require('./transformers');
-const { dataMaster } = require('./dataMaster');
+const AuraBusiness = require('./AuraBusiness');
 const businessPhotosLA = require('../sample-data/los-angeles-data/businessPhotosLA');
 
 const resolveYelpBusinessApiPromiseData = promises => {
@@ -18,6 +18,29 @@ const resolveYelpBusinessApiPromiseData = promises => {
   return businessesData;
 };
 
+const transformData = yelpBusiness => {
+  // ================================== TRANSFORMING YELP DATA ==============================
+
+  // call the transformer and make all values into our data format.
+  let updatedAuraBusiness = transformer.yelpToAura(new AuraBusiness(), yelpBusiness);
+
+  // ======================================= DATA INJECTION ==================================
+  // Grab all excess data to append to yelp's data
+  const businessSearchId = updatedAuraBusiness.id;
+  const businessPhotos = businessPhotosLA.find(business => business.id === businessSearchId);
+  updatedAuraBusiness = transformer.businessImagesToAura(updatedAuraBusiness, businessPhotos);
+
+  // ======================================= DATA SCRAPING ==================================
+
+  // Scrape each of the business pages
+  // parser.scrapeForAmbiances(business.url).then(response => {
+  //     business.auras = response.ambiances;
+  //   });
+  // Let the database handle all duplicate values.
+
+  return updatedAuraBusiness;
+};
+
 /**
  * Seed the database with the 3rd-party API business data
  * @param {Object} database
@@ -27,10 +50,10 @@ const businessDataSeeder = async database => {
   // Make requests to yelp api with each zip location.
   const locationResponses = [];
   try {
-    locationResponses.push(yelpAPI.getBusinesses({ location: '90404', radius: 40000, limit: 50 }));
+    // locationResponses.push(yelpAPI.getBusinesses({ location: '90404', radius: 40000, limit: 50 }));
     locationResponses.push(yelpAPI.getBusinesses({ location: '90230', radius: 40000, limit: 50 }));
-    locationResponses.push(yelpAPI.getBusinesses({ location: '90014', radius: 40000, limit: 50 }));
-    locationResponses.push(yelpAPI.getBusinesses({ location: '90036', radius: 40000, limit: 50 }));
+    // locationResponses.push(yelpAPI.getBusinesses({ location: '90014', radius: 40000, limit: 50 }));
+    // locationResponses.push(yelpAPI.getBusinesses({ location: '90036', radius: 40000, limit: 50 }));
     await Promise.all(locationResponses);
   } catch (err) {
     console.error(err);
@@ -41,38 +64,18 @@ const businessDataSeeder = async database => {
 
   // ================================ DETAILED BUSINESS CALLS ================================
 
-  // Ask the group if they need the (few) extra attributes
-
+  // Not needed now because we can get all of the object properties we need.
   // Perform an api call to yelp with each of the business object aliases in businessesData
-  // const detailedBusinessesData = [];
-  // for (const business of businessesData) {
-  //   detailedBusinessesData.push((await yelpAPI.getBusinessByAlias(business.alias)).data);
-  // }
-  // console.log(detailedBusinessesData);
 
-  // ====================================== TRANSFORMING DATA ==============================
+  // ================================ TRANSFORM BUSINESS OBJECT ================================
+
+  // Send each of the business objects down a manipiulation pipeline and store the result in transformedBusinessData
   const transformedBusinessData = [];
-  for (const business of businessesData) {
-    // call the transformer and make all values into our data format.
-    transformedBusinessData.push(transformer.yelpToAura(business));
+  for (const yelpBusiness of businessesData) {
+    const updatedBusiness = transformData(yelpBusiness);
+    transformedBusinessData.push(updatedBusiness);
   }
   console.log(transformedBusinessData);
-
-  // ======================================= DATA INJECTION ==================================
-  // Grab all excess data to append to yelp's data
-  // for (const business of transformedBusinessData) {
-  //   // business.imageUrl = something...
-  // }
-
-  // ======================================= DATA SCRAPING ==================================
-
-  // Scrape each of the business pages
-  // for (const business of transformedBusinessData) {
-  //   parser.scrapeForAmbiances(business.url).then(response => {
-  //     business.auras = response.ambiances;
-  //   });
-  // }
-  // Let the database handle all duplicate values.
 
   // ===================================== DATA STORAGE ====================================
 
