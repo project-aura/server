@@ -883,19 +883,6 @@
       },
       "img": "",
       "categories": "Italian, Bakeries, Breakfast, Brunch, Eating, Drinking, Hangout, Pastries, Dessert"
-    },
-    {
-      "name": "Fake2",
-      "address": "Fake St2.",
-      "city": "Fake City2",
-      "state": "Fake State2",
-      "postal_code": "Fake Zip2",
-      "attributes": {
-        "Aura": "fake2"
-      },
-      "img": "fakeimageurl2",
-      "categories": "faking2",
-      "fake_category": "a fake category, succeeds if added2"
     }
   ]
 }
