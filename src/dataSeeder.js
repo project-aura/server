@@ -1,8 +1,15 @@
 const { yelpAPI } = require('./API');
-const { transformer } = require('./transformers');
+const { businessTransformer } = require('./transformers');
 const AuraBusiness = require('./AuraBusiness');
 const businessPhotosLA = require('../sample-data/los-angeles-data/businessPhotosLA');
 
+const { invokeMysticalPowers } = require('../gray-hat-alchemist/main');
+
+/**
+ * Resolves a list of Yelp API Promises.
+ * @param {Array} promises Axios Promise List
+ * @returns Array of business objects
+ */
 const resolveYelpBusinessApiPromiseData = promises => {
   // Get all businesses objects and stuff them in businessesData
   const businessesData = [];
@@ -18,30 +25,30 @@ const resolveYelpBusinessApiPromiseData = promises => {
   return businessesData;
 };
 
-const transformData = yelpBusiness => {
+/**
+ * Transform pipeline that changes orignial yelp data objects into aura data objects.
+ * @param {Object} yelpBusiness Yelp Business Object
+ * @returns Aura Business Object
+ */
+const transformBusinessData = async yelpBusiness => {
   // ================================== TRANSFORMING YELP DATA ==============================
 
   // call the transformer and make all values into our data format.
-  let updatedAuraBusiness = transformer.yelpToAura(new AuraBusiness(), yelpBusiness);
+  let updatedAuraBusiness = businessTransformer.yelpToAura(new AuraBusiness(), yelpBusiness);
 
   // ======================================= DATA INJECTION ==================================
+
   // Grab all excess data to append to yelp's data
+  // Make sure you use transformers on "updatedAuraBusiness" all the way through the pipeline.
   const businessSearchId = updatedAuraBusiness.id;
   const businessPhotos = businessPhotosLA.find(business => business.id === businessSearchId);
-  updatedAuraBusiness = transformer.businessImagesToAura(updatedAuraBusiness, businessPhotos);
+  updatedAuraBusiness = businessTransformer.imagesToAura(updatedAuraBusiness, businessPhotos);
 
   // ======================================= DATA SCRAPING ==================================
 
   // Scrape each of the business pages
-  // parser.scrapeForAmbiances(business.url).then(response => {
-  //     business.auras = response.ambiances;
-  //   });
-  // YOU HAVE ENTERED THE BLACK HOLE, GOOD LUCK GETTING OUT.
-  // You must use the gray-hat-alchemist program to scrape 
-  // const { invokeMysticalPowers } = require('../gray-hat-alchemist/main');
-  // invokeMysticalPowers(business.url)
-  //    .then(scrapedAura => business.attributes.Aura = scrapedAura);
-  // Let the database handle all duplicate values.
+  const auraString = (await invokeMysticalPowers(updatedAuraBusiness.url)).toLowerCase();
+  updatedAuraBusiness.attributes.aura = auraString;
 
   return updatedAuraBusiness;
 };
@@ -50,13 +57,14 @@ const transformData = yelpBusiness => {
  * Seed the database with the 3rd-party API business data
  * @param {Object} database
  */
+
 const businessDataSeeder = async database => {
   // ============================== INITIAL BUSINESS CALLS =================================
   // Make requests to yelp api with each zip location.
   const locationResponses = [];
   try {
     // locationResponses.push(yelpAPI.getBusinesses({ location: '90404', radius: 40000, limit: 50 }));
-    locationResponses.push(yelpAPI.getBusinesses({ location: '90230', radius: 40000, limit: 50 }));
+    locationResponses.push(yelpAPI.getBusinesses({ location: '90230', radius: 40000, limit: 10 }));
     // locationResponses.push(yelpAPI.getBusinesses({ location: '90014', radius: 40000, limit: 50 }));
     // locationResponses.push(yelpAPI.getBusinesses({ location: '90036', radius: 40000, limit: 50 }));
     await Promise.all(locationResponses);
@@ -67,6 +75,8 @@ const businessDataSeeder = async database => {
   // Strip the business data objects
   const businessesData = await resolveYelpBusinessApiPromiseData(locationResponses);
 
+  // console.log(businessesData);
+
   // ================================ DETAILED BUSINESS CALLS ================================
 
   // Not needed now because we can get all of the object properties we need.
@@ -75,12 +85,15 @@ const businessDataSeeder = async database => {
   // ================================ TRANSFORM BUSINESS OBJECT ================================
 
   // Send each of the business objects down a manipiulation pipeline and store the result in transformedBusinessData
-  const transformedBusinessData = [];
+
+  const transformedBusinessPromises = [];
   for (const yelpBusiness of businessesData) {
-    const updatedBusiness = transformData(yelpBusiness);
-    transformedBusinessData.push(updatedBusiness);
+    // Asyncronously tranform all businesses
+    const auraBusiness = transformBusinessData(yelpBusiness);
+    transformedBusinessPromises.push(auraBusiness);
   }
-  console.log(transformedBusinessData);
+  // Wait for each transform to be done.
+  const transformedBusinessData = await Promise.all(transformedBusinessPromises);
 
   // ===================================== DATA STORAGE ====================================
 
@@ -90,9 +103,9 @@ const businessDataSeeder = async database => {
     // Regarding dataMaster.dbAdd() :
     // @arg1 -> name of the JSON file to be passed on to FileSync
     // @arg2 -> name of the array that holds JSON objects. Yes,
-    // arg2 is inside arg1. IMPORTANT: NO NEED to specify paths 
-    // for arg1 and arg2. 
-    // @business is the business object needing to be passed. 
+    // arg2 is inside arg1. IMPORTANT: NO NEED to specify paths
+    // for arg1 and arg2.
+    // @business is the business object needing to be passed.
     // USE THESE PARAMS FOR TESTING for arg1 and arg2 only
     // arg1 -> 'businessLAFake.json'
     // arg2 -> 'businessDataFake'

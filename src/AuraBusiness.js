@@ -8,15 +8,16 @@ class AuraBusiness {
     this.latitude = '';
     this.longitude = '';
 
+    this.url = '';
     this.stars = 0;
     this.reviewCount = 0;
     this.novelty = 0;
-    this.aura = '';
     this.businessImage = {
       src: '',
       owner: '',
     };
     this.attributes = {
+      aura: '',
       wifi: '',
       alcohol: '',
       bestNights: {
