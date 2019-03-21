@@ -8,30 +8,29 @@ const { alchemicFormat } = require('./alchemicFormat');
  * 4b. use indexOf(), substr(), replace(/\s/g, "")
  * 5. Formal shorter string variable
  */
-alchemicSearch = async (url) => {
-    return await axios.get(url)
-        .then(res => {
-            const ambience = 'Ambience';
-            const maxWidth = 200;
-            let aura = 'Trendy';
-            const longString = res.data;
-            if(longString.includes(ambience)){
-                const indexOfAura = longString.indexOf(ambience);
-                // trim longString
-                const shortString = longString.substr(indexOfAura, maxWidth).trim();
-                // regex replacement of whitespaces
-                const noWhiteSpaces = shortString.replace(/\s/g, "");
-                aura = noWhiteSpaces;
-                // call alchemicFormat 
-                console.log(aura);
-                aura = alchemicFormat(aura);
-            }
-            return aura;
-        })
-        .catch(error => console.error(error));
-    
-}
+const alchemicSearch = url =>
+  axios
+    .get(url)
+    .then(res => {
+      const ambience = 'Ambience';
+      const maxWidth = 200;
+      let aura = 'Trendy';
+      const longString = res.data;
+      if (longString.includes(ambience)) {
+        const indexOfAura = longString.indexOf(ambience);
+        // trim longString
+        const shortString = longString.substr(indexOfAura, maxWidth).trim();
+        // regex replacement of whitespaces
+        const noWhiteSpaces = shortString.replace(/\s/g, '');
+        aura = noWhiteSpaces;
+        // call alchemicFormat
+        // console.log(aura);
+        aura = alchemicFormat(aura);
+      }
+      return aura;
+    })
+    .catch(error => console.error(error));
 
 module.exports = {
-    alchemicSearch,
+  alchemicSearch,
 };
