@@ -4,48 +4,78 @@
 const lowdb = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 
-const dataMaster = {
-    // ===========================add to database===============================
-    /* dbAdd parameters
-     * @nameDBJSON -> this is the name of the JSON file DB passed on to FileSync
-     * @nameJSONParent -> this is the name of array that holds the JSON objects
-     *                      in the database. Yes, nameJSONParent is inside
-     *                      of nameDBJSON.
-     * @objectEntry -> the object to be added into the database.
+
+class DataMaster {
+    //==============================constructor======================================
+    /** 
+     * @param {*} nameDBJSON -> name of the JSON file DB passed on to FileSync.
+     * About this parameter. Use an already existing JSON file if you plan to use 
+     * addEntry. Use whatever name if you plan to use seed. 
      * NOTE -> FileSync(nameDBJSON) knows exactly where to find your file.
-     * There is NO NEED to specify pathname. Crazy I know. 
+     * There is NO NEED to specify pathname. Crazy I know.
      */
-    dbAdd: (nameDBJSON, nameJSONParent ,objectEntry) => {
-        // FileSync and adapter integration in this section
-        // instead of close to the head part
-        const adapter = new FileSync(nameDBJSON);
-        const db = lowdb(adapter);
-        db.get(nameJSONParent)
-            .push(objectEntry)
-            .write();
-    },
-    // ==========================================================================
+    constructor(nameDBJSON){
+        this.nameDBJSON = nameDBJSON;
+        // for uniformity 'businessData' is used as 
+        // nameJSONParent
+        this.nameJSONParent = 'businessData'
+        // set the adapter in the constructor
+        this.adapter = new FileSync(this.nameDBJSON);
+        this.db = lowdb(this.adapter);
+    }
+    //============================================================================
 
-    //==============================set a database field==========================
-    /* dbSet parameters
-     * @nameDBJSON -> this is the name of the JSON file DB passed on to FileSync
-     * @nameJSONParent -> this is the name of array that holds the JSON objects
-     *                      in the database. Yes, nameJSONParent is inside
-     *                      of nameDBJSON.
-     * @fieldOfInterest -> the field that needs to be updated
-     * @fieldUpdate -> the new value to be put on the field
+    //===============================add to the database===========================
+    /**
+     * @param {*} objectEntry -> the object to be added into the database.
+     * NOTE -> Only use addEntry if the JSON file already exists, refer to 
+     * the correct name of the JSON file. 
+     * Result -> object will be added to the end of the already existing
+     * JSON File this.nameDBJSON.
      */
-    dbSet:(nameDBJSON, nameJSONParent, fieldOfInterest, fieldUpdate) => {
-        // FileSync and adapter integration in this section
-        // instead of close to the head part
-        const adapter = new FileSync(nameDBJSON);
-        const db = lowdb(adapter);
-        //db.get(nameJSONParent)
+    addEntry(objectEntry) {
+        try {
+            this.db.get(this.nameJSONParent)
+                .push(objectEntry)
+                .write();
 
+        }
+        catch(err) {
+            console.log('An Error Has Occured: \n');
+            console.error(err);
+        }
+    }
+    //=============================================================================
+
+    //=================================seed the database===========================
+    /**
+     * @param {*} items -> An array of objects to be added into the database
+     * NOTE -> Use seed if the JSON File has NOT existed yet. Use whatever name
+     * you want. Use format 'whateverName.json'
+     * Result -> A JSON file with the name this.nameDBJSON will be created in the 
+     * directory the user is in when the program is called. 
+     */
+    seed(items){
+        try {
+            // set some defaults, default nameJSONParent name should always be 
+            // 'businessData' because this is going to be referred like crazy.
+            this.db.defaults({businessData: []})
+                .write();
+            // add elements from the array into seeded DB
+            items.forEach(item => {
+                this.addEntry(item);
+            })
+        }
+        catch(err) {
+            console.log('An Error Has Occured: \n');
+            console.error(err);
+        }
     }
     //============================================================================
 }
 
+// Testing: refer to ../tests/testDataMaster.js for tests
+
 module.exports = {
-  dataMaster,
+  DataMaster,
 };

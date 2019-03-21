@@ -100,16 +100,23 @@ const businessDataSeeder = async database => {
   // Put this array of objects into a database somehow...
   for (const business of transformedBusinessData) {
     // Send each business to the database
-    // Regarding dataMaster.dbAdd() :
-    // @arg1 -> name of the JSON file to be passed on to FileSync
-    // @arg2 -> name of the array that holds JSON objects. Yes,
-    // arg2 is inside arg1. IMPORTANT: NO NEED to specify paths
-    // for arg1 and arg2.
-    // @business is the business object needing to be passed.
-    // USE THESE PARAMS FOR TESTING for arg1 and arg2 only
-    // arg1 -> 'businessLAFake.json'
-    // arg2 -> 'businessDataFake'
-    // dataMaster.dbAdd(arg1, arg2, business);
+    // DataMaster.addEntry(arg) vs DataMaster.seed(arg)
+    // addEntry(arg) -> Only 1 parameter: the object to be added.
+    // File must ALREADY exist to use DataMaster.addEntry(arg). Call
+    // the constructor with existing JSON file as an argument.
+    // Example: 'businessLAFake.json' already exists. Therefore you can 
+    // const db = new DataMaster('businessLAFake'); // initializes
+    // db.addEntry(objectToBeAdded);
+    // seed(arg) -> Only 1 parameter as well: the array of objects to be added.
+    // The JSON file must NOT YET exist to do this.
+    // Example: 'businessLAFake.json' already exists, no reason to seed it
+    // make up a name like 'somethingElse.json'. Therefore, go 
+    // const db2 = new DataMaster('somethingElse.json'); // initializes
+    // db2.seed(arrayOfObjectsToBeAdded);
+    // this creates a JSON file called 'somethingElse.json' to whereever you 
+    // are in the directory when you run dataSeeder.js
+    // FOR SCOTT: Use seed() for the batch add. refer to ../tests/testDataMaster.js
+    // for tests.
   }
 };
 
