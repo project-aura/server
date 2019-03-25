@@ -1,6 +1,8 @@
 const businessTransformer = {
   yelpToAura: (auraData, yelpData) => {
     auraData.id = yelpData.id;
+    auraData.name = yelpData.name;
+    auraData.alias = yelpData.alias;
     auraData.address = `${yelpData.location.address1}${
       yelpData.location.address2 ? ` ${yelpData.location.address2}` : ''
     }${yelpData.location.address3 ? ` ${yelpData.location.address3}` : ''}`;
@@ -20,6 +22,17 @@ const businessTransformer = {
   imagesToAura: (auraData, imageData) => {
     auraData.businessImage.src = imageData.imageUrl;
     auraData.businessImage.owner = imageData.imageOwner;
+    return auraData;
+  },
+  sampleToAura: (auraData, sampleData) => {
+    auraData.name = sampleData.name;
+    auraData.address = sampleData.address;
+    auraData.city = sampleData.city;
+    auraData.state = sampleData.state;
+    auraData.postalCode = sampleData.postal_code;
+    auraData.attributes.aura = sampleData.attributes.Aura;
+    auraData.businessImage.src = sampleData.img;
+    auraData.categories = sampleData.categories; // uses objects {alias: '', title: ''} in categories array
     return auraData;
   },
 };

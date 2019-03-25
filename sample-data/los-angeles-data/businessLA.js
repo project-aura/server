@@ -357,10 +357,8 @@ const businessLA = [
     attributes: {
       Aura: 'casual',
     },
-    img:
-      'https://s3-media4.fl.yelpcdn.com/bphoto/WiwSlvNcJ521_vlszL4e-A/o.jpg',
-    categories:
-      'Eating, Coffee, Tea, Relaxing, Brunch, Soul Food, Breakfast',
+    img: 'https://s3-media4.fl.yelpcdn.com/bphoto/WiwSlvNcJ521_vlszL4e-A/o.jpg',
+    categories: 'Eating, Coffee, Tea, Relaxing, Brunch, Soul Food, Breakfast',
   },
   {
     name: 'Conservatory For Coffee, Tea & Cocoa',
@@ -368,13 +366,12 @@ const businessLA = [
     city: 'Culver City, Los Angeles',
     state: 'CA',
     postal_code: '90232',
-    attributes:{
+    attributes: {
       Aura: 'trendy',
     },
     img:
       'http://static1.squarespace.com/static/578fb6425016e1565263b5d6/t/58c0521a440243ea38ad5513/1488998941602/IMG_1202.JPG?format=1500w',
-    categories:
-      'Drinking, Studying, Eating, Relaxing',
+    categories: 'Drinking, Studying, Eating, Relaxing',
   },
   {
     name: 'Baldwin Hills Scenic Overlook',
@@ -385,10 +382,8 @@ const businessLA = [
     attributes: {
       Aura: 'touristy, inspired, peaceful',
     },
-    img:
-      'https://modernhiker.com/wp-content/uploads/2013/01/baldwin-hills-overlook-11.jpg',
-    categories:
-      'Relaxing, Hiking, Hangout, Adventure, Outdoors, Nature, Dog Friendly'
+    img: 'https://modernhiker.com/wp-content/uploads/2013/01/baldwin-hills-overlook-11.jpg',
+    categories: 'Relaxing, Hiking, Hangout, Adventure, Outdoors, Nature, Dog Friendly',
   },
   {
     name: `Father's Office`,
@@ -399,10 +394,9 @@ const businessLA = [
     attributes: {
       Aura: 'trendy, casual',
     },
-    img: 
+    img:
       'https://d37219swed47g7.cloudfront.net/media/images/guides/the-culver-city-after-work-drinks-guide/FO%20Interior2.jpg',
-    categories:
-      'Eating, Drinking, American, Burgers, Pub',
+    categories: 'Eating, Drinking, American, Burgers, Pub',
   },
   {
     name: 'Hokkaido Ramen Santouka',
@@ -413,10 +407,8 @@ const businessLA = [
     attributes: {
       Aura: 'Casual, Exotic',
     },
-    img: 
-      'https://s3-media3.fl.yelpcdn.com/bphoto/OHwF3d_kq2etctEoFfDvrg/o.jpg',
-    categories:
-      'Eating, Restaurant, Japanese, Asian',
+    img: 'https://s3-media3.fl.yelpcdn.com/bphoto/OHwF3d_kq2etctEoFfDvrg/o.jpg',
+    categories: 'Eating, Restaurant, Japanese, Asian',
   },
   {
     name: 'Copenhagen Pastry',
@@ -427,10 +419,8 @@ const businessLA = [
     attributes: {
       Aura: 'peaceful, classy',
     },
-    img: 
-      'https://s3-media1.fl.yelpcdn.com/bphoto/uDUbJK-p-yw85HdW9YoNDg/o.jpg',
-    categories:
-      'Eating, Pastry, Bakery',
+    img: 'https://s3-media1.fl.yelpcdn.com/bphoto/uDUbJK-p-yw85HdW9YoNDg/o.jpg',
+    categories: 'Eating, Pastry, Bakery',
   },
   {
     name: 'The Griddle Cafe',
@@ -441,10 +431,8 @@ const businessLA = [
     attributes: {
       Aura: 'casual, romantic',
     },
-    img: 
-      '',
-    categories: 
-      'Eating, Breakfast, Brunch, Drinking, Tea, Drinking, Studying',
+    img: '',
+    categories: 'Eating, Breakfast, Brunch, Drinking, Tea, Drinking, Studying',
   },
   {
     name: 'Sushi By H',
@@ -455,10 +443,8 @@ const businessLA = [
     attributes: {
       Aura: 'casual, romantic',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Drinking, Japanese, Sushi, Asian'
+    img: '',
+    categories: 'Eating, Drinking, Japanese, Sushi, Asian',
   },
   {
     name: 'Tatsu Ramen',
@@ -469,10 +455,8 @@ const businessLA = [
     attributes: {
       Aura: 'casual, peaceful',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Japanese, Drinking, Asian, Ramen',
+    img: '',
+    categories: 'Eating, Japanese, Drinking, Asian, Ramen',
   },
   {
     name: 'Fogo de Chão Brazilian Steakhouse',
@@ -483,10 +467,8 @@ const businessLA = [
     attributes: {
       Aura: 'classy',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Drinking, Restaurant, Brazilian, Steak',
+    img: '',
+    categories: 'Eating, Drinking, Restaurant, Brazilian, Steak',
   },
   {
     name: 'El Chato Taco Truck',
@@ -497,10 +479,8 @@ const businessLA = [
     attributes: {
       Aura: 'cheerful, casual, exotic',
     },
-    img:  
-      '',
-    categories:
-       'Eating, Mexican, Food Truck',
+    img: '',
+    categories: 'Eating, Mexican, Food Truck',
   },
   {
     name: 'Yuko Kitchen',
@@ -511,10 +491,8 @@ const businessLA = [
     attributes: {
       Aura: 'peaceful, casual',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Japanese, Asian',
+    img: '',
+    categories: 'Eating, Japanese, Asian',
   },
   {
     name: 'Angelini Osteria',
@@ -525,10 +503,8 @@ const businessLA = [
     attributes: {
       Aura: 'classy, trendy',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Drinking, Italian, Pasta',
+    img: '',
+    categories: 'Eating, Drinking, Italian, Pasta',
   },
   {
     name: ' Pizzeria Mozza',
@@ -539,10 +515,8 @@ const businessLA = [
     attributes: {
       Aura: 'inspired, trendy',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Drinking, Italian',
+    img: '',
+    categories: 'Eating, Drinking, Italian',
   },
   {
     name: 'The Bazaar by José Andrés',
@@ -553,10 +527,8 @@ const businessLA = [
     attributes: {
       Aura: 'upscale, trendy, romantic',
     },
-    img:
-      '',
-    categories:
-      'Eating, Drinking, Restaurant, Dating',
+    img: '',
+    categories: 'Eating, Drinking, Restaurant, Dating',
   },
   {
     name: 'Los Angeles County Museum of Art',
@@ -567,10 +539,8 @@ const businessLA = [
     attributes: {
       Aura: 'touristy, inspired, trendy',
     },
-    img:
-      '',
-    categories:
-      'Hangout, Museum, Art, Photos',
+    img: '',
+    categories: 'Hangout, Museum, Art, Photos',
   },
   {
     name: 'Milk Jar Cookies',
@@ -581,10 +551,8 @@ const businessLA = [
     attributes: {
       Aura: 'inspired, hipster',
     },
-    img:
-      '',
-    categories:
-      'Eating, Drinking, Bakery, Pastries, Coffee, Tea',
+    img: '',
+    categories: 'Eating, Drinking, Bakery, Pastries, Coffee, Tea',
   },
   {
     name: 'Salt & Straw',
@@ -595,10 +563,8 @@ const businessLA = [
     attributes: {
       Aura: 'trendy, inspired, casual',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Coffee, Dessert, Ice Cream',
+    img: '',
+    categories: 'Eating, Coffee, Dessert, Ice Cream',
   },
   {
     name: `Lawry's The Prime Rib - Beverly Hills`,
@@ -609,10 +575,8 @@ const businessLA = [
     attributes: {
       Aura: 'classy, upscale',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Fancy, Restaurant, Drinking',
+    img: '',
+    categories: 'Eating, Fancy, Restaurant, Drinking',
   },
   {
     name: 'Animal',
@@ -623,10 +587,8 @@ const businessLA = [
     attributes: {
       Aura: 'trendy',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Drinking, Breakfast, Brunch, Coffee, American',
+    img: '',
+    categories: 'Eating, Drinking, Breakfast, Brunch, Coffee, American',
   },
   {
     name: 'Providence',
@@ -637,10 +599,8 @@ const businessLA = [
     attributes: {
       Aura: 'classy, upscale',
     },
-    img: 
-      '',
-    categories: 
-      'Eating, Drinking, Dating',
+    img: '',
+    categories: 'Eating, Drinking, Dating',
   },
   {
     name: 'Genwa Korean BBQ',
@@ -651,10 +611,8 @@ const businessLA = [
     attributes: {
       Aura: 'exotic, trendy',
     },
-    img:
-      '',
-    categories:
-      'Eating, Drinking, Asian, Korean',
+    img: '',
+    categories: 'Eating, Drinking, Asian, Korean',
   },
   {
     name: 'Milk',
@@ -665,10 +623,8 @@ const businessLA = [
     attributes: {
       Aura: 'hipster',
     },
-    img:
-      '',
-    categories:
-      'Dessert, Eating, Ice Cream, Pastries, Relaxing',
+    img: '',
+    categories: 'Dessert, Eating, Ice Cream, Pastries, Relaxing',
   },
   {
     name: 'Blu Jam Café',
@@ -679,10 +635,8 @@ const businessLA = [
     attributes: {
       Aura: 'casual',
     },
-    img:
-      '',
-    categories:
-      'Relaxing, Eating, Drinking, Studying',
+    img: '',
+    categories: 'Relaxing, Eating, Drinking, Studying',
   },
   {
     name: 'SK Donuts & Croissant',
@@ -693,10 +647,8 @@ const businessLA = [
     attributes: {
       Aura: 'inspired, peaceful',
     },
-    img: 
-      '',
-    categories:
-      'Relaxing, Studying, Eating, Drinking, Coffee, Tea',
+    img: '',
+    categories: 'Relaxing, Studying, Eating, Drinking, Coffee, Tea',
   },
   {
     name: 'République',
@@ -707,10 +659,8 @@ const businessLA = [
     attributes: {
       Aura: 'touristy, trendy',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Relaxing, Breakfast, Brunch, French',
+    img: '',
+    categories: 'Eating, Relaxing, Breakfast, Brunch, French',
   },
   {
     name: 'Grand Central Market',
@@ -721,10 +671,8 @@ const businessLA = [
     attributes: {
       Aura: 'casual',
     },
-    img: 
-      '',
-    categories: 
-      'Eating, Breakfast, Lunch, Drinking',
+    img: '',
+    categories: 'Eating, Breakfast, Lunch, Drinking',
   },
   {
     name: 'The Broad',
@@ -735,10 +683,8 @@ const businessLA = [
     attributes: {
       Aura: 'inspired, imaginative',
     },
-    img:
-      '',
-    categories:
-      'Art, Museum, Relaxing, Hangout',
+    img: '',
+    categories: 'Art, Museum, Relaxing, Hangout',
   },
   {
     name: 'The Pie Hole',
@@ -749,10 +695,8 @@ const businessLA = [
     attributes: {
       Aura: 'hipster, casual, trendy',
     },
-    img: 
-      '',
-    categories:
-      'Cofee, Tea, Pastries, Dessert, Breakfast, Brunch, Relaxing, Studying',
+    img: '',
+    categories: 'Cofee, Tea, Pastries, Dessert, Breakfast, Brunch, Relaxing, Studying',
   },
   {
     name: 'Guisados DTLA',
@@ -763,10 +707,8 @@ const businessLA = [
     attributes: {
       Aura: 'casual, exotic',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Drinking, Mexican, Restaurant',
+    img: '',
+    categories: 'Eating, Drinking, Mexican, Restaurant',
   },
   {
     name: 'Bäco Mercat',
@@ -777,10 +719,8 @@ const businessLA = [
     attributes: {
       Aura: 'hipster, trendy',
     },
-    img:
-      '',
-    categories:
-      'Restaurant, Eating, Relaxing, Mediterranean, African, Sandwiches',
+    img: '',
+    categories: 'Restaurant, Eating, Relaxing, Mediterranean, African, Sandwiches',
   },
   {
     name: 'Philippe the Original',
@@ -791,10 +731,8 @@ const businessLA = [
     attributes: {
       Aura: 'casual, lively',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Breakfast, Brunch, American, Sandwiches',
+    img: '',
+    categories: 'Eating, Breakfast, Brunch, American, Sandwiches',
   },
   {
     name: 'Maccheroni Republic',
@@ -805,10 +743,8 @@ const businessLA = [
     attributes: {
       Aura: 'casual',
     },
-    img: 
-      '',
-    categories:
-      'Italian, Wine, Bars, Eating, Drinking, Relaxing',
+    img: '',
+    categories: 'Italian, Wine, Bars, Eating, Drinking, Relaxing',
   },
   {
     name: 'Tea Master Matcha Cafe & Green Tea Shop',
@@ -819,10 +755,8 @@ const businessLA = [
     attributes: {
       Aura: 'hipster, trendy',
     },
-    img:
-      '',
-    categories:
-      'Studying, Relaxing, Eating, Desserts',
+    img: '',
+    categories: 'Studying, Relaxing, Eating, Desserts',
   },
   {
     name: `Langer's`,
@@ -833,10 +767,8 @@ const businessLA = [
     attributes: {
       Aura: 'casual',
     },
-    img:
-      '',
-    categories:
-      'Deli, Sandwiches, Eating, Hangout',
+    img: '',
+    categories: 'Deli, Sandwiches, Eating, Hangout',
   },
   {
     name: 'Urth Caffé- Downtown LA',
@@ -847,10 +779,8 @@ const businessLA = [
     attributes: {
       Aura: 'hipster, casual, trendy',
     },
-    img: 
-      '',
-    categories:
-      'Studying, Eating, Coffee, Tea, Relaxing',
+    img: '',
+    categories: 'Studying, Eating, Coffee, Tea, Relaxing',
   },
   {
     name: 'Sushi Gen',
@@ -861,10 +791,8 @@ const businessLA = [
     attributes: {
       Aura: 'casual',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Japanese, Asian, Sushi, Drinking, Relaxing',
+    img: '',
+    categories: 'Eating, Japanese, Asian, Sushi, Drinking, Relaxing',
   },
   {
     name: 'Marugame Monzo',
@@ -875,10 +803,8 @@ const businessLA = [
     attributes: {
       Aura: 'casual',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Drinking, Relaxing, Japanese, Asian',
+    img: '',
+    categories: 'Eating, Drinking, Relaxing, Japanese, Asian',
   },
   {
     name: 'Eggslut',
@@ -889,10 +815,8 @@ const businessLA = [
     attributes: {
       Aura: 'hipster, inspired',
     },
-    img: 
-      '',
-    categories:
-      'Breakfast, Brunch, Eating, Hangout',
+    img: '',
+    categories: 'Breakfast, Brunch, Eating, Hangout',
   },
   {
     name: 'KazuNori | The Original Hand Roll Bar',
@@ -903,10 +827,8 @@ const businessLA = [
     attributes: {
       Aura: 'casual, trendy',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Sushi Bar, Japanese, Asian, Drinking',
+    img: '',
+    categories: 'Eating, Sushi Bar, Japanese, Asian, Drinking',
   },
   {
     name: 'Perch',
@@ -917,10 +839,8 @@ const businessLA = [
     attributes: {
       Aura: 'classy',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Relaxing, Lounge, French, Hangout',
+    img: '',
+    categories: 'Eating, Relaxing, Lounge, French, Hangout',
   },
   {
     name: 'Bestia',
@@ -931,10 +851,8 @@ const businessLA = [
     attributes: {
       Aura: 'trendy',
     },
-    img: 
-      '',
-    categories: 
-      'Italian, Cocktail Bars, Pizza, Eating, Drinking, Hangout',
+    img: '',
+    categories: 'Italian, Cocktail Bars, Pizza, Eating, Drinking, Hangout',
   },
   {
     name: 'Wurstküche',
@@ -945,10 +863,8 @@ const businessLA = [
     attributes: {
       Aura: 'hipster, casual',
     },
-    img: 
-      '',
-    categories: 
-      'Hot Dogs, German, Gastropubs, Eating, Drinking, Hangout',
+    img: '',
+    categories: 'Hot Dogs, German, Gastropubs, Eating, Drinking, Hangout',
   },
   {
     name: 'Daikokuya Little Tokyo',
@@ -959,10 +875,8 @@ const businessLA = [
     attributes: {
       Aura: 'casual',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Drinking, Japanese, Asian, Hangout',
+    img: '',
+    categories: 'Eating, Drinking, Japanese, Asian, Hangout',
   },
   {
     name: `Howlin' Ray's`,
@@ -973,10 +887,8 @@ const businessLA = [
     attributes: {
       Aura: 'casual, trendy',
     },
-    img: 
-      '',
-    categories:
-      'Eating, Hangout, Southern, Chicken Shop, American',
+    img: '',
+    categories: 'Eating, Hangout, Southern, Chicken Shop, American',
   },
   {
     name: 'Bottega Louie',
@@ -987,11 +899,10 @@ const businessLA = [
     attributes: {
       Aura: 'upscale, classy, trendy',
     },
-    img: 
-      '',
-    categories: 
+    img: '',
+    categories:
       'Italian, Bakeries, Breakfast, Brunch, Eating, Drinking, Hangout, Pastries, Dessert',
-  }
+  },
 ];
 
 module.exports = businessLA;
