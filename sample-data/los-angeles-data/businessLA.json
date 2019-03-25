@@ -1,887 +1,5194 @@
 {
   "businessData": [
     {
+      "id": "zuAtE6gNT5dfitDBI5XQ1Q",
+      "name": "Copenhagen Pastry",
+      "alias": "copenhagen-pastry-culver-city",
+      "address": "11113 Washington Blvd",
+      "city": "Culver City",
+      "state": "CA",
+      "postalCode": "90232",
+      "latitude": 34.00932,
+      "longitude": -118.41207,
+      "url": "https://www.yelp.com/biz/copenhagen-pastry-culver-city?adjust_creative=y-XxUFQR_0WfAHaWdPDt2w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=y-XxUFQR_0WfAHaWdPDt2w",
+      "stars": 5,
+      "reviewCount": 891,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://s3-media1.fl.yelpcdn.com/bphoto/uDUbJK-p-yw85HdW9YoNDg/o.jpg",
+        "owner": "Yelp"
+      },
+      "attributes": {
+        "aura": "trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": "$",
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
+      "categories": [
+        {
+          "alias": "bakeries",
+          "title": "Bakeries"
+        }
+      ],
+      "displayAddress": [
+        "11113 Washington Blvd",
+        "Culver City, CA 90232"
+      ]
+    },
+    {
+      "id": "cygrATWq2weoWXI_N4j62g",
+      "name": "Hokkaido Ramen Santouka",
+      "alias": "hokkaido-ramen-santouka-los-angeles",
+      "address": "3760 S Centinela Ave",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postalCode": "90066",
+      "latitude": 34.0049599,
+      "longitude": -118.43359,
+      "url": "https://www.yelp.com/biz/hokkaido-ramen-santouka-los-angeles?adjust_creative=y-XxUFQR_0WfAHaWdPDt2w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=y-XxUFQR_0WfAHaWdPDt2w",
+      "stars": 4.5,
+      "reviewCount": 2185,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://s3-media4.fl.yelpcdn.com/bphoto/1vM665J1z2hIyDRWgjLjSg/o.jpg",
+        "owner": "Yelp"
+      },
+      "attributes": {
+        "aura": "trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": "$$",
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
+      "categories": [
+        {
+          "alias": "ramen",
+          "title": "Ramen"
+        },
+        {
+          "alias": "noodles",
+          "title": "Noodles"
+        }
+      ],
+      "displayAddress": [
+        "3760 S Centinela Ave",
+        "Los Angeles, CA 90066"
+      ]
+    },
+    {
+      "id": "wBeNozAR6wlJLTEwdWdPQg",
+      "name": "Father's Office",
+      "alias": "fathers-office-los-angeles",
+      "address": "3229 Helms Ave",
+      "city": "Los Angeles",
+      "state": "CA",
+      "postalCode": "90034",
+      "latitude": 34.0304642240788,
+      "longitude": -118.384695173189,
+      "url": "https://www.yelp.com/biz/fathers-office-los-angeles?adjust_creative=y-XxUFQR_0WfAHaWdPDt2w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=y-XxUFQR_0WfAHaWdPDt2w",
+      "stars": 3.5,
+      "reviewCount": 5881,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://d37219swed47g7.cloudfront.net/media/images/guides/the-culver-city-after-work-drinks-guide/FO%20Interior2.jpg",
+        "owner": "The Infatuation"
+      },
+      "attributes": {
+        "aura": "trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": "$$",
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
+      "categories": [
+        {
+          "alias": "newamerican",
+          "title": "American (New)"
+        },
+        {
+          "alias": "burgers",
+          "title": "Burgers"
+        },
+        {
+          "alias": "gastropubs",
+          "title": "Gastropubs"
+        }
+      ],
+      "displayAddress": [
+        "3229 Helms Ave",
+        "Los Angeles, CA 90034"
+      ]
+    },
+    {
+      "id": "MmH8oPPDKiHR4R75_XAWeA",
+      "name": "Baldwin Hills Scenic Overlook",
+      "alias": "baldwin-hills-scenic-overlook-culver-city",
+      "address": "6300 Hetzler Rd",
+      "city": "Culver City",
+      "state": "CA",
+      "postalCode": "90232",
+      "latitude": 34.0176,
+      "longitude": -118.384059,
+      "url": "https://www.yelp.com/biz/baldwin-hills-scenic-overlook-culver-city?adjust_creative=y-XxUFQR_0WfAHaWdPDt2w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=y-XxUFQR_0WfAHaWdPDt2w",
+      "stars": 4.5,
+      "reviewCount": 907,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://modernhiker.com/wp-content/uploads/2013/01/baldwin-hills-overlook-11.jpg",
+        "owner": "Modern Hiker"
+      },
+      "attributes": {
+        "aura": "trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
+      "categories": [
+        {
+          "alias": "parks",
+          "title": "Parks"
+        },
+        {
+          "alias": "hiking",
+          "title": "Hiking"
+        }
+      ],
+      "displayAddress": [
+        "6300 Hetzler Rd",
+        "Culver City, CA 90232"
+      ]
+    },
+    {
+      "id": "hjj19yo1r_sPD9Ic-uII5w",
+      "name": "Conservatory For Coffee, Tea & Cocoa",
+      "alias": "conservatory-for-coffee-tea-and-cocoa-culver-city",
+      "address": "10117 Washington Blvd",
+      "city": "Culver City",
+      "state": "CA",
+      "postalCode": "90232",
+      "latitude": 34.0206321,
+      "longitude": -118.3995192,
+      "url": "https://www.yelp.com/biz/conservatory-for-coffee-tea-and-cocoa-culver-city?adjust_creative=y-XxUFQR_0WfAHaWdPDt2w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=y-XxUFQR_0WfAHaWdPDt2w",
+      "stars": 4.5,
+      "reviewCount": 976,
+      "novelty": 0,
+      "businessImage": {
+        "src": "http://static1.squarespace.com/static/578fb6425016e1565263b5d6/t/58c0521a440243ea38ad5513/1488998941602/IMG_1202.JPG?format=1500w",
+        "owner": "Brunchographers"
+      },
+      "attributes": {
+        "aura": "trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": "$",
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
+      "categories": [
+        {
+          "alias": "coffee",
+          "title": "Coffee & Tea"
+        }
+      ],
+      "displayAddress": [
+        "10117 Washington Blvd",
+        "Culver City, CA 90232"
+      ]
+    },
+    {
+      "id": "",
       "name": "Tocaya Organica",
+      "alias": "",
       "address": "12150 Millennium, #101",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90094",
-      "attributes": {
-        "Aura": "exotic, touristy"
+      "postalCode": "90094",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://cdn.vox-cdn.com/thumbor/i-k0g-R7OIflrCFEEuj9oPZkcOE=/0x0:4800x3300/1200x800/filters:focal(2016x1266:2784x2034)/cdn.vox-cdn.com/uploads/chorus_image/image/58929673/Overview.0.jpg",
+        "owner": ""
       },
-      "img": "https://cdn.vox-cdn.com/thumbor/i-k0g-R7OIflrCFEEuj9oPZkcOE=/0x0:4800x3300/1200x800/filters:focal(2016x1266:2784x2034)/cdn.vox-cdn.com/uploads/chorus_image/image/58929673/Overview.0.jpg",
+      "attributes": {
+        "aura": "exotic, touristy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Mexican, Restaurants, Organic"
     },
     {
+      "id": "",
       "name": "Raffaello Ristorante",
+      "alias": "",
       "address": "400 S Pacific Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90731",
-      "attributes": {
-        "Aura": "romantic"
+      "postalCode": "90731",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://s3-media4.fl.yelpcdn.com/bphoto/Z8pYS63MoKt3lpux-XV-_w/o.jpg",
+        "owner": ""
       },
-      "img": "https://s3-media4.fl.yelpcdn.com/bphoto/Z8pYS63MoKt3lpux-XV-_w/o.jpg",
+      "attributes": {
+        "aura": "romantic",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Italian, Restaurants, Vegetarian-Friendly"
     },
     {
+      "id": "",
       "name": "Sushi Gen",
+      "alias": "",
       "address": "422 E 2nd St, Central Ave.",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90012",
-      "attributes": {
-        "Aura": "exotic, peaceful"
+      "postalCode": "90012",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://otg.imgix.net/assets/grid/los-angeles/little-tokyo/sushi-gen/IMG_3858.jpg?auto=format%2Ccompress&crop=focalpoint&fit=min&fm=jpg&fp-x=0.5&fp-y=0.5&ixlib=php-1.1.0&q=80&w=1200&s=76b3cd369e29963fee8df6e5206d1ee7",
+        "owner": ""
       },
-      "img": "https://otg.imgix.net/assets/grid/los-angeles/little-tokyo/sushi-gen/IMG_3858.jpg?auto=format%2Ccompress&crop=focalpoint&fit=min&fm=jpg&fp-x=0.5&fp-y=0.5&ixlib=php-1.1.0&q=80&w=1200&s=76b3cd369e29963fee8df6e5206d1ee7",
+      "attributes": {
+        "aura": "exotic, peaceful",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Japanese, Asian, Sushi, Restaurants"
     },
     {
+      "id": "",
       "name": "Madeo",
+      "alias": "",
       "address": "8897 Beverly Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90048",
-      "attributes": {
-        "Aura": "romantic, upscale"
+      "postalCode": "90048",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://cdn.vox-cdn.com/thumbor/JwfflVMxdLEIoXrMdsvOCRc-Mog=/0x0:2599x1354/1200x800/filters:focal(1093x470:1507x884)/cdn.vox-cdn.com/uploads/chorus_image/image/58942599/madeo_restaurant_google.0.png",
+        "owner": ""
       },
-      "img": "https://cdn.vox-cdn.com/thumbor/JwfflVMxdLEIoXrMdsvOCRc-Mog=/0x0:2599x1354/1200x800/filters:focal(1093x470:1507x884)/cdn.vox-cdn.com/uploads/chorus_image/image/58942599/madeo_restaurant_google.0.png",
+      "attributes": {
+        "aura": "romantic, upscale",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Dating, Italian, Restaurants, Vegetarian-Friendly, Vegan-Options, Upscale"
     },
     {
+      "id": "",
       "name": "Melody Bar and Grill",
+      "alias": "",
       "address": "9132 S Sepulveda Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90045",
-      "attributes": {
-        "Aura": "lively, groovy"
+      "postalCode": "90045",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://s3-media4.fl.yelpcdn.com/bphoto/Kxhb6z2Zxf-VDamHyXhj0A/o.jpg",
+        "owner": ""
       },
-      "img": "https://s3-media4.fl.yelpcdn.com/bphoto/Kxhb6z2Zxf-VDamHyXhj0A/o.jpg",
+      "attributes": {
+        "aura": "lively, groovy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Drinking, Dating, Coffee, Bar, Pub, Cafe"
     },
     {
+      "id": "",
       "name": "Aroma Cafe",
+      "alias": "",
       "address": "4360 Tujunga Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "91604",
-      "attributes": {
-        "Aura": "lively, romantic, hipster"
+      "postalCode": "91604",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://s3-media2.fl.yelpcdn.com/bphoto/P79kCPWjBTpgd_vgw_VpyA/o.jpg",
+        "owner": ""
       },
-      "img": "https://s3-media2.fl.yelpcdn.com/bphoto/P79kCPWjBTpgd_vgw_VpyA/o.jpg",
+      "attributes": {
+        "aura": "lively, romantic, hipster",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Dating, Coffee, Tea, Bar, Pub, Cafe"
     },
     {
+      "id": "",
       "name": "Cafe Gratitude",
+      "alias": "",
       "address": "639 N Larchmont Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90004",
-      "attributes": {
-        "Aura": "lively, romantic, imaginative"
+      "postalCode": "90004",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://cdn.vox-cdn.com/thumbor/jET-16qat4gkFm9yjyIv_fjOD2U=/51x0:845x596/1200x800/filters:focal(51x0:845x596)/cdn.vox-cdn.com/uploads/chorus_image/image/49434451/cafe-gratitude-arts-district.0.0.png",
+        "owner": ""
       },
-      "img": "https://cdn.vox-cdn.com/thumbor/jET-16qat4gkFm9yjyIv_fjOD2U=/51x0:845x596/1200x800/filters:focal(51x0:845x596)/cdn.vox-cdn.com/uploads/chorus_image/image/49434451/cafe-gratitude-arts-district.0.0.png",
+      "attributes": {
+        "aura": "lively, romantic, imaginative",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Dating, Coffee, Tea, Bar, Pub, Cafe, Vegetarian-Friendly, Vegan-Options"
     },
     {
+      "id": "",
       "name": "Javista Organic Coffee Bar",
+      "alias": "",
       "address": "6707 W Sunset Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90028",
-      "attributes": {
-        "Aura": "romantic, hipster, imaginative"
+      "postalCode": "90028",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://s3-media1.fl.yelpcdn.com/bphoto/dbZ2-LzBc-VVTgM7J7djCQ/o.jpg",
+        "owner": ""
       },
-      "img": "https://s3-media1.fl.yelpcdn.com/bphoto/dbZ2-LzBc-VVTgM7J7djCQ/o.jpg",
+      "attributes": {
+        "aura": "romantic, hipster, imaginative",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Studying, Dating, Coffee, Tea, Organic, Bar, Pub, Cafe, Vegetarian-Friendly, Vegan-Options"
     },
     {
+      "id": "",
       "name": "Blu Jam Cafe",
+      "alias": "",
       "address": "15045 Ventura Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "91403",
-      "attributes": {
-        "Aura": "groovy"
+      "postalCode": "91403",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://cdn.vox-cdn.com/thumbor/30-F1nuWN0Vmd1O8zJOwraVkwMQ=/0x0:2000x1331/1200x800/filters:focal(840x506:1160x826)/cdn.vox-cdn.com/uploads/chorus_image/image/56861945/2015-10-23-maru-005.0.0.jpg",
+        "owner": ""
       },
-      "img": "https://cdn.vox-cdn.com/thumbor/30-F1nuWN0Vmd1O8zJOwraVkwMQ=/0x0:2000x1331/1200x800/filters:focal(840x506:1160x826)/cdn.vox-cdn.com/uploads/chorus_image/image/56861945/2015-10-23-maru-005.0.0.jpg",
+      "attributes": {
+        "aura": "groovy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Drinking, Coffee, Tea, Bar, Pub, Cafe, Vegetarian-Friendly, Vegan-Options"
     },
     {
+      "id": "",
       "name": "Cafe Intelligentsia",
+      "alias": "",
       "address": "1331 Abbot Kinney Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90291",
-      "attributes": {
-        "Aura": "imaginative, romantic"
+      "postalCode": "90291",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://www.intelligentsiacoffee.com/media/wysiwyg/cms/locations/Venice/Venice-ADDRESS-BLOCK.jpg",
+        "owner": ""
       },
-      "img": "https://www.intelligentsiacoffee.com/media/wysiwyg/cms/locations/Venice/Venice-ADDRESS-BLOCK.jpg",
+      "attributes": {
+        "aura": "imaginative, romantic",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Relaxing, Studying, Coffee, Tea, Bar, Pub, Cafe, Breakfast"
     },
     {
+      "id": "",
       "name": "Angel City Brewery",
+      "alias": "",
       "address": "216 S Alameda St",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90012",
-      "attributes": {
-        "Aura": "lively, silly"
+      "postalCode": "90012",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://floridabeerblog.files.wordpress.com/2016/09/wp-1474495706370.jpg",
+        "owner": ""
       },
-      "img": "https://floridabeerblog.files.wordpress.com/2016/09/wp-1474495706370.jpg",
+      "attributes": {
+        "aura": "lively, silly",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Club"
     },
     {
+      "id": "",
       "name": "No Vacancy",
+      "alias": "",
       "address": "1727 N Hudson Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90028",
-      "attributes": {
-        "Aura": "lively, groovy"
+      "postalCode": "90028",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://assets3.thrillist.com/v1/image/1616705/size/tmg-slideshow_l.jpg",
+        "owner": ""
       },
-      "img": "https://assets3.thrillist.com/v1/image/1616705/size/tmg-slideshow_l.jpg",
+      "attributes": {
+        "aura": "lively, groovy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Club"
     },
     {
+      "id": "",
       "name": "Mondrian's Skybar",
+      "alias": "",
       "address": "8440 W Sunset Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90069",
-      "attributes": {
-        "Aura": "lively, groovy"
+      "postalCode": "90069",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://www.therooftopguide.com/rooftop-bars-in-los-angeles/Bilder/SkybarattheMandarinHotel_4_slide.jpg",
+        "owner": ""
       },
-      "img": "https://www.therooftopguide.com/rooftop-bars-in-los-angeles/Bilder/SkybarattheMandarinHotel_4_slide.jpg",
+      "attributes": {
+        "aura": "lively, groovy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Club"
     },
     {
+      "id": "",
       "name": "The Federal",
+      "alias": "",
       "address": "5303 Lankershim Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "91601",
-      "attributes": {
-        "Aura": "peaceful, hipster"
+      "postalCode": "91601",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "http://nh.thefederalbar.com/wp-content/gallery/federal/MG_2043-edited-72.jpg",
+        "owner": ""
       },
-      "img": "http://nh.thefederalbar.com/wp-content/gallery/federal/MG_2043-edited-72.jpg",
+      "attributes": {
+        "aura": "peaceful, hipster",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Club"
     },
     {
+      "id": "",
       "name": "Seven Bar Lounge",
+      "alias": "",
       "address": "555 W 7th St",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90014",
-      "attributes": {
-        "Aura": "romantic, peaceful"
+      "postalCode": "90014",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://res.cloudinary.com/ddr1rxq1v/image/upload/q_auto:low/v1490565034/x0j0t6yboexiokgn9nh1.jpg",
+        "owner": ""
       },
-      "img": "https://res.cloudinary.com/ddr1rxq1v/image/upload/q_auto:low/v1490565034/x0j0t6yboexiokgn9nh1.jpg",
+      "attributes": {
+        "aura": "romantic, peaceful",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Upscale, Club"
     },
     {
+      "id": "",
       "name": "Boardner's",
+      "alias": "",
       "address": "1652 N Cherokee Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90028",
-      "attributes": {
-        "Aura": "lively, groovy, exotic"
+      "postalCode": "90028",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://7e512d47533b372e0cf7-0fcb01ade5e30f5e05136adbd496363c.ssl.cf1.rackcdn.com/334/boardners_3_650x300.jpg",
+        "owner": ""
       },
-      "img": "https://7e512d47533b372e0cf7-0fcb01ade5e30f5e05136adbd496363c.ssl.cf1.rackcdn.com/334/boardners_3_650x300.jpg",
+      "attributes": {
+        "aura": "lively, groovy, exotic",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Club, Shows"
     },
     {
+      "id": "",
       "name": "Black Rabbit Hose",
+      "alias": "",
       "address": "1719 N Hudson Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90028",
-      "attributes": {
-        "Aura": "romantic, silly"
+      "postalCode": "90028",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://media.timeout.com/images/103813861/630/472/image.jpg",
+        "owner": ""
       },
-      "img": "https://media.timeout.com/images/103813861/630/472/image.jpg",
+      "attributes": {
+        "aura": "romantic, silly",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Club, Shows"
     },
     {
+      "id": "",
       "name": "The Rooftop at the Standard  Downtown LA",
+      "alias": "",
       "address": "550 S Flower St",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90071",
-      "attributes": {
-        "Aura": "romantic, groovy"
+      "postalCode": "90071",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://images.trvl-media.com/hotels/1000000/890000/887000/886918/f0662efd_z.jpg",
+        "owner": ""
       },
-      "img": "https://images.trvl-media.com/hotels/1000000/890000/887000/886918/f0662efd_z.jpg",
+      "attributes": {
+        "aura": "romantic, groovy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Music"
     },
     {
+      "id": "",
       "name": "Howl at the Moon",
+      "alias": "",
       "address": "100 Universal City Plaza",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "91608",
-      "attributes": {
-        "Aura": "lively, silly, groovy"
+      "postalCode": "91608",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://cdn.wedding-spot.com/images/venues/9680/Howl-at-the-Moon-Hollywood-Wedding-Los-Angeles-CA-3_main.1482484227.jpg",
+        "owner": ""
       },
-      "img": "https://cdn.wedding-spot.com/images/venues/9680/Howl-at-the-Moon-Hollywood-Wedding-Los-Angeles-CA-3_main.1482484227.jpg",
+      "attributes": {
+        "aura": "lively, silly, groovy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Drinking, Nightlife, Food & Drink, Pub, Bar, Music"
     },
     {
+      "id": "",
       "name": "4Play The Gentleman's Club",
+      "alias": "",
       "address": "2238 Cortner Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90064",
+      "postalCode": "90064",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "owner": ""
+      },
       "attributes": {
-        "Aura": "lively, touristy, romantic"
+        "aura": "lively, touristy, romantic",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
       },
       "categories": "Drinking, Nightlife, Nightclub, Upscale, Adult Entertainment, Strip Club"
     },
     {
+      "id": "",
       "name": "Spearmint Rhino Gentlemen's Club Los Angeles",
+      "alias": "",
       "address": "2020 E Olympic Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90021",
+      "postalCode": "90021",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "owner": ""
+      },
       "attributes": {
-        "Aura": "lively, touristy, romantic"
+        "aura": "lively, touristy, romantic",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
       },
       "categories": "Drinking, Nightlife, Nightclub, Adult Entertainment, Strip Club"
     },
     {
+      "id": "",
       "name": "Synn Gentlemen's Club",
+      "alias": "",
       "address": "365 N La Cienega Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90048",
+      "postalCode": "90048",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "owner": ""
+      },
       "attributes": {
-        "Aura": "lively, exotic"
+        "aura": "lively, exotic",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
       },
       "categories": "Drinking, Nightlife, Nightclub, Adult Entertainment, Strip Club"
     },
     {
+      "id": "",
       "name": "The Playpen",
+      "alias": "",
       "address": "1109 S Santa Fe Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90021",
+      "postalCode": "90021",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "owner": ""
+      },
       "attributes": {
-        "Aura": "lively, exotic"
+        "aura": "lively, exotic",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
       },
       "categories": "Drinking, Nightlife, Nightclub, Adult Entertainment, Strip Club"
     },
     {
+      "id": "",
       "name": "Blue Whale",
+      "alias": "",
       "address": "123 Astronaut E S Onizuka St Ste 301",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90012",
-      "attributes": {
-        "Aura": "romantic, groovy"
+      "postalCode": "90012",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://static1.squarespace.com/static/56fa25d28259b56d9b432b84/57004d7e01dbae8fc9b4f0c9/57008bb407eaa0a58ec47065/1459653564254/DSC_4982_1980.jpg?format=750w",
+        "owner": ""
       },
-      "img": "https://static1.squarespace.com/static/56fa25d28259b56d9b432b84/57004d7e01dbae8fc9b4f0c9/57008bb407eaa0a58ec47065/1459653564254/DSC_4982_1980.jpg?format=750w",
+      "attributes": {
+        "aura": "romantic, groovy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Drinking, Nightlife, Concerts, Shows"
     },
     {
+      "id": "",
       "name": "Izakaya & Bar Fu-ga",
+      "alias": "",
       "address": "111 S San Pedro St",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90012",
-      "attributes": {
-        "Aura": "peaceful, exotic"
+      "postalCode": "90012",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "http://urbandiningguide.com/wp-content/uploads/2014/05/izakayafugalosangeles.jpg",
+        "owner": ""
       },
-      "img": "http://urbandiningguide.com/wp-content/uploads/2014/05/izakayafugalosangeles.jpg",
+      "attributes": {
+        "aura": "peaceful, exotic",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Drinking, Relaxing, Nightlife, Restaurants, Food & Drink, Bar, Club, Japanese, Asian"
     },
     {
+      "id": "",
       "name": "The Cow's End Cafe",
+      "alias": "",
       "address": "34 Washington Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90292",
-      "attributes": {
-        "Aura": "romantic, peaceful"
+      "postalCode": "90292",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://cdn.workfrom.co/files/usermedia/36734-Du4osHUSmSEoPjllWiug-los-angeles-cows-end-3.jpg",
+        "owner": ""
       },
-      "img": "https://cdn.workfrom.co/files/usermedia/36734-Du4osHUSmSEoPjllWiug-los-angeles-cows-end-3.jpg",
+      "attributes": {
+        "aura": "romantic, peaceful",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Studying, Dating, Relaxing, Coffee, Tea, Cafe, Deli, Food & Drink"
     },
     {
+      "id": "",
       "name": "Menotti's Coffee Shop",
+      "alias": "",
       "address": "56 Windward Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90291",
-      "attributes": {
-        "Aura": "groovy, hipster"
+      "postalCode": "90291",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://cdn.vox-cdn.com/thumbor/uPZTk5wPj_mXnsgDFV8WHu5eifg=/0x0:753x526/1200x800/filters:focal(317x203:437x323)/cdn.vox-cdn.com/uploads/chorus_image/image/62656516/menotti_s.0.0.jpg",
+        "owner": ""
       },
-      "img": "https://cdn.vox-cdn.com/thumbor/uPZTk5wPj_mXnsgDFV8WHu5eifg=/0x0:753x526/1200x800/filters:focal(317x203:437x323)/cdn.vox-cdn.com/uploads/chorus_image/image/62656516/menotti_s.0.0.jpg",
+      "attributes": {
+        "aura": "groovy, hipster",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Relaxing, Coffee, Tea, Cafe, Food & Drink"
     },
     {
+      "id": "",
       "name": "Rise N Grind",
+      "alias": "",
       "address": "6501 Hollywood Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90028",
-      "attributes": {
-        "Aura": "imaginative, peaceful"
+      "postalCode": "90028",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "http://res.cloudinary.com/spothopper/image/fetch/f_auto,q_80,c_fit,h_864/http://static.spotapps.co/spots/53/4a7a40f7e911e7906349d5a639d4f5/:original",
+        "owner": ""
       },
-      "img": "http://res.cloudinary.com/spothopper/image/fetch/f_auto,q_80,c_fit,h_864/http://static.spotapps.co/spots/53/4a7a40f7e911e7906349d5a639d4f5/:original",
+      "attributes": {
+        "aura": "imaginative, peaceful",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Studying, Relaxing, Coffee, Tea, Cafe, Food & Drink, Vegetarian-Friendly, Vegan-Options"
     },
     {
+      "id": "",
       "name": "The Serving Spoon",
+      "alias": "",
       "address": "1403 Centinela Ave",
       "city": "Inglewood, Los Angeles",
       "state": "CA",
-      "postal_code": "90302",
-      "attributes": {
-        "Aura": "casual"
+      "postalCode": "90302",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://s3-media4.fl.yelpcdn.com/bphoto/WiwSlvNcJ521_vlszL4e-A/o.jpg",
+        "owner": ""
       },
-      "img": "https://s3-media4.fl.yelpcdn.com/bphoto/WiwSlvNcJ521_vlszL4e-A/o.jpg",
+      "attributes": {
+        "aura": "casual",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Coffee, Tea, Relaxing, Brunch, Soul Food, Breakfast"
     },
     {
+      "id": "",
       "name": "Conservatory For Coffee, Tea & Cocoa",
+      "alias": "",
       "address": "10117 Washington Blvd",
       "city": "Culver City, Los Angeles",
       "state": "CA",
-      "postal_code": "90232",
-      "attributes": {
-        "Aura": "trendy"
+      "postalCode": "90232",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "http://static1.squarespace.com/static/578fb6425016e1565263b5d6/t/58c0521a440243ea38ad5513/1488998941602/IMG_1202.JPG?format=1500w",
+        "owner": ""
       },
-      "img": "http://static1.squarespace.com/static/578fb6425016e1565263b5d6/t/58c0521a440243ea38ad5513/1488998941602/IMG_1202.JPG?format=1500w",
+      "attributes": {
+        "aura": "trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Drinking, Studying, Eating, Relaxing"
     },
     {
+      "id": "",
       "name": "Baldwin Hills Scenic Overlook",
+      "alias": "",
       "address": "6300 Hetzler Rd",
       "city": "Culver City, Los Angeles",
       "state": "CA",
-      "postal_code": "90232",
-      "attributes": {
-        "Aura": "touristy, inspired, peaceful"
+      "postalCode": "90232",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://modernhiker.com/wp-content/uploads/2013/01/baldwin-hills-overlook-11.jpg",
+        "owner": ""
       },
-      "img": "https://modernhiker.com/wp-content/uploads/2013/01/baldwin-hills-overlook-11.jpg",
+      "attributes": {
+        "aura": "touristy, inspired, peaceful",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Relaxing, Hiking, Hangout, Adventure, Outdoors, Nature, Dog Friendly"
     },
     {
+      "id": "",
       "name": "Father's Office",
+      "alias": "",
       "address": "3229 Helms Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90034",
-      "attributes": {
-        "Aura": "trendy, casual"
+      "postalCode": "90034",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://d37219swed47g7.cloudfront.net/media/images/guides/the-culver-city-after-work-drinks-guide/FO%20Interior2.jpg",
+        "owner": ""
       },
-      "img": "https://d37219swed47g7.cloudfront.net/media/images/guides/the-culver-city-after-work-drinks-guide/FO%20Interior2.jpg",
+      "attributes": {
+        "aura": "trendy, casual",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Drinking, American, Burgers, Pub"
     },
     {
+      "id": "",
       "name": "Hokkaido Ramen Santouka",
+      "alias": "",
       "address": "3760 Centinela Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90066",
-      "attributes": {
-        "Aura": "Casual, Exotic"
+      "postalCode": "90066",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://s3-media3.fl.yelpcdn.com/bphoto/OHwF3d_kq2etctEoFfDvrg/o.jpg",
+        "owner": ""
       },
-      "img": "https://s3-media3.fl.yelpcdn.com/bphoto/OHwF3d_kq2etctEoFfDvrg/o.jpg",
+      "attributes": {
+        "aura": "Casual, Exotic",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Restaurant, Japanese, Asian"
     },
     {
+      "id": "",
       "name": "Copenhagen Pastry",
+      "alias": "",
       "address": "11113 Washington Blvd",
       "city": "Culver City, Los Angeles",
       "state": "CA",
-      "postal_code": "90232",
-      "attributes": {
-        "Aura": "peaceful, classy"
+      "postalCode": "90232",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "https://s3-media1.fl.yelpcdn.com/bphoto/uDUbJK-p-yw85HdW9YoNDg/o.jpg",
+        "owner": ""
       },
-      "img": "https://s3-media1.fl.yelpcdn.com/bphoto/uDUbJK-p-yw85HdW9YoNDg/o.jpg",
+      "attributes": {
+        "aura": "peaceful, classy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Pastry, Bakery"
     },
     {
+      "id": "",
       "name": "The Griddle Cafe",
+      "alias": "",
       "address": "7916 W Sunset Blvd",
       "city": "Hollywood, Los Angeles",
       "state": "CA",
-      "postal_code": "90046",
-      "attributes": {
-        "Aura": "casual, romantic"
+      "postalCode": "90046",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "casual, romantic",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Breakfast, Brunch, Drinking, Tea, Drinking, Studying"
     },
     {
+      "id": "",
       "name": "Sushi By H",
+      "alias": "",
       "address": "480 San Vicente Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90048",
-      "attributes": {
-        "Aura": "casual, romantic"
+      "postalCode": "90048",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "casual, romantic",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Drinking, Japanese, Sushi, Asian"
     },
     {
+      "id": "",
       "name": "Tatsu Ramen",
+      "alias": "",
       "address": "2123 Sawtelle Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90025",
-      "attributes": {
-        "Aura": "casual, peaceful"
+      "postalCode": "90025",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "casual, peaceful",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Japanese, Drinking, Asian, Ramen"
     },
     {
+      "id": "",
       "name": "Fogo de Chão Brazilian Steakhouse",
+      "alias": "",
       "address": "133 N La Cienega Blvd",
       "city": "Beverly Hills, Los Angeles",
       "state": "CA",
-      "postal_code": "90211",
-      "attributes": {
-        "Aura": "classy"
+      "postalCode": "90211",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "classy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Drinking, Restaurant, Brazilian, Steak"
     },
     {
+      "id": "",
       "name": "El Chato Taco Truck",
+      "alias": "",
       "address": "5300 W Olympic Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90019",
-      "attributes": {
-        "Aura": "cheerful, casual, exotic"
+      "postalCode": "90019",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "cheerful, casual, exotic",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Mexican, Food Truck"
     },
     {
+      "id": "",
       "name": "Yuko Kitchen",
+      "alias": "",
       "address": "5484 Wilshire Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90036",
-      "attributes": {
-        "Aura": "peaceful, casual"
+      "postalCode": "90036",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "peaceful, casual",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Japanese, Asian"
     },
     {
+      "id": "",
       "name": "Angelini Osteria",
+      "alias": "",
       "address": "7313 Beverly Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90036",
-      "attributes": {
-        "Aura": "classy, trendy"
+      "postalCode": "90036",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "classy, trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Drinking, Italian, Pasta"
     },
     {
+      "id": "",
       "name": " Pizzeria Mozza",
+      "alias": "",
       "address": "641 N Highland Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90036",
-      "attributes": {
-        "Aura": "inspired, trendy"
+      "postalCode": "90036",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "inspired, trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Drinking, Italian"
     },
     {
+      "id": "",
       "name": "The Bazaar by José Andrés",
+      "alias": "",
       "address": "465 South La Cienega Blvd",
       "city": "Beverly Hills, Los Angeles",
       "state": "CA",
-      "postal_code": "90048",
-      "attributes": {
-        "Aura": "upscale, trendy, romantic"
+      "postalCode": "90048",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "upscale, trendy, romantic",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Drinking, Restaurant, Dating"
     },
     {
+      "id": "",
       "name": "Los Angeles County Museum of Art",
+      "alias": "",
       "address": "5905 Wilshire Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90036",
-      "attributes": {
-        "Aura": "touristy, inspired, trendy"
+      "postalCode": "90036",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "touristy, inspired, trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Hangout, Museum, Art, Photos"
     },
     {
+      "id": "",
       "name": "Milk Jar Cookies",
+      "alias": "",
       "address": "5466 Wilshire Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90036",
-      "attributes": {
-        "Aura": "inspired, hipster"
+      "postalCode": "90036",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "inspired, hipster",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Drinking, Bakery, Pastries, Coffee, Tea"
     },
     {
+      "id": "",
       "name": "Salt & Straw",
+      "alias": "",
       "address": "240 N Larchmont Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90004",
-      "attributes": {
-        "Aura": "trendy, inspired, casual"
+      "postalCode": "90004",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "trendy, inspired, casual",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Coffee, Dessert, Ice Cream"
     },
     {
+      "id": "",
       "name": "Lawry's The Prime Rib - Beverly Hills",
+      "alias": "",
       "address": "100 N La Cienega Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90211",
-      "attributes": {
-        "Aura": "classy, upscale"
+      "postalCode": "90211",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "classy, upscale",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Fancy, Restaurant, Drinking"
     },
     {
+      "id": "",
       "name": "Animal",
+      "alias": "",
       "address": "435 N Fairfax Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90036",
-      "attributes": {
-        "Aura": "trendy"
+      "postalCode": "90036",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Drinking, Breakfast, Brunch, Coffee, American"
     },
     {
+      "id": "",
       "name": "Providence",
+      "alias": "",
       "address": "5955 Melrose Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90038",
-      "attributes": {
-        "Aura": "classy, upscale"
+      "postalCode": "90038",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "classy, upscale",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Drinking, Dating"
     },
     {
+      "id": "",
       "name": "Genwa Korean BBQ",
+      "alias": "",
       "address": "5115 Wilshire Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90036",
-      "attributes": {
-        "Aura": "exotic, trendy"
+      "postalCode": "90036",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "exotic, trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Drinking, Asian, Korean"
     },
     {
+      "id": "",
       "name": "Milk",
+      "alias": "",
       "address": "7290 Beverly Blvd",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90036",
-      "attributes": {
-        "Aura": "hipster"
+      "postalCode": "90036",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "hipster",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Dessert, Eating, Ice Cream, Pastries, Relaxing"
     },
     {
+      "id": "",
       "name": "Blu Jam Café",
+      "alias": "",
       "address": "7371 Melrose Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90046",
-      "attributes": {
-        "Aura": "casual"
+      "postalCode": "90046",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "casual",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Relaxing, Eating, Drinking, Studying"
     },
     {
+      "id": "",
       "name": "SK Donuts & Croissant",
+      "alias": "",
       "address": "5850 W 3rd St",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90036",
-      "attributes": {
-        "Aura": "inspired, peaceful"
+      "postalCode": "90036",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "inspired, peaceful",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Relaxing, Studying, Eating, Drinking, Coffee, Tea"
     },
     {
+      "id": "",
       "name": "République",
+      "alias": "",
       "address": "624 S La Brea Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90036",
-      "attributes": {
-        "Aura": "touristy, trendy"
+      "postalCode": "90036",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "touristy, trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Relaxing, Breakfast, Brunch, French"
     },
     {
+      "id": "",
       "name": "Grand Central Market",
+      "alias": "",
       "address": "317 S Broadway",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90013",
-      "attributes": {
-        "Aura": "casual"
+      "postalCode": "90013",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "casual",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Breakfast, Lunch, Drinking"
     },
     {
+      "id": "",
       "name": "The Broad",
+      "alias": "",
       "address": "221 S Grand Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90012",
-      "attributes": {
-        "Aura": "inspired, imaginative"
+      "postalCode": "90012",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "inspired, imaginative",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Art, Museum, Relaxing, Hangout"
     },
     {
+      "id": "",
       "name": "The Pie Hole",
+      "alias": "",
       "address": "714 Traction Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90013",
-      "attributes": {
-        "Aura": "hipster, casual, trendy"
+      "postalCode": "90013",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "hipster, casual, trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Cofee, Tea, Pastries, Dessert, Breakfast, Brunch, Relaxing, Studying"
     },
     {
+      "id": "",
       "name": "Guisados DTLA",
+      "alias": "",
       "address": "541 S Spring St Suite 101",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90013",
-      "attributes": {
-        "Aura": "casual, exotic"
+      "postalCode": "90013",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "casual, exotic",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Drinking, Mexican, Restaurant"
     },
     {
+      "id": "",
       "name": "Bäco Mercat",
+      "alias": "",
       "address": "408 S Main St",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90013",
-      "attributes": {
-        "Aura": "hipster, trendy"
+      "postalCode": "90013",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "hipster, trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Restaurant, Eating, Relaxing, Mediterranean, African, Sandwiches"
     },
     {
+      "id": "",
       "name": "Philippe the Original",
+      "alias": "",
       "address": "1001 N Alameda St",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90012",
-      "attributes": {
-        "Aura": "casual, lively"
+      "postalCode": "90012",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "casual, lively",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Breakfast, Brunch, American, Sandwiches"
     },
     {
+      "id": "",
       "name": "Maccheroni Republic",
+      "alias": "",
       "address": "322 S Broadway",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90013",
-      "attributes": {
-        "Aura": "casual"
+      "postalCode": "90013",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "casual",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Italian, Wine, Bars, Eating, Drinking, Relaxing"
     },
     {
+      "id": "",
       "name": "Tea Master Matcha Cafe & Green Tea Shop",
+      "alias": "",
       "address": "450 E 2nd St",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90012",
-      "attributes": {
-        "Aura": "hipster, trendy"
+      "postalCode": "90012",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "hipster, trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Studying, Relaxing, Eating, Desserts"
     },
     {
+      "id": "",
       "name": "Langer's",
+      "alias": "",
       "address": "704 S Alvarado St",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90057",
-      "attributes": {
-        "Aura": "casual"
+      "postalCode": "90057",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "casual",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Deli, Sandwiches, Eating, Hangout"
     },
     {
+      "id": "",
       "name": "Urth Caffé- Downtown LA",
+      "alias": "",
       "address": "451 S Hewitt St",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90013",
-      "attributes": {
-        "Aura": "hipster, casual, trendy"
+      "postalCode": "90013",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "hipster, casual, trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Studying, Eating, Coffee, Tea, Relaxing"
     },
     {
+      "id": "",
       "name": "Sushi Gen",
+      "alias": "",
       "address": "422 E 2nd St",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90012",
-      "attributes": {
-        "Aura": "casual"
+      "postalCode": "90012",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "casual",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Japanese, Asian, Sushi, Drinking, Relaxing"
     },
     {
+      "id": "",
       "name": "Marugame Monzo",
+      "alias": "",
       "address": "329 E 1st St",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90012",
-      "attributes": {
-        "Aura": "casual"
+      "postalCode": "90012",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "casual",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Drinking, Relaxing, Japanese, Asian"
     },
     {
+      "id": "",
       "name": "Eggslut",
+      "alias": "",
       "address": "317 S Broadway, Grand Central Market",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90013",
-      "attributes": {
-        "Aura": "hipster, inspired"
+      "postalCode": "90013",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "hipster, inspired",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Breakfast, Brunch, Eating, Hangout"
     },
     {
+      "id": "",
       "name": "KazuNori | The Original Hand Roll Bar",
+      "alias": "",
       "address": "421 S Main St",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90013",
-      "attributes": {
-        "Aura": "casual, trendy"
+      "postalCode": "90013",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "casual, trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Sushi Bar, Japanese, Asian, Drinking"
     },
     {
+      "id": "",
       "name": "Perch",
+      "alias": "",
       "address": "448 S Hill St",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90013",
-      "attributes": {
-        "Aura": "classy"
+      "postalCode": "90013",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "classy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Relaxing, Lounge, French, Hangout"
     },
     {
+      "id": "",
       "name": "Bestia",
+      "alias": "",
       "address": "2121 E 7th Pl",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90021",
-      "attributes": {
-        "Aura": "trendy"
+      "postalCode": "90021",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Italian, Cocktail Bars, Pizza, Eating, Drinking, Hangout"
     },
     {
+      "id": "",
       "name": "Wurstküche",
+      "alias": "",
       "address": "800 E 3rd St",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90013",
-      "attributes": {
-        "Aura": "hipster, casual"
+      "postalCode": "90013",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "hipster, casual",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Hot Dogs, German, Gastropubs, Eating, Drinking, Hangout"
     },
     {
+      "id": "",
       "name": "Daikokuya Little Tokyo",
+      "alias": "",
       "address": "327 E 1st St",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90012",
-      "attributes": {
-        "Aura": "casual"
+      "postalCode": "90012",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "casual",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Drinking, Japanese, Asian, Hangout"
     },
     {
+      "id": "",
       "name": "Howlin' Ray's",
+      "alias": "",
       "address": "727 N Broadway St, Suite 128",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90012",
-      "attributes": {
-        "Aura": "casual, trendy"
+      "postalCode": "90012",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "casual, trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Eating, Hangout, Southern, Chicken Shop, American"
     },
     {
+      "id": "",
       "name": "Bottega Louie",
+      "alias": "",
       "address": "700 S Grand Ave",
       "city": "Los Angeles",
       "state": "CA",
-      "postal_code": "90017",
-      "attributes": {
-        "Aura": "upscale, classy, trendy"
+      "postalCode": "90017",
+      "latitude": "",
+      "longitude": "",
+      "url": "",
+      "stars": 0,
+      "reviewCount": 0,
+      "novelty": 0,
+      "businessImage": {
+        "src": "",
+        "owner": ""
       },
-      "img": "",
+      "attributes": {
+        "aura": "upscale, classy, trendy",
+        "wifi": "",
+        "alcohol": "",
+        "bestNights": {
+          "monday": false,
+          "tuesday": false,
+          "wednesday": false,
+          "thursday": false,
+          "friday": false,
+          "saturday": false,
+          "sunday": false
+        },
+        "goodForKids": false,
+        "goodForDancing": false,
+        "goodForMeal": {
+          "breakfast": false,
+          "brunch": false,
+          "lunch": false,
+          "dinner": false,
+          "lateNight": false,
+          "dessert": false
+        },
+        "priceRange": 0,
+        "parking": {
+          "garage": false,
+          "street": false,
+          "lot": false,
+          "valet": false,
+          "validated": false
+        },
+        "noiseLevel": "",
+        "attire": "",
+        "hasTV": false,
+        "music": {
+          "jukebox": false,
+          "video": false,
+          "karoake": false,
+          "dj": false,
+          "live": false,
+          "backgroundMusic": false,
+          "noMusic": false
+        },
+        "smoking": ""
+      },
       "categories": "Italian, Bakeries, Breakfast, Brunch, Eating, Drinking, Hangout, Pastries, Dessert"
     }
   ]
