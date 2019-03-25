@@ -1,6 +1,8 @@
 class AuraBusiness {
   constructor() {
     this.id = '';
+    this.name = '';
+    this.alias = '';
     this.address = '';
     this.city = '';
     this.state = '';

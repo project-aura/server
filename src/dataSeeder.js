@@ -1,9 +1,10 @@
 const { yelpAPI } = require('./API');
 const { businessTransformer } = require('./transformers');
 const AuraBusiness = require('./AuraBusiness');
+const businessLA = require('../sample-data/los-angeles-data/businessLA');
 const businessPhotosLA = require('../sample-data/los-angeles-data/businessPhotosLA');
-
 const { invokeMysticalPowers } = require('../gray-hat-alchemist/main');
+const { DataMaster } = require('./DataMaster');
 
 /**
  * Resolves a list of Yelp API Promises.
@@ -30,7 +31,7 @@ const resolveYelpBusinessApiPromiseData = promises => {
  * @param {Object} yelpBusiness Yelp Business Object
  * @returns Aura Business Object
  */
-const transformBusinessData = async yelpBusiness => {
+const transformYelpBusinessData = async yelpBusiness => {
   // ================================== TRANSFORMING YELP DATA ==============================
 
   // call the transformer and make all values into our data format.
@@ -54,6 +55,20 @@ const transformBusinessData = async yelpBusiness => {
 };
 
 /**
+ * Transform pipeline that changes orignial sample data objects into aura data objects.
+ * @param {Object} sampleBusiness Sample Business Object
+ * @returns Aura Business Object
+ */
+const transformSampleBusinessData = async sampleBusiness => {
+  // ================================== TRANSFORMING SAMPLE DATA ==============================
+
+  // call the transformer and make all values into our data format.
+  const updatedAuraBusiness = businessTransformer.sampleToAura(new AuraBusiness(), sampleBusiness);
+
+  return updatedAuraBusiness;
+};
+
+/**
  * Seed the database with the 3rd-party API business data
  * @param {Object} database
  */
@@ -64,7 +79,7 @@ const businessDataSeeder = async database => {
   const locationResponses = [];
   try {
     // locationResponses.push(yelpAPI.getBusinesses({ location: '90404', radius: 40000, limit: 50 }));
-    locationResponses.push(yelpAPI.getBusinesses({ location: '90230', radius: 40000, limit: 10 }));
+    locationResponses.push(yelpAPI.getBusinesses({ location: '90230', radius: 40000, limit: 5 }));
     // locationResponses.push(yelpAPI.getBusinesses({ location: '90014', radius: 40000, limit: 50 }));
     // locationResponses.push(yelpAPI.getBusinesses({ location: '90036', radius: 40000, limit: 50 }));
     await Promise.all(locationResponses);
@@ -89,35 +104,23 @@ const businessDataSeeder = async database => {
   const transformedBusinessPromises = [];
   for (const yelpBusiness of businessesData) {
     // Asyncronously tranform all businesses
-    const auraBusiness = transformBusinessData(yelpBusiness);
+    const auraBusiness = transformYelpBusinessData(yelpBusiness);
     transformedBusinessPromises.push(auraBusiness);
   }
+  for (const sampleBusiness of businessLA) {
+    // Asyncronously tranform all businesses
+    const auraBusiness = transformSampleBusinessData(sampleBusiness);
+    transformedBusinessPromises.push(auraBusiness);
+  }
+
   // Wait for each transform to be done.
   const transformedBusinessData = await Promise.all(transformedBusinessPromises);
+  // console.log(transformedBusinessData);
 
   // ===================================== DATA STORAGE ====================================
 
-  // Put this array of objects into a database somehow...
-  for (const business of transformedBusinessData) {
-    // Send each business to the database
-    // DataMaster.addEntry(arg) vs DataMaster.seed(arg)
-    // addEntry(arg) -> Only 1 parameter: the object to be added.
-    // File must ALREADY exist to use DataMaster.addEntry(arg). Call
-    // the constructor with existing JSON file as an argument.
-    // Example: 'businessLAFake.json' already exists. Therefore you can 
-    // const db = new DataMaster('businessLAFake'); // initializes
-    // db.addEntry(objectToBeAdded);
-    // seed(arg) -> Only 1 parameter as well: the array of objects to be added.
-    // The JSON file must NOT YET exist to do this.
-    // Example: 'businessLAFake.json' already exists, no reason to seed it
-    // make up a name like 'somethingElse.json'. Therefore, go 
-    // const db2 = new DataMaster('somethingElse.json'); // initializes
-    // db2.seed(arrayOfObjectsToBeAdded);
-    // this creates a JSON file called 'somethingElse.json' to whereever you 
-    // are in the directory when you run dataSeeder.js
-    // FOR SCOTT: Use seed() for the batch add. refer to ../tests/testDataMaster.js
-    // for tests.
-  }
+  const businessDatabase = new DataMaster('businessLA.json');
+  businessDatabase.seed(transformedBusinessData);
 };
 
 businessDataSeeder('hello');
