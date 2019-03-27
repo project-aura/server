@@ -25,14 +25,14 @@ const businessTransformer = {
     return auraData;
   },
   sampleToAura: (auraData, sampleData) => {
-    auraData.name = sampleData.name;
-    auraData.address = sampleData.address;
-    auraData.city = sampleData.city;
-    auraData.state = sampleData.state;
-    auraData.postalCode = sampleData.postal_code;
-    auraData.attributes.aura = sampleData.attributes.Aura;
-    auraData.businessImage.src = sampleData.img;
-    auraData.categories = sampleData.categories; // uses objects {alias: '', title: ''} in categories array
+    auraData.name = sampleData.name || '';
+    auraData.address = sampleData.address || '';
+    auraData.city = sampleData.city || '';
+    auraData.state = sampleData.state || '';
+    auraData.postalCode = sampleData.postal_code || '';
+    auraData.attributes.aura = sampleData.attributes.Aura || '';
+    auraData.businessImage.src = sampleData.img || '';
+    auraData.categories = sampleData.categories ? sampleData.categories : {}; // uses objects {alias: '', title: ''} in categories array
     return auraData;
   },
 };
