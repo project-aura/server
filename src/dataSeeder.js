@@ -1,10 +1,10 @@
-const { yelpAPI } = require("./API");
-const { businessTransformer } = require("./transformers");
-const AuraBusiness = require("./AuraBusiness");
-const businessLA = require("../sample-data/los-angeles-data/businessLA");
-const businessPhotosLA = require("../sample-data/los-angeles-data/businessPhotosLA");
-const { invokeMysticalPowers } = require("../gray-hat-alchemist/main");
-const { DataMaster } = require("./DataMaster");
+const { yelpAPI } = require('./API');
+const { businessTransformer } = require('./transformers');
+const AuraBusiness = require('./AuraBusiness');
+const businessLA = require('../sample-data/los-angeles-data/businessLA');
+const businessPhotosLA = require('../sample-data/los-angeles-data/businessPhotosLA');
+const { invokeMysticalPowers } = require('../gray-hat-alchemist/main');
+const { DataMaster } = require('./DataMaster');
 
 /**
  * Resolves a list of Yelp API Promises.
@@ -78,10 +78,10 @@ const businessDataSeeder = async database => {
   // Make requests to yelp api with each zip location.
   const locationResponses = [];
   try {
-    locationResponses.push(yelpAPI.getBusinesses({ location: "90404", radius: 40000, limit: 50 }));
-    locationResponses.push(yelpAPI.getBusinesses({ location: "90230", radius: 40000, limit: 50 }));
-    locationResponses.push(yelpAPI.getBusinesses({ location: "90014", radius: 40000, limit: 50 }));
-    locationResponses.push(yelpAPI.getBusinesses({ location: "90036", radius: 40000, limit: 50 }));
+    locationResponses.push(yelpAPI.getBusinesses({ location: '90404', radius: 40000, limit: 50 }));
+    locationResponses.push(yelpAPI.getBusinesses({ location: '90230', radius: 40000, limit: 50 }));
+    locationResponses.push(yelpAPI.getBusinesses({ location: '90014', radius: 40000, limit: 50 }));
+    locationResponses.push(yelpAPI.getBusinesses({ location: '90036', radius: 40000, limit: 50 }));
     await Promise.all(locationResponses);
   } catch (err) {
     console.error(err);
@@ -119,11 +119,11 @@ const businessDataSeeder = async database => {
 
   // ===================================== DATA STORAGE ====================================
 
-  const businessDatabase = new DataMaster("businessLA.json");
+  const businessDatabase = new DataMaster(database);
   businessDatabase.seed(transformedBusinessData);
 };
 
-businessDataSeeder("hello");
+businessDataSeeder('businessLA.json');
 
 module.exports = {
   businessDataSeeder,
