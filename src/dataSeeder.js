@@ -4,7 +4,7 @@ const AuraBusiness = require('./AuraBusiness');
 const businessLA = require('../sample-data/los-angeles-data/businessLA');
 const businessPhotosLA = require('../sample-data/los-angeles-data/businessPhotosLA');
 const { invokeMysticalPowers } = require('../gray-hat-alchemist/main');
-const { DataMaster } = require('./DataMaster');
+const DataMaster = require('./DataMaster');
 
 /**
  * Resolves a list of Yelp API Promises.
@@ -70,6 +70,7 @@ const transformSampleBusinessData = async sampleBusiness => {
 
 /**
  * Seed the database with the 3rd-party API business data
+ * SCOTT: we took off the DataMaster parameter. 
  * @param {Object} database
  */
 
@@ -117,9 +118,9 @@ const businessDataSeeder = async database => {
   const transformedBusinessData = await Promise.all(transformedBusinessPromises);
   // console.log(transformedBusinessData);
 
-  // ===================================== DATA STORAGE ====================================
-
-  const businessDatabase = new DataMaster(database);
+  // ===================================== DATA STORAGE =========================================
+  // 4/1/19 -> parameter for DataMaster()  no longer needed. The seed() function works the same.
+  const businessDatabase = new DataMaster();
   businessDatabase.seed(transformedBusinessData);
 };
 
