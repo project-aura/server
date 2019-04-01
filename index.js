@@ -19,7 +19,6 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
 /* MIGHT need to put some STATIC MIDDLEWARE IN HERE (Optional)
  * Route and Set endpoints.
- * BE MINDFUL OF the 1st parameter! Seriously!
  */
 app.use("/", dataSnatcher);
 

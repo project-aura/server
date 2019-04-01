@@ -1,77 +1,124 @@
-/* Data Master -> this file contains functions to manipulate the databse
- * add, set, get will be implemented eventually
+/* Data Master -> this file contains functions to manipulate the database
+ * it serves as the interface between the router dataSnatcher.js and 
+ * the database. But why though?
+ * Having the function calls to mongoose/mongo in one place that this
+ * program is database agnostic, in the case the a different service
+ * is to be desired in future sprints/iterations. 
+ * Also, inputs to these functions are error checked by the router.
+ * No worries.
  */
-const lowdb = require('lowdb');
-const FileSync = require('lowdb/adapters/FileSync');
+
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '/../.env') });
+const mongoose = require('mongoose');
+const Business = require('../models/business.model');
 
 class DataMaster {
-  //= =============================constructor======================================
-  /**
-   * @param {*} nameDBJSON -> name of the JSON file DB passed on to FileSync.
-   * About this parameter. Use an already existing JSON file if you plan to use
-   * addEntry. Use whatever name if you plan to use seed.
-   * NOTE -> FileSync(nameDBJSON) knows exactly where to find your file.
-   * There is NO NEED to specify pathname. Crazy I know.
-   */
-  constructor(nameDBJSON) {
-    this.nameDBJSON = nameDBJSON;
-    // for uniformity 'businessData' is used as
-    // nameJSONParent
-    this.nameJSONParent = 'businessData';
-    // set the adapter in the constructor
-    this.adapter = new FileSync(this.nameDBJSON);
-    this.db = lowdb(this.adapter);
+  //=============================constructor=================================
+  // Takes no parameters
+  constructor() { 
+    this.connected = false; 
   }
-  //= ===========================================================================
+  //==========================================================================
 
-  //= ==============================add to the database===========================
+  //=============================connect to the DB============================
   /**
-   * @param {*} objectEntry -> the object to be added into the database.
-   * NOTE -> Only use addEntry if the JSON file already exists, refer to
-   * the correct name of the JSON file.
-   * Result -> object will be added to the end of the already existing
-   * JSON File this.nameDBJSON.
+   * The reason as to why the connect is not within the constructor
+   * is that you do not want to connect every single time you create a 
+   * DataMaster object. Explicit connecting and disconnecting will be 
+   * implemented.
    */
-  addEntry(objectEntry) {
-    try {
-      this.db
-        .get(this.nameJSONParent)
-        .push(objectEntry)
-        .write();
-    } catch (err) {
-      console.log('An Error Has Occured: \n');
-      console.error(err);
-    }
+  connect() {
+      this.connected = true;
+      mongoose.connect(
+          `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true`,
+          {useNewUrlParser: true} 
+      )
   }
-  //= ============================================================================
+  //=============================================================================
 
-  //= ================================seed the database===========================
-  /**
-   * @param {*} items -> An array of objects to be added into the database
-   * NOTE -> Use seed if the JSON File has NOT existed yet. Use whatever name
-   * you want. Use format 'whateverName.json'
-   * Result -> A JSON file with the name this.nameDBJSON will be created in the
-   * directory the user is in when the program is called.
-   */
-  seed(items) {
-    try {
-      // set some defaults, default nameJSONParent name should always be
-      // 'businessData' because this is going to be referred like crazy.
-      this.db.defaults({ businessData: [] }).write();
-      // add elements from the array into seeded DB
-      items.forEach(item => {
-        this.addEntry(item);
-      });
-    } catch (err) {
-      console.log('An Error Has Occured: \n');
-      console.error(err);
-    }
+  //=================================disconnect the DB===========================
+  disconnect() {
+    mongoose.connection.close();
+    this.connected = false;
   }
-  //= ===========================================================================
+  //==============================================================================
+
+  //=================================find business================================
+  /**
+   * 
+   * @param {*} req -> the request from the client 
+   * @param {*} res -> the response from the server
+   * This function finds all the businesses. Also has an option to 
+   * find by filtering the name. 
+   */
+  find(req, res) {
+    if(!this.connected) {
+      this.connect();
+    }
+      Business
+          .find()
+          .where('attributes.aura')
+          .regex(req.query.aura || '')
+          .then(businesses => res.json(businesses))
+          .then(() => this.disconnect());
+  }
+  //==============================================================================
+
+  //=====================find business by alias===================================
+  /**
+   * 
+   * @param {*} aliasParameter -> parameter for the alias
+   * This function is not executed by the client. They don't need to know about
+   * this function. 
+   */
+  
+  findByAlias(aliasParameter) {
+    if(!this.connected) {
+      this.connect();
+    }
+    Business
+      .find({alias: aliasParameter})
+      .then(returnedObj => console.log(returnedObj))
+      .then(() => this.disconnect())
+      .catch(err => console.error(err));
+  }
+  //================================================================================
+
+  //======================================add 1 to database=========================
+  /**
+   * 
+   * @param {*} addedDocument -> item/object to be added into the database
+   * Not executed by the client, this is a server function.
+   */
+  addToEntry(addedDocument) {
+    if(!this.connected) {
+      this.connect();
+    }
+    Business
+      .create(addedDocument)
+      .then(() => this.disconnect())
+      .catch(err => console.error(err));
+  }
+  //=================================================================================
+
+  //===================================seed the database=============================
+  /**
+   * 
+   * @param {*} addedDocuments -> objects to be added into the database.
+   * works the same as the addToEntry function LOL. 
+   */
+  seed(addedDocuments) {
+    if(!this.connected) {
+      this.connect();
+    }
+    Business
+      .create(addedDocuments)
+      .then(() => this.disconnect())
+      .catch(err => console.error(err));
+  }
+  //=================================================================================
 }
 
-// Testing: refer to ../tests/testDataMaster.js for tests
 
-module.exports = {
-  DataMaster,
-};
+module.exports = DataMaster;

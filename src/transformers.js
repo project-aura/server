@@ -1,6 +1,6 @@
 const businessTransformer = {
   yelpToAura: (auraData, yelpData) => {
-    auraData.id = yelpData.id;
+    auraData.yelpId = yelpData.id;
     auraData.name = yelpData.name;
     auraData.alias = yelpData.alias;
     auraData.address = `${yelpData.location.address1}${
