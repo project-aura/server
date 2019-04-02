@@ -60,6 +60,8 @@ class DataMaster {
           .find()
           .where('attributes.aura')
           .regex(req.query.aura || '')
+          .where('categories.alias')
+          .regex(req.query.categories || '')
           .then(businesses => res.json(businesses))
           .then(() => this.disconnect());
   }
