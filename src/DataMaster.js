@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 /* Data Master -> this file contains functions to manipulate the database
  * it serves as the interface between the router dataSnatcher.js and
  * the database. But why though?
@@ -14,14 +15,14 @@ const mongoose = require('mongoose');
 const Business = require('../models/business.model');
 
 class DataMaster {
-  //= ============================constructor=================================
+  //=============================constructor=================================
   // Takes no parameters
   constructor() {
     this.connected = false;
   }
-  //= =========================================================================
+  //==========================================================================
 
-  //= ============================connect to the DB============================
+  //=============================connect to the DB============================
   /**
    * The reason as to why the connect is not within the constructor
    * is that you do not want to connect every single time you create a
@@ -37,16 +38,16 @@ class DataMaster {
       { useNewUrlParser: true }
     );
   }
-  //= ============================================================================
+  //=============================================================================
 
-  //= ================================disconnect the DB===========================
+  //=================================disconnect the DB===========================
   disconnect() {
     mongoose.connection.close();
     this.connected = false;
   }
-  //= =============================================================================
+  //==============================================================================
 
-  //= ================================find business================================
+  //=================================find business================================
   /**
    *
    * @param {*} req -> the request from the client
@@ -101,9 +102,9 @@ class DataMaster {
       .then(() => this.disconnect())
       .catch(err => console.error(err));
   }
-  //= ================================================================================
+  //=================================================================================
 
-  //= ==================================seed the database=============================
+  //===================================seed the database=============================
   /**
    *
    * @param {*} addedDocuments -> objects to be added into the database.
@@ -117,7 +118,7 @@ class DataMaster {
       .then(() => this.disconnect())
       .catch(err => console.error(err));
   }
-  //= ================================================================================
+  //=================================================================================
 }
 
 module.exports = DataMaster;
