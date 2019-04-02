@@ -30,13 +30,13 @@ class DataMaster {
    * implemented.
    */
   connect() {
-    this.connected = true;
     mongoose.connect(
-      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${
-        process.env.DB_HOST
-      }/${process.env.DB_NAME}?retryWrites=true`,
+      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${
+        process.env.DB_NAME
+      }?retryWrites=true`,
       { useNewUrlParser: true }
     );
+    this.connected = true;
   }
   //=============================================================================
 
@@ -114,6 +114,9 @@ class DataMaster {
     if (!this.connected) {
       this.connect();
     }
+    Business.deleteMany({})
+      .then()
+      .catch(err => console.log(err));
     Business.create(addedDocuments)
       .then(() => this.disconnect())
       .catch(err => console.error(err));
