@@ -41,9 +41,9 @@ const transformYelpBusinessData = async yelpBusiness => {
 
   // Grab all excess data to append to yelp's data
   // Make sure you use transformers on "updatedAuraBusiness" all the way through the pipeline.
-  const businessSearchId = updatedAuraBusiness.id;
-  const businessPhotos = businessPhotosLA.find(business => business.id === businessSearchId);
-  updatedAuraBusiness = businessTransformer.imagesToAura(updatedAuraBusiness, businessPhotos);
+  const businessSearchId = updatedAuraBusiness.yelpId;
+  const businessPhoto = businessPhotosLA.find(business => business.id === businessSearchId);
+  updatedAuraBusiness = businessTransformer.imagesToAura(updatedAuraBusiness, businessPhoto);
 
   // ======================================= DATA SCRAPING ==================================
 
@@ -55,26 +55,12 @@ const transformYelpBusinessData = async yelpBusiness => {
 };
 
 /**
- * Transform pipeline that changes orignial sample data objects into aura data objects.
- * @param {Object} sampleBusiness Sample Business Object
- * @returns Aura Business Object
- */
-const transformSampleBusinessData = async sampleBusiness => {
-  // ================================== TRANSFORMING SAMPLE DATA ==============================
-
-  // call the transformer and make all values into our data format.
-  const updatedAuraBusiness = businessTransformer.sampleToAura(new AuraBusiness(), sampleBusiness);
-
-  return updatedAuraBusiness;
-};
-
-/**
  * Seed the database with the 3rd-party API business data
- * SCOTT: we took off the DataMaster parameter. 
+ * SCOTT: we took off the DataMaster parameter.
  * @param {Object} database
  */
-
 const businessDataSeeder = async database => {
+  console.log('Seeding Businesses...');
   // ============================== INITIAL BUSINESS CALLS =================================
   // Make requests to yelp api with each zip location.
   const locationResponses = [];
@@ -106,11 +92,6 @@ const businessDataSeeder = async database => {
   for (const yelpBusiness of businessesData) {
     // Asyncronously tranform all businesses
     const auraBusiness = transformYelpBusinessData(yelpBusiness);
-    transformedBusinessPromises.push(auraBusiness);
-  }
-  for (const sampleBusiness of businessLA) {
-    // Asyncronously tranform all businesses
-    const auraBusiness = transformSampleBusinessData(sampleBusiness);
     transformedBusinessPromises.push(auraBusiness);
   }
 

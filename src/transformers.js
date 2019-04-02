@@ -16,23 +16,13 @@ const businessTransformer = {
     auraData.stars = yelpData.rating || 0;
     auraData.reviewCount = yelpData.review_count || 0;
     auraData.attributes.priceRange = yelpData.price;
-    auraData.categories = yelpData.categories; // uses objects {alias: '', title: ''} in categories array
+    auraData.categories = yelpData.categories;
     return auraData;
   },
   imagesToAura: (auraData, imageData) => {
-    auraData.businessImage.src = imageData.imageUrl;
-    auraData.businessImage.owner = imageData.imageOwner;
-    return auraData;
-  },
-  sampleToAura: (auraData, sampleData) => {
-    auraData.name = sampleData.name || '';
-    auraData.address = sampleData.address || '';
-    auraData.city = sampleData.city || '';
-    auraData.state = sampleData.state || '';
-    auraData.postalCode = sampleData.postal_code || '';
-    auraData.attributes.aura = sampleData.attributes.Aura || '';
-    auraData.businessImage.src = sampleData.img || '';
-    auraData.categories = sampleData.categories ? sampleData.categories : {}; // uses objects {alias: '', title: ''} in categories array
+    if (!imageData) return auraData;
+    auraData.businessImage.src = imageData.imageUrl || '';
+    auraData.businessImage.owner = imageData.imageOwner || '';
     return auraData;
   },
 };
