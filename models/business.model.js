@@ -7,7 +7,10 @@
 const mongoose = require('mongoose');
 
 const schema = mongoose.Schema({
-    yelpId: String,
+    yelpId: {
+        type: String,
+        unique: true,
+    },
     name: String,
     alias: String,
     address: String,
