@@ -3,7 +3,7 @@ const { businessTransformer } = require('./transformers');
 const AuraBusiness = require('./AuraBusiness');
 const businessLA = require('../sample-data/los-angeles-data/businessLA');
 const businessPhotosLA = require('../sample-data/los-angeles-data/businessPhotosLA');
-const { invokeMysticalPowers } = require('../gray-hat-alchemist/main');
+const invokeMysticalPowers = require('../gray-hat-alchemist/main');
 const DataMaster = require('./DataMaster');
 
 /**

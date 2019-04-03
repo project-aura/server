@@ -1,5 +1,6 @@
 const axios = require('axios');
-const { alchemicFormat } = require('./alchemicFormat');
+const alchemicFormat = require('./alchemicFormat');
+const alchemicSteroids = require('./alchemicSteroids');
 
 /* 1. take URL
  * 2. get URL through axios. res.data is the target
@@ -13,24 +14,42 @@ const alchemicSearch = url =>
     .get(url)
     .then(res => {
       const ambience = 'Ambience';
+      const desiredScrape = '<';
       const maxWidth = 200;
-      let aura = 'Trendy';
+      let aura = '';
+      // theoretical Virtual DOM
       const longString = res.data;
       if (longString.includes(ambience)) {
         const indexOfAura = longString.indexOf(ambience);
         // trim longString
-        const shortString = longString.substr(indexOfAura, maxWidth).trim();
+        const shortString = longString.substr(indexOfAura + 8, maxWidth).trim();
         // regex replacement of whitespaces
         const noWhiteSpaces = shortString.replace(/\s/g, '');
-        aura = noWhiteSpaces;
-        // call alchemicFormat
-        // console.log(aura);
-        aura = alchemicFormat(aura);
+        if(noWhiteSpaces[0] === desiredScrape) {
+          // desired scrape gets normal formatting
+          aura = alchemicFormat(noWhiteSpaces);
+          // if after the return aura is still empty, 
+          // inject steroids
+          if(aura === '') {
+            aura = alchemicSteroids();
+          }
+        }
+        else {
+          // in the event of the shitty scrape, use steroids
+          aura = alchemicSteroids();
+        }
+      }
+      // in the event of more shitty scrapes, use steroids
+      if(aura === '') {
+        aura = alchemicSteroids();
       }
       return aura;
     })
-    .catch(error => console.error(error));
+    .catch(aura => {
+      // in the event of a request timeout,
+      // use steroids.
+      aura = alchemicSteroids();
+      return aura;
+    });
 
-module.exports = {
-  alchemicSearch,
-};
+module.exports = alchemicSearch;
