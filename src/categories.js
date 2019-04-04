@@ -289,15 +289,15 @@ const categories = {
         wraps,
         yugoslav,
         `,
-  studying: 'bubbletea, coffee, coffeeroasteries, juicebars, libraries',
+  studying:
+    'bubbletea, coffee, coffeeroasteries, juicebars, libraries, collegeuniv, tutoring, tea',
   dating:
-    `clubcrawl, countrydancehalls, danceclubs, dancerestaurants,jazzandblues, karaoke, musicvenues, pianobars, artmuseums, musicvenues, paintandsip`,
+    'bubbletea, coffee, clubcrawl, countrydancehalls, danceclubs, dancerestaurants,jazzandblues, karaoke, musicvenues, pianobars, artmuseums, musicvenues, paintandsip, juicebars, tea, tours, aerialtours, architecturaltours, arttours, beertours, biketours, boattours, bustours, foodtours, historicaltours, scootertours, walkingtours, whalewatchingtours, publicart, gastropubs, milkbars',
   relaxing:
-    'meditationcenters, yoga, jazzandblues, mahjong, observatories, opera, pachinko, paintandsip, theater, planetarium, sportsbetting',
+    'meditationcenters, yoga, jazzandblues, mahjong, observatories, opera, pachinko, paintandsip, theater, planetarium, sportsbetting, studiotaping, psychic_astrology, beautysvc, spas, eroticmassage, footcare hotsprings, massage, tanning, cannabis_clinics, cannabisreferrals, publicart, adultentertainment, stripclubs, stripteasedancers',
   drinking:
-    'beer, wine, spirits, breweries, brewpubs, bubbletea, cideries, coffee, coffeeroasteries, juicebars, kombucha, meaderies, milkshakebars, gluhwein, tea, wineries, bars, absinthebars, airportlounges, beachbars, champagene_bars, cigarbars, cocktailbars, divebars, drivethrubars, gaybars, hookah_bars, hotel_bar, irish_pubs, lounges, pubs, pulquerias, sakebars, speakeasies, sportsbars, tabac, tikibars, vermouthbars, wine_bars, beergardens, paintandsip',
-  shopping:
-    `adult, antiques, galleries, artsandcrafts, auctionhouses, baby_gear, batterystores, bespoke, media,
+    'beer, wine, spirits, breweries, brewpubs, bubbletea, cideries, coffee, coffeeroasteries, juicebars, kombucha, meaderies, milkshakebars, gluhwein, tea, wineries, bars, absinthebars, airportlounges, beachbars, champagene_bars, cigarbars, cocktailbars, divebars, drivethrubars, gaybars, hookah_bars, hotel_bar, irish_pubs, lounges, pubs, pulquerias, sakebars, speakeasies, sportsbars, tabac, tikibars, vermouthbars, wine_bars, beergardens, paintandsip, gastropubs',
+  shopping: `adult, antiques, galleries, artsandcrafts, auctionhouses, baby_gear, batterystores, bespoke, media,
     brewingsupplies, bridal, cannabisdispensaries, chinesebazaar, computers, concept_shoes, cosmetics, 
     custommerchandize, deptstores, diamondbuyers, discountstore, drones, drugstores, dutyfreeshops, electronics,
     opticians, farmingequipment, fashion, fireworks, fitnessequipment, fleamarkets, flowers, gemstonesandminerals,
