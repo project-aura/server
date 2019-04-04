@@ -13,6 +13,7 @@ const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const mongoose = require('mongoose');
 const Business = require('../models/business.model');
+const { funnelAction } = require('./funnel');
 
 class DataMaster {
   //=============================constructor=================================
@@ -31,9 +32,9 @@ class DataMaster {
    */
   connect() {
     mongoose.connect(
-      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${
-        process.env.DB_NAME
-      }?retryWrites=true`,
+      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${
+        process.env.DB_HOST
+      }/${process.env.DB_NAME}?retryWrites=true`,
       { useNewUrlParser: true }
     );
     this.connected = true;
@@ -59,12 +60,18 @@ class DataMaster {
     if (!this.connected) {
       this.connect();
     }
+
     Business.find()
       .where('attributes.aura')
       .regex(req.query.aura || '')
-      .where('categories.alias')
-      .regex(req.query.category || '')
+      // .where('categories.alias')
+      // .regex(req.query.category || '')
+      // call funnel
+      // return from funnel
+
       .then(businesses => res.json(businesses))
+      .then(businesses => funnelAction(req.query.aura, businesses))
+
       .then(() => this.disconnect());
   }
   //= =============================================================================
