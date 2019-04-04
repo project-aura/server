@@ -5,6 +5,7 @@ const businessLA = require('../sample-data/los-angeles-data/businessLA');
 const businessPhotosLA = require('../sample-data/los-angeles-data/businessPhotosLA');
 const invokeMysticalPowers = require('../gray-hat-alchemist/main');
 const DataMaster = require('./DataMaster');
+const environments = require('./environments');
 
 /**
  * Resolves a list of Yelp API Promises.
@@ -102,7 +103,7 @@ const businessDataSeeder = async database => {
   // ===================================== DATA STORAGE =========================================
   // 4/1/19 -> parameter for DataMaster()  no longer needed. The seed() function works the same.
   const businessDatabase = new DataMaster();
-  businessDatabase.seed(transformedBusinessData);
+  businessDatabase.seed(transformedBusinessData, environments.development);
 };
 
 businessDataSeeder('businessLA.json');
