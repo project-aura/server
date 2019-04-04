@@ -291,11 +291,24 @@ const categories = {
         `,
   studying: 'bubbletea, coffee, coffeeroasteries, juicebars, libraries',
   dating:
-    'clubcrawl, countrydancehalls, danceclubs, dancerestaurants,jazzandblues, karaoke, musicvenues, pianobars, artmuseums, musicvenues, paintandsip',
+    `clubcrawl, countrydancehalls, danceclubs, dancerestaurants,jazzandblues, karaoke, musicvenues, pianobars, artmuseums, musicvenues, paintandsip`,
   relaxing:
     'meditationcenters, yoga, jazzandblues, mahjong, observatories, opera, pachinko, paintandsip, theater, planetarium, sportsbetting',
   drinking:
-    'beer, wine, spirits, breweries, brewpubs, bubbletea, cideries, coffee, coffeeroasteries, juicebars, kombucha, meaderies, milkshakebars, gluhwein, tea, wineries, bars, absinthebars, airportlounges, beachbars, champagene_bars, cigarbars, cocktailbars, divebars, drivethrubars, gaybars, hookah_bars, hotel_bar, irish_pubs, lounges, pubs, pulquerias, sakebars, speakeasies, sportsbars, tabac, tikibars, vermouthbars, wine_bars, beergardens, paintandsip'
+    'beer, wine, spirits, breweries, brewpubs, bubbletea, cideries, coffee, coffeeroasteries, juicebars, kombucha, meaderies, milkshakebars, gluhwein, tea, wineries, bars, absinthebars, airportlounges, beachbars, champagene_bars, cigarbars, cocktailbars, divebars, drivethrubars, gaybars, hookah_bars, hotel_bar, irish_pubs, lounges, pubs, pulquerias, sakebars, speakeasies, sportsbars, tabac, tikibars, vermouthbars, wine_bars, beergardens, paintandsip',
+  shopping:
+    `adult, antiques, galleries, artsandcrafts, auctionhouses, baby_gear, batterystores, bespoke, media,
+    brewingsupplies, bridal, cannabisdispensaries, chinesebazaar, computers, concept_shoes, cosmetics, 
+    custommerchandize, deptstores, diamondbuyers, discountstore, drones, drugstores, dutyfreeshops, electronics,
+    opticians, farmingequipment, fashion, fireworks, fitnessequipment, fleamarkets, flowers, gemstonesandminerals,
+    goldbuyers, guns_and_ammo, headshops, hifi, hobbyshops, homeandgarden, horseequipment, jewelry, kiosk, 
+    knittingsupplies, livestocksupply, luggage, marketstalls, medicalsupplies, militarysupplies, cellphoneaccessories,
+    mobilephones, motorcyclinggear, musicalinstrumentsandteachers, officeequipment, outlet_stores, packingsupplies,
+    pawn, perfume, personal_shopping, photographystores, poolbilliards, popupshops, props, publicmarkets, 
+    religiousitems, safestores, safetyequipment, scandinaviandesign, shoppingcenters, shoppingpassages, 
+    souvenirs, spiritual_shop, sportgoods, tabletopgames, teachersupplies, thrift_stores, tickets, 
+    tobaccoshops, toys, trophyshops, uniforms, usedbooks, vapeshops, vitaminssupplements, watches,
+    wholesale_stores, wigs`
 };
 
 module.exports = categories;
