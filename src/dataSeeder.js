@@ -1,10 +1,10 @@
 const { yelpAPI } = require('./API');
 const { businessTransformer } = require('./transformers');
 const AuraBusiness = require('./AuraBusiness');
-const businessLA = require('../sample-data/los-angeles-data/businessLA');
 const businessPhotosLA = require('../sample-data/los-angeles-data/businessPhotosLA');
 const invokeMysticalPowers = require('../gray-hat-alchemist/main');
 const DataMaster = require('./DataMaster');
+const environments = require('./environments');
 
 /**
  * Resolves a list of Yelp API Promises.
@@ -22,7 +22,7 @@ const resolveYelpBusinessApiPromiseData = promises => {
       });
     })
   );
-  // console.log(businessesData); // TEST Call to see all business objects
+  // console.log(businessesData); // TEST: Call to see all business objects
   return businessesData;
 };
 
@@ -35,7 +35,7 @@ const transformYelpBusinessData = async yelpBusiness => {
   // ================================== TRANSFORMING YELP DATA ==============================
 
   // call the transformer and make all values into our data format.
-  let updatedAuraBusiness = businessTransformer.yelpToAura(new AuraBusiness(), yelpBusiness);
+  let updatedAuraBusiness = businessTransformer.yelpToAura(new AuraBusiness(), yelpBusiness); // FIXME: Change to creating a model in the future, instead of a class.
 
   // ======================================= DATA INJECTION ==================================
 
@@ -102,7 +102,7 @@ const businessDataSeeder = async database => {
   // ===================================== DATA STORAGE =========================================
   // 4/1/19 -> parameter for DataMaster()  no longer needed. The seed() function works the same.
   const businessDatabase = new DataMaster();
-  businessDatabase.seed(transformedBusinessData);
+  businessDatabase.seed(transformedBusinessData, environments.dev);
 };
 
 businessDataSeeder('businessLA.json');
