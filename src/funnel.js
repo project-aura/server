@@ -1,13 +1,14 @@
 const funnelAction = (category, businesses) => {
   // filtering businesses based on category
+  const filteredBusinesses = [];
   businesses.map(business => {
     business.categories.map(temp => {
-      if (temp.alias === 'italian') {
-        console.log('Its a me a Mario');
+      if (temp.alias === category) {
+        filteredBusinesses.push(business);
       }
     });
   });
-  return businesses;
+  return filteredBusinesses;
 };
 
 module.exports = {
