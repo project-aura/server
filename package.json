@@ -25,7 +25,7 @@
     "express": "^4.16.4",
     "lowdb": "^1.0.0",
     "mongodb": "^3.1.13",
-    "mongoose": "^5.4.20"
+    "mongoose": "^5.4.22"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
