@@ -1,5 +1,5 @@
 const categories = {
-  eating: 'italian, american',
+  eating: 'italian, american, newamerican',
   drinking: 'gastropub, coffee'
 };
 

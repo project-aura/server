@@ -89,17 +89,9 @@ class DataMaster {
     Business.find()
       .where('attributes.aura')
       .regex(req.query.aura || '')
-      // .where('categories.alias')
-      // .regex(req.query.category || '')
-      // call funnel
-      // return from funnel
-
-      //.then(businesses => res.json(businesses))
-
       .then(businesses =>
         res.json(funnelAction(req.query.category, businesses))
       )
-
       .then(() => this.disconnect());
   }
   //= =============================================================================
