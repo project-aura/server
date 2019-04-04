@@ -3,6 +3,7 @@
  */
 const express = require('express');
 const DataMaster  = require('./../src/DataMaster');
+const environments = require('./../src/environments');
 
 // setup express router
 const router = express.Router();
@@ -97,10 +98,11 @@ router.get('/businesses', (req, res) => {
 
 const dataMaster = new DataMaster();
 // test addToEntry
-// dataMaster.seed(businessLA);
+//dataMaster.seed(data, environments.development);
 
 // test findByAlias
 // dataMaster.findByAlias(data.alias);
+
 
 module.exports = router;
 

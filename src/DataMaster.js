@@ -18,6 +18,7 @@ const { funnelAction } = require('./funnel');
 class DataMaster {
   //=============================constructor=================================
   // Takes no parameters
+  // set connected to false
   constructor() {
     this.connected = false;
   }
@@ -29,6 +30,8 @@ class DataMaster {
    * is that you do not want to connect every single time you create a
    * DataMaster object. Explicit connecting and disconnecting will be
    * implemented.
+   * Update: Only used by the find() function. The functions: addToEntry(), 
+   * seed() uses connectForMutations() instead. 
    */
   connect() {
     mongoose.connect(
@@ -38,6 +41,27 @@ class DataMaster {
       { useNewUrlParser: true }
     );
     this.connected = true;
+  }
+  //=============================================================================
+
+  //=============================connect when mutating ============================
+  /**
+   * This is different from regular connect. This gives the admin options whether
+   * he/she wants to use the development database or the production database.
+   * Going to be used when seeding the database. 
+   */
+  connectForMutations(nameDB) {
+    if(nameDB === process.env.DB_NAME || nameDB === process.env.DB_NAME_TEST) {
+      mongoose.connect(
+        `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${nameDB}?retryWrites=true`,
+        { useNewUrlParser: true }
+      );
+      this.connected = true;
+    }
+    else {
+      // throw error message if db does not exist
+      console.error('The Database does not exist');
+    }
   }
   //=============================================================================
 
@@ -100,10 +124,11 @@ class DataMaster {
    *
    * @param {*} addedDocument -> item/object to be added into the database
    * Not executed by the client, this is a server function.
+   * @param {*} nameDB -> name of the db to send it to. 
    */
-  addToEntry(addedDocument) {
+  addToEntry(addedDocument, nameDB) {
     if (!this.connected) {
-      this.connect();
+      this.connectForMutations(nameDB);;
     }
     Business.create(addedDocument)
       .then(() => this.disconnect())
@@ -116,10 +141,11 @@ class DataMaster {
    *
    * @param {*} addedDocuments -> objects to be added into the database.
    * works the same as the addToEntry function LOL.
+   * @param {*} nameDB -> name of the db to send it to.
    */
-  seed(addedDocuments) {
+  seed(addedDocuments, nameDB) {
     if (!this.connected) {
-      this.connect();
+      this.connectForMutations(nameDB);
     }
     Business.deleteMany({})
       .then()
