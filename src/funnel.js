@@ -1,3 +1,5 @@
+const categories = require('./categories');
+
 const funnelAction = (category, businesses) => {
   // filtering businesses based on category
   const filteredBusinesses = [];
@@ -11,6 +13,4 @@ const funnelAction = (category, businesses) => {
   return filteredBusinesses;
 };
 
-module.exports = {
-  funnelAction
-};
+module.exports = funnelAction;
