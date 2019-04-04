@@ -13,6 +13,7 @@ const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const mongoose = require('mongoose');
 const Business = require('../models/business.model');
+const funnelAction = require('./funnel');
 
 class DataMaster {
   //=============================constructor=================================
@@ -29,14 +30,14 @@ class DataMaster {
    * is that you do not want to connect every single time you create a
    * DataMaster object. Explicit connecting and disconnecting will be
    * implemented.
-   * Update: Only used by the find() function. The functions: addToEntry(), 
-   * seed() uses connectForMutations() instead. 
+   * Update: Only used by the find() function. The functions: addToEntry(),
+   * seed() uses connectForMutations() instead.
    */
   connect() {
     mongoose.connect(
-      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${
-        process.env.DB_NAME
-      }?retryWrites=true`,
+      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${
+        process.env.DB_HOST
+      }/${process.env.DB_NAME}?retryWrites=true`,
       { useNewUrlParser: true }
     );
     this.connected = true;
@@ -47,17 +48,18 @@ class DataMaster {
   /**
    * This is different from regular connect. This gives the admin options whether
    * he/she wants to use the development database or the production database.
-   * Going to be used when seeding the database. 
+   * Going to be used when seeding the database.
    */
   connectForMutations(nameDB) {
-    if(nameDB === process.env.DB_NAME || nameDB === process.env.DB_NAME_TEST) {
+    if (nameDB === process.env.DB_NAME || nameDB === process.env.DB_NAME_TEST) {
       mongoose.connect(
-        `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${nameDB}?retryWrites=true`,
+        `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${
+          process.env.DB_HOST
+        }/${nameDB}?retryWrites=true`,
         { useNewUrlParser: true }
       );
       this.connected = true;
-    }
-    else {
+    } else {
       // throw error message if db does not exist
       console.error('The Database does not exist');
     }
@@ -83,12 +85,13 @@ class DataMaster {
     if (!this.connected) {
       this.connect();
     }
+
     Business.find()
       .where('attributes.aura')
       .regex(req.query.aura || '')
-      .where('categories.alias')
-      .regex(req.query.category || '')
-      .then(businesses => res.json(businesses))
+      .then(businesses =>
+        res.json(funnelAction(req.query.category, businesses))
+      )
       .then(() => this.disconnect());
   }
   //= =============================================================================
@@ -117,11 +120,11 @@ class DataMaster {
    *
    * @param {*} addedDocument -> item/object to be added into the database
    * Not executed by the client, this is a server function.
-   * @param {*} nameDB -> name of the db to send it to. 
+   * @param {*} nameDB -> name of the db to send it to.
    */
   addToEntry(addedDocument, nameDB) {
     if (!this.connected) {
-      this.connectForMutations(nameDB);;
+      this.connectForMutations(nameDB);
     }
     Business.create(addedDocument)
       .then(() => this.disconnect())
