@@ -36,20 +36,30 @@ const transformYelpBusinessData = async yelpBusiness => {
   // ================================== TRANSFORMING YELP DATA ==============================
 
   // call the transformer and make all values into our data format.
-  let updatedAuraBusiness = businessTransformer.yelpToAura(new AuraBusiness(), yelpBusiness);
+  let updatedAuraBusiness = businessTransformer.yelpToAura(
+    new AuraBusiness(),
+    yelpBusiness
+  );
 
   // ======================================= DATA INJECTION ==================================
 
   // Grab all excess data to append to yelp's data
   // Make sure you use transformers on "updatedAuraBusiness" all the way through the pipeline.
   const businessSearchId = updatedAuraBusiness.yelpId;
-  const businessPhoto = businessPhotosLA.find(business => business.id === businessSearchId);
-  updatedAuraBusiness = businessTransformer.imagesToAura(updatedAuraBusiness, businessPhoto);
+  const businessPhoto = businessPhotosLA.find(
+    business => business.id === businessSearchId
+  );
+  updatedAuraBusiness = businessTransformer.imagesToAura(
+    updatedAuraBusiness,
+    businessPhoto
+  );
 
   // ======================================= DATA SCRAPING ==================================
 
   // Scrape each of the business pages
-  const auraString = (await invokeMysticalPowers(updatedAuraBusiness.url)).toLowerCase();
+  const auraString = (await invokeMysticalPowers(
+    updatedAuraBusiness.url
+  )).toLowerCase();
   updatedAuraBusiness.attributes.aura = auraString;
 
   return updatedAuraBusiness;
@@ -66,17 +76,27 @@ const businessDataSeeder = async database => {
   // Make requests to yelp api with each zip location.
   const locationResponses = [];
   try {
-    locationResponses.push(yelpAPI.getBusinesses({ location: '90404', radius: 40000, limit: 50 }));
-    locationResponses.push(yelpAPI.getBusinesses({ location: '90230', radius: 40000, limit: 50 }));
-    locationResponses.push(yelpAPI.getBusinesses({ location: '90014', radius: 40000, limit: 50 }));
-    locationResponses.push(yelpAPI.getBusinesses({ location: '90036', radius: 40000, limit: 50 }));
+    locationResponses.push(
+      yelpAPI.getBusinesses({ location: '90404', radius: 40000, limit: 50 })
+    );
+    locationResponses.push(
+      yelpAPI.getBusinesses({ location: '90230', radius: 40000, limit: 50 })
+    );
+    locationResponses.push(
+      yelpAPI.getBusinesses({ location: '90014', radius: 40000, limit: 50 })
+    );
+    locationResponses.push(
+      yelpAPI.getBusinesses({ location: '90036', radius: 40000, limit: 50 })
+    );
     await Promise.all(locationResponses);
   } catch (err) {
     console.error(err);
   }
 
   // Strip the business data objects
-  const businessesData = await resolveYelpBusinessApiPromiseData(locationResponses);
+  const businessesData = await resolveYelpBusinessApiPromiseData(
+    locationResponses
+  );
 
   // console.log(businessesData);
 
@@ -97,7 +117,9 @@ const businessDataSeeder = async database => {
   }
 
   // Wait for each transform to be done.
-  const transformedBusinessData = await Promise.all(transformedBusinessPromises);
+  const transformedBusinessData = await Promise.all(
+    transformedBusinessPromises
+  );
   // console.log(transformedBusinessData);
 
   // ===================================== DATA STORAGE =========================================
@@ -109,5 +131,5 @@ const businessDataSeeder = async database => {
 businessDataSeeder('businessLA.json');
 
 module.exports = {
-  businessDataSeeder,
+  businessDataSeeder
 };
