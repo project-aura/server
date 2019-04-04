@@ -98,7 +98,7 @@ router.get('/businesses', (req, res) => {
 
 const dataMaster = new DataMaster();
 // test addToEntry
-dataMaster.seed(data, environments.development);
+//dataMaster.seed(data, environments.development);
 
 // test findByAlias
 // dataMaster.findByAlias(data.alias);
