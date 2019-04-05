@@ -13,6 +13,7 @@ const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const mongoose = require('mongoose');
 const Business = require('../models/business.model');
+const User = require('../models/user.model');
 const funnelAction = require('./funnel');
 
 class DataMaster {
@@ -111,11 +112,14 @@ class DataMaster {
     Business.find({ alias: aliasParameter })
       .then(returnedObj => console.log(returnedObj))
       .then(() => this.disconnect())
-      .catch(err => console.error(err));
+      .catch(err => {
+        console.error(err);
+        this.disconnect();
+      });
   }
-  //= ===============================================================================
+  //= ========================================================================================
 
-  //= =====================================add 1 to database=========================
+  //= =====================================add 1 business to database=========================
   /**
    *
    * @param {*} addedDocument -> item/object to be added into the database
@@ -128,7 +132,10 @@ class DataMaster {
     }
     Business.create(addedDocument)
       .then(() => this.disconnect())
-      .catch(err => console.error(err));
+      .catch(err => {
+        console.error(err);
+        this.disconnect();
+      });
   }
   //=================================================================================
 
@@ -138,6 +145,7 @@ class DataMaster {
    * @param {*} addedDocuments -> objects to be added into the database.
    * works the same as the addToEntry function LOL.
    * @param {*} nameDB -> name of the db to send it to.
+   * ABOUT THIS SEED: wipes out the database and adds the new seeded objects
    */
   seed(addedDocuments, nameDB) {
     if (!this.connected) {
@@ -148,9 +156,58 @@ class DataMaster {
       .catch(err => console.log(err));
     Business.create(addedDocuments)
       .then(() => this.disconnect())
-      .catch(err => console.error(err));
+      .catch(err => {
+        console.error(err);
+        this.disconnect();
+      });
   }
   //=================================================================================
+
+  /**
+   * This next section will be methods that involve the user model/schema
+   */
+
+  //==============================add a new user into the database===================
+  /**
+   * 
+   * @param {*} addedUser -> the user object to be added into the database
+   * @param {*} nameDB -> the name of the database to send it to.
+   */
+  addUser(addedUser, nameDB) {
+    if(!this.connected) {
+      this.connectForMutations(nameDB);
+    }
+    User.create(addedUser)
+      .then(() => this.disconnect())
+      .catch(err => {
+        console.error(err);
+        this.disconnect();
+      });
+  }
+  //=================================================================================
+
+  //============================seed the user database for tests=====================
+  /**
+   * 
+   * @param {*} addedUsers -> users to be added into the database
+   * @param {*} nameDB -> name of the database to send it to. 
+   * ABOUT THIS SEED: wipes out the database and adds the new seeded objects
+   */
+  seedUser(addedUsers, nameDB) {
+    if(!this.connected) {
+      this.connectForMutations(nameDB);
+    }
+    User.deleteMany({})
+      .then()
+      .catch(err => console.error(err));
+    User.create(addedUsers)
+      .then(() => this.disconnect())
+      .catch(err => {
+        console.error(err);
+        this.disconnect();
+      });
+  }
+  //================================================================================
 }
 
 module.exports = DataMaster;
