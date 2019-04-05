@@ -10,10 +10,7 @@ const schema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'business',
     },
-    auras: {
-      aura: String,
-      vote: Boolean,
-    },
+    auras: mongoose.Schema.Types.Mixed,
     checkins: Number,
     comment: String,
   },
