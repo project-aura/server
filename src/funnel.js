@@ -1,7 +1,6 @@
 const categories = require('./categories');
 
 const funnelAction = (category, businesses) => {
-  console.log(category);
   if (category === undefined) {
     return businesses;
   }
