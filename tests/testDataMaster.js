@@ -91,6 +91,42 @@ const data = {
   ]
 }
 
+const user1 = {
+  username: 'fucker jones',
+  password: '**********',
+  favorites: [
+    {
+      _id: '5ca66c0a437f6f2f1cff5433',
+      name: 'these nuts',
+    },
+  ],
+  feedback: [
+    {
+      _id: '5ca66c0a437f6f2f1cff5433',
+      name: 'comment crap',
+    },
+  ]
+};
+
+const user2 = {
+  username: 'fucker janes',
+  password: '**********',
+  favorites: [
+    {
+      _id: '5ca66c0a437f6f2f1cff5433',
+      name: 'these knits',
+    },
+  ],
+  feedback: [
+      {
+        _id: '5ca66c0a437f6f2f1cff5433',
+        name: 'comment crap2.0',
+      },
+  ]
+};
+
+const users = [user1, user2];
+
 // GET request
 router.get('/businesses', (req, res) => {
   dataMaster.find(req,res);
@@ -102,6 +138,9 @@ const dataMaster = new DataMaster();
 
 // test findByAlias
 // dataMaster.findByAlias(data.alias);
+
+// test add user
+//dataMaster.seedUser(users, 'bruh');
 
 
 module.exports = router;
