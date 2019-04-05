@@ -21,7 +21,7 @@ const schema = mongoose.Schema(
     address: String,
     city: String,
     state: String,
-    postalCode: StaticRange,
+    postalCode: String,
     latitude: Number,
     longitude: Number,
     url: String,
@@ -90,4 +90,4 @@ const schema = mongoose.Schema(
 
 const Business = mongoose.model('business', schema);
 
-module.export = Business;
+module.exports = Business;
