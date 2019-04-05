@@ -3,7 +3,6 @@
 const express = require('express');
 const DataMaster = require('./DataMaster');
 const auraList = require('../sample-data/aura/auras.json');
-const Business = require('../models/business.model');
 
 const router = express.Router();
 const dataMaster = new DataMaster();
