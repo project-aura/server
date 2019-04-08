@@ -202,11 +202,10 @@ class DataMaster {
   /**
    * Finds a single user by their username
    * @param {String} username -> username of searched user
-   * @param {String} nameDB -> name of the database to send it to.
    */
-  async findUser(username, nameDB) {
+  async findUser(username) {
     if (!this.connected) {
-      this.connectForMutations(nameDB);
+      this.connectForMutations(this.dbName);
     }
     try {
       const user = await User.findOne({ username });
