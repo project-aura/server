@@ -36,9 +36,9 @@ class DataMaster {
    */
   connect() {
     mongoose.connect(
-      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${
-        process.env.DB_HOST
-      }/${process.env.DB_NAME}?retryWrites=true`,
+      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${
+        process.env.DB_NAME
+      }?retryWrites=true`,
       { useNewUrlParser: true }
     );
     this.connected = true;
@@ -76,11 +76,10 @@ class DataMaster {
 
   //=================================find business================================
   /**
-   *
-   * @param {*} req -> the request from the client
-   * @param {*} res -> the response from the server
    * This function finds all the businesses. Also has an option to
    * find by filtering the name.
+   * @param {*} req -> the request from the client
+   * @param {*} res -> the response from the server
    */
   find(req, res) {
     if (!this.connected) {
@@ -90,19 +89,16 @@ class DataMaster {
     Business.find()
       .where('attributes.aura')
       .regex(req.query.aura || '')
-      .then(businesses =>
-        res.json(funnelAction(req.query.category, businesses))
-      )
+      .then(businesses => res.json(funnelAction(req.query.category, businesses)))
       .then(() => this.disconnect());
   }
   //= =============================================================================
 
   //= ====================find business by alias===================================
   /**
-   *
-   * @param {*} aliasParameter -> parameter for the alias
    * This function is not executed by the client. They don't need to know about
    * this function.
+   * @param {*} aliasParameter -> parameter for the alias
    */
 
   findByAlias(aliasParameter) {
@@ -121,9 +117,8 @@ class DataMaster {
 
   //= =====================================add 1 business to database=========================
   /**
-   *
-   * @param {*} addedDocument -> item/object to be added into the database
    * Not executed by the client, this is a server function.
+   * @param {*} addedDocument -> item/object to be added into the database
    * @param {*} nameDB -> name of the db to send it to.
    */
   addToEntry(addedDocument, nameDB) {
@@ -141,11 +136,10 @@ class DataMaster {
 
   //===================================seed the database=============================
   /**
-   *
+   * ABOUT THIS SEED: wipes out the database and adds the new seeded objects
    * @param {*} addedDocuments -> objects to be added into the database.
    * works the same as the addToEntry function LOL.
    * @param {*} nameDB -> name of the db to send it to.
-   * ABOUT THIS SEED: wipes out the database and adds the new seeded objects
    */
   seed(addedDocuments, nameDB) {
     if (!this.connected) {
@@ -163,38 +157,38 @@ class DataMaster {
   }
   //=================================================================================
 
-  /**
+  /*
    * This next section will be methods that involve the user model/schema
    */
 
   //==============================add a new user into the database===================
   /**
-   * 
+   * Adds a single user
    * @param {*} addedUser -> the user object to be added into the database
    * @param {*} nameDB -> the name of the database to send it to.
    */
-  addUser(addedUser, nameDB) {
-    if(!this.connected) {
+  async addUser(addedUser, nameDB) {
+    if (!this.connected) {
       this.connectForMutations(nameDB);
     }
-    User.create(addedUser)
-      .then(() => this.disconnect())
-      .catch(err => {
-        console.error(err);
-        this.disconnect();
-      });
+    try {
+      const user = await User.create(addedUser);
+      return user;
+    } catch (err) {
+      console.error(err);
+      this.disconnect();
+    }
   }
   //=================================================================================
 
   //============================seed the user database for tests=====================
   /**
-   * 
-   * @param {*} addedUsers -> users to be added into the database
-   * @param {*} nameDB -> name of the database to send it to. 
    * ABOUT THIS SEED: wipes out the database and adds the new seeded objects
+   * @param {*} addedUsers -> users to be added into the database
+   * @param {*} nameDB -> name of the database to send it to.
    */
   seedUser(addedUsers, nameDB) {
-    if(!this.connected) {
+    if (!this.connected) {
       this.connectForMutations(nameDB);
     }
     User.deleteMany({})
@@ -206,6 +200,27 @@ class DataMaster {
         console.error(err);
         this.disconnect();
       });
+  }
+  //================================================================================
+
+  //==================================== Find Single User ==========================
+
+  /**
+   * Finds a single user by their username
+   * @param {String} username -> username of searched user
+   * @param {String} nameDB -> name of the database to send it to.
+   */
+  async findUser(username, nameDB) {
+    if (!this.connected) {
+      this.connectForMutations(nameDB);
+    }
+    try {
+      const user = await User.findOne({ username });
+      return user;
+    } catch (err) {
+      console.error(err);
+      this.disconnect();
+    }
   }
   //================================================================================
 }

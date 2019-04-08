@@ -2,6 +2,11 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+const environments = require('../environments');
+const DataMaster = require('../DataMaster');
+
+const dataMaster = new DataMaster();
+
 router.post('/signup', async (req, res) => {
   if (!req.body.username || !req.body.password)
     return res
@@ -9,24 +14,20 @@ router.post('/signup', async (req, res) => {
       .json({ message: 'Invalid syntax: Please provide a proper username and password' });
 
   try {
-    const userObj = {
+    const user = {
       username: req.body.username,
-      password: req.body.username,
+      password: req.body.password,
+      favorites: [],
+      feedback: [],
     };
 
-    // FIXME: Use models when ready
-    /*
-    const user = await User.create({
-      username: req.body.username,
-      password: req.body.username,
-      favorites: {},
-    })
-    const userObj = user.toObject();
-     */
+    const createdUser = await dataMaster.addUser(user, environments.development);
 
+    const userObj = createdUser.toObject();
     delete userObj.password;
     return res.status(201).json({ message: 'User successfully created', user: userObj });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err); // FIXME: make more robust error handling.
   }
 });
@@ -37,15 +38,7 @@ router.post('/login', async (req, res) => {
   }
 
   // find the user
-  // FIXME: Change this to a database call to get actual user.
-  const user = {
-    username: 'scott',
-    password: 'scott',
-  };
-
-  // FIXME: This line needs to be implemented in user model. Check the express-codealong for more info.
-  const hash = await bcrypt.hash(user.password, 10);
-  user.password = hash;
+  const user = await dataMaster.findUser(req.body.username, environments.development);
 
   // Check if User exists
   if (!user) return res.status(404).json({ message: 'Invalid username: please try again' });
@@ -56,8 +49,7 @@ router.post('/login', async (req, res) => {
   // Provide User with login token if they do
   if (isMatch) {
     // sign a jwt
-    // FIXME: Change user to user.toJSON()
-    const token = jwt.sign(user, process.env.JWT_SECRET, {
+    const token = jwt.sign(user.toJSON(), process.env.JWT_SECRET, {
       expiresIn: '1 day',
       issuer: 'aura', // TODO: talk about this with the team and whether we want an issuer to be more secure
     });
