@@ -132,15 +132,12 @@ router.get('/businesses', (req, res) => {
   dataMaster.find(req,res);
 })
 
-const dataMaster = new DataMaster();
-// test addToEntry
-//dataMaster.seed(data, environments.development);
-
-// test findByAlias
-// dataMaster.findByAlias(data.alias);
+const dataMaster = new DataMaster(environments.development);
+// test seed()
+// dataMaster.seed(data);
 
 // test add user
-//dataMaster.seedUser(users, 'bruh');
+//dataMaster.seedUser(users);
 
 
 module.exports = router;

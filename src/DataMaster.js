@@ -18,9 +18,15 @@ const funnelAction = require('./funnel');
 
 class DataMaster {
   //=============================constructor=================================
-  // Takes no parameters
-  // set connected to false
-  constructor() {
+  /**
+   * 
+   * @param {*} dbName -> The name of the database to be used.
+   * Either the dev or production databases. The function that connects
+   * with intentions of mutating the database then knows which database
+   * to mutate.
+   */
+  constructor(dbName) {
+    this.dbName = dbName;
     this.connected = false;
   }
   //==========================================================================
@@ -47,9 +53,8 @@ class DataMaster {
 
   //=============================connect when mutating ============================
   /**
-   * This is different from regular connect. This gives the admin options whether
-   * he/she wants to use the development database or the production database.
-   * Going to be used when seeding the database.
+   * This is different from regular connect. This allows the DataMaster to write 
+   * in different databases depending on the value passed to it. 
    */
   connectForMutations(nameDB) {
     if (nameDB === process.env.DB_NAME || nameDB === process.env.DB_NAME_TEST) {
@@ -76,10 +81,10 @@ class DataMaster {
 
   //=================================find business================================
   /**
-   * This function finds all the businesses. Also has an option to
-   * find by filtering the name.
    * @param {*} req -> the request from the client
    * @param {*} res -> the response from the server
+   * This function finds all the businesses. Filters based on 
+   * aura and category filters.
    */
   find(req, res) {
     if (!this.connected) {
@@ -89,7 +94,11 @@ class DataMaster {
     Business.find()
       .where('attributes.aura')
       .regex(req.query.aura || '')
-      .then(businesses => res.json(funnelAction(req.query.category, businesses)))
+      .where('city')
+      .regex(req.query.city || '')
+      .then(businesses =>
+        res.json(funnelAction(req.query.category, businesses))
+      )
       .then(() => this.disconnect());
   }
   //= =============================================================================
@@ -108,10 +117,7 @@ class DataMaster {
     Business.find({ alias: aliasParameter })
       .then(returnedObj => console.log(returnedObj))
       .then(() => this.disconnect())
-      .catch(err => {
-        console.error(err);
-        this.disconnect();
-      });
+      .catch(err => console.error(err));
   }
   //= ========================================================================================
 
@@ -119,18 +125,14 @@ class DataMaster {
   /**
    * Not executed by the client, this is a server function.
    * @param {*} addedDocument -> item/object to be added into the database
-   * @param {*} nameDB -> name of the db to send it to.
    */
-  addToEntry(addedDocument, nameDB) {
+  addToEntry(addedDocument) {
     if (!this.connected) {
-      this.connectForMutations(nameDB);
+      this.connectForMutations(this.dbName);
     }
     Business.create(addedDocument)
       .then(() => this.disconnect())
-      .catch(err => {
-        console.error(err);
-        this.disconnect();
-      });
+      .catch(err => console.error(err));
   }
   //=================================================================================
 
@@ -138,22 +140,18 @@ class DataMaster {
   /**
    * ABOUT THIS SEED: wipes out the database and adds the new seeded objects
    * @param {*} addedDocuments -> objects to be added into the database.
-   * works the same as the addToEntry function LOL.
-   * @param {*} nameDB -> name of the db to send it to.
+   * WARNING: wipes the database clean everytime and repopulates
    */
-  seed(addedDocuments, nameDB) {
+  seed(addedDocuments) {
     if (!this.connected) {
-      this.connectForMutations(nameDB);
+      this.connectForMutations(this.dbName);
     }
     Business.deleteMany({})
       .then()
-      .catch(err => console.log(err));
+      .catch(err => console.error(err));
     Business.create(addedDocuments)
       .then(() => this.disconnect())
-      .catch(err => {
-        console.error(err);
-        this.disconnect();
-      });
+      .catch(err => console.error(err));
   }
   //=================================================================================
 
@@ -165,11 +163,11 @@ class DataMaster {
   /**
    * Adds a single user
    * @param {*} addedUser -> the user object to be added into the database
-   * @param {*} nameDB -> the name of the database to send it to.
    */
-  async addUser(addedUser, nameDB) {
+
+  async addUser(addedUser) {
     if (!this.connected) {
-      this.connectForMutations(nameDB);
+      this.connectForMutations(this.dbName);
     }
     try {
       const user = await User.create(addedUser);
@@ -185,21 +183,17 @@ class DataMaster {
   /**
    * ABOUT THIS SEED: wipes out the database and adds the new seeded objects
    * @param {*} addedUsers -> users to be added into the database
-   * @param {*} nameDB -> name of the database to send it to.
    */
-  seedUser(addedUsers, nameDB) {
-    if (!this.connected) {
-      this.connectForMutations(nameDB);
+  seedUser(addedUsers) {
+    if(!this.connected) {
+      this.connectForMutations(this.dbName);
     }
     User.deleteMany({})
       .then()
       .catch(err => console.error(err));
     User.create(addedUsers)
       .then(() => this.disconnect())
-      .catch(err => {
-        console.error(err);
-        this.disconnect();
-      });
+      .catch(err => console.error(err));
   }
   //================================================================================
 
