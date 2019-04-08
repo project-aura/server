@@ -95,6 +95,8 @@ class DataMaster {
     Business.find()
       .where('attributes.aura')
       .regex(req.query.aura || '')
+      .where('city')
+      .regex(req.query.city || '')
       .then(businesses =>
         res.json(funnelAction(req.query.category, businesses))
       )

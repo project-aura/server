@@ -137,7 +137,7 @@ const dataMaster = new DataMaster(environments.development);
 // dataMaster.seed(data);
 
 // test add user
-dataMaster.seedUser(users);
+//dataMaster.seedUser(users);
 
 
 module.exports = router;
