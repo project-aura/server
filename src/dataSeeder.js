@@ -1,7 +1,6 @@
 const { yelpAPI } = require('./API');
 const { businessTransformer } = require('./transformers');
 const AuraBusiness = require('./AuraBusiness');
-const businessLA = require('../sample-data/los-angeles-data/businessLA');
 const businessPhotosLA = require('../sample-data/los-angeles-data/businessPhotosLA');
 const invokeMysticalPowers = require('../gray-hat-alchemist/main');
 const DataMaster = require('./DataMaster');
@@ -23,7 +22,7 @@ const resolveYelpBusinessApiPromiseData = promises => {
       });
     })
   );
-  // console.log(businessesData); // TEST Call to see all business objects
+  // console.log(businessesData); // TEST: Call to see all business objects
   return businessesData;
 };
 

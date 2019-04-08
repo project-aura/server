@@ -42,9 +42,9 @@ class DataMaster {
    */
   connect() {
     mongoose.connect(
-      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${
-        process.env.DB_HOST
-      }/${process.env.DB_NAME}?retryWrites=true`,
+      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${
+        process.env.DB_NAME
+      }?retryWrites=true`,
       { useNewUrlParser: true }
     );
     this.connected = true;
@@ -81,7 +81,6 @@ class DataMaster {
 
   //=================================find business================================
   /**
-   *
    * @param {*} req -> the request from the client
    * @param {*} res -> the response from the server
    * This function finds all the businesses. Filters based on 
@@ -106,10 +105,9 @@ class DataMaster {
 
   //= ====================find business by alias===================================
   /**
-   *
-   * @param {*} aliasParameter -> parameter for the alias
    * This function is not executed by the client. They don't need to know about
    * this function.
+   * @param {*} aliasParameter -> parameter for the alias
    */
 
   findByAlias(aliasParameter) {
@@ -125,9 +123,8 @@ class DataMaster {
 
   //= =====================================add 1 business to database=========================
   /**
-   *
-   * @param {*} addedDocument -> item/object to be added into the database
    * Not executed by the client, this is a server function.
+   * @param {*} addedDocument -> item/object to be added into the database
    */
   addToEntry(addedDocument) {
     if (!this.connected) {
@@ -141,7 +138,7 @@ class DataMaster {
 
   //===================================seed the database=============================
   /**
-   *
+   * ABOUT THIS SEED: wipes out the database and adds the new seeded objects
    * @param {*} addedDocuments -> objects to be added into the database.
    * WARNING: wipes the database clean everytime and repopulates
    */
@@ -158,30 +155,34 @@ class DataMaster {
   }
   //=================================================================================
 
-  /**
+  /*
    * This next section will be methods that involve the user model/schema
    */
 
   //==============================add a new user into the database===================
   /**
-   * 
+   * Adds a single user
    * @param {*} addedUser -> the user object to be added into the database
    */
-  addUser(addedUser) {
-    if(!this.connected) {
+
+  async addUser(addedUser) {
+    if (!this.connected) {
       this.connectForMutations(this.dbName);
     }
-    User.create(addedUser)
-      .then(() => this.disconnect())
-      .catch(err => console.error(err));
+    try {
+      const user = await User.create(addedUser);
+      return user;
+    } catch (err) {
+      console.error(err);
+      this.disconnect();
+    }
   }
   //=================================================================================
 
   //============================seed the user database for tests=====================
   /**
-   * 
-   * @param {*} addedUsers -> users to be added into the database
    * ABOUT THIS SEED: wipes out the database and adds the new seeded objects
+   * @param {*} addedUsers -> users to be added into the database
    */
   seedUser(addedUsers) {
     if(!this.connected) {
@@ -193,6 +194,27 @@ class DataMaster {
     User.create(addedUsers)
       .then(() => this.disconnect())
       .catch(err => console.error(err));
+  }
+  //================================================================================
+
+  //==================================== Find Single User ==========================
+
+  /**
+   * Finds a single user by their username
+   * @param {String} username -> username of searched user
+   * @param {String} nameDB -> name of the database to send it to.
+   */
+  async findUser(username, nameDB) {
+    if (!this.connected) {
+      this.connectForMutations(nameDB);
+    }
+    try {
+      const user = await User.findOne({ username });
+      return user;
+    } catch (err) {
+      console.error(err);
+      this.disconnect();
+    }
   }
   //================================================================================
 }
