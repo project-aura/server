@@ -5,8 +5,9 @@ const jwt = require('jsonwebtoken');
 const environments = require('../environments');
 const DataMaster = require('../DataMaster');
 
-const dataMaster = new DataMaster(environments.development);
+const dataMaster = new DataMaster(environments.production);
 
+// TODO: Use passport to protect this route.
 router.post('/signup', async (req, res) => {
   if (!req.body.username || !req.body.password)
     return res
@@ -32,6 +33,7 @@ router.post('/signup', async (req, res) => {
   }
 });
 
+// TODO: Use Passport to protect this route
 router.post('/login', async (req, res) => {
   if (!req.body.username || !req.body.password) {
     return res.status(400).json({ message: 'Invalid username and password' });
