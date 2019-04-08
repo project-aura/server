@@ -119,12 +119,27 @@ const user2 = {
   ],
   feedback: [
       {
-        _id: '5ca66c0a437f6f2f1cff5433',
+        _id: '5ca66c0a437f6f2f1cff5413',
         name: 'comment crap2.0',
       },
   ]
 };
-
+const user3 = {
+  username: 'nippsy hussle',
+  password: '**********',
+  favorites: [
+    {
+      _id: '5ca66c0a437f6f2f1cff5403',
+      name: 'these knits',
+    },
+  ],
+  feedback: [
+      {
+        _id: '5ca66c0a437f6f2f1cff5433',
+        name: 'comment crap3.0',
+      },
+  ]
+};
 const users = [user1, user2];
 
 // GET request
@@ -136,8 +151,11 @@ const dataMaster = new DataMaster(environments.development);
 // test seed()
 // dataMaster.seed(data);
 
-// test add user
+// test seed user
 //dataMaster.seedUser(users);
+
+// test add user
+// dataMaster.addUser(user3);
 
 
 module.exports = router;
