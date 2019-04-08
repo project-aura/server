@@ -123,9 +123,10 @@ const businessDataSeeder = async database => {
   // console.log(transformedBusinessData);
 
   // ===================================== DATA STORAGE =========================================
-  // 4/1/19 -> parameter for DataMaster()  no longer needed. The seed() function works the same.
-  const businessDatabase = new DataMaster();
-  businessDatabase.seed(transformedBusinessData, environments.development);
+  // parameter for DataMaster() -> the database name. 
+  // seed just now takes data.
+  const businessDatabase = new DataMaster(environments.developement);
+  businessDatabase.seed(transformedBusinessData);
 };
 
 businessDataSeeder('businessLA.json');
