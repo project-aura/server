@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const environments = require('../environments');
 const DataMaster = require('../DataMaster');
 
-const dataMaster = new DataMaster();
+const dataMaster = new DataMaster(environments.development);
 
 router.post('/signup', async (req, res) => {
   if (!req.body.username || !req.body.password)
@@ -21,7 +21,7 @@ router.post('/signup', async (req, res) => {
       feedback: [],
     };
 
-    const createdUser = await dataMaster.addUser(user, environments.development);
+    const createdUser = await dataMaster.addUser(user);
 
     const userObj = createdUser.toObject();
     delete userObj.password;
@@ -38,7 +38,7 @@ router.post('/login', async (req, res) => {
   }
 
   // find the user
-  const user = await dataMaster.findUser(req.body.username, environments.development);
+  const user = await dataMaster.findUser(req.body.username);
 
   // Check if User exists
   if (!user) return res.status(404).json({ message: 'Invalid username: please try again' });
