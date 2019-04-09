@@ -33,6 +33,6 @@ schema.pre('save', async function() {
   // pass it along
 });
 
-const User = mongoose.model('user', schema);
+const User = mongoose.model('user', schema, 'users');
 
 module.exports = User;

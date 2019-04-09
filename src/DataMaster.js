@@ -19,7 +19,7 @@ const funnelAction = require('./funnel');
 class DataMaster {
   //=============================constructor=================================
   /**
-   * 
+   *
    * @param {*} dbName -> The name of the database to be used.
    * Either the dev or production databases. The function that connects
    * with intentions of mutating the database then knows which database
@@ -53,8 +53,8 @@ class DataMaster {
 
   //=============================connect when mutating ============================
   /**
-   * This is different from regular connect. This allows the DataMaster to write 
-   * in different databases depending on the value passed to it. 
+   * This is different from regular connect. This allows the DataMaster to write
+   * in different databases depending on the value passed to it.
    */
   connectForMutations(nameDB) {
     if (nameDB === process.env.DB_NAME || nameDB === process.env.DB_NAME_TEST) {
@@ -83,7 +83,7 @@ class DataMaster {
   /**
    * @param {*} req -> the request from the client
    * @param {*} res -> the response from the server
-   * This function finds all the businesses. Filters based on 
+   * This function finds all the businesses. Filters based on
    * aura and category filters.
    */
   find(req, res) {
@@ -96,9 +96,7 @@ class DataMaster {
       .regex(req.query.aura || '')
       .where('city')
       .regex(req.query.city || '')
-      .then(businesses =>
-        res.json(funnelAction(req.query.category, businesses))
-      )
+      .then(businesses => res.json(funnelAction(req.query.category, businesses)))
       .then(() => this.disconnect());
   }
   //= =============================================================================
@@ -139,19 +137,22 @@ class DataMaster {
   //===================================seed the database=============================
   /**
    * ABOUT THIS SEED: wipes out the database and adds the new seeded objects
-   * @param {*} addedDocuments -> objects to be added into the database.
    * WARNING: wipes the database clean everytime and repopulates
+   * @param {*} addedDocuments -> objects to be added into the database.
    */
-  seed(addedDocuments) {
+  async seedBusinesses(addedDocuments) {
     if (!this.connected) {
       this.connectForMutations(this.dbName);
     }
-    Business.deleteMany({})
-      .then()
-      .catch(err => console.error(err));
-    Business.create(addedDocuments)
-      .then(() => this.disconnect())
-      .catch(err => console.error(err));
+    try {
+      await Business.deleteMany({});
+      await Business.insertMany(addedDocuments, { ordered: false });
+      // this.disconnect();
+      return;
+    } catch (err) {
+      console.error(err);
+      this.disconnect();
+    }
   }
   //=================================================================================
 
@@ -184,16 +185,19 @@ class DataMaster {
    * ABOUT THIS SEED: wipes out the database and adds the new seeded objects
    * @param {*} addedUsers -> users to be added into the database
    */
-  seedUser(addedUsers) {
-    if(!this.connected) {
+  async seedUsers(addedUsers) {
+    if (!this.connected) {
       this.connectForMutations(this.dbName);
     }
-    User.deleteMany({})
-      .then()
-      .catch(err => console.error(err));
-    User.create(addedUsers)
-      .then(() => this.disconnect())
-      .catch(err => console.error(err));
+    try {
+      await User.deleteMany({});
+      await User.insertMany(addedUsers, { ordered: false });
+      this.disconnect();
+      return;
+    } catch (err) {
+      console.log(err);
+      this.disconnect();
+    }
   }
   //================================================================================
 
