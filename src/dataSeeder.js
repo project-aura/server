@@ -113,9 +113,10 @@ const businessDataSeeder = async database => {
   // console.log(transformedBusinessData);
 
   // ===================================== DATA STORAGE =========================================
+
   // parameter for DataMaster() -> the database name.
   // seed just now takes data.
-  const businessDatabase = new DataMaster(currentEnvironment);
+  const businessDatabase = new DataMaster(environments.development);
   await businessDatabase.seedBusinesses(transformedBusinessData); // HACK: Throws errors because of duplicates... its ok...
   console.log('Seeding Businesses ... Done');
 };

@@ -19,14 +19,18 @@ const funnelAction = require('./funnel');
 class DataMaster {
   //=============================constructor=================================
   /**
-   *
-   * @param {*} dbName -> The name of the database to be used.
-   * Either the dev or production databases. The function that connects
-   * with intentions of mutating the database then knows which database
-   * to mutate.
+   * @param {*} dbName -> name of the database to be used
+   * from npm start or npm run dev
+   * No arguments can only be used when running in either npm start
+   * or npm rub dev. Arguments to that will determine the environment used.
    */
   constructor(dbName) {
-    this.dbName = dbName;
+    if(!dbName) {
+      this.dbName = process.env.ENVIRONMENT;
+    }
+    else {
+      this.dbName = dbName;
+    }
     this.connected = false;
   }
   //==========================================================================
