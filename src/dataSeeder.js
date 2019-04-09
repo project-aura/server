@@ -122,9 +122,9 @@ const businessDataSeeder = async database => {
   // console.log(transformedBusinessData);
 
   // ===================================== DATA STORAGE =========================================
-  // parameter for DataMaster() -> the database name. 
-  // seed just now takes data.
-  const businessDatabase = new DataMaster(environments.developement);
+  // parameter for DataMaster() -> name of DB since it will still be run from CLI.
+  // seed just takes data. 
+  const businessDatabase = new DataMaster(environments.development);
   businessDatabase.seed(transformedBusinessData);
 };
 

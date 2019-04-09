@@ -4,6 +4,10 @@ const cors = require('cors');
 const path = require('path');
 const dataSnatcher = require('./src/dataSnatcher');
 const authRouter = require('./src/routes/auth');
+const selectEnvironment = require('./src/selectEnvironment');
+
+// select between dev and prod environments based off process.argv[2]
+selectEnvironment(process.argv[2]);
 
 const app = express();
 
