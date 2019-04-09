@@ -1,10 +1,15 @@
+const bcrypt = require('bcrypt');
+
 const { yelpAPI } = require('./API');
 const { businessTransformer } = require('./transformers');
 const AuraBusiness = require('./AuraBusiness');
 const businessPhotosLA = require('../sample-data/los-angeles-data/businessPhotosLA');
+const seedUserObject = require('../data/seedUsers.json');
 const invokeMysticalPowers = require('../gray-hat-alchemist/main');
 const DataMaster = require('./DataMaster');
 const environments = require('./environments');
+
+const currentEnvironment = environments.production;
 
 /**
  * Resolves a list of Yelp API Promises.
@@ -35,30 +40,20 @@ const transformYelpBusinessData = async yelpBusiness => {
   // ================================== TRANSFORMING YELP DATA ==============================
 
   // call the transformer and make all values into our data format.
-  let updatedAuraBusiness = businessTransformer.yelpToAura(
-    new AuraBusiness(),
-    yelpBusiness
-  );
+  let updatedAuraBusiness = businessTransformer.yelpToAura(new AuraBusiness(), yelpBusiness);
 
   // ======================================= DATA INJECTION ==================================
 
   // Grab all excess data to append to yelp's data
   // Make sure you use transformers on "updatedAuraBusiness" all the way through the pipeline.
   const businessSearchId = updatedAuraBusiness.yelpId;
-  const businessPhoto = businessPhotosLA.find(
-    business => business.id === businessSearchId
-  );
-  updatedAuraBusiness = businessTransformer.imagesToAura(
-    updatedAuraBusiness,
-    businessPhoto
-  );
+  const businessPhoto = businessPhotosLA.find(business => business.id === businessSearchId);
+  updatedAuraBusiness = businessTransformer.imagesToAura(updatedAuraBusiness, businessPhoto);
 
   // ======================================= DATA SCRAPING ==================================
 
   // Scrape each of the business pages
-  const auraString = (await invokeMysticalPowers(
-    updatedAuraBusiness.url
-  )).toLowerCase();
+  const auraString = (await invokeMysticalPowers(updatedAuraBusiness.url)).toLowerCase();
   updatedAuraBusiness.attributes.aura = auraString;
 
   return updatedAuraBusiness;
@@ -75,61 +70,71 @@ const businessDataSeeder = async database => {
   // Make requests to yelp api with each zip location.
   const locationResponses = [];
   try {
-    locationResponses.push(
-      yelpAPI.getBusinesses({ location: '90404', radius: 40000, limit: 50 })
-    );
-    locationResponses.push(
-      yelpAPI.getBusinesses({ location: '90230', radius: 40000, limit: 50 })
-    );
-    locationResponses.push(
-      yelpAPI.getBusinesses({ location: '90014', radius: 40000, limit: 50 })
-    );
-    locationResponses.push(
-      yelpAPI.getBusinesses({ location: '90036', radius: 40000, limit: 50 })
-    );
+    locationResponses.push(yelpAPI.getBusinesses({ location: '90404', radius: 40000, limit: 50 }));
+    locationResponses.push(yelpAPI.getBusinesses({ location: '90230', radius: 40000, limit: 50 }));
+    locationResponses.push(yelpAPI.getBusinesses({ location: '90014', radius: 40000, limit: 50 }));
+    locationResponses.push(yelpAPI.getBusinesses({ location: '90036', radius: 40000, limit: 50 }));
     await Promise.all(locationResponses);
   } catch (err) {
     console.error(err);
   }
 
   // Strip the business data objects
-  const businessesData = await resolveYelpBusinessApiPromiseData(
-    locationResponses
-  );
+  const businessesData = await resolveYelpBusinessApiPromiseData(locationResponses);
 
   // console.log(businessesData);
 
-  // ================================ DETAILED BUSINESS CALLS ================================
+  // ================================ CHECK FOR DUPLICATES ================================
 
-  // Not needed now because we can get all of the object properties we need.
-  // Perform an api call to yelp with each of the business object aliases in businessesData
+  const uniqueBusinessesData = [];
+  const yelpIds = {};
+  for (const business of businessesData) {
+    if (!yelpIds[business.id]) {
+      yelpIds[business.id] = '';
+      uniqueBusinessesData.push(business);
+    } else {
+      console.log(business);
+    }
+  }
 
   // ================================ TRANSFORM BUSINESS OBJECT ================================
 
   // Send each of the business objects down a manipiulation pipeline and store the result in transformedBusinessData
 
   const transformedBusinessPromises = [];
-  for (const yelpBusiness of businessesData) {
+  for (const yelpBusiness of uniqueBusinessesData) {
     // Asyncronously tranform all businesses
     const auraBusiness = transformYelpBusinessData(yelpBusiness);
     transformedBusinessPromises.push(auraBusiness);
   }
 
   // Wait for each transform to be done.
-  const transformedBusinessData = await Promise.all(
-    transformedBusinessPromises
-  );
+  const transformedBusinessData = await Promise.all(transformedBusinessPromises);
   // console.log(transformedBusinessData);
 
   // ===================================== DATA STORAGE =========================================
-  // parameter for DataMaster() -> the database name. 
+  // parameter for DataMaster() -> the database name.
   // seed just now takes data.
-  const businessDatabase = new DataMaster(environments.developement);
-  businessDatabase.seed(transformedBusinessData);
+  const businessDatabase = new DataMaster(currentEnvironment);
+  await businessDatabase.seedBusinesses(transformedBusinessData); // HACK: Throws errors because of duplicates... its ok...
+  console.log('Seeding Businesses ... Done');
 };
 
-businessDataSeeder('businessLA.json');
+const userDataSeeder = async () => {
+  console.log('Seeding Users ...');
+  const database = new DataMaster(currentEnvironment);
+  for (const user of seedUserObject.users) {
+    const salt = await bcrypt.genSalt();
+    const hash = await bcrypt.hash(user.password, salt);
+    user.password = hash;
+  }
+  await database.seedUsers(seedUserObject.users);
+  console.log('Seeding Users ... complete');
+};
+
+// businessDataSeeder();
+userDataSeeder();
 
 module.exports = {
-  businessDataSeeder
+  businessDataSeeder,
 };
