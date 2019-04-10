@@ -2,9 +2,12 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const dataSnatcher = require('./src/dataSnatcher');
+const passport = require('passport');
+const JwtStrategy = require('./passport');
+const businessRouter = require('./src/routes/business');
 const authRouter = require('./src/routes/auth');
 const selectEnvironment = require('./src/selectEnvironment');
+const accountRouter = require('./src/routes/account');
 
 // select between dev and prod environments based off process.argv[2]
 selectEnvironment(process.argv[2]);
@@ -22,11 +25,15 @@ app.use(cors());
 
 // static middleware
 app.use(express.static(path.join(__dirname, 'public')));
-/* MIGHT need to put some STATIC MIDDLEWARE IN HERE (Optional)
- * Route and Set endpoints.
- */
-app.use('/', dataSnatcher);
+
+// authentication middleware
+app.use(passport.initialize());
+passport.use(JwtStrategy);
+
+// Route endpoints
+app.use('/api/businesses', businessRouter);
 app.use('/api/auth', authRouter);
+app.use('/api/account', accountRouter);
 
 const PORT = process.env.PORT || 3500;
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
