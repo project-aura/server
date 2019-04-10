@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const CustomError = require('../utils/CustomError');
+const CustomError = require('../helpers/CustomError');
 
 const schema = mongoose.Schema({
   username: {

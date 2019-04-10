@@ -6,7 +6,7 @@ const passport = require('passport');
 const JwtStrategy = require('./passport');
 const businessRouter = require('./routes/business');
 const authRouter = require('./routes/auth');
-const selectEnvironment = require('./src/selectEnvironment');
+const selectEnvironment = require('./helpers/selectEnvironment');
 const accountRouter = require('./routes/account');
 const errorHandler = require('./middleware/errorHandler');
 

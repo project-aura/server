@@ -4,17 +4,17 @@ const jwt = require('jsonwebtoken');
 
 const asyncWrapper = require('../middleware/asyncWrapper');
 const DataMaster = require('../controllers/DataMaster');
-const CustomError = require('../utils/CustomError');
+const CustomError = require('../helpers/CustomError');
 
 const dataMaster = new DataMaster(process.env.ENVIRONMENT);
 
 router.post(
   '/signup',
   asyncWrapper(async (req, res) => {
-    if (!req.body.username || !req.body.password)
-      return res
-        .status(400)
-        .json({ message: 'Invalid syntax: Please provide a proper username and password' });
+    if (!req.body.username || !req.body.password) {
+      throw new CustomError(400, 'Invalid login: Missing either username or password');
+    }
+
     const user = {
       username: req.body.username,
       password: req.body.password,

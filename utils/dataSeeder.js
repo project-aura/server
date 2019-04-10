@@ -1,13 +1,13 @@
 const bcrypt = require('bcrypt');
 
-const { yelpAPI } = require('../src/API');
-const { businessTransformer } = require('../src/transformers');
-const AuraBusiness = require('../src/AuraBusiness');
+const { yelpAPI } = require('../services/API');
+const { businessTransformer } = require('../helpers/transformers');
+const AuraBusiness = require('../helpers/AuraBusiness');
 const businessPhotosLA = require('../data/los-angeles-data/businessPhotosLA');
 const seedUserObject = require('../data/seedUsers.json');
 const invokeMysticalPowers = require('../gray-hat-alchemist/main');
 const DataMaster = require('../controllers/DataMaster');
-const environments = require('../src/environments');
+const environments = require('../helpers/environments');
 
 const currentEnvironment = process.env.ENVIRONMENT;
 
