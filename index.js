@@ -8,6 +8,7 @@ const businessRouter = require('./src/routes/business');
 const authRouter = require('./src/routes/auth');
 const selectEnvironment = require('./src/selectEnvironment');
 const accountRouter = require('./src/routes/account');
+const errorHandler = require('./src/middleware/errorHandler');
 
 // select between dev and prod environments based off process.argv[2]
 selectEnvironment(process.argv[2]);
@@ -34,6 +35,9 @@ passport.use(JwtStrategy);
 app.use('/api/businesses', businessRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/account', accountRouter);
+
+// Error Handling
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 3500;
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
