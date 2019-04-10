@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const DataMaster = require('../DataMaster');
+const DataMaster = require('../controllers/DataMaster');
 
 const dataMaster = new DataMaster(process.env.ENVIRONMENT);
 

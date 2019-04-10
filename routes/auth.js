@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const asyncWrapper = require('../middleware/asyncWrapper');
-const DataMaster = require('../DataMaster');
+const DataMaster = require('../controllers/DataMaster');
 const CustomError = require('../utils/CustomError');
 
 const dataMaster = new DataMaster(process.env.ENVIRONMENT);

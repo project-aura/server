@@ -1,6 +1,6 @@
 const passportJwt = require('passport-jwt');
 const User = require('./models/user.model');
-const DataMaster = require('./src/DataMaster');
+const DataMaster = require('./controllers/DataMaster');
 const environments = require('./src/environments');
 
 const { Strategy, ExtractJwt } = passportJwt;

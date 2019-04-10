@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const passport = require('passport');
 
-const DataMaster = require('../DataMaster');
+const DataMaster = require('../controllers/DataMaster');
 
 const dataMaster = new DataMaster(process.env.ENVIRONMENT);
 

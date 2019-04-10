@@ -4,11 +4,11 @@ const cors = require('cors');
 const path = require('path');
 const passport = require('passport');
 const JwtStrategy = require('./passport');
-const businessRouter = require('./src/routes/business');
-const authRouter = require('./src/routes/auth');
+const businessRouter = require('./routes/business');
+const authRouter = require('./routes/auth');
 const selectEnvironment = require('./src/selectEnvironment');
-const accountRouter = require('./src/routes/account');
-const errorHandler = require('./src/middleware/errorHandler');
+const accountRouter = require('./routes/account');
+const errorHandler = require('./middleware/errorHandler');
 
 // select between dev and prod environments based off process.argv[2]
 selectEnvironment(process.argv[2]);
