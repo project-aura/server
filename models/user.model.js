@@ -33,6 +33,14 @@ schema.pre('save', async function() {
   // pass it along
 });
 
+schema.post('save', function(error, doc, next) {
+  if (error.name === 'MongoError' && error.code === 11000) {
+    next(new Error('Username already exists: please provide a different username.'));
+  } else {
+    next();
+  }
+});
+
 const User = mongoose.model('user', schema, 'users');
 
 module.exports = User;

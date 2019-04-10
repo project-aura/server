@@ -2,12 +2,10 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const environments = require('../environments');
 const DataMaster = require('../DataMaster');
 
-const dataMaster = new DataMaster(environments.production);
+const dataMaster = new DataMaster(process.env.ENVIRONMENT);
 
-// TODO: Use passport to protect this route.
 router.post('/signup', async (req, res) => {
   if (!req.body.username || !req.body.password)
     return res
@@ -28,19 +26,19 @@ router.post('/signup', async (req, res) => {
     delete userObj.password;
     return res.status(201).json({ message: 'User successfully created', user: userObj });
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err); // FIXME: make more robust error handling.
+    return res.status(500).json({ message: err.message });
   }
 });
 
-// TODO: Use Passport to protect this route
+// FIXME: Make a error handling middleware that all routes can use.
+
 router.post('/login', async (req, res) => {
   if (!req.body.username || !req.body.password) {
     return res.status(400).json({ message: 'Invalid username and password' });
   }
 
   // find the user
-  const user = await dataMaster.findUser(req.body.username);
+  const user = await dataMaster.findUser({ username: req.body.username });
 
   // Check if User exists
   if (!user) return res.status(404).json({ message: 'Invalid username: please try again' });
@@ -53,7 +51,7 @@ router.post('/login', async (req, res) => {
     // sign a jwt
     const token = jwt.sign(user.toJSON(), process.env.JWT_SECRET, {
       expiresIn: '1 day',
-      issuer: 'aura', // TODO: talk about this with the team and whether we want an issuer to be more secure
+      issuer: 'aura.community', // TODO: talk about this with the team and whether we want an issuer to be more secure
     });
     return res.json({ message: 'Successfully logged in', token: `Bearer ${token}` });
   }
