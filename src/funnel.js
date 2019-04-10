@@ -1,4 +1,4 @@
-const categories = require('./categories');
+const categories = require('../data/categories');
 
 const funnelAction = (category, businesses) => {
   if (category === undefined) {

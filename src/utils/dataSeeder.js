@@ -1,15 +1,15 @@
 const bcrypt = require('bcrypt');
 
-const { yelpAPI } = require('./API');
-const { businessTransformer } = require('./transformers');
-const AuraBusiness = require('./AuraBusiness');
-const businessPhotosLA = require('../sample-data/los-angeles-data/businessPhotosLA');
-const seedUserObject = require('../data/seedUsers.json');
-const invokeMysticalPowers = require('../gray-hat-alchemist/main');
-const DataMaster = require('./DataMaster');
-const environments = require('./environments');
+const { yelpAPI } = require('../API');
+const { businessTransformer } = require('../transformers');
+const AuraBusiness = require('../AuraBusiness');
+const businessPhotosLA = require('../../data/los-angeles-data/businessPhotosLA');
+const seedUserObject = require('../../data/seedUsers.json');
+const invokeMysticalPowers = require('../../gray-hat-alchemist/main');
+const DataMaster = require('../DataMaster');
+const environments = require('../environments');
 
-const currentEnvironment = environments.production;
+const currentEnvironment = process.env.ENVIRONMENT;
 
 /**
  * Resolves a list of Yelp API Promises.
@@ -133,8 +133,8 @@ const userDataSeeder = async () => {
   console.log('Seeding Users ... complete');
 };
 
-// businessDataSeeder();
-userDataSeeder();
+businessDataSeeder();
+// userDataSeeder();
 
 module.exports = {
   businessDataSeeder,
