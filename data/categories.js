@@ -289,8 +289,7 @@ const categories = {
         wraps,
         yugoslav,
         `,
-  studying:
-    'bubbletea, coffee, coffeeroasteries, juicebars, libraries, collegeuniv, tutoring, tea',
+  studying: 'bubbletea, coffee, coffeeroasteries, juicebars, libraries, collegeuniv, tutoring, tea',
   dating:
     'bubbletea, coffee, clubcrawl, countrydancehalls, danceclubs, dancerestaurants,jazzandblues, karaoke, musicvenues, pianobars, artmuseums, musicvenues, paintandsip, juicebars, tea, tours, aerialtours, architecturaltours, arttours, beertours, biketours, boattours, bustours, foodtours, historicaltours, scootertours, walkingtours, whalewatchingtours, publicart, gastropubs, milkbars',
   relaxing:
@@ -308,7 +307,7 @@ const categories = {
     religiousitems, safestores, safetyequipment, scandinaviandesign, shoppingcenters, shoppingpassages, 
     souvenirs, spiritual_shop, sportgoods, tabletopgames, teachersupplies, thrift_stores, tickets, 
     tobaccoshops, toys, trophyshops, uniforms, usedbooks, vapeshops, vitaminssupplements, watches,
-    wholesale_stores, wigs`
+    wholesale_stores, wigs`,
 };
 
 module.exports = categories;

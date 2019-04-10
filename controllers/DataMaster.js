@@ -14,7 +14,7 @@ require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const mongoose = require('mongoose');
 const Business = require('../models/business.model');
 const User = require('../models/user.model');
-const funnelAction = require('./funnel');
+const funnelAction = require('../helpers/funnel');
 
 class DataMaster {
   //=============================constructor=================================
@@ -25,10 +25,9 @@ class DataMaster {
    * or npm rub dev. Arguments to that will determine the environment used.
    */
   constructor(dbName) {
-    if(!dbName) {
+    if (!dbName) {
       this.dbName = process.env.ENVIRONMENT;
-    }
-    else {
+    } else {
       this.dbName = dbName;
     }
     this.connected = false;
@@ -82,6 +81,8 @@ class DataMaster {
     this.connected = false;
   }
   //==============================================================================
+
+  //================================ Wrapper =====================================
 
   //=================================find business================================
   /**
@@ -178,8 +179,8 @@ class DataMaster {
       const user = await User.create(addedUser);
       return user;
     } catch (err) {
-      console.error(err);
-      this.disconnect();
+      // HACK: Hike the error up to the router...
+      throw err;
     }
   }
   //=================================================================================
@@ -208,16 +209,25 @@ class DataMaster {
   //==================================== Find Single User ==========================
 
   /**
-   * Finds a single user by their username
-   * @param {String} username -> username of searched user
+   * Finds a single user by their username or _id
+   * @param {String} queryOptions -> search options
    */
-  async findUser(username) {
+  async findUser(queryOptions) {
     if (!this.connected) {
       this.connectForMutations(this.dbName);
     }
     try {
-      const user = await User.findOne({ username });
-      return user;
+      if (queryOptions.username) {
+        const user = await User.findOne({ username: queryOptions.username });
+        return user;
+      }
+      if (queryOptions._id) {
+        const user = await User.findById(queryOptions._id);
+        return user;
+      }
+      throw new Error(
+        'Incorrect Query Options Provided: Please provide a username or id to search for a user'
+      );
     } catch (err) {
       console.error(err);
       this.disconnect();

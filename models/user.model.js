@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const CustomError = require('../helpers/CustomError');
 
 const schema = mongoose.Schema({
   username: {
@@ -31,6 +32,14 @@ schema.pre('save', async function() {
     this.password = hash;
   }
   // pass it along
+});
+
+schema.post('save', function(error, doc, next) {
+  if (error.name === 'MongoError' && error.code === 11000) {
+    next(new CustomError(400, 'Username already exists: please provide a different username.'));
+  } else {
+    next();
+  }
 });
 
 const User = mongoose.model('user', schema, 'users');
