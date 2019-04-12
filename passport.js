@@ -5,7 +5,7 @@ const environments = require('./helpers/environments');
 
 const { Strategy, ExtractJwt } = passportJwt;
 
-const database = new DataMaster(environments.development);
+const database = new DataMaster(process.env.ENVIRONMENT);
 
 const options = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -17,7 +17,7 @@ const options = {
 const JwtStrategy = new Strategy(options, async (req, payload, done) => {
   try {
     // find the associated user
-    const user = await database.findUser({ _id: payload._id });
+    const user = await database.findUserById(payload._id);
     req.user = user;
     // return use
     done(null, user);

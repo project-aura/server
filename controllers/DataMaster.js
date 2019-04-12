@@ -12,6 +12,7 @@
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const mongoose = require('mongoose');
+const CustomError = require('../helpers/CustomError');
 const Business = require('../models/business.model');
 const User = require('../models/user.model');
 const funnelAction = require('../helpers/funnel');
@@ -202,36 +203,65 @@ class DataMaster {
     } catch (err) {
       console.log(err);
       this.disconnect();
+      throw err;
     }
   }
   //================================================================================
 
   //==================================== Find Single User ==========================
 
-  /**
-   * Finds a single user by their username or _id
-   * @param {String} queryOptions -> search options
-   */
-  async findUser(queryOptions) {
+  async findUserByUsername(username) {
     if (!this.connected) {
       this.connectForMutations(this.dbName);
     }
     try {
-      if (queryOptions.username) {
-        const user = await User.findOne({ username: queryOptions.username });
-        return user;
-      }
-      if (queryOptions._id) {
-        const user = await User.findById(queryOptions._id);
-        return user;
-      }
-      throw new Error(
-        'Incorrect Query Options Provided: Please provide a username or id to search for a user'
-      );
+      return await User.findOne({ username });
     } catch (err) {
-      console.error(err);
-      this.disconnect();
+      throw err;
     }
+  }
+
+  /**
+   * Finds a single user by their username or _id
+   * @param {String} queryOptions -> search options
+   */
+  async findUserById(id) {
+    if (!this.connected) {
+      this.connectForMutations(this.dbName);
+    }
+    try {
+      return await User.findOne({ _id: id });
+    } catch (err) {
+      throw err;
+    }
+  }
+  //================================================================================
+
+  //==================================== Update Single User ==========================
+
+  /**
+   * Finds a single user by their username or _id
+   * @param {String} queryOptions -> search options
+   */
+  async updateUserPassword(id, password) {
+    if (!this.connected) {
+      this.connectForMutations(this.dbName);
+    }
+    const res = await User.updateOne({ _id: id }, { password });
+    return true;
+  }
+
+  /**
+   * Finds a single user by their username or _id
+   * @param {String} queryOptions -> search options
+   */
+  async updateUserDisplayName(id, displayName) {
+    if (!this.connected) {
+      this.connectForMutations(this.dbName);
+    }
+    console.log(displayName);
+    const res = User.updateOne({ _id: id }, { displayName });
+    return true;
   }
   //================================================================================
 }

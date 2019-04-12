@@ -17,6 +17,7 @@ router.post(
 
     const user = {
       username: req.body.username,
+      displayName: null,
       password: req.body.password,
       favorites: [],
       feedback: [],
@@ -40,13 +41,16 @@ router.post(
     }
 
     // find the user
-    const user = await dataMaster.findUser({ username: req.body.username });
+    const user = await dataMaster.findUserByUsername(req.body.username);
 
     // Check if User exists
     if (!user) throw new CustomError(404, 'Invalid username: please try again');
 
     // compare the passwords
     const isMatch = await bcrypt.compare(req.body.password, user.password);
+
+    const userObj = user.toObject();
+    delete userObj.password;
 
     // Provide User with login token if they do
     if (isMatch) {
@@ -55,7 +59,11 @@ router.post(
         expiresIn: '1 day',
         issuer: 'aura.community', // TODO: talk about this with the team and whether we want an issuer to be more secure
       });
-      return res.json({ message: 'Successfully logged in', token: `Bearer ${token}` });
+      return res.json({
+        message: 'Successfully logged in',
+        token: `Bearer ${token}`,
+        user: userObj,
+      });
     }
 
     // Kick them out if they don't belong

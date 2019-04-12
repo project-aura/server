@@ -133,8 +133,8 @@ const userDataSeeder = async () => {
   console.log('Seeding Users ... complete');
 };
 
-businessDataSeeder();
-// userDataSeeder();
+// businessDataSeeder();
+userDataSeeder();
 
 module.exports = {
   businessDataSeeder,
