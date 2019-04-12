@@ -8,6 +8,9 @@ const schema = mongoose.Schema({
     required: true,
     unique: true,
   },
+  displayName: {
+    type: String,
+  },
   password: {
     type: String,
     required: true,
@@ -34,6 +37,7 @@ schema.pre('save', async function() {
   // pass it along
 });
 
+// Handle duplicates after submission to mongo.
 schema.post('save', function(error, doc, next) {
   if (error.name === 'MongoError' && error.code === 11000) {
     next(new CustomError(400, 'Username already exists: please provide a different username.'));
@@ -41,6 +45,19 @@ schema.post('save', function(error, doc, next) {
     next();
   }
 });
+
+// Update hooks
+schema.pre('updateOne', async function(error, doc, next) {
+  const { password } = this._update;
+  if (password) {
+    const salt = await bcrypt.genSalt();
+    const hash = await bcrypt.hash(password, salt);
+    // set user's password to the hash
+    this._update.password = hash;
+  }
+});
+
+// TODO: Delete Passwords from the object given back
 
 const User = mongoose.model('user', schema, 'users');
 
