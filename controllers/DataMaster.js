@@ -47,7 +47,7 @@ class DataMaster {
   connect() {
     mongoose.connect(
       `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${
-        process.env.DB_NAME
+        this.dbName
       }?retryWrites=true`,
       { useNewUrlParser: true }
     );
@@ -103,7 +103,7 @@ class DataMaster {
       .where('city')
       .regex(req.query.city || '')
       .then(businesses => res.json(funnelAction(req.query.category, businesses)))
-      .then(() => this.disconnect());
+      .catch(err => res.status(500).json({ message: err.message }));
   }
   //= =============================================================================
 
@@ -243,25 +243,25 @@ class DataMaster {
    * Finds a single user by their username or _id
    * @param {String} queryOptions -> search options
    */
-  async updateUserPassword(id, password) {
+  async updateUserPassword(_id, password) {
     if (!this.connected) {
       this.connectForMutations(this.dbName);
     }
-    const res = await User.updateOne({ _id: id }, { password });
-    return true;
+    const doc = await User.updateOne({ _id }, { password }, { new: true });
+    console.log(doc);
+    return doc;
   }
 
   /**
    * Finds a single user by their username or _id
    * @param {String} queryOptions -> search options
    */
-  async updateUserDisplayName(id, displayName) {
+  async updateUserDisplayName(_id, displayName) {
     if (!this.connected) {
       this.connectForMutations(this.dbName);
     }
-    console.log(displayName);
-    const res = User.updateOne({ _id: id }, { displayName });
-    return true;
+    const query = User.updateOne({ _id }, { displayName });
+    return query;
   }
   //================================================================================
 }

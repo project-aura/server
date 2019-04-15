@@ -25,7 +25,7 @@ router.patch(
   '/change-display-name',
   passport.authenticate('jwt', { session: false }),
   asyncWrapper(async (req, res) => {
-    await dataMaster.updateUserDisplayName(req.user.id, req.body.newDisplayName);
+    await dataMaster.updateUserDisplayName(req.user._id, req.body.newDisplayName);
     res.status(200).json({ message: 'Successfully changed display name' });
   })
 );
