@@ -276,8 +276,7 @@ class DataMaster {
       this.connectForMutations(this.dbName);
     }
     // find the user by ID then push the business ID to 
-    // the user's array of favorite businesses. 
-    // TODO: make the fucking route for this. 
+    // the user's array of favorite businesses.  
     try {
       User.findUserById(userID)
       .then(user => user.favorites.push({ businessID }));

@@ -34,7 +34,7 @@ router.patch(
 router.patch(
   '/add-to-favorites',
   passport.authenticate('jwt', { session: false }),
-  ayncWrapper(async (req, res) => {
+  asyncWrapper(async (req, res) => {
     await dataMaster.addFavoriteBusiness(req.user._id, req.body.business_id);
     res.status(200).json({ message: 'Successfully added to favorites' });
   })
