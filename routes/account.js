@@ -30,4 +30,14 @@ router.patch(
   })
 );
 
+// route for adding a favorite business into user
+router.patch(
+  '/add-to-favorites',
+  passport.authenticate('jwt', { session: false }),
+  ayncWrapper(async (req, res) => {
+    await dataMaster.addFavoriteBusiness(req.user._id, req.body.business_id);
+    res.status(200).json({ message: 'Successfully added to favorites' });
+  })
+);
+
 module.exports = router;
