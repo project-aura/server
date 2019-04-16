@@ -264,6 +264,27 @@ class DataMaster {
     return query;
   }
   //================================================================================
+
+  //==============================add business ID to the user's favorites=====================
+  /**
+   * 
+   * @param {*} userID -> user ID of the the user
+   * @param {*} businessID -> business ID to be added to user's array of favorites
+   */
+  async addFavoriteBusiness(userID, businessID) {
+    if(!this.conencted) {
+      this.connectForMutations(this.dbName);
+    }
+    // find the user by ID then push the business ID to 
+    // the user's array of favorite businesses.  
+    try {
+      User.findUserById(userID)
+      .then(user => user.favorites.push({ businessID }));
+    } catch(err) {
+      throw(err);
+    }
+  }
+  //==========================================================================================
 }
 
 module.exports = DataMaster;
