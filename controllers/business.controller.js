@@ -27,31 +27,53 @@ const businessController = {
           .regex(req.query.city || '')
           .then(businesses => res.json(funnelAction(req.query.category, businesses)))
           .catch(err => res.status(500).json({ message: err.message }));
-      },
+    },
     //=======================================================================================
 
+    //===========================find business by alias======================================
+    /**
+     * 
+     * @param {*} aliasParameter -> alias of the business to be found
+     * @param {*} res -> response to the request
+     */
+    async findByAlias(aliasParameter, res) {
+        Business.find({ alias: aliasParameter })
+            .then(returnedObj => res.json(returnedObj))
+            .catch(err => res.status(500).json({ message: `No business alias found. ${err.message} `}));
+    },
+    //========================================================================================
+
     //============================add business===============================================
-    async add(addedDocument, options) {
+    /**
+     * 
+     * @param {*} addedDocument -> the document or documents that have to be added
+     * @param {*} options -> gives the user the option to add batch or add one. 
+     * @param {*} res -> response to the request
+     */
+    async add(addedDocument, options, res) {
         if(options === options.batch) {
             // batch add
             try {
-                await Business.insertMany(addedDocument, { ordered: false });
+                await Business.insertMany(addedDocument, { ordered: false })
+                    .then(() => res.status(200).json({ message: `Success: Batch Added` }));
                 return
             } catch(err) {
-                console.error(err);
+                res.status(500).json({ message: `Error occured on batch add. ${err.message}` });
             }
         } else if(options === options.one) {
             // add one
             try {
-                await Business.insertOne(addedDocument);
+                await Business.insertOne(addedDocument)
+                    .then(() => res.status(200).json({ message: `Success: Added One` }));
                 return
             } catch(err) {
-                console.error(err);
+                res.status(500).json({ message: `Error occured on add one. ${err.message}` });
             }
         } else {
+            // return custom error for invalid options parameters
             return new CustomError(500, `invalid options parameter`);
         }
-    }
+    },
     //=======================================================================================
 } 
 
