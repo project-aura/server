@@ -40,5 +40,5 @@ app.use('/api/account', accountRouter);
 // Error Handling
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
