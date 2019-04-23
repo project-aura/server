@@ -4,13 +4,13 @@
  */
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '/../.env') });
-const mongoose = require('mongoose');
 const CustomError = require('../helpers/CustomError');
 const Business = require('../models/business.model');
 const funnelAction = require('../helpers/funnel');
-const options = require('../helpers/options');
+const optionsHelper = require('../helpers/options');
 
 const businessController = {
+    //===========================READ OPS===================================================
     //===========================find businesses=============================================
     /**
      * 
@@ -39,11 +39,13 @@ const businessController = {
     async findByAlias(aliasParameter, res) {
         Business.find({ alias: aliasParameter })
             .then(returnedObj => res.json(returnedObj))
-            .catch(err => res.status(500).json({ message: `No business alias found. ${err.message} `}));
+            .catch(err => res.status(404).json({ message: `No business alias found. ${err.message} `}));
     },
     //========================================================================================
+    //================================END READ OPS============================================
 
-    //============================add business===============================================
+    //============================CREATE OPS===================================================
+    //============================add business=================================================
     /**
      * 
      * @param {*} addedDocument -> the document or documents that have to be added
@@ -51,7 +53,7 @@ const businessController = {
      * @param {*} res -> response to the request
      */
     async add(addedDocument, options, res) {
-        if(options === options.batch) {
+        if(options === optionsHelper.batch) {
             // batch add
             try {
                 await Business.insertMany(addedDocument, { ordered: false })
@@ -60,7 +62,7 @@ const businessController = {
             } catch(err) {
                 res.status(500).json({ message: `Error occured on batch add. ${err.message}` });
             }
-        } else if(options === options.one) {
+        } else if(options === optionsHelper.one) {
             // add one
             try {
                 await Business.insertOne(addedDocument)
@@ -71,10 +73,19 @@ const businessController = {
             }
         } else {
             // return custom error for invalid options parameters
-            return new CustomError(500, `invalid options parameter`);
+            return new CustomError(404, `Not Found`);
         }
     },
     //=======================================================================================
+    //=============================END CREATE OPS============================================
+
+    //============================UPDATE OPS=================================================
+    // TODO: Shit ton of stuff
+    //=============================END UPDATE OPS============================================
+
+    //===============================DELETE OPS==============================================
+    // TODO: Shit ton of stuff
+    //===============================END DELETE OPS===========================================
 } 
 
 module.exports = businessController;
