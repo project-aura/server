@@ -1,42 +1,79 @@
 /**
- * User Controller -> 1 to 1 relationship with User Model
- * Cuz were bored like that
+ * Creates a single user
+ * @param {Object} user Aura user
+ * @param {Object} options Additional parameters
+ * @returns Response
  */
-const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '/../.env') });
-const CustomError = require('../helpers/CustomError');
-const User = require('../models/user.model');
-const optionsHelper = require('../helpers/options');
+const createOne = (user, options) => {};
 
-const userController = {
-    //========================READ OPS==================================================
+/**
+ * Creates many users with a batch request
+ * @param {Object} users Aura users
+ * @param {Object} options Additional parameters
+ * @returns Response
+ */
+const createMany = (users, options) => {};
 
-    //========================END READ OPS==============================================
+/**
+ * Reads a single user
+ * @param {Object} user Aura user
+ * @param {Object} options Additional parameters
+ * @returns Response
+ */
+const readOne = (user, options) => {};
 
-    //========================CREATE OPS================================================
-    //========================add  user=================================================
-    async add(addedDocument, options) {
-        if(options === optionsHelper.one) {
-            // add one
-            try {
-                const user = await User.create(addedDocument);
-                return user;
-            } catch (err) {
-                // HACK: Hike the error up to the router...
-                throw err;
-            }
-        } else if(options === optionsHelper.batch) {
-            
-        }
-    }
-    //=================================================================================
-    //========================END CREATE OPS============================================
+/**
+ * Reads many users with a batch request
+ * @param {Object} users Aura users
+ * @param {Object} options Additional parameters
+ * @returns Response
+ */
+const readMany = (users, options) => {};
 
-    //========================UPDATE OPS================================================
+/**
+ * Updates a single user
+ * @param {Object} user Aura user
+ * @param {Object} options Additional parameters
+ * @returns Response
+ */
+const updateOne = (user, options) => {};
 
-    //========================END UPDATE OPS============================================
-    // TODO: Shit ton of stuff
-    //========================DELETE OPS===============================================
-    // TODO: Shit ton of stuff
-    //=======================END DELETE OPS============================================
-}
+/**
+ * Updates many users with a batch request
+ * @param {Object} users Aura users
+ * @param {Object} options Additional parameters
+ * @returns Response
+ */
+const updateMany = (users, options) => {};
+
+/**
+ * Deletes a single user
+ * @param {Object} user Aura user
+ * @param {Object} options Additional parameters
+ * @returns Response
+ */
+const deleteOne = (user, options) => {};
+
+/**
+ * Deletes many users with a batch request
+ * @param {Object} users Aura users
+ * @param {Object} options Additional parameters
+ * @returns Response
+ */
+const deleteMany = (users, options) => {};
+
+/**
+ * Deletes many users then addes many useres with a batch request
+ * @param {Object} users Aura users
+ * @param {Object} options Additional parameters
+ * @returns Response
+ */
+const seed = (users, options) => {};
+
+/**
+ * Finds users by query
+ * @param {Object} query Search object parameters
+ * @param {Object} options Additional parameters
+ * @returns Response
+ */
+const find = (query, options) => {};
