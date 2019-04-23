@@ -10,7 +10,7 @@ const funnelAction = require('../helpers/funnel');
 
 /** 
  * @param {Object} business Aura Business
- * @param {Object} options Additional parameters
+ * @param {Object} options Additional parameters (optional)
  * @returns awaited obj
  * ADD ONE
  */
@@ -22,33 +22,31 @@ const createOne = async (business, options) => {
 /**
  * Creates many businesses with a batch request
  * @param {Object} businesses Aura Businesses
- * @param {Object} options Additional parameters
+ * @param {Object} options Additional parameters (optional)
  * @returns awaited obj
  * ADD BATCH
  */
-const createMany = (businesses, options) => {
+const createMany = async (businesses, options) => {
     const returnAwait = await Business.insertMany(businesses, { ordered: false });
     return returnAwait;
 };
 
 /**
  * Reads a single business
- * @param {Object} business Aura Business
- * @param {Object} options Additional parameters
+ * @param {Object} options defines what to find
  * @returns Response
  */
-const readOne = (options) => {
+const readOne = async (options) => {
     const returnAwait = await Business.find(options);
     return returnAwait;
 };
 
 /**
  * Reads many businesses with a batch request
- * @param {Object} businesses Aura Businesses
- * @param {Object} options Additional parameters
+ * @param {Object} options defines what to find
  * @returns Response
  */
-const readMany = (options) => {
+const readMany = async (options) => {
     const returnAwait = await Business.find(options);
     return returnAwait;
 };
@@ -75,21 +73,21 @@ const updateMany = (businesses, options) => {
 
 /**
  * Deletes a single business
- * @param {Object} options Additional parameters
+ * @param {Object} options defines what to delete
  * @returns Response
  */
-const deleteOne = (options) => {
+const deleteOne =  async (options) => {
     const returnAwait = await Business.deleteOne(options);
     return returnAwait;
 };
 
 /**
  * Deletes many businesses with a batch request
- * @param {Object} options Additional parameters
+ * @param {Object} options defines objects to delete
  * @returns query
  * Might as well call this NUKE
  */
-const deleteMany = (options) => {
+const deleteMany = async (options) => {
     const returnAwait = await Business.deleteMany(options);
     return returnAwait;
 };
@@ -97,10 +95,10 @@ const deleteMany = (options) => {
 /**
  * Deletes many businesses then addes many businesses with a batch request
  * @param {Object} businesses Aura Businesses
- * @param {Object} options Additional parameters
+ * @param {Object} options Additional parameters (optional)
  * @returns Response
  */
-const seed = (businesses, options) => {
+const seed = async (businesses, options) => {
     const del = await Business.deleteMany({});
     const ins = await Business.insertMany(businesses, { ordered: false });
     return `${del} ... ${ins}`;
@@ -110,7 +108,7 @@ const seed = (businesses, options) => {
  * Finds businesses by query
  * @param {Object} query Search object parameters
  * @param {Object} res Response Object parameter
- * @param {Object} options Additional parameters
+ * @param {Object} options Additional parameters (optional)
  * @returns Response
  */
 const find = (query, res, options) => {
