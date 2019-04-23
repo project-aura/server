@@ -53,7 +53,7 @@ const businessController = {
      * @param {*} res -> response to the request
      */
     async add(addedDocument, options, res) {
-        if(optionsHelper === options.batch) {
+        if(options === optionsHelper.batch) {
             // batch add
             try {
                 await Business.insertMany(addedDocument, { ordered: false })
@@ -62,7 +62,7 @@ const businessController = {
             } catch(err) {
                 res.status(500).json({ message: `Error occured on batch add. ${err.message}` });
             }
-        } else if(optionsHelper === options.one) {
+        } else if(options === optionsHelper.one) {
             // add one
             try {
                 await Business.insertOne(addedDocument)
