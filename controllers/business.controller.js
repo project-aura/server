@@ -111,15 +111,13 @@ const seed = async (businesses, options) => {
  * @param {Object} options Additional parameters (optional)
  * @returns Response
  */
-const find = (query, res, options) => {
+const find = async (query, res, options) => {
     // something else takes care of destructuring the query from request
-    Business.find()
-          .where('attributes.aura')
-          .regex(query.aura || '')
-          .where('city')
-          .regex(query.city || '')
-          .then(businesses => res.json(funnelAction(query.category, businesses)))
-          .catch(err => res.status(500).json({ message: err.message }));
+    const businesses = await Business.find()
+                            .where('attributes.aura').regex(query.aura || '')
+                            .where('city').regex(query.city || '');
+    const returnAwait = await funnelAction(query.category, businesses);
+    return returnAwait;
 };
 
 const businessController = {
