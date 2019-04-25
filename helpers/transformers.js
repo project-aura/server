@@ -17,6 +17,7 @@ const businessTransformer = {
     auraData.reviewCount = yelpData.review_count || 0;
     auraData.attributes.priceRange = yelpData.price;
     auraData.categories = yelpData.categories;
+    auraData.businessImage.src = yelpData.image_url || '';
     return auraData;
   },
   imagesToAura: (auraData, imageData) => {
