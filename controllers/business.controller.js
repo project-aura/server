@@ -107,17 +107,16 @@ const seed = async (businesses, options) => {
 /**
  * Finds businesses by query
  * @param {Object} query Search object parameters
- * @param {Object} res Response Object parameter
  * @param {Object} options Additional parameters (optional)
  * @returns Response
  */
-const find = async (query, res, options) => {
+const find = async (query, options) => {
     // something else takes care of destructuring the query from request
     const businesses = await Business.find()
                             .where('attributes.aura').regex(query.aura || '')
                             .where('city').regex(query.city || '');
-    const returnAwait = await funnelAction(query.category, businesses);
-    return returnAwait;
+    const catFilter = await funnelAction(query.category, businesses);
+    return catFilter;
 };
 
 const businessController = {
