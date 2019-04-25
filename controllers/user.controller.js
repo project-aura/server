@@ -14,8 +14,8 @@ const User = require('../models/user.model');
  * @returns Response
  */
 const createOne = async (user, options) => {
-    const returnAwait = await User.insertOne(user);
-    return returnAwait;
+  const returnAwait = await User.insertOne(user);
+  return returnAwait;
 };
 
 /**
@@ -25,8 +25,8 @@ const createOne = async (user, options) => {
  * @returns Response
  */
 const createMany = async (users, options) => {
-    const returnAwait = await User.insertMany(users, { ordered: false });
-    return returnAwait;
+  const returnAwait = await User.insertMany(users, { ordered: false });
+  return returnAwait;
 };
 
 /**
@@ -34,18 +34,18 @@ const createMany = async (users, options) => {
  * @param {Object} options defines what to find
  * @returns Response
  */
-const readOne = async (options) => {
-    const returnAwait = await User.find(options);
-    return returnAwait;
+const readOne = async options => {
+  const returnAwait = await User.find(options);
+  return returnAwait;
 };
 
-/** 
+/**
  * @param {Object} options defines objects to find
  * @returns Response
  */
-const readMany = async (options) => {
-    const returnAwait = await User.find(options);
-    return returnAwait;
+const readMany = async options => {
+  const returnAwait = await User.find(options);
+  return returnAwait;
 };
 
 /**
@@ -55,7 +55,7 @@ const readMany = async (options) => {
  * @returns Response
  */
 const updateOne = (user, options) => {
-    // TODO
+  // TODO
 };
 
 /**
@@ -65,7 +65,7 @@ const updateOne = (user, options) => {
  * @returns Response
  */
 const updateMany = (users, options) => {
-    // TODO
+  // TODO
 };
 
 /**
@@ -73,9 +73,9 @@ const updateMany = (users, options) => {
  * @param {Object} options defines what to delete
  * @returns Response
  */
-const deleteOne = async (options) => {
-    const returnAwait = await User.deleteOne(options);
-    return returnAwait;
+const deleteOne = async options => {
+  const returnAwait = await User.deleteOne(options);
+  return returnAwait;
 };
 
 /**
@@ -83,9 +83,9 @@ const deleteOne = async (options) => {
  * @param {Object} options defines objects to delete
  * @returns Response
  */
-const deleteMany = async (options) => {
-    const returnAwait = await User.deleteMany(options);
-    return returnAwait;
+const deleteMany = async options => {
+  const returnAwait = await User.deleteMany(options);
+  return returnAwait;
 };
 
 /**
@@ -95,9 +95,9 @@ const deleteMany = async (options) => {
  * @returns Response
  */
 const seed = async (users, options) => {
-    const del = await User.deleteMany({});
-    const ins = await User.insertMany(users, { ordered: false });
-    return `${del} ... ${ins}`;
+  const del = await User.deleteMany({});
+  const ins = await User.insertMany(users, { ordered: false });
+  return `${del} ... ${ins}`;
 };
 
 /**
@@ -107,20 +107,20 @@ const seed = async (users, options) => {
  * @returns Response
  */
 const find = (query, options) => {
-    // TODO
+  // TODO
 };
 
 const userController = {
-    createOne,
-    createMany,
-    readOne,
-    readMany,
-    updateOne,
-    updateMany,
-    deleteOne,
-    deleteMany,
-    seed,
-    find,
+  createOne,
+  createMany,
+  readOne,
+  readMany,
+  updateOne,
+  updateMany,
+  deleteOne,
+  deleteMany,
+  seed,
+  find,
 };
 
 module.exports = userController;
