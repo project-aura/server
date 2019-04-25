@@ -45,6 +45,9 @@ const businessBatchAPI = async zipLocations => {
     const responses = [];
     zipLocations.forEach(zipCode => {
       responses.push(yelpAPI.getBusinesses({ location: zipCode, radius: 40000, limit: 50 }));
+      responses.push(
+        yelpAPI.getBusinesses({ location: zipCode, radius: 40000, limit: 50, offset: 51 })
+      );
     });
     const mega = await Promise.all(responses);
     mega.forEach(promise => {
@@ -168,6 +171,6 @@ const userSeeder = async rawUsers => {
 // ===================================== Execution ===============================
 const zipCodes = ['90404', '90230', '90014', '90036'];
 
-// businessSeeder(zipCodes);
-businessAdder(zipCodes);
+businessSeeder(zipCodes);
+// businessAdder(zipCodes);
 // userSeeder(seedUserObject.users);

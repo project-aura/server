@@ -18,6 +18,7 @@ const yelpAPI = {
         location: options.location,
         radius: options.radius,
         limit: options.limit,
+        offset: options.offset,
       },
     }),
   getBusinessById: (id, options) =>
