@@ -112,13 +112,13 @@ const seed = async (businesses, options) => {
  * @returns Response
  */
 const find = async (query, options) => {
-    // something else takes care of destructuring the query from request
-    const businesses = await Business.find()
-        .where('attributes.aura')
-        .regex(query.aura || '');
-    const cityFilter = await funnelZip(query.city, businesses);
-    const catFilter = await funnelAction(query.category, cityFilter);
-    return catFilter;
+  // something else takes care of destructuring the query from request
+  const businesses = await Business.find()
+    .where('attributes.aura')
+    .regex(query.aura || '');
+  const cityFilter = await funnelZip(query.city, businesses);
+  const catFilter = await funnelAction(query.category, cityFilter);
+  return catFilter;
 };
 
 const businessController = {
@@ -131,6 +131,6 @@ const businessController = {
   deleteOne,
   deleteMany,
   seed,
-  find,
+  find
 };
 module.exports = businessController;
