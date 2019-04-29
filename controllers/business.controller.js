@@ -7,16 +7,17 @@ require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const CustomError = require('../helpers/CustomError');
 const Business = require('../models/business.model');
 const funnelAction = require('../helpers/funnel');
+const funnelZip = require('../helpers/funnelZip');
 
-/** 
+/**
  * @param {Object} business Aura Business
  * @param {Object} options Additional parameters (optional)
  * @returns awaited obj
  * ADD ONE
  */
 const createOne = async (business, options) => {
-    const returnAwait = await Business.insertOne(business);
-    return returnAwait;
+  const returnAwait = await Business.insertOne(business);
+  return returnAwait;
 };
 
 /**
@@ -27,8 +28,8 @@ const createOne = async (business, options) => {
  * ADD BATCH
  */
 const createMany = async (businesses, options) => {
-    const returnAwait = await Business.insertMany(businesses, { ordered: false });
-    return returnAwait;
+  const returnAwait = await Business.insertMany(businesses, { ordered: false });
+  return returnAwait;
 };
 
 /**
@@ -36,9 +37,9 @@ const createMany = async (businesses, options) => {
  * @param {Object} options defines what to find
  * @returns Response
  */
-const readOne = async (options) => {
-    const returnAwait = await Business.find(options);
-    return returnAwait;
+const readOne = async options => {
+  const returnAwait = await Business.find(options);
+  return returnAwait;
 };
 
 /**
@@ -46,9 +47,9 @@ const readOne = async (options) => {
  * @param {Object} options defines what to find
  * @returns Response
  */
-const readMany = async (options) => {
-    const returnAwait = await Business.find(options);
-    return returnAwait;
+const readMany = async options => {
+  const returnAwait = await Business.find(options);
+  return returnAwait;
 };
 
 /**
@@ -58,7 +59,7 @@ const readMany = async (options) => {
  * @returns Response
  */
 const updateOne = (business, options) => {
-    // TODO
+  // TODO
 };
 
 /**
@@ -68,7 +69,7 @@ const updateOne = (business, options) => {
  * @returns Response
  */
 const updateMany = (businesses, options) => {
-    // TODO
+  // TODO
 };
 
 /**
@@ -76,9 +77,9 @@ const updateMany = (businesses, options) => {
  * @param {Object} options defines what to delete
  * @returns Response
  */
-const deleteOne =  async (options) => {
-    const returnAwait = await Business.deleteOne(options);
-    return returnAwait;
+const deleteOne = async options => {
+  const returnAwait = await Business.deleteOne(options);
+  return returnAwait;
 };
 
 /**
@@ -87,9 +88,9 @@ const deleteOne =  async (options) => {
  * @returns query
  * Might as well call this NUKE
  */
-const deleteMany = async (options) => {
-    const returnAwait = await Business.deleteMany(options);
-    return returnAwait;
+const deleteMany = async options => {
+  const returnAwait = await Business.deleteMany(options);
+  return returnAwait;
 };
 
 /**
@@ -99,39 +100,37 @@ const deleteMany = async (options) => {
  * @returns Response
  */
 const seed = async (businesses, options) => {
-    const del = await Business.deleteMany({});
-    const ins = await Business.insertMany(businesses, { ordered: false });
-    return `${del} ... ${ins}`;
+  const del = await Business.deleteMany({});
+  const ins = await Business.insertMany(businesses, { ordered: false });
+  return `${del} ... ${ins}`;
 };
 
 /**
  * Finds businesses by query
  * @param {Object} query Search object parameters
- * @param {Object} res Response Object parameter
  * @param {Object} options Additional parameters (optional)
  * @returns Response
  */
-const find = (query, res, options) => {
-    // something else takes care of destructuring the query from request
-    Business.find()
-          .where('attributes.aura')
-          .regex(query.aura || '')
-          .where('city')
-          .regex(query.city || '')
-          .then(businesses => res.json(funnelAction(query.category, businesses)))
-          .catch(err => res.status(500).json({ message: err.message }));
+const find = async (query, options) => {
+  // something else takes care of destructuring the query from request
+  const businesses = await Business.find()
+    .where('attributes.aura')
+    .regex(query.aura || '');
+  const cityFilter = await funnelZip(query.city, businesses);
+  const catFilter = await funnelAction(query.category, cityFilter);
+  return catFilter;
 };
 
 const businessController = {
-    createOne,
-    createMany,
-    readOne,
-    readMany,
-    updateOne,
-    updateMany,
-    deleteOne,
-    deleteMany,
-    seed,
-    find,
+  createOne,
+  createMany,
+  readOne,
+  readMany,
+  updateOne,
+  updateMany,
+  deleteOne,
+  deleteMany,
+  seed,
+  find
 };
 module.exports = businessController;

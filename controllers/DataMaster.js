@@ -61,7 +61,11 @@ class DataMaster {
    * in different databases depending on the value passed to it.
    */
   connectForMutations(nameDB) {
-    if (nameDB === process.env.DB_NAME || nameDB === process.env.DB_NAME_TEST) {
+    if (
+      nameDB === process.env.DB_NAME ||
+      nameDB === process.env.DB_NAME_TEST ||
+      nameDB === process.env.ENVIRONMENT
+    ) {
       mongoose.connect(
         `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${
           process.env.DB_HOST
@@ -267,21 +271,20 @@ class DataMaster {
 
   //==============================add business ID to the user's favorites=====================
   /**
-   * 
+   *
    * @param {*} userID -> user ID of the the user
    * @param {*} businessID -> business ID to be added to user's array of favorites
    */
   async addFavoriteBusiness(userID, businessID) {
-    if(!this.conencted) {
+    if (!this.connected) {
       this.connectForMutations(this.dbName);
     }
-    // find the user by ID then push the business ID to 
-    // the user's array of favorite businesses.  
+    // find the user by ID then push the business ID to
+    // the user's array of favorite businesses.
     try {
-      User.findUserById(userID)
-      .then(user => user.favorites.push({ businessID }));
-    } catch(err) {
-      throw(err);
+      User.findUserById(userID).then(user => user.favorites.push({ businessID }));
+    } catch (err) {
+      throw err;
     }
   }
   //==========================================================================================
