@@ -11,7 +11,7 @@ const funnelZip = (location, businesses) => {
       if (zipCodes.santaMonica.includes(businesses[i].postalCode)) {
         filteredBusinesses.push(businesses[i]);
       }
-    } else if (location === 'DTLA') {
+    } else if (location === 'downtown la') {
       if (zipCodes.DTLA.includes(businesses[i].postalCode)) {
         filteredBusinesses.push(businesses[i]);
       }
