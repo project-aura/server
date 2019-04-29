@@ -9,12 +9,15 @@ const authRouter = require('./routes/auth');
 const selectEnvironment = require('./helpers/selectEnvironment');
 const accountRouter = require('./routes/account');
 const errorHandler = require('./middleware/errorHandler');
+const DataMaster = require('./controllers/DataMaster');
 
 // select between dev and prod environments based off process.argv[2]
 selectEnvironment(process.argv[2]);
 
 const app = express();
 
+const connector = new DataMaster();
+connector.connectForMutations(process.env.ENVIRONMENT);
 /* Added on 3/5/2019
  * 1. body parser middleware
  * 2. form data
