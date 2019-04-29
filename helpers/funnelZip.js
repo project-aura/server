@@ -7,7 +7,7 @@ const funnelZip = (location, businesses) => {
 
     const filteredBusinesses = [];
     for(let i = 0; i < businesses.length; ++i) {
-        if(location === 'Santa Monica') {
+        if(location === 'santa monica') {
             if(zipCodes.santaMonica.includes(businesses[i].postalCode)) {
                 filteredBusinesses.push(businesses[i]);
                 break;
@@ -17,57 +17,57 @@ const funnelZip = (location, businesses) => {
                 filteredBusinesses.push(businesses[i]);
                 break;
             }
-        } else if(location === 'Culver City') {
+        } else if(location === 'culver city') {
             if(zipCodes.culverCity.includes(businesses[i].postalCode)) {
                 filteredBusinesses.push(businesses[i]);
                 break;
             }
-        } else if(location === 'Beverly Hills') {
+        } else if(location === 'beverly hills') {
             if(zipCodes.beverlyHills.includes(businesses[i].postalCode)) {
                 filteredBusinesses.push(businesses[i]);
                 break;
             }
-        } else if(location === 'Hollywood') {
+        } else if(location === 'hollywood') {
             if(zipCodes.hollywood.includes(businesses[i].postalCode)) {
                 filteredBusinesses.push(businesses[i]);
                 break;
             }
-        } else if(location === 'Van Nuys') {
+        } else if(location === 'van nuys') {
             if(zipCodes.vanNuys.includes(businesses[i].postalCode)) {
                 filteredBusinesses.push(businesses[i]);
                 break;
             }
-        } else if(location === 'Pasadena') {
+        } else if(location === 'pasadena') {
             if(zipCodes.pasadena.includes(businesses[i].postalCode)) {
                 filteredBusinesses.push(businesses[i]);
                 break;
             }
-        } else if(location === 'Newport Beach') {
+        } else if(location === 'newport beach') {
             if(zipCodes.newportBeach.includes(businesses[i].postalCode)) {
                 filteredBusinesses.push(businesses[i]);
                 break;
             }
-        } else if(location === 'La Brea') {
+        } else if(location === 'la brea') {
             if(zipCodes.laBrea.includes(businesses[i].postalCode)) {
                 filteredBusinesses.push(businesses[i]);
                 break;
             }
-        } else if(location === 'Anaheim') {
+        } else if(location === 'anaheim') {
             if(zipCodes.anaheim.includes(businesses[i].postalCode)) {
                 filteredBusinesses.push(businesses[i]);
                 break;
             }
-        } else if(location === 'Rowland Heights') {
+        } else if(location === 'rowland heights') {
             if(zipCodes.rowlandHeights.includes(businesses[i].postalCode)) {
                 filteredBusinesses.push(businesses[i]);
                 break;
             }
-        } else if(location === 'Brea') {
+        } else if(location === 'brea') {
             if(zipCodes.brea.includes(businesses[i].postalCode)) {
                 filteredBusinesses.push(businesses[i]);
                 break;
             }
-        } else if(location === 'Laguna') {
+        } else if(location === 'laguna') {
             if(zipCodes.laguna.includes(businesses[i].postalCode)) {
                 filteredBusinesses.push(businesses[i]);
                 break;
