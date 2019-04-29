@@ -7,6 +7,7 @@ require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const CustomError = require('../helpers/CustomError');
 const Business = require('../models/business.model');
 const funnelAction = require('../helpers/funnel');
+const funnelZip = require('../helpers/funnelZip');
 
 /**
  * @param {Object} business Aura Business
@@ -114,10 +115,9 @@ const find = async (query, options) => {
     // something else takes care of destructuring the query from request
     const businesses = await Business.find()
         .where('attributes.aura')
-        .regex(query.aura || '')
-        .where('city')
-        .regex(query.city || '');
-    const catFilter = await funnelAction(query.category, businesses);
+        .regex(query.aura || '');
+    const cityFilter = await funnelZip(query.city, businesses);
+    const catFilter = await funnelAction(query.category, cityFilter);
     return catFilter;
 };
 
