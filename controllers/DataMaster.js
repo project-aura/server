@@ -276,7 +276,7 @@ class DataMaster {
    * @param {*} businessID -> business ID to be added to user's array of favorites
    */
   async addFavoriteBusiness(userID, businessID) {
-    if (!this.conencted) {
+    if (!this.connected) {
       this.connectForMutations(this.dbName);
     }
     // find the user by ID then push the business ID to
