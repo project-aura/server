@@ -18,8 +18,8 @@ const alchemicRedundance = aura => {
 
     // If not then generate random number whether aura will be added or not
     const zeroOrOne = Math.round(Math.random());
-    if(aura === 'classy') {
-        aura = 'classy, intimate';
+    if(aura === 'classy' || aura === 'upscale') {
+        aura = 'classy, upscale, intimate';
     } else if(aura === 'cheerful' || aura === 'lively') {
         if(zeroOrOne === 0) {
             aura = 'cheerful, lively';

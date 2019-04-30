@@ -50,6 +50,13 @@ const addr47 = 'https://www.yelp.com/biz/tommys-original-world-famous-hamburgers
 const addr48 = 'https://www.yelp.com/biz/shaka-shack-burgers-santa-monica';
 const addr49 = 'https://www.yelp.com/biz/psy-street-kitchen-los-angeles';
 const addr50 = 'https://www.yelp.com/biz/burger-lounge-los-angeles-6';
+const addr51 = 'https://www.yelp.com/biz/blacksmiths-los-angeles-2';
+const addr52 = 'https://www.yelp.com/biz/the-sherman-los-angeles';
+const addr53 = 'https://www.yelp.com/biz/punta-cabras-santa-monica';
+const addr54 = 'https://www.yelp.com/biz/the-rooftop-at-the-standard-downtown-la-los-angeles';
+const addr55 = 'https://www.yelp.com/biz/boa-steakhouse-west-hollywood';
+const addr56 = 'https://www.yelp.com/biz/the-penthouse-at-mastros-beverly-hills';
+const addr57 = 'https://www.yelp.com/biz/beauty-and-essex-hollywood'
 
 invokeMysticalPowers(addr)
      .then(x => console.log(`1: ${x}`));
@@ -153,6 +160,20 @@ invokeMysticalPowers(addr49)
      .then(x => console.log(`49: ${x}`));
 invokeMysticalPowers(addr50)
      .then(x => console.log(`50: ${x}`));
+invokeMysticalPowers(addr51)
+     .then(x => console.log(`51: ${x}`));
+invokeMysticalPowers(addr52)
+     .then(x => console.log(`52: ${x}`));
+invokeMysticalPowers(addr53)
+     .then(x => console.log(`53: ${x}`));
+invokeMysticalPowers(addr54)
+     .then(x => console.log(`54: ${x}`));
+invokeMysticalPowers(addr55)
+     .then(x => console.log(`55: ${x}`));
+invokeMysticalPowers(addr56)
+     .then(x => console.log(`56: ${x}`));
+invokeMysticalPowers(addr57)
+     .then(x => console.log(`57: ${x}`));
 
 
 
