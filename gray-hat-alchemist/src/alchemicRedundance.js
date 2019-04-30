@@ -38,6 +38,10 @@ const alchemicRedundance = aura => {
         if(zeroOrOne === 1) {
             aura = 'casual, inspired';
         }
+    } else if(aura === 'trendy') {
+        if(zeroOrOne === 1) {
+            aura = 'trendy, cheerful';
+        }
     }
 
     return aura;
