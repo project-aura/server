@@ -1,6 +1,7 @@
 const axios = require('axios');
 const alchemicFormat = require('./alchemicFormat');
 const alchemicSteroids = require('./alchemicSteroids');
+const alchemicRedundance = require('./alchemicRedundance');
 
 /* 1. take URL
  * 2. get URL through axios. res.data is the target
@@ -43,13 +44,16 @@ const alchemicSearch = url =>
       if(aura === '') {
         aura = alchemicSteroids();
       }
-      return aura;
+      // plug redundance
+      const returnedAura = alchemicRedundance(aura);
+      return returnedAura;
     })
     .catch(aura => {
       // in the event of a request timeout,
-      // use steroids.
+      // use steroids. then plug redundance
       aura = alchemicSteroids();
-      return aura;
+      const returnedAura = alchemicRedundance(aura);
+      return returnedAura;
     });
 
 module.exports = alchemicSearch;
