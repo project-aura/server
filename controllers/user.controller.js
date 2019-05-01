@@ -50,13 +50,13 @@ const readMany = async options => {
 
 /**
  * Updates a single user
- * @param {Object} user Aura user
+ * @param {Object} user Aura user ID
  * @param {Object} options Additional parameters
  * @returns Response
  */
 const updateOne = async (user, options) => {
   // TODO
-  const doc = await User.updateOne({ user }, { options }, { new: true });
+  const doc = await User.findByIdAndUpdate(user, { $set: options }, { new: true });
   return doc;
 };
 

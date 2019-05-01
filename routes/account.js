@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const passport = require('passport');
+const bcrypt = require('bcrypt');
 
 const asyncWrapper = require('../middleware/asyncWrapper');
 const CustomError = require('../helpers/CustomError');
@@ -16,7 +17,10 @@ router.patch(
   '/change-password',
   passport.authenticate('jwt', { session: false }),
   asyncWrapper(async (req, res) => {
-    await dataMaster.updateUserPassword(req.user._id, req.body.newPassword);
+    // brcypt hash the new password
+    const salt = await bcrypt.genSalt();
+    const hash = await bcrypt.hash(req.body.newPassword, salt);
+    await userController.updateOne(req.user._id, { password: hash } );
 
     res.status(200).json({ message: 'Successfully changed password' });
   })
