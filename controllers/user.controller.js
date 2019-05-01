@@ -14,7 +14,7 @@ const User = require('../models/user.model');
  * @returns Response
  */
 const createOne = async (user, options) => {
-  const returnAwait = await User.insertOne(user);
+  const returnAwait = await User.create(user);
   return returnAwait;
 };
 
@@ -35,7 +35,7 @@ const createMany = async (users, options) => {
  * @returns Response
  */
 const readOne = async options => {
-  const returnAwait = await User.find(options);
+  const returnAwait = await User.findOne(options);
   return returnAwait;
 };
 
@@ -50,12 +50,14 @@ const readMany = async options => {
 
 /**
  * Updates a single user
- * @param {Object} user Aura user
+ * @param {Object} user Aura user ID
  * @param {Object} options Additional parameters
  * @returns Response
  */
-const updateOne = (user, options) => {
+const updateOne = async (user, options) => {
   // TODO
+  const doc = await User.findByIdAndUpdate(user, { $set: options }, { new: true });
+  return doc;
 };
 
 /**

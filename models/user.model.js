@@ -47,7 +47,7 @@ schema.post('save', function(error, doc, next) {
 });
 
 // Update hooks
-schema.pre('updateOne', async function(error, doc, next) {
+schema.pre('findByIdAndUpdate', async function(error, doc, next) {
   const { password } = this._update;
   if (password) {
     const salt = await bcrypt.genSalt();

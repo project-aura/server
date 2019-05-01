@@ -12,6 +12,7 @@ const auraArray = [
     'inspired',
     'cheerful',
     'touristy',
+    'intimate',
 ];
 const arraySize = auraArray.length;
 
