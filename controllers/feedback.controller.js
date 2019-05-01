@@ -14,7 +14,7 @@ const Feedback = require('../models/feedback.model');
  * @returns Response
  */
 const createOne = async (feedback, options) => {
-    const returnAwait = await Feedback.insertOne(feedback);
+    const returnAwait = await Feedback.create(feedback);
     return returnAwait;
 };
 

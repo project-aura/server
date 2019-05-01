@@ -16,7 +16,7 @@ const funnelZip = require('../helpers/funnelZip');
  * ADD ONE
  */
 const createOne = async (business, options) => {
-  const returnAwait = await Business.insertOne(business);
+  const returnAwait = await Business.create(business);
   return returnAwait;
 };
 
