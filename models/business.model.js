@@ -31,11 +31,11 @@ const schema = mongoose.Schema(
     },
     usersVoted: [
       {
-        // might have to change userI into 
+        // might have to change userId into 
         // type: mongoose.Schema.Types.ObjectId,
         // String will suffice for now. 
         userId: String,
-        aura: String
+        aura: String,
       },
     ],
     feedback: [

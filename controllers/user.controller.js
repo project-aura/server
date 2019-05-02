@@ -55,7 +55,6 @@ const readMany = async options => {
  * @returns Response
  */
 const updateOne = async (user, options) => {
-  // TODO
   const doc = await User.findByIdAndUpdate(user, { $set: options }, { new: true });
   return doc;
 };
