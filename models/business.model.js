@@ -11,7 +11,33 @@ const schema = mongoose.Schema(
       unique: true,
     },
     alias: String,
-    auras: mongoose.Schema.Types.Mixed,
+    auras: {
+      trendy: { type: Number, default: 0 },
+      romantic: { type: Number, default: 0 },
+      hipster: { type: Number, default: 0 },
+      inspired: { type: Number, default: 0 },
+      cheerful: { type: Number, default: 0 },
+      intimate: { type: Number, default: 0 },
+      classy: { type: Number, default: 0 },
+      casual: { type: Number, default: 0 },
+      touristy: { type: Number, default: 0 },
+      upscale: { type: Number, default: 0 },
+      lively: { type: Number, default: 0 },
+      groovy: { type: Number, default: 0 },
+      imaginative: { type: Number, default: 0 },
+      exotic: { type: Number, default: 0 },
+      peaceful: { type: Number, default: 0 },
+      powerful: { type: Number, default: 0 },
+    },
+    usersVoted: [
+      {
+        // might have to change userI into 
+        // type: mongoose.Schema.Types.ObjectId,
+        // String will suffice for now. 
+        userId: String,
+        aura: String
+      },
+    ],
     feedback: [
       {
         type: mongoose.Schema.Types.ObjectId,
