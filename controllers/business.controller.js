@@ -70,38 +70,42 @@ const updateOne = async (business, options) => {
  */
 const updateVotes = async (businessId, options) => {
   const business = await Business.find({ _id: businessId });
-  // MIGHT HAVE TO CHANGE 'find()'
-  const voter = business[0].usersVoted.find(user => options.userId === user.userId);
-  // if no voter item was returned
+  // find if the userId already exists in the business' 
+  // array of userId.]s
+  let voter;
+  for(let i = 0; i < business[0].usersVoted.length; ++i) {
+    if(business[0].usersVoted[i].userId.toString() === options.userId.toString()) {
+      voter = business[0].usersVoted[i];
+      break;
+    }
+  }
+  // if no user was found, record the user's/voter's vote
   if(!voter) {
+    // UPVOTE
     business[0].usersVoted.push({ 
       userId: options.userId, 
       aura: options.aura });
     business[0].auras[options.aura]++;
-    //options.res.json(business);
   } else {
     // execute if voter's ID has been found 
-    console.log(voter);
-    options.res.json(business);
-    return; // will continue on friday bitches
     if(voter.aura === options.aura) {
       // voter desires to take back vote
       // splice the object out of the usersVoted field
       for (let i = 0; i < business[0].usersVoted.length; ++i) {
-        if(business[0].usersVoted[i].userId === options.userId) {
+        if(business[0].usersVoted[i].userId.toString() === options.userId.toString()) {
           business[0].usersVoted.splice(i, 1);
           break;
         }
       }
-      // proceed to decrement aura from vote takeback. 
-      // business[0].auras[options.aura] > 0 ? 
-      //   business[0].auras[options.aura]--
-      //   : business[0].auras[options.aura] = 0;
-      options.res.json(business);
+      // proceed to decrement aura from vote takeback.
+      // DOWNVOTE 
+      business[0].auras[options.aura] > 0 ? 
+        business[0].auras[options.aura]--
+        : business[0].auras[options.aura] = 0;
     } else {
       // the user is trying to vote for a different aura. 
       // NOT ALLOWED FOR NOW
-      return 'Msg: User has already voted for this business';
+      return 'message: User has already voted for this business';
     }
   }
   // now that the business' usersVoted and auras have been modified,

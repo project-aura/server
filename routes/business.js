@@ -17,12 +17,16 @@ router.patch(
   '/vote-auras',
   passport.authenticate('jwt', { session: false }),
   asyncWrapper(async (req, res) => {
-    await businessController.updateVotes(req.body.business_id, {
+    const status = await businessController.updateVotes(req.body.business_id, {
       userId: req.user._id,
       aura: req.body.aura,
       res,
     });
-    res.status(200).json({ message: 'Vote/Unvote recorded' });
+    if(status === 'message: User has already voted for this business') {
+      res.status(200).json({ message: 'User has already voted for this business' })
+    } else {
+      res.status(200).json({ message: 'Vote/Unvote recorded' });
+    }
   })
 );
 

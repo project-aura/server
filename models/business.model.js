@@ -34,7 +34,7 @@ const schema = mongoose.Schema(
         // might have to change userId into 
         // type: mongoose.Schema.Types.ObjectId,
         // String will suffice for now. 
-        userId: String,
+        userId: mongoose.Schema.Types.ObjectId,
         aura: String,
       },
     ],
