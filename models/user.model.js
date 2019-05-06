@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const CustomError = require('../helpers/CustomError');
@@ -6,23 +7,28 @@ const schema = mongoose.Schema({
   username: {
     type: String,
     required: true,
-    unique: true,
+    unique: true
   },
   displayName: {
-    type: String,
+    type: String
   },
   password: {
     type: String,
     required: true,
-    minlength: 8,
+    minlength: 8
   },
   favorites: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'business',
-    },
+      ref: 'business'
+    }
   ],
-  feedback: [{ type: mongoose.Schema.Types.ObjectId, ref: 'feedback' }],
+  feedback: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'feedback'
+    }
+  ]
 });
 
 schema.pre('save', async function() {
@@ -40,7 +46,12 @@ schema.pre('save', async function() {
 // Handle duplicates after submission to mongo.
 schema.post('save', function(error, doc, next) {
   if (error.name === 'MongoError' && error.code === 11000) {
-    next(new CustomError(400, 'Username already exists: please provide a different username.'));
+    next(
+      new CustomError(
+        400,
+        'Username already exists: please provide a different username.'
+      )
+    );
   } else {
     next();
   }
