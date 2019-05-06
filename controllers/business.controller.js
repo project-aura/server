@@ -119,12 +119,13 @@ const updateVotes = async (businessId, options) => {
 
 /**
  * Updates many businesses with a batch request
- * @param {Object} businesses Aura Businesses
  * @param {Object} options Additional parameters
- * @returns Response
+ * @returns docs
+ * Updates all
  */
-const updateMany = (businesses, options) => {
-  // TODO
+const updateMany = async (options) => {
+  const docs = await Business.updateMany({}, { $set: options }, { new: true });
+  return docs;
 };
 
 /**

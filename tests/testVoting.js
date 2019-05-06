@@ -25,7 +25,30 @@ const bus = {
         wifi: "",
         alcohol: "Fuck Yes",
         goodForKids: false,
-    },
+    }
+    
 };
 
-businessController.createOne(bus);
+
+businessController.updateMany({
+    likes: 0, 
+    auras: {
+        trendy: 0, 
+        romantic: 0, 
+        hipster: 0, 
+        inspired: 0, 
+        cheerful: 0, 
+        intimate: 0, 
+        classy: 0, 
+        casual: 0, 
+        touristy: 0, 
+        upscale: 0, 
+        lively: 0, 
+        groovy: 0, 
+        imaginative: 0, 
+        exotic: 0, 
+        peaceful: 0, 
+        powerful: 0, 
+      },
+      usersVoted: [],
+});
