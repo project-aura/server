@@ -4,13 +4,14 @@ const schema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
+      required: true
     },
     yelpId: {
       type: String,
-      unique: true,
+      unique: true
     },
     alias: String,
+    likes: { type: Number, default: 0 },
     auras: {
       trendy: { type: Number, default: 0 },
       romantic: { type: Number, default: 0 },
@@ -27,22 +28,22 @@ const schema = mongoose.Schema(
       imaginative: { type: Number, default: 0 },
       exotic: { type: Number, default: 0 },
       peaceful: { type: Number, default: 0 },
-      powerful: { type: Number, default: 0 },
+      powerful: { type: Number, default: 0 }
     },
     usersVoted: [
       {
-        // might have to change userId into 
+        // might have to change userId into
         // type: mongoose.Schema.Types.ObjectId,
-        // String will suffice for now. 
+        // String will suffice for now.
         userId: mongoose.Schema.Types.ObjectId,
-        aura: String,
-      },
+        aura: String
+      }
     ],
     feedback: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'feedback',
-      },
+        ref: 'feedback'
+      }
     ],
     address: String,
     city: String,
@@ -56,7 +57,7 @@ const schema = mongoose.Schema(
     novelty: Number,
     businessImage: {
       src: String,
-      owner: String,
+      owner: String
     },
     attributes: {
       aura: String,
@@ -69,7 +70,7 @@ const schema = mongoose.Schema(
         thursday: Boolean,
         friday: Boolean,
         saturday: Boolean,
-        sunday: Boolean,
+        sunday: Boolean
       },
       goodForKids: Boolean,
       goodForDancing: Boolean,
@@ -78,7 +79,7 @@ const schema = mongoose.Schema(
         lunch: Boolean,
         dinner: Boolean,
         lateNight: Boolean,
-        dessert: Boolean,
+        dessert: Boolean
       },
       priceRange: String,
       parking: {
@@ -86,7 +87,7 @@ const schema = mongoose.Schema(
         street: Boolean,
         lot: Boolean,
         valet: Boolean,
-        validated: Boolean,
+        validated: Boolean
       },
       noiseLevel: String,
       attire: String,
@@ -98,19 +99,19 @@ const schema = mongoose.Schema(
         dj: Boolean,
         live: Boolean,
         backgroundMusic: Boolean,
-        noMusic: Boolean,
+        noMusic: Boolean
       },
-      smoking: String,
+      smoking: String
     },
     categories: {
-      type: Array,
+      type: Array
     },
     displayAddress: {
-      type: Array,
-    },
+      type: Array
+    }
   },
   {
-    timestamps: true,
+    timestamps: true
   }
 );
 
