@@ -19,14 +19,14 @@ const schema = mongoose.Schema({
   },
   favorites: [
     {
-      businessId: mongoose.Schema.Types.ObjectId,
-      ref: 'business'
+      businessId: mongoose.Schema.Types.ObjectId
+      // ref: 'business'
     }
   ],
   feedback: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'feedback'
+      type: mongoose.Schema.Types.ObjectId
+      // ref: 'feedback'
     }
   ]
 });

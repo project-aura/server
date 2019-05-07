@@ -3,19 +3,19 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema(
   {
     user: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'user',
+      type: mongoose.Schema.Types.ObjectId
+      // ref: 'user',
     },
     business: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'business',
+      type: mongoose.Schema.Types.ObjectId
+      // ref: 'business',
     },
     auras: mongoose.Schema.Types.Mixed,
     checkins: Number,
-    comment: String,
+    comment: String
   },
   {
-    timestamps: true,
+    timestamps: true
   }
 );
 
