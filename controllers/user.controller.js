@@ -86,11 +86,16 @@ const updateLike = async (userId, options) => {
   const favoriteBusiness = user[0].favorites.filter(
     favorite => options.businessId.toString() === favorite.businessId.toString()
   );
-  // if the businessId does not exist, add the business Id: UPVOTE
   if (favoriteBusiness.length === 0) {
-    // User
+    // if the businessId does not exist, add the business Id: UPVOTE
+    // update user favorites
     user[0].favorites.push({ businessId: options.businessId });
-    // Business
+    // notify business controller of update
+    await businessController.updateLike(options.businessId, {
+      userId,
+      // operation: 1 to add
+      operation: 1,
+    });
   } else {
     // else the business Id exists, take off the business Id: DOWNOTE
     for(let i = 0; i < user[0].favorites.length; ++i) {
@@ -98,6 +103,12 @@ const updateLike = async (userId, options) => {
         user[0].favorites.splice(i, 1);
       }
     }
+    // notify the business controller of update
+    await businessController.updateLike(options.businessId, {
+      userId,
+      // operation: 0 to subtract
+      operation: 0,
+    });
   }
 
   const updateUser = await updateOne(userId, {
