@@ -79,24 +79,31 @@ const updateMany = (users, options) => {
  * Updates favorites
  * @param {*} options
  */
-const updateLike = async (userId, businessId) => {
+const updateLike = async (userId, options) => {
   // find user based off ID
   const user = await User.find({ _id: userId });
   // search user's favorites if the businessId already exists
   const favoriteBusiness = user[0].favorites.filter(
-    favorite => businessId.toString() === favorite.businessId.toString()
+    favorite => options.businessId.toString() === favorite.businessId.toString()
   );
   // if the businessId does not exist, add the business Id: UPVOTE
-  if (!favoriteBusiness) {
+  if (favoriteBusiness.length === 0) {
     // User
-    user[0].favorites.push({ businessId });
+    user[0].favorites.push({ businessId: options.businessId });
     // Business
+  } else {
+    // else the business Id exists, take off the business Id: DOWNOTE
+    for(let i = 0; i < user[0].favorites.length; ++i) {
+      if(user[0].favorites[i].businessId.toString() === options.businessId.toString()) {
+        user[0].favorites.splice(i, 1);
+      }
+    }
   }
-  // else the business Id exists, take off the business Id: DOWNOTE
 
-  const updateUser = await User.updateOne(userId, {
+  const updateUser = await updateOne(userId, {
     favorites: user[0].favorites
   });
+  return updateUser;
 
   // TODO
   // const business = await businessController.updateOne(userId, businessId);
