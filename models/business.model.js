@@ -37,19 +37,19 @@ const schema = mongoose.Schema(
         // String will suffice for now.
         userId: mongoose.Schema.Types.ObjectId,
         aura: String,
-        ref: 'user'
+        //ref: 'user'
       }
     ],
     usersLiked: [
       {
         userId: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
+        //ref: 'user'
       }
     ],
     feedback: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'feedback'
+        //ref: 'feedback'
       }
     ],
     address: String,

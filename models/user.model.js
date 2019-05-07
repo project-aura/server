@@ -20,13 +20,13 @@ const schema = mongoose.Schema({
   favorites: [
     {
       businessId: mongoose.Schema.Types.ObjectId,
-      ref: 'business'
+      //ref: 'business'
     }
   ],
   feedback: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'feedback'
+      //ref: 'feedback'
     }
   ]
 });
