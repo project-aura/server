@@ -7,6 +7,8 @@ require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const CustomError = require('../helpers/CustomError');
 const User = require('../models/user.model');
 
+const businessController = require('./business.controller');
+
 /**
  * Creates a single user
  * @param {Object} user Aura user
@@ -55,7 +57,11 @@ const readMany = async options => {
  * @returns Response
  */
 const updateOne = async (user, options) => {
-  const doc = await User.findByIdAndUpdate(user, { $set: options }, { new: true });
+  const doc = await User.findByIdAndUpdate(
+    user,
+    { $set: options },
+    { new: true }
+  );
   return doc;
 };
 
@@ -67,6 +73,33 @@ const updateOne = async (user, options) => {
  */
 const updateMany = (users, options) => {
   // TODO
+};
+
+/**
+ * Updates favorites
+ * @param {*} options
+ */
+const updateLike = async (userId, businessId) => {
+  // find user based off ID
+  const user = await User.find({ _id: userId });
+  // search user's favorites if the businessId already exists
+  const favoriteBusiness = user[0].favorites.filter(
+    favorite => businessId.toString() === favorite.businessId.toString()
+  );
+  // if the businessId does not exist, add the business Id: UPVOTE
+  if (!favoriteBusiness) {
+    // User
+    user[0].favorites.push({ businessId });
+    // Business
+  }
+  // else the business Id exists, take off the business Id: DOWNOTE
+
+  const updateUser = await User.updateOne(userId, {
+    favorites: user[0].favorites
+  });
+
+  // TODO
+  // const business = await businessController.updateOne(userId, businessId);
 };
 
 /**
@@ -118,10 +151,11 @@ const userController = {
   readMany,
   updateOne,
   updateMany,
+  updateLike,
   deleteOne,
   deleteMany,
   seed,
-  find,
+  find
 };
 
 module.exports = userController;

@@ -19,7 +19,7 @@ const schema = mongoose.Schema({
   },
   favorites: [
     {
-      type: mongoose.Schema.Types.ObjectId,
+      businessId: mongoose.Schema.Types.ObjectId,
       ref: 'business'
     }
   ],
