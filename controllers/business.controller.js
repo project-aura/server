@@ -38,7 +38,7 @@ const createMany = async (businesses, options) => {
  * @returns Response
  */
 const readOne = async options => {
-  const returnAwait = await Business.find(options);
+  const returnAwait = await Business.findOne(options);
   return returnAwait;
 };
 
@@ -58,19 +58,119 @@ const readMany = async options => {
  * @param {Object} options Additional parameters
  * @returns Response
  */
-const updateOne = (business, options) => {
-  // TODO
+const updateOne = async (business, options) => {
+  const doc = await Business.findByIdAndUpdate(business, { $set: options }, { new: true });
+  return doc;
 };
 
 /**
  * Updates many businesses with a batch request
- * @param {Object} businesses Aura Businesses
  * @param {Object} options Additional parameters
- * @returns Response
+ * @returns docs
+ * Updates all
  */
-const updateMany = (businesses, options) => {
-  // TODO
+const updateMany = async (options) => {
+  const docs = await Business.updateMany({}, { $set: options }, { new: true });
+  return docs;
 };
+
+/**
+ * 
+ * @param {*} businessId -> ID of business
+ * @param {*} options -> additional params, userId is derived here.
+ * This function is called whenever user upvotes/downvotes an aura
+ * on the business. It calls the updateOne() method to update the 
+ * document whenever it is done
+ */
+const updateVotes = async (businessId, options) => {
+  const business = await Business.find({ _id: businessId });
+  // find if the userId already exists in the business' 
+  // array of userId.]s
+  let voter;
+  for(let i = 0; i < business[0].usersVoted.length; ++i) {
+    if(business[0].usersVoted[i].userId.toString() === options.userId.toString()) {
+      voter = business[0].usersVoted[i];
+      break;
+    }
+  }
+  // if no user was found, record the user's/voter's vote
+  if(!voter) {
+    // UPVOTE
+    business[0].usersVoted.push({ 
+      userId: options.userId, 
+      aura: options.aura });
+    business[0].auras[options.aura]++;
+  } else {
+    // execute if voter's ID has been found 
+    if(voter.aura === options.aura) {
+      // voter desires to take back vote
+      // splice the object out of the usersVoted field
+      for (let i = 0; i < business[0].usersVoted.length; ++i) {
+        if(business[0].usersVoted[i].userId.toString() === options.userId.toString()) {
+          business[0].usersVoted.splice(i, 1);
+          break;
+        }
+      }
+      // proceed to decrement aura from vote takeback.
+      // DOWNVOTE 
+      business[0].auras[options.aura] > 0 ? 
+        business[0].auras[options.aura]--
+        : business[0].auras[options.aura] = 0;
+    } else {
+      // the user is trying to vote for a different aura. 
+      // NOT ALLOWED FOR NOW
+      return 'message: User has already voted for this business';
+    }
+  }
+  // now that the business' usersVoted and auras have been modified,
+  // shove it back to reflect in the database.
+  const doc = await updateOne(businessId, { 
+    usersVoted: business[0].usersVoted,
+    auras: business[0].auras
+  });
+  return doc;
+}
+
+/**
+ * 
+ * @param {*} businessId -> The id of the business that will be updated
+ * @param {*} options -> additional parameters in here, the userId
+ * will be placed in here.
+ * This function is called by a user controller whenever a user 
+ * 'likes' or 'favorites' a places.
+ * Checking for repeating users liking the same business is not the job 
+ * of this controller. The user controller takes on that responsibility.
+ */
+const updateLike = async (businessId, options) => {
+  // find the business by its ID
+  // pick off the business 'likes' and 'usersLiked' fields 
+  // and edit accordingly. 
+  const business = await find({ _id: businessId });
+  // options.operation === 1 is add
+  // options.operation === 0 is subtract
+  if(options.operation === 1) {
+    // user controller desired an add
+    business[0].likes++;
+    business[0].usersLiked.push({ userId: options.userId });
+  } else {
+    // user controller desired a subtract
+    business[0].likes > 0 ?
+      business[0].likes--
+        : business[0].likes = 0;
+    for(let i = 0; i < business[0].usersLiked.length; ++i) {
+      if(options.userId.toString() === business[0].usersLiked[i].userId.toString()) {
+        business[0].usersLiked.splice(i, 1);
+      }
+    }
+  }
+  // likes and usersLiked have now been modified accordingly
+  // push changes back into the document
+  const doc = await updateOne(businessId, {
+    usersLiked: business[0].usersLiked,
+    likes: business[0].likes,
+  });
+  return doc;
+}
 
 /**
  * Deletes a single business
@@ -128,6 +228,8 @@ const businessController = {
   readMany,
   updateOne,
   updateMany,
+  updateVotes,
+  updateLike,
   deleteOne,
   deleteMany,
   seed,
