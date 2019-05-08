@@ -145,7 +145,7 @@ const updateLike = async (businessId, options) => {
   // find the business by its ID
   // pick off the business 'likes' and 'usersLiked' fields 
   // and edit accordingly. 
-  const business = await find({ _id: businessId });
+  const business = await Business.find({ _id: businessId });
   // options.operation === 1 is add
   // options.operation === 0 is subtract
   if(options.operation === 1) {
@@ -160,6 +160,7 @@ const updateLike = async (businessId, options) => {
     for(let i = 0; i < business[0].usersLiked.length; ++i) {
       if(options.userId.toString() === business[0].usersLiked[i].userId.toString()) {
         business[0].usersLiked.splice(i, 1);
+        break;
       }
     }
   }
