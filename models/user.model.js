@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const CustomError = require('../helpers/CustomError');
@@ -6,23 +7,31 @@ const schema = mongoose.Schema({
   username: {
     type: String,
     required: true,
-    unique: true,
+    unique: true
   },
   displayName: {
-    type: String,
+    type: String
   },
   password: {
     type: String,
     required: true,
-    minlength: 8,
+    minlength: 8
   },
   favorites: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'business',
-    },
+      businessId: String,
+      // eventually nest object in here to be able to use
+      // populate()
+      //type: mongoose.Schema.Types.ObjectId,
+      //ref: 'business'
+    }
   ],
-  feedback: [{ type: mongoose.Schema.Types.ObjectId, ref: 'feedback' }],
+  feedback: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'feedback'
+    }
+  ]
 });
 
 schema.pre('save', async function() {
@@ -40,14 +49,19 @@ schema.pre('save', async function() {
 // Handle duplicates after submission to mongo.
 schema.post('save', function(error, doc, next) {
   if (error.name === 'MongoError' && error.code === 11000) {
-    next(new CustomError(400, 'Username already exists: please provide a different username.'));
+    next(
+      new CustomError(
+        400,
+        'Username already exists: please provide a different username.'
+      )
+    );
   } else {
     next();
   }
 });
 
 // Update hooks
-schema.pre('updateOne', async function(error, doc, next) {
+schema.pre('findByIdAndUpdate', async function(error, doc, next) {
   const { password } = this._update;
   if (password) {
     const salt = await bcrypt.genSalt();

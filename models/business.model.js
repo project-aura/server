@@ -4,19 +4,57 @@ const schema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
+      required: true
     },
     yelpId: {
       type: String,
-      unique: true,
+      unique: true
     },
     alias: String,
-    auras: mongoose.Schema.Types.Mixed,
+    likes: { type: Number, default: 0 },
+    auras: {
+      trendy: { type: Number, default: 0 },
+      romantic: { type: Number, default: 0 },
+      hipster: { type: Number, default: 0 },
+      inspired: { type: Number, default: 0 },
+      cheerful: { type: Number, default: 0 },
+      intimate: { type: Number, default: 0 },
+      classy: { type: Number, default: 0 },
+      casual: { type: Number, default: 0 },
+      touristy: { type: Number, default: 0 },
+      upscale: { type: Number, default: 0 },
+      lively: { type: Number, default: 0 },
+      groovy: { type: Number, default: 0 },
+      imaginative: { type: Number, default: 0 },
+      exotic: { type: Number, default: 0 },
+      peaceful: { type: Number, default: 0 },
+      powerful: { type: Number, default: 0 }
+    },
+    usersVoted: [
+      {
+        // might have to change userId into
+        // type: mongoose.Schema.Types.ObjectId,
+        // String will suffice for now.
+        userId: String,
+        aura: String,
+        //type: mongoose.Schema.Types.ObjectId,
+        //ref: 'user'
+      }
+    ],
+    usersLiked: [
+      {
+        userId: String,
+        // potentially have to nest the object with reference 
+        // to a user in here to allow populate().
+        // type: mongoose.Schema.Types.ObjectId,
+        // ref: 'user'
+      }
+    ],
     feedback: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'feedback',
-      },
+        ref: 'feedback'
+      }
     ],
     address: String,
     city: String,
@@ -30,7 +68,7 @@ const schema = mongoose.Schema(
     novelty: Number,
     businessImage: {
       src: String,
-      owner: String,
+      owner: String
     },
     attributes: {
       aura: String,
@@ -43,7 +81,7 @@ const schema = mongoose.Schema(
         thursday: Boolean,
         friday: Boolean,
         saturday: Boolean,
-        sunday: Boolean,
+        sunday: Boolean
       },
       goodForKids: Boolean,
       goodForDancing: Boolean,
@@ -52,7 +90,7 @@ const schema = mongoose.Schema(
         lunch: Boolean,
         dinner: Boolean,
         lateNight: Boolean,
-        dessert: Boolean,
+        dessert: Boolean
       },
       priceRange: String,
       parking: {
@@ -60,7 +98,7 @@ const schema = mongoose.Schema(
         street: Boolean,
         lot: Boolean,
         valet: Boolean,
-        validated: Boolean,
+        validated: Boolean
       },
       noiseLevel: String,
       attire: String,
@@ -72,19 +110,19 @@ const schema = mongoose.Schema(
         dj: Boolean,
         live: Boolean,
         backgroundMusic: Boolean,
-        noMusic: Boolean,
+        noMusic: Boolean
       },
-      smoking: String,
+      smoking: String
     },
     categories: {
-      type: Array,
+      type: Array
     },
     displayAddress: {
-      type: Array,
-    },
+      type: Array
+    }
   },
   {
-    timestamps: true,
+    timestamps: true
   }
 );
 

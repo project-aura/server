@@ -7,6 +7,8 @@ require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const CustomError = require('../helpers/CustomError');
 const User = require('../models/user.model');
 
+const businessController = require('./business.controller');
+
 /**
  * Creates a single user
  * @param {Object} user Aura user
@@ -14,7 +16,7 @@ const User = require('../models/user.model');
  * @returns Response
  */
 const createOne = async (user, options) => {
-  const returnAwait = await User.insertOne(user);
+  const returnAwait = await User.create(user);
   return returnAwait;
 };
 
@@ -35,7 +37,7 @@ const createMany = async (users, options) => {
  * @returns Response
  */
 const readOne = async options => {
-  const returnAwait = await User.find(options);
+  const returnAwait = await User.findOne(options);
   return returnAwait;
 };
 
@@ -50,12 +52,17 @@ const readMany = async options => {
 
 /**
  * Updates a single user
- * @param {Object} user Aura user
+ * @param {Object} user Aura user ID
  * @param {Object} options Additional parameters
  * @returns Response
  */
-const updateOne = (user, options) => {
-  // TODO
+const updateOne = async (user, options) => {
+  const doc = await User.findByIdAndUpdate(
+    user,
+    { $set: options },
+    { new: true }
+  );
+  return doc;
 };
 
 /**
@@ -66,6 +73,51 @@ const updateOne = (user, options) => {
  */
 const updateMany = (users, options) => {
   // TODO
+};
+
+/**
+ * Updates favorites
+ * @param {*} options
+ */
+const updateLike = async (userId, options) => {
+  // find user based off ID
+  const user = await User.find({ _id: userId });
+  // search user's favorites if the businessId already exists
+  const favoriteBusiness = user[0].favorites.filter(
+    favorite => options.businessId.toString() === favorite.businessId.toString()
+  );
+  if (favoriteBusiness.length === 0) {
+    // if the businessId does not exist, add the business Id: UPVOTE
+    // update user favorites
+    user[0].favorites.push({ businessId: options.businessId });
+    // notify business controller of update
+    await businessController.updateLike(options.businessId, {
+      userId,
+      // operation: 1 to add
+      operation: 1,
+    });
+  } else {
+    // else the business Id exists, take off the business Id: DOWNOTE
+    for(let i = 0; i < user[0].favorites.length; ++i) {
+      if(user[0].favorites[i].businessId.toString() === options.businessId.toString()) {
+        user[0].favorites.splice(i, 1);
+      }
+    }
+    // notify the business controller of update
+    await businessController.updateLike(options.businessId, {
+      userId,
+      // operation: 0 to subtract
+      operation: 0,
+    });
+  }
+
+  const updateUser = await updateOne(userId, {
+    favorites: user[0].favorites
+  });
+  return updateUser;
+
+  // TODO
+  // const business = await businessController.updateOne(userId, businessId);
 };
 
 /**
@@ -117,10 +169,11 @@ const userController = {
   readMany,
   updateOne,
   updateMany,
+  updateLike,
   deleteOne,
   deleteMany,
   seed,
-  find,
+  find
 };
 
 module.exports = userController;

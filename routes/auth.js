@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const asyncWrapper = require('../middleware/asyncWrapper');
 const DataMaster = require('../controllers/DataMaster');
 const CustomError = require('../helpers/CustomError');
+const userController = require('../controllers/user.controller');
 
 const dataMaster = new DataMaster(process.env.ENVIRONMENT);
 
@@ -23,7 +24,7 @@ router.post(
       feedback: [],
     };
 
-    const createdUser = await dataMaster.addUser(user);
+    const createdUser = await userController.createOne(user);
 
     const userObj = createdUser.toObject();
     delete userObj.password;
@@ -41,7 +42,7 @@ router.post(
     }
 
     // find the user
-    const user = await dataMaster.findUserByUsername(req.body.username);
+    const user = await userController.readOne({username: req.body.username});
 
     // Check if User exists
     if (!user) throw new CustomError(404, 'Invalid username: please try again');
