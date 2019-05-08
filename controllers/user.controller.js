@@ -109,7 +109,6 @@ const updateLike = async (userId, options) => {
       userId,
       // operation: 0 to subtract
       operation: 0,
-      res: options.res,
     });
   }
 
