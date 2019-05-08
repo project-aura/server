@@ -50,7 +50,7 @@ router.patch(
     // Need to refer to user controller
     // updateLike will update both user and business controller
     await userController.updateLike(req.user._id, {
-      businessId: req.body.business_id,
+      businessId: req.body.businessId,
       res
     });
     res.status(200).json({ message: 'Successfully added to favorites' });
