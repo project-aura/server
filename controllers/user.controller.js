@@ -101,6 +101,7 @@ const updateLike = async (userId, options) => {
     for(let i = 0; i < user[0].favorites.length; ++i) {
       if(user[0].favorites[i].businessId.toString() === options.businessId.toString()) {
         user[0].favorites.splice(i, 1);
+        break;
       }
     }
     // notify the business controller of update
