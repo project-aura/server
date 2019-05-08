@@ -17,7 +17,7 @@ router.patch(
   '/vote-auras',
   passport.authenticate('jwt', { session: false }),
   asyncWrapper(async (req, res) => {
-    const status = await businessController.updateVotes(req.body.business_id, {
+    const status = await businessController.updateVotes(req.body.businessId, {
       userId: req.user._id,
       aura: req.body.aura,
       res,
