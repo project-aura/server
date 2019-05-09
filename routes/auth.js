@@ -20,6 +20,8 @@ router.post(
       username: req.body.username,
       displayName: null,
       password: req.body.password,
+      email: req.body.email,
+      closestLocation: req.body.closestLocation,
       favorites: [],
       feedback: [],
     };
