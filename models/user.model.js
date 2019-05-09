@@ -17,6 +17,8 @@ const schema = mongoose.Schema({
     required: true,
     minlength: 8
   },
+  email: String,
+  closestLocation: String,
   favorites: [
     {
       businessId: String,
