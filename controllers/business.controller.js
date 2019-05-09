@@ -98,7 +98,9 @@ const updateVotes = async (businessId, options) => {
     // UPVOTE
     business[0].usersVoted.push({ 
       userId: options.userId, 
-      aura: options.aura });
+      aura: options.aura,
+      objectReference: options.userId,
+     });
     business[0].auras[options.aura]++;
   } else {
     // execute if voter's ID has been found 
@@ -151,7 +153,10 @@ const updateLike = async (businessId, options) => {
   if(options.operation === 1) {
     // user controller desired an add
     business[0].likes++;
-    business[0].usersLiked.push({ userId: options.userId });
+    business[0].usersLiked.push({ 
+      userId: options.userId,
+      objectReference: options.userId,
+     });
   } else {
     // user controller desired a subtract
     business[0].likes > 0 ?

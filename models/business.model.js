@@ -32,22 +32,23 @@ const schema = mongoose.Schema(
     },
     usersVoted: [
       {
-        // might have to change userId into
-        // type: mongoose.Schema.Types.ObjectId,
-        // String will suffice for now.
         userId: String,
         aura: String,
-        //type: mongoose.Schema.Types.ObjectId,
-        //ref: 'user'
+        // nest reference to object in here to allow populate()
+        objectReference: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'user',
+        },
       }
     ],
     usersLiked: [
       {
         userId: String,
-        // potentially have to nest the object with reference 
-        // to a user in here to allow populate().
-        // type: mongoose.Schema.Types.ObjectId,
-        // ref: 'user'
+        // nest reference to object in here to allow populate()
+        objectReference: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'user',
+        },
       }
     ],
     feedback: [

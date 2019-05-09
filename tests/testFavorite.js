@@ -1,6 +1,7 @@
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const businessController = require('../controllers/business.controller');
+const userController = require('../controllers/user.controller');
 const DataMaster = require('../controllers/DataMaster');
 
 // tests for 'favorite' feature in here.
@@ -9,4 +10,8 @@ dataMaster.connectForMutations(process.env.ENVIRONMENT);
 businessController.updateMany({
     likes: 0, 
     usersLiked: [],
+});
+
+userController.updateMany({
+    favorites: [],
 });

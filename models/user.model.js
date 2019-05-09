@@ -17,13 +17,16 @@ const schema = mongoose.Schema({
     required: true,
     minlength: 8
   },
+  email: String,
+  closestLocation: String,
   favorites: [
     {
       businessId: String,
-      // eventually nest object in here to be able to use
-      // populate()
-      //type: mongoose.Schema.Types.ObjectId,
-      //ref: 'business'
+      // nest reference to object in here to be able to use populate()
+      objectReference: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'business',
+      },
     }
   ],
   feedback: [
