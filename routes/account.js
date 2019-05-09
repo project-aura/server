@@ -57,21 +57,4 @@ router.patch(
   })
 );
 
-// router.patch(
-//   '/vote-auras',
-//   passport.authenticate('jwt', { session: false }),
-//   asyncWrapper(async (req, res) => {
-//     const status = await businessController.updateVotes(req.body.business_id, {
-//       userId: req.user._id,
-//       aura: req.body.aura,
-//       res,
-//     });
-//     if(status === 'message: User has already voted for this business') {
-//       res.status(200).json({ message: 'User has already voted for this business' })
-//     } else {
-//       res.status(200).json({ message: 'Vote/Unvote recorded' });
-//     }
-//   })
-// );
-
 module.exports = router;
