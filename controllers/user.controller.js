@@ -89,7 +89,10 @@ const updateLike = async (userId, options) => {
   if (favoriteBusiness.length === 0) {
     // if the businessId does not exist, add the business Id: UPVOTE
     // update user favorites
-    user[0].favorites.push({ businessId: options.businessId });
+    user[0].favorites.push({ 
+      businessId: options.businessId,
+      objectReference: options.businessId,
+     });
     // notify business controller of update
     await businessController.updateLike(options.businessId, {
       userId,
