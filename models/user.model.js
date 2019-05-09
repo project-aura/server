@@ -20,7 +20,7 @@ const schema = mongoose.Schema({
   favorites: [
     {
       businessId: String,
-      // nest object in here to be able to use populate()
+      // nest reference to object in here to be able to use populate()
       objectReference: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'business',
