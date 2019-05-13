@@ -3,11 +3,10 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const asyncWrapper = require('../middleware/asyncWrapper');
-const DataMaster = require('../controllers/DataMaster');
 const CustomError = require('../helpers/CustomError');
 const userController = require('../controllers/user.controller');
 
-const dataMaster = new DataMaster(process.env.ENVIRONMENT);
+// connection to DB is in index
 
 router.post(
   '/signup',
