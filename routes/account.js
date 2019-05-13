@@ -5,10 +5,9 @@ const bcrypt = require('bcrypt');
 
 const asyncWrapper = require('../middleware/asyncWrapper');
 const CustomError = require('../helpers/CustomError');
-const DataMaster = require('../controllers/DataMaster');
 const userController = require('../controllers/user.controller');
 
-const dataMaster = new DataMaster(process.env.ENVIRONMENT);
+// connections to DB is now in index
 
 router.get(
   '/',
