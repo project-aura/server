@@ -4,10 +4,8 @@ const cors = require('cors');
 const path = require('path');
 const passport = require('passport');
 const JwtStrategy = require('./passport');
-const businessRouter = require('./routes/business');
-const authRouter = require('./routes/auth');
+const mainRouter = require('./routes/mainRouter');
 const selectEnvironment = require('./helpers/selectEnvironment');
-const accountRouter = require('./routes/account');
 const errorHandler = require('./middleware/errorHandler');
 const DataMaster = require('./controllers/DataMaster');
 
@@ -36,10 +34,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 passport.use(JwtStrategy);
 
-// Route endpoints
-app.use('/api/businesses', businessRouter);
-app.use('/api/auth', authRouter);
-app.use('/api/account', accountRouter);
+// Route endpoints -> just the main router
+// then main router distributes to the subrouters
+app.use('/', mainRouter);
 
 // Error Handling
 app.use(errorHandler);
