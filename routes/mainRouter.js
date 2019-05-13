@@ -12,3 +12,4 @@ const app = express();
 
 // subrouters
 app.use('api/businesses', businessRouter);
+app.use('api/auth', authRouter);
