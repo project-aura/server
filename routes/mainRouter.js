@@ -10,4 +10,5 @@ const businessRouter = require('./business');
 
 const app = express();
 
-app.use();
+// subrouters
+app.use('api/businesses', businessRouter);
