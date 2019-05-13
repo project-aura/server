@@ -16,6 +16,7 @@ selectEnvironment(process.argv[2]);
 
 const app = express();
 
+// process.env -> change it accordingly! 
 const connector = new DataMaster();
 connector.connectForMutations(process.env.DB_NAME_TEST);
 /* Added on 3/5/2019
