@@ -13,3 +13,6 @@ const app = express();
 // subrouters
 app.use('api/businesses', businessRouter);
 app.use('api/auth', authRouter);
+app.use('api/account', accountRouter);
+
+module.exports = mainRouter;
