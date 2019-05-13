@@ -4,6 +4,9 @@
  */
 
 const express = require('express');
+const authRouter = require('./auth');
+const accountRouter = require('./account');
+const businessRouter = require('./business');
 
 const app = express();
 
