@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const passport = require('passport');
-const DataMaster = require('../controllers/DataMaster');
 const asyncWrapper = require('../middleware/asyncWrapper');
 const businessController = require('../controllers/business.controller');
+
+// connection to the database is now on index
 
 router.get(
   '/',
