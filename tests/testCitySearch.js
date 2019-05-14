@@ -19,4 +19,9 @@ const dataMaster = new DataMaster(process.env.ENVIRONMENT);
 dataMaster.connectForMutations(process.env.ENVIRONMENT);
 
 // object that holds all the businesses
-const businesses = businessController.find();
+businessController.readMany()
+    .then(businesses => {
+        /**
+         * Target each businesses' postalCode
+         */
+    });
