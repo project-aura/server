@@ -34,7 +34,7 @@ businessController.readMany()
                 // target a business' postal Code
                 let zip;
                 for(let key in zipCodes) {
-                    if(zipCodes[key].includes(business.postalCode)){  
+                    if(zipCodes[key].includes(business.postalCode)) {  
                         zip = key;
                         break;
                     }

@@ -17,3 +17,37 @@ const categories = require('../data/categories');
 
 const dataMaster = new DataMaster(process.env.ENVIRONMENT);
 dataMaster.connectForMutations(process.env.ENVIRONMENT);
+
+// object the holds all the businesses
+businessController.readMany()
+    .then(businesses => 
+        // target individual business from aggregate storage 
+        businesses.forEach(business => {
+            let formattedCategory = '';
+            // categories is an array 
+            business.categories.forEach(category => {
+                // categories in '(let key in categories)' refer to the 
+                // hash categories from require. see line 16. or around
+                // line 16 if does get moved in the future.
+                for(let key in categories) {
+                    if(categories[key].includes(category.alias)) {
+                        // check if formattedCategory does not have cat.
+                        if(!formattedCategory.includes(key)) {
+                            // not appended to formattedCategory yet, so add
+                            // it to formattedCategory
+                            formattedCategory += `${key}, `;
+                        }
+                        // else, it already has the category, keep looping
+                        // no point in having 2 categories to be the same
+                        // it might or might not be a glorious pain in the ass
+                    }
+                    // else categories[key] doesnt include the category.alias
+                }
+            })
+
+            // DB update in here
+            businessController.updateOne(business._id, {
+                categorySearch: formattedCategory,
+            });
+        })
+    );
