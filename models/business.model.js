@@ -59,6 +59,7 @@ const schema = mongoose.Schema(
     ],
     address: String,
     city: String,
+    citySearch: String,
     state: String,
     postalCode: String,
     latitude: Number,
@@ -118,6 +119,7 @@ const schema = mongoose.Schema(
     categories: {
       type: Array
     },
+    categorySearch: String,
     displayAddress: {
       type: Array
     }
