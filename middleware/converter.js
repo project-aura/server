@@ -74,7 +74,36 @@ const cityConvert = async (businesses) => {
 }
 
 const categoryConvert = async (businesses) => {
-    // TODO
+    const returnedBusinesses = await businesses.forEach(business => {
+        let formattedCategory = '';
+        // categories is an array 
+        business.categories.forEach(category => {
+            // categories in '(let key in categories)' refer to the 
+            // hash categories from require. see line 10. or around
+            // line 10 if does get moved in the future.
+            for(let key in categories) {
+                if(categories[key].includes(category.alias)) {
+                    // check if formattedCategory does not have cat.
+                    if(!formattedCategory.includes(key)) {
+                        // not appended to formattedCategory yet, so add
+                        // it to formattedCategory
+                        formattedCategory += `${key}, `;
+                    }
+                    // else, it already has the category, keep looping
+                    // no point in having 2 categories to be the same
+                    // it might or might not be a glorious pain in the ass
+                }
+                // else categories[key] doesnt include the category.alias
+            }
+        })
+
+        // update in here
+        // insert formattedCatergory into categorySearch
+        business.categorySearch = formattedCategory;
+    });
+
+    // return the returnedBusinesses
+    return returnedBusinesses;
 }
 
 const converter = {
