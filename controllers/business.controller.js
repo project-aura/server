@@ -222,6 +222,8 @@ const find = async (query, options) => {
   const businesses = await Business.find()
     .where('attributes.aura')
     .regex(query.aura || '');
+  // catFilter and cityFilter will be changed once front is 
+  // ready to paginate results
   const cityFilter = await funnelZip(query.city, businesses);
   const catFilter = await funnelAction(query.category, cityFilter);
   return catFilter;
