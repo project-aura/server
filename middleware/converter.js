@@ -65,10 +65,11 @@ const cityConvert = async (businesses) => {
         }
         
         // do updates in here 
-        // insert formattedCity into citySearch
+        // insert formattedCity into citySearch field
         business.citySearch = formattedCity;
     });
 
+    // return the returnedBusinesses 
     return returnedBusinesses;
 }
 
