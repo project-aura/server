@@ -11,7 +11,9 @@ const zipCodes = require('../data/zipCodes');
 const categories = require('../data/categories');
 
 const cityConvert = async (businesses) => {
-    // TODO
+    const returnedBusinesses;
+
+    return returnedBusinesses;
 }
 
 const categoryConvert = async (businesses) => {
