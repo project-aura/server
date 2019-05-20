@@ -7,3 +7,4 @@
  * 5. returns the businesses with a field called 'citySearch'
  */
 const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '/../.env') });
