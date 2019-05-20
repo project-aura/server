@@ -13,3 +13,7 @@ const categories = require('../data/categories');
 const cityConvert = async (businesses) => {
     // TODO
 }
+
+const categoryConvert = async (businesses) => {
+    // TODO
+}
