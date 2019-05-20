@@ -4,5 +4,5 @@
  * 2. reads the postal code of each business
  * 3. figures out the city of the business from the given postal code
  * 4. saves it in the field called 'citySearch'
- * 5. saves it back to the DB. -> Call updateOne() save each time its
+ * 5. returns the businesses with a field called 'citySearch'
  */
