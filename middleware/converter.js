@@ -6,7 +6,6 @@
  */
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '/../.env') });
-const businessController = require('../controllers/business.controller');
 const zipCodes = require('../data/zipCodes');
 const categories = require('../data/categories');
 
@@ -65,10 +64,9 @@ const cityConvert = async (businesses) => {
             }
         }
         
-        // do updates in here then lol
-        businessController.updateOne(business._id, {
-            citySearch: formattedCity,
-        });
+        // do updates in here 
+        // insert formattedCity into citySearch
+        business.citySearch = formattedCity;
     });
 
     return returnedBusinesses;
