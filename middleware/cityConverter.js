@@ -9,4 +9,5 @@ require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const businessController = require('../controllers/business.controller');
 const DataMaster = require('../controllers/DataMaster');
 const zipCodes = require('../data/zipCodes');
+const categories = require('../data/categories');
 
