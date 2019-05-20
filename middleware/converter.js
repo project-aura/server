@@ -1,8 +1,11 @@
 /**
- * Converters - converts attributes from the businesses
- * appends fields into the businesses depending on the function that is called
+ * Converters - Converts attributes from the businesses
+ * appends fields into the businesses depending on the function that is called.
  * citySearch and categorySearch are fields that it will be appended to
  * since the business models have been updated to have these fields.
+ * This file will be mainly used in the batch adding process. The businesses
+ * pulled from the API needs certain fields to be appended into it before 
+ * getting added into the database. This file alleviates that problem.
  */
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '/../.env') });
