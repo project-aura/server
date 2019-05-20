@@ -17,3 +17,10 @@ const cityConvert = async (businesses) => {
 const categoryConvert = async (businesses) => {
     // TODO
 }
+
+const converter = {
+    cityConvert,
+    categoryConvert,
+};
+module.exports = converter;
+
