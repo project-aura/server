@@ -67,12 +67,13 @@ const updateOne = async (user, options) => {
 
 /**
  * Updates many users with a batch request
- * @param {Object} users Aura users
- * @param {Object} options Additional parameters
- * @returns Response
+ * @param {Object} options Additional parameters, whatever needs to be
+ * updated based of the route or caller of this controller.
+ * updates all users
  */
-const updateMany = (users, options) => {
-  // TODO
+const updateMany = (options) => {
+  const docs = await User.updateMany({}, { $set: options }, { new: true });
+  return docs;
 };
 
 /**
