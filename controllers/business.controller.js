@@ -96,16 +96,16 @@ const updateVotesAura = async (businessId, options) => {
   // find if the userId already exists in the business' 
   // array of userId.]s
   let voter;
-  for(let i = 0; i < business[0].usersVoted.length; ++i) {
-    if(business[0].usersVoted[i].userId.toString() === options.userId.toString()) {
-      voter = business[0].usersVoted[i];
+  for(let i = 0; i < business[0].usersVotedAura.length; ++i) {
+    if(business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
+      voter = business[0].usersVotedAura[i];
       break;
     }
   }
   // if no user was found, record the user's/voter's vote
   if(!voter) {
     // UPVOTE
-    business[0].usersVoted.push({ 
+    business[0].usersVotedAura.push({ 
       userId: options.userId, 
       aura: options.aura,
       objectReference: options.userId,
@@ -115,10 +115,10 @@ const updateVotesAura = async (businessId, options) => {
     // execute if voter's ID has been found 
     if(voter.aura === options.aura) {
       // voter desires to take back vote
-      // splice the object out of the usersVoted field
-      for (let i = 0; i < business[0].usersVoted.length; ++i) {
-        if(business[0].usersVoted[i].userId.toString() === options.userId.toString()) {
-          business[0].usersVoted.splice(i, 1);
+      // splice the object out of the usersVotedAura field
+      for (let i = 0; i < business[0].usersVotedAura.length; ++i) {
+        if(business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
+          business[0].usersVotedAura.splice(i, 1);
           break;
         }
       }
@@ -133,10 +133,10 @@ const updateVotesAura = async (businessId, options) => {
       return 'message: User has already voted for this business';
     }
   }
-  // now that the business' usersVoted and auras have been modified,
+  // now that the business' usersVotedAura and auras have been modified,
   // shove it back to reflect in the database.
   const doc = await updateOne(businessId, { 
-    usersVoted: business[0].usersVoted,
+    usersVotedAura: business[0].usersVotedAura,
     auras: business[0].auras
   });
   return doc;
