@@ -120,9 +120,6 @@ const updateLike = async (userId, options) => {
     favorites: user[0].favorites
   });
   return updateUser;
-
-  // TODO
-  // const business = await businessController.updateOne(userId, businessId);
 };
 
 /**
