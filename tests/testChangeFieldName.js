@@ -13,6 +13,7 @@ const dataMaster = new DataMaster(process.env.ENVIRONMENT);
 dataMaster.connectForMutations(process.env.ENVIRONMENT);
 
 businessController.renameField({
-    'usersVoted': 'usersVotedAura',
+    // mute this 
+    //'usersVoted': 'usersVotedAura' 
 });
 

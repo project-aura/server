@@ -55,6 +55,8 @@ const readMany = async options => {
 /**
  * 
  * @param {Object} options defines field to be renamed with new field
+ * complains about rename being empty is the field to be renamed does 
+ * not exist in the schema.
  */
 const renameField = async(options) => {
   const docs = await Business.updateMany({}, { $rename: options }, { new: true });
