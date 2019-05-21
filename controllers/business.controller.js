@@ -91,7 +91,7 @@ const updateMany = async (options) => {
  * on the business. It calls the updateOne() method to update the 
  * document whenever it is done
  */
-const updateVotes = async (businessId, options) => {
+const updateVotesAura = async (businessId, options) => {
   const business = await Business.find({ _id: businessId });
   // find if the userId already exists in the business' 
   // array of userId.]s
@@ -246,7 +246,7 @@ const businessController = {
   renameField,
   updateOne,
   updateMany,
-  updateVotes,
+  updateVotesAura,
   updateLike,
   deleteOne,
   deleteMany,
