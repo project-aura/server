@@ -53,6 +53,15 @@ const readMany = async options => {
 };
 
 /**
+ * 
+ * @param {Object} options defines field to be renamed with new field
+ */
+const renameField = async(options) => {
+  const docs = await Business.updateMany({}, { $rename: options }, { new: true });
+  return docs;
+}
+
+/**
  * Updates a single business
  * @param {Object} business Aura Business
  * @param {Object} options Additional parameters
@@ -234,6 +243,7 @@ const businessController = {
   createMany,
   readOne,
   readMany,
+  renameField,
   updateOne,
   updateMany,
   updateVotes,

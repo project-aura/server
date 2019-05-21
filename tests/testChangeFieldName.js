@@ -12,3 +12,7 @@ const DataMaster = require('../controllers/DataMaster');
 const dataMaster = new DataMaster(process.env.ENVIRONMENT);
 dataMaster.connectForMutations(process.env.ENVIRONMENT);
 
+businessController.renameField({
+    'usersVoted': 'usersVotedAura',
+});
+
