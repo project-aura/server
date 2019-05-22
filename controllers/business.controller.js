@@ -142,6 +142,8 @@ const updateVotesAura = async (businessId, options) => {
         : business[0].auras[options.aura] = 0;
 
       // proceed to check if the aura array is empty
+      // take out of usersVotedAura array if the aura array 
+      // is empty.
       if(business[0].usersVotedAura[userIndex].aura.length === 0) {
         // splice the object out of the usersVotedAura field
         // if the aura array is empty
