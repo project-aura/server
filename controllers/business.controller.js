@@ -114,7 +114,7 @@ const updateVotesAura = async (businessId, options) => {
     business[0].usersVotedAura.push({ 
       userId: options.userId, 
       // aura is an array, assign auraArr to it
-      aura: options.aura,
+      aura: auraArr,
       objectReference: options.userId,
      });
     business[0].auras[options.aura]++;
