@@ -53,6 +53,17 @@ const readMany = async options => {
 };
 
 /**
+ * 
+ * @param {Object} options defines field to be renamed with new field
+ * complains about rename being empty is the field to be renamed does 
+ * not exist in the schema.
+ */
+const renameField = async(options) => {
+  const docs = await Business.updateMany({}, { $rename: options }, { new: true });
+  return docs;
+}
+
+/**
  * Updates a single business
  * @param {Object} business Aura Business
  * @param {Object} options Additional parameters
@@ -82,21 +93,21 @@ const updateMany = async (options) => {
  * on the business. It calls the updateOne() method to update the 
  * document whenever it is done
  */
-const updateVotes = async (businessId, options) => {
+const updateVotesAura = async (businessId, options) => {
   const business = await Business.find({ _id: businessId });
   // find if the userId already exists in the business' 
   // array of userId.]s
   let voter;
-  for(let i = 0; i < business[0].usersVoted.length; ++i) {
-    if(business[0].usersVoted[i].userId.toString() === options.userId.toString()) {
-      voter = business[0].usersVoted[i];
+  for(let i = 0; i < business[0].usersVotedAura.length; ++i) {
+    if(business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
+      voter = business[0].usersVotedAura[i];
       break;
     }
   }
   // if no user was found, record the user's/voter's vote
   if(!voter) {
     // UPVOTE
-    business[0].usersVoted.push({ 
+    business[0].usersVotedAura.push({ 
       userId: options.userId, 
       aura: options.aura,
       objectReference: options.userId,
@@ -106,10 +117,10 @@ const updateVotes = async (businessId, options) => {
     // execute if voter's ID has been found 
     if(voter.aura === options.aura) {
       // voter desires to take back vote
-      // splice the object out of the usersVoted field
-      for (let i = 0; i < business[0].usersVoted.length; ++i) {
-        if(business[0].usersVoted[i].userId.toString() === options.userId.toString()) {
-          business[0].usersVoted.splice(i, 1);
+      // splice the object out of the usersVotedAura field
+      for (let i = 0; i < business[0].usersVotedAura.length; ++i) {
+        if(business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
+          business[0].usersVotedAura.splice(i, 1);
           break;
         }
       }
@@ -124,10 +135,10 @@ const updateVotes = async (businessId, options) => {
       return 'message: User has already voted for this business';
     }
   }
-  // now that the business' usersVoted and auras have been modified,
+  // now that the business' usersVotedAura and auras have been modified,
   // shove it back to reflect in the database.
   const doc = await updateOne(businessId, { 
-    usersVoted: business[0].usersVoted,
+    usersVotedAura: business[0].usersVotedAura,
     auras: business[0].auras
   });
   return doc;
@@ -221,12 +232,15 @@ const find = async (query, options) => {
   // something else takes care of destructuring the query from request
   const businesses = await Business.find()
     .where('attributes.aura')
-    .regex(query.aura || '');
-  // catFilter and cityFilter will be changed once front is 
-  // ready to paginate results
-  const cityFilter = await funnelZip(query.city, businesses);
-  const catFilter = await funnelAction(query.category, cityFilter);
-  return catFilter;
+    .regex(query.aura || '')
+    .where('citySearch')
+    .regex(query.city)
+    .where('categorySearch')
+    .regex(query.category);
+  // activate these shits if all else fails
+  // const cityFilter = await funnelZip(query.city, businesses);
+  // const catFilter = await funnelAction(query.category, cityFilter);
+  return businesses;
 };
 
 const businessController = {
@@ -234,9 +248,10 @@ const businessController = {
   createMany,
   readOne,
   readMany,
+  renameField,
   updateOne,
   updateMany,
-  updateVotes,
+  updateVotesAura,
   updateLike,
   deleteOne,
   deleteMany,
