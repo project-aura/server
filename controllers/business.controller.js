@@ -110,6 +110,7 @@ const updateVotesAura = async (businessId, options) => {
     // reassign voter.aura array into a temp storage
     // auraArr is the temp storage.
     let auraArr = voter.aura;
+    auraArr.push(options.aura);
     business[0].usersVotedAura.push({ 
       userId: options.userId, 
       aura: options.aura,
