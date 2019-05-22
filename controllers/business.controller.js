@@ -120,7 +120,9 @@ const updateVotesAura = async (businessId, options) => {
     business[0].auras[options.aura]++;
   } else {
     // execute if voter's ID has been found 
-    if(voter.aura === options.aura) {
+    // this if checks if the options.aura is already
+    // inside the voter.aura array
+    if(voter.aura.indexOf(options.aura) !== -1) {
       // voter desires to take back vote
       // splice the object out of the usersVotedAura field
       for (let i = 0; i < business[0].usersVotedAura.length; ++i) {
