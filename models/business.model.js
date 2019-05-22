@@ -30,7 +30,7 @@ const schema = mongoose.Schema(
       peaceful: { type: Number, default: 0 },
       powerful: { type: Number, default: 0 }
     },
-    usersVoted: [
+    usersVotedAura: [
       {
         userId: String,
         aura: String,
