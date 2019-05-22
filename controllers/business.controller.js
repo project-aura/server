@@ -107,6 +107,9 @@ const updateVotesAura = async (businessId, options) => {
   // if no user was found, record the user's/voter's vote
   if(!voter) {
     // UPVOTE
+    // reassign voter.aura array into a temp storage
+    // auraArr is the temp storage.
+    let auraArr = voter.aura;
     business[0].usersVotedAura.push({ 
       userId: options.userId, 
       aura: options.aura,
