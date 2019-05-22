@@ -107,9 +107,9 @@ const updateVotesAura = async (businessId, options) => {
   // if no user was found, record the user's/voter's vote
   if(!voter) {
     // UPVOTE
-    // reassign voter.aura array into a temp storage
+    // Reassign voter.aura array into a temp storage
     // auraArr is the temp storage.
-    let auraArr = voter.aura;
+    let auraArr = [];
     auraArr.push(options.aura);
     business[0].usersVotedAura.push({ 
       userId: options.userId, 
@@ -123,23 +123,44 @@ const updateVotesAura = async (businessId, options) => {
     // this if checks if the options.aura is already
     // inside the voter.aura array
     if(voter.aura.indexOf(options.aura) !== -1) {
-      // voter desires to take back vote
-      // splice the object out of the usersVotedAura field
-      for (let i = 0; i < business[0].usersVotedAura.length; ++i) {
+      // find userIndex to make offsets and indices easier
+      let userIndex;
+      for(let i = 0; i < business[0].usersVotedAura.length; ++i) {
         if(business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
-          business[0].usersVotedAura.splice(i, 1);
+          userIndex = i;
           break;
         }
       }
+      // DOWNVOTE: voter desires to take back vote
+      // splice the aura out of the voter.aura array
+      const spliceAuraIndex = business[0].usersVotedAura[userIndex].aura.indexOf(options.aura);
+      business[0].usersVotedAura[userIndex].aura.splice(spliceAuraIndex, 1);
       // proceed to decrement aura from vote takeback.
       // DOWNVOTE 
       business[0].auras[options.aura] > 0 ? 
         business[0].auras[options.aura]--
         : business[0].auras[options.aura] = 0;
+
+      // proceed to check if the aura array is empty
+      if(business[0].usersVotedAura[userIndex].aura.length === 0) {
+        // splice the object out of the usersVotedAura field
+        // if the aura array is empty
+        business[0].usersVotedAura.splice(userIndex, 1);
+      }
     } else {
-      // the user is trying to vote for a different aura. 
-      // NOT ALLOWED FOR NOW
-      return 'message: User has already voted for this business';
+      // the user is trying to vote for a different aura.  
+      // UPVOTE the other aura that the user is voting.
+      // Reassign voter.aura array into a temp storage
+      // auraArr is the temp storage.
+      let auraArr = voter.aura;
+      auraArr.push(options.aura);
+      business[0].usersVotedAura.push({ 
+        userId: options.userId, 
+        // aura is an array, assign auraArr to it
+        aura: auraArr,
+        objectReference: options.userId,
+      });
+      business[0].auras[options.aura]++;
     }
   }
   // now that the business' usersVotedAura and auras have been modified,
@@ -241,9 +262,9 @@ const find = async (query, options) => {
     .where('attributes.aura')
     .regex(query.aura || '')
     .where('citySearch')
-    .regex(query.city)
+    .regex(query.city || '')
     .where('categorySearch')
-    .regex(query.category);
+    .regex(query.category || '');
   // activate these shits if all else fails
   // const cityFilter = await funnelZip(query.city, businesses);
   // const catFilter = await funnelAction(query.category, cityFilter);
