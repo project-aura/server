@@ -53,15 +53,15 @@ const readMany = async options => {
 };
 
 /**
- * 
+ *
  * @param {Object} options defines field to be renamed with new field
- * complains about rename being empty is the field to be renamed does 
+ * complains about rename being empty is the field to be renamed does
  * not exist in the schema.
  */
-const renameField = async(options) => {
+const renameField = async options => {
   const docs = await Business.updateMany({}, { $rename: options }, { new: true });
   return docs;
-}
+};
 
 /**
  * Updates a single business
@@ -80,101 +80,97 @@ const updateOne = async (business, options) => {
  * @returns docs
  * Updates all
  */
-const updateMany = async (options) => {
+const updateMany = async options => {
   const docs = await Business.updateMany({}, { $set: options }, { new: true });
   return docs;
 };
 
 /**
- * 
+ *
  * @param {*} businessId -> ID of business
  * @param {*} options -> additional params, userId is derived here.
  * This function is called whenever user upvotes/downvotes an aura
- * on the business. It calls the updateOne() method to update the 
+ * on the business. It calls the updateOne() method to update the
  * document whenever it is done
  */
 const updateVotesAura = async (businessId, options) => {
   const business = await Business.find({ _id: businessId });
-  // find if the userId already exists in the business' 
+  // find if the userId already exists in the business'
   // array of userId.]s
   let voter;
-  for(let i = 0; i < business[0].usersVotedAura.length; ++i) {
-    if(business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
+  for (let i = 0; i < business[0].usersVotedAura.length; ++i) {
+    if (business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
       voter = business[0].usersVotedAura[i];
       break;
     }
   }
   // if no user was found, record the user's/voter's vote
-  if(!voter) {
+  if (!voter) {
     // UPVOTE
-    business[0].usersVotedAura.push({ 
-      userId: options.userId, 
+    business[0].usersVotedAura.push({
+      userId: options.userId,
       aura: options.aura,
       objectReference: options.userId,
-     });
+    });
     business[0].auras[options.aura]++;
   } else {
-    // execute if voter's ID has been found 
-    if(voter.aura === options.aura) {
+    // execute if voter's ID has been found
+    if (voter.aura === options.aura) {
       // voter desires to take back vote
       // splice the object out of the usersVotedAura field
       for (let i = 0; i < business[0].usersVotedAura.length; ++i) {
-        if(business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
+        if (business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
           business[0].usersVotedAura.splice(i, 1);
           break;
         }
       }
       // proceed to decrement aura from vote takeback.
-      // DOWNVOTE 
-      business[0].auras[options.aura] > 0 ? 
-        business[0].auras[options.aura]--
-        : business[0].auras[options.aura] = 0;
+      // DOWNVOTE
+      business[0].auras[options.aura] > 0 ? business[0].auras[options.aura]-- : (business[0].auras[options.aura] = 0);
     } else {
-      // the user is trying to vote for a different aura. 
+      // the user is trying to vote for a different aura.
       // NOT ALLOWED FOR NOW
       return 'message: User has already voted for this business';
     }
   }
   // now that the business' usersVotedAura and auras have been modified,
   // shove it back to reflect in the database.
-  const doc = await updateOne(businessId, { 
+  const doc = await updateOne(businessId, {
     usersVotedAura: business[0].usersVotedAura,
-    auras: business[0].auras
+    auras: business[0].auras,
   });
   return doc;
-}
+};
 
 /**
- * 
+ *
  * @param {*} businessId -> The id of the business that will be updated
  * @param {*} options -> additional parameters in here, the userId
  * will be placed in here.
- * This function is called by a user controller whenever a user 
+ * This function is called by a user controller whenever a user
  * 'likes' or 'favorites' a places.
- * Checking for repeating users liking the same business is not the job 
+ * Checking for repeating users liking the same business is not the job
  * of this controller. The user controller takes on that responsibility.
  */
 const updateLike = async (businessId, options) => {
   // find the business by its ID
-  // pick off the business 'likes' and 'usersLiked' fields 
-  // and edit accordingly. 
+  // pick off the business 'likes' and 'usersLiked' fields
+  // and edit accordingly.
   const business = await Business.find({ _id: businessId });
   // options.operation === 1 is add
   // options.operation === 0 is subtract
-  if(options.operation === 1) {
+  if (options.operation === 1) {
     // user controller desired an add
     business[0].likes++;
-    business[0].usersLiked.push({ 
+    business[0].usersLiked.push({
       userId: options.userId,
       objectReference: options.userId,
-     });
+    });
   } else {
     // user controller desired a subtract
-    business[0].likes > 0 ?
-      business[0].likes--
-        : business[0].likes = 0;
-    for(let i = 0; i < business[0].usersLiked.length; ++i) {
-      if(options.userId.toString() === business[0].usersLiked[i].userId.toString()) {
+    business[0].likes > 0 ? business[0].likes-- : (business[0].likes = 0);
+    for (let i = 0; i < business[0].usersLiked.length; ++i) {
+      if (options.userId.toString() === business[0].usersLiked[i].userId.toString()) {
         business[0].usersLiked.splice(i, 1);
         break;
       }
@@ -187,7 +183,7 @@ const updateLike = async (businessId, options) => {
     likes: business[0].likes,
   });
   return doc;
-}
+};
 
 /**
  * Deletes a single business
@@ -236,7 +232,9 @@ const find = async (query, options) => {
     .where('citySearch')
     .regex(query.city)
     .where('categorySearch')
-    .regex(query.category);
+    .regex(query.category)
+    .skip(options.page * options.resultsPerPage)
+    .limit(options.resultsPerPage);
   // activate these shits if all else fails
   // const cityFilter = await funnelZip(query.city, businesses);
   // const catFilter = await funnelAction(query.category, cityFilter);
@@ -256,6 +254,6 @@ const businessController = {
   deleteOne,
   deleteMany,
   seed,
-  find
+  find,
 };
 module.exports = businessController;
