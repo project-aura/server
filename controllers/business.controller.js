@@ -150,16 +150,17 @@ const updateVotesAura = async (businessId, options) => {
     } else {
       // the user is trying to vote for a different aura.  
       // UPVOTE the other aura that the user is voting.
-      // Reassign voter.aura array into a temp storage
-      // auraArr is the temp storage.
-      let auraArr = voter.aura;
-      auraArr.push(options.aura);
-      business[0].usersVotedAura.push({ 
-        userId: options.userId, 
-        // aura is an array, assign auraArr to it
-        aura: auraArr,
-        objectReference: options.userId,
-      });
+
+      // find userIndex to make offsets and indices easier
+      let userIndex;
+      for(let i = 0; i < business[0].usersVotedAura.length; ++i) {
+        if(business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
+          userIndex = i;
+          break;
+        }
+      }
+      // push options.aura into the user's aura array
+      business[0].usersVotedAura[userIndex].aura.push(options.aura);
       business[0].auras[options.aura]++;
     }
   }
