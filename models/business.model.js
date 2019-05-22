@@ -33,7 +33,11 @@ const schema = mongoose.Schema(
     usersVotedAura: [
       {
         userId: String,
-        aura: String,
+        aura: [
+          {
+            type: String,
+          },
+        ],
         // nest reference to object in here to allow populate()
         objectReference: {
           type: mongoose.Schema.Types.ObjectId,
