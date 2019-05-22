@@ -71,7 +71,7 @@ const updateOne = async (user, options) => {
  * updated based of the route or caller of this controller.
  * updates all users
  */
-const updateMany = (options) => {
+const updateMany = async (options) => {
   const docs = await User.updateMany({}, { $set: options }, { new: true });
   return docs;
 };

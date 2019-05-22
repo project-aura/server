@@ -232,12 +232,15 @@ const find = async (query, options) => {
   // something else takes care of destructuring the query from request
   const businesses = await Business.find()
     .where('attributes.aura')
-    .regex(query.aura || '');
-  // catFilter and cityFilter will be changed once front is 
-  // ready to paginate results
-  const cityFilter = await funnelZip(query.city, businesses);
-  const catFilter = await funnelAction(query.category, cityFilter);
-  return catFilter;
+    .regex(query.aura || '')
+    .where('citySearch')
+    .regex(query.city)
+    .where('categorySearch')
+    .regex(query.category);
+  // activate these shits if all else fails
+  // const cityFilter = await funnelZip(query.city, businesses);
+  // const catFilter = await funnelAction(query.category, cityFilter);
+  return businesses;
 };
 
 const businessController = {
