@@ -173,7 +173,7 @@ const updateVotesAura = async (businessId, options) => {
     usersVotedAura: business[0].usersVotedAura,
     auras: business[0].auras
   });
-  return doc;
+  return doc.usersVotedAura;
 }
 
 /**
