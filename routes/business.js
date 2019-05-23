@@ -23,11 +23,9 @@ router.patch(
       aura: req.body.aura,
       res,
     });
-    if(status === 'message: User has already voted for this business') {
-      res.status(200).json({ message: 'User has already voted for this business' })
-    } else {
-      res.status(200).json({ message: 'Vote/Unvote recorded' });
-    }
+    res.status(200).json({ 
+      status
+    })
   })
 );
 
