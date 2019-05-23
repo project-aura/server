@@ -230,9 +230,9 @@ const find = async (query, options) => {
     .where('attributes.aura')
     .regex(query.aura || '')
     .where('citySearch')
-    .regex(query.city)
+    .regex(query.city || '')
     .where('categorySearch')
-    .regex(query.category)
+    .regex(query.category || '')
     .skip(options.page * options.resultsPerPage)
     .limit(options.resultsPerPage);
   // activate these shits if all else fails
