@@ -29,4 +29,6 @@ router.patch(
   })
 );
 
+// route for showing voted auras
+
 module.exports = router;
