@@ -17,6 +17,16 @@ router.get(
   }
 );
 
+router.get(
+  '/read-user',
+  passport.authenticate('jwt', { session: false }),
+  asyncWrapper(async (req, res) => {
+    const user = await userController.readOne(req.user._id);
+    const userObj = user.toObject();
+    res.status(200).json({ message: 'User has been read', user: userObj });
+  })
+);
+
 router.patch(
   '/change-password',
   passport.authenticate('jwt', { session: false }),

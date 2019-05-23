@@ -107,30 +107,62 @@ const updateVotesAura = async (businessId, options) => {
   // if no user was found, record the user's/voter's vote
   if (!voter) {
     // UPVOTE
+    // Reassign voter.aura array into a temp storage
+    // auraArr is the temp storage.
+    const auraArr = [];
+    auraArr.push(options.aura);
     business[0].usersVotedAura.push({
       userId: options.userId,
-      aura: options.aura,
+      // aura is an array, assign auraArr to it
+      aura: auraArr,
       objectReference: options.userId,
     });
     business[0].auras[options.aura]++;
   } else {
     // execute if voter's ID has been found
-    if (voter.aura === options.aura) {
-      // voter desires to take back vote
-      // splice the object out of the usersVotedAura field
+    // this if checks if the options.aura is already
+    // inside the voter.aura array
+    if (voter.aura.indexOf(options.aura) !== -1) {
+      // find userIndex to make offsets and indices easier
+      let userIndex;
       for (let i = 0; i < business[0].usersVotedAura.length; ++i) {
         if (business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
-          business[0].usersVotedAura.splice(i, 1);
+          userIndex = i;
           break;
         }
       }
+      // DOWNVOTE: voter desires to take back vote
+      // splice the aura out of the voter.aura array
+      const spliceAuraIndex = business[0].usersVotedAura[userIndex].aura.indexOf(options.aura);
+      business[0].usersVotedAura[userIndex].aura.splice(spliceAuraIndex, 1);
       // proceed to decrement aura from vote takeback.
       // DOWNVOTE
       business[0].auras[options.aura] > 0 ? business[0].auras[options.aura]-- : (business[0].auras[options.aura] = 0);
+
+      // Proceed to check if the aura array is empty.
+      // Take out of usersVotedAura array if the aura array
+      // is empty. There is no point of storing an object with
+      // and empty aura array in the usersVotedAuraArray.
+      if (business[0].usersVotedAura[userIndex].aura.length === 0) {
+        // splice the object out of the usersVotedAura field
+        // if the aura array is empty
+        business[0].usersVotedAura.splice(userIndex, 1);
+      }
     } else {
       // the user is trying to vote for a different aura.
-      // NOT ALLOWED FOR NOW
-      return 'message: User has already voted for this business';
+      // UPVOTE the other aura that the user is voting.
+
+      // find userIndex to make offsets and indices easier
+      let userIndex;
+      for (let i = 0; i < business[0].usersVotedAura.length; ++i) {
+        if (business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
+          userIndex = i;
+          break;
+        }
+      }
+      // push options.aura into the user's aura array
+      business[0].usersVotedAura[userIndex].aura.push(options.aura);
+      business[0].auras[options.aura]++;
     }
   }
   // now that the business' usersVotedAura and auras have been modified,
