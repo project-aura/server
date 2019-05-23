@@ -8,7 +8,10 @@ const businessController = require('../controllers/business.controller');
 router.get(
   '/',
   asyncWrapper(async (req, res) => {
-    const businesses = await businessController.find(req.query);
+    const businesses = await businessController.find(req.query, {
+      page: req.body.page || 0,
+      resultsPerPage: req.body.resultsPerPage || 0,
+    });
     res.json(businesses);
   })
 );
@@ -23,8 +26,8 @@ router.patch(
       aura: req.body.aura,
       res,
     });
-    if(status === 'message: User has already voted for this business') {
-      res.status(200).json({ message: 'User has already voted for this business' })
+    if (status === 'message: User has already voted for this business') {
+      res.status(200).json({ message: 'User has already voted for this business' });
     } else {
       res.status(200).json({ message: 'Vote/Unvote recorded' });
     }
