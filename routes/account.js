@@ -17,16 +17,24 @@ router.get(
   }
 );
 
+router.get(
+  '/read-user',
+  passport.authenticate('jwt', { session: false }),
+  asyncWrapper(async (req, res) => {
+    const user = await userController.readOne(req.user._id);
+    const userObj = user.toObject();
+    res.status(200).json({ message: 'User has been read', user: userObj });
+  })
+);
+
 router.patch(
   '/change-password',
   passport.authenticate('jwt', { session: false }),
   asyncWrapper(async (req, res) => {
-    // brcypt hash the new password
-    const salt = await bcrypt.genSalt();
-    const hash = await bcrypt.hash(req.body.newPassword, salt);
-    await userController.updateOne(req.user._id, { password: hash });
-
-    res.status(200).json({ message: 'Successfully changed password' });
+    await userController.updateOne(req.user._id, {
+      displayName: req.body.newDisplayName
+    });
+    res.status(200).json({ message: 'Successfully changed display name' });
   })
 );
 
