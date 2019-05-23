@@ -9,8 +9,8 @@ router.get(
   '/',
   asyncWrapper(async (req, res) => {
     const businesses = await businessController.find(req.query, {
-      page: req.body.page,
-      resultsPerPage: req.body.resultsPerPage,
+      page: req.body.page || 0,
+      resultsPerPage: req.body.resultsPerPage || 0,
     });
     res.json(businesses);
   })
