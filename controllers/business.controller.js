@@ -218,6 +218,8 @@ const updateLike = async (businessId, options) => {
     usersLiked: business[0].usersLiked,
     likes: business[0].likes,
   });
+  // Cool, now thats done. Time to send an object back as a response 
+  // back to the client. 
   return doc;
 }
 
