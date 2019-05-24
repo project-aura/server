@@ -94,6 +94,7 @@ const updateMany = async (options) => {
  * document whenever it is done
  */
 const updateVotesAura = async (businessId, options) => {
+  let userSpliced = false;
   const business = await Business.find({ _id: businessId });
   // find if the userId already exists in the business' 
   // array of userId.]s
@@ -151,6 +152,7 @@ const updateVotesAura = async (businessId, options) => {
         // splice the object out of the usersVotedAura field
         // if the aura array is empty
         business[0].usersVotedAura.splice(userIndex, 1);
+        userSpliced = true;
       }
     } else {
       // the user is trying to vote for a different aura.  
@@ -190,20 +192,24 @@ const updateVotesAura = async (businessId, options) => {
     // CASE 1
     returnToRouter = '[]';
   } else {
-    // find the index of the user 
-    let userIndex;
-    for(let i = 0; i < doc.usersVotedAura.length; ++i) {
-      if(doc.usersVotedAura[i].userId.toString() === options.userId.toString()) {
-        userIndex = i;
-        break;
-      }
-    }
-    if(!doc.usersVotedAura[userIndex] || !doc.usersVotedAura[userIndex].aura) {
-      // CASE 2
-      returnToRouter = '[]';
-    } else {
+    if(!userSpliced) {
       // CASE 3
+      // find the index of the user 
+      let userIndex;
+      for(let i = 0; i < doc.usersVotedAura.length; ++i) {
+        if(doc.usersVotedAura[i].userId.toString() === options.userId.toString()) {
+          userIndex = i;
+          break;
+        }
+      }
       returnToRouter = doc.usersVotedAura[userIndex].aura;
+    } else {
+    // if(!doc.usersVotedAura[userIndex] || !doc.usersVotedAura[userIndex].aura) {
+    //   // CASE 2
+    //   returnToRouter = '[]';
+    // } 
+    // CASE 2
+    returnToRouter = '[]';
     }
   }
   return returnToRouter;
