@@ -258,15 +258,16 @@ const seed = async (businesses, options) => {
  */
 const find = async (query, options) => {
   // something else takes care of destructuring the query from request
+  const { aura, city, category, page, results } = query;
   const businesses = await Business.find()
     .where('attributes.aura')
-    .regex(query.aura || '')
+    .regex(aura || '')
     .where('citySearch')
-    .regex(query.city || '')
+    .regex(city || '')
     .where('categorySearch')
-    .regex(query.category || '')
-    .skip(options.page * options.resultsPerPage)
-    .limit(options.resultsPerPage);
+    .regex(category || '')
+    .skip(parseInt(page) * parseInt(results))
+    .limit(parseInt(results));
   // activate these shits if all else fails
   // const cityFilter = await funnelZip(query.city, businesses);
   // const catFilter = await funnelAction(query.category, cityFilter);

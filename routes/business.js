@@ -8,10 +8,7 @@ const businessController = require('../controllers/business.controller');
 router.get(
   '/',
   asyncWrapper(async (req, res) => {
-    const businesses = await businessController.find(req.query, {
-      page: req.body.page || 0,
-      resultsPerPage: req.body.resultsPerPage || 0,
-    });
+    const businesses = await businessController.find(req.query);
     res.json(businesses);
   })
 );
