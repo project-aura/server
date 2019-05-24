@@ -166,15 +166,14 @@ const updateVotesAura = async (businessId, options) => {
     auras: business[0].auras
   });
   /**
-   * Cool, now we are done with all that. But we are not quite done.
-   * What are we going to send back to the client? We can send them a 
-   * clusterfuck of the JSON object returned by the query. Then they
-   * will have to figure out what they will want to do with that shit 
-   * ton of text. But lets be nice to our client side colleagues.
-   * Send them the array of auras that the user voted for the specific 
-   * business. They will not know what we did but we work in the 
-   * shadows always. 
-   */
+   * Cool, now thats done. Time to send an object back as a response 
+   * back to the client. What are we going to send back?
+   * We can send a humongous clusterfuck of the business object
+   * and let the front end figure out what to do with that shit ton of 
+   * text. But lets be nice to our client colleagues, and send them
+   * just the array of auras voted by the user for that particular business.
+   * They won't know we did it, but that's just us, we work in the shadows.
+   */ 
   return doc.usersVotedAura;
 }
 
@@ -220,15 +219,6 @@ const updateLike = async (businessId, options) => {
     usersLiked: business[0].usersLiked,
     likes: business[0].likes,
   });
-  /**
-   * Cool, now thats done. Time to send an object back as a response 
-   * back to the client. What are we going to send back?
-   * We can send a humongous clusterfuck of the business object
-   * and let the front end figure out what to do with that shit ton of 
-   * text. But lets be nice to our client colleagues, and send them
-   * just the array of auras voted by the user for that particular business.
-   * They won't know we did it, but that's just us, we work in the shadows.
-   */ 
   return doc;
 }
 
