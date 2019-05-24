@@ -146,9 +146,11 @@ const updateVotesAura = async (businessId, options) => {
       // Take out of usersVotedAura array if the aura array 
       // is empty. There is no point of storing an object with 
       // and empty aura array in the usersVotedAuraArray.
-      if(business[0].usersVotedAura[userIndex].aura.length === 0) {
+      if(!business[0].usersVotedAura[userIndex].aura || 
+          business[0].usersVotedAura[userIndex].aura.length === 0) {
         // splice the object out of the usersVotedAura field
         // if the aura array is empty
+        console.log('splice');
         business[0].usersVotedAura.splice(userIndex, 1);
       }
     } else {
@@ -176,7 +178,39 @@ const updateVotesAura = async (businessId, options) => {
    * They won't know we did it, but that's just us, we work in the shadows.
    * ==============================================================================
    */ 
-  return doc.usersVotedAura;
+
+  /**
+   * CASES:
+   * 1. empty usersVotedAura (business has no votes at all)
+   * 2. user not in the usersVotedAura (user has not voted)
+   * 3. user is in the usersVotedAura (user has >= 1 votes in
+   * particular business)
+   */
+  let returnToRouter;
+  if(!doc.usersVotedAura || doc.usersVotedAura.length === 0) {
+    // CASE 1
+    console.log('c1');
+    returnToRouter = '[]';
+  } else {
+    // find the index of the user 
+    let userIndex;
+    for(let i = 0; i < doc.usersVotedAura.length; ++i) {
+      if(doc.usersVotedAura[i].userId.toString() === options.userId.toString()) {
+        userIndex = i;
+        break;
+      }
+    }
+    if(!doc.usersVotedAura[userIndex] || !doc.usersVotedAura[userIndex].aura) {
+      // CASE 2
+      console.log('c2');
+      returnToRouter = '[]';
+    } else {
+      // CASE 3
+      console.log('c3');
+      returnToRouter = doc.usersVotedAura[userIndex].aura;
+    }
+  }
+  return returnToRouter;
 }
 
 /**
