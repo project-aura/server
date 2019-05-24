@@ -6,8 +6,6 @@ const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const CustomError = require('../helpers/CustomError');
 const Business = require('../models/business.model');
-const funnelAction = require('../helpers/funnel');
-const funnelZip = require('../helpers/funnelZip');
 
 /**
  * @param {Object} business Aura Business
@@ -94,6 +92,7 @@ const updateMany = async (options) => {
  * document whenever it is done
  */
 const updateVotesAura = async (businessId, options) => {
+  let userSpliced = false;
   const business = await Business.find({ _id: businessId });
   // find if the userId already exists in the business' 
   // array of userId.]s
@@ -122,15 +121,16 @@ const updateVotesAura = async (businessId, options) => {
     // execute if voter's ID has been found 
     // this if checks if the options.aura is already
     // inside the voter.aura array
+    // find userIndex to make offsets and indices easier
+    let userIndex;
+    for(let i = 0; i < business[0].usersVotedAura.length; ++i) {
+      if(business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
+        userIndex = i;
+        break;
+      }
+    }
     if(voter.aura.indexOf(options.aura) !== -1) {
       // find userIndex to make offsets and indices easier
-      let userIndex;
-      for(let i = 0; i < business[0].usersVotedAura.length; ++i) {
-        if(business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
-          userIndex = i;
-          break;
-        }
-      }
       // DOWNVOTE: voter desires to take back vote
       // splice the aura out of the voter.aura array
       const spliceAuraIndex = business[0].usersVotedAura[userIndex].aura.indexOf(options.aura);
@@ -145,23 +145,16 @@ const updateVotesAura = async (businessId, options) => {
       // Take out of usersVotedAura array if the aura array 
       // is empty. There is no point of storing an object with 
       // and empty aura array in the usersVotedAuraArray.
-      if(business[0].usersVotedAura[userIndex].aura.length === 0) {
+      if(!business[0].usersVotedAura[userIndex].aura || 
+          business[0].usersVotedAura[userIndex].aura.length === 0) {
         // splice the object out of the usersVotedAura field
         // if the aura array is empty
         business[0].usersVotedAura.splice(userIndex, 1);
+        userSpliced = true;
       }
     } else {
       // the user is trying to vote for a different aura.  
       // UPVOTE the other aura that the user is voting.
-
-      // find userIndex to make offsets and indices easier
-      let userIndex;
-      for(let i = 0; i < business[0].usersVotedAura.length; ++i) {
-        if(business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
-          userIndex = i;
-          break;
-        }
-      }
       // push options.aura into the user's aura array
       business[0].usersVotedAura[userIndex].aura.push(options.aura);
       business[0].auras[options.aura]++;
@@ -173,7 +166,47 @@ const updateVotesAura = async (businessId, options) => {
     usersVotedAura: business[0].usersVotedAura,
     auras: business[0].auras
   });
-  return doc;
+  /**
+   * =============================================================================
+   * Cool, now thats done. Time to send an object back as a response 
+   * back to the client. What are we going to send back?
+   * We can send a humongous clusterfuck of the business object
+   * and let the front end figure out what to do with that shit ton of 
+   * text. But lets be nice to our client colleagues, and send them
+   * just the array of auras voted by the user for that particular business.
+   * They won't know we did it, but that's just us, we work in the shadows.
+   * ==============================================================================
+   */ 
+
+  /**
+   * CASES:
+   * 1. empty usersVotedAura (business has no votes at all)
+   * 2. user not in the usersVotedAura (user has not voted)
+   * 3. user is in the usersVotedAura (user has >= 1 votes in
+   * particular business)
+   */
+  let returnToRouter;
+  if(!doc.usersVotedAura || doc.usersVotedAura.length === 0) {
+    // CASE 1
+    returnToRouter = '[]';
+  } else {
+    if(!userSpliced) {
+      // CASE 3
+      // find the index of the user 
+      let userIndex;
+      for(let i = 0; i < doc.usersVotedAura.length; ++i) {
+        if(doc.usersVotedAura[i].userId.toString() === options.userId.toString()) {
+          userIndex = i;
+          break;
+        }
+      }
+      returnToRouter = doc.usersVotedAura[userIndex].aura;
+    } else {
+    // CASE 2
+    returnToRouter = '[]';
+    }
+  }
+  return returnToRouter;
 }
 
 /**
