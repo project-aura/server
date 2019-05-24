@@ -122,15 +122,16 @@ const updateVotesAura = async (businessId, options) => {
     // execute if voter's ID has been found 
     // this if checks if the options.aura is already
     // inside the voter.aura array
+    // find userIndex to make offsets and indices easier
+    let userIndex;
+    for(let i = 0; i < business[0].usersVotedAura.length; ++i) {
+      if(business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
+        userIndex = i;
+        break;
+      }
+    }
     if(voter.aura.indexOf(options.aura) !== -1) {
       // find userIndex to make offsets and indices easier
-      let userIndex;
-      for(let i = 0; i < business[0].usersVotedAura.length; ++i) {
-        if(business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
-          userIndex = i;
-          break;
-        }
-      }
       // DOWNVOTE: voter desires to take back vote
       // splice the aura out of the voter.aura array
       const spliceAuraIndex = business[0].usersVotedAura[userIndex].aura.indexOf(options.aura);
@@ -153,15 +154,6 @@ const updateVotesAura = async (businessId, options) => {
     } else {
       // the user is trying to vote for a different aura.  
       // UPVOTE the other aura that the user is voting.
-
-      // find userIndex to make offsets and indices easier
-      let userIndex;
-      for(let i = 0; i < business[0].usersVotedAura.length; ++i) {
-        if(business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
-          userIndex = i;
-          break;
-        }
-      }
       // push options.aura into the user's aura array
       business[0].usersVotedAura[userIndex].aura.push(options.aura);
       business[0].auras[options.aura]++;
