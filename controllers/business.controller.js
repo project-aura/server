@@ -171,7 +171,9 @@ const updateVotesAura = async (businessId, options) => {
    * clusterfuck of the JSON object returned by the query. Then they
    * will have to figure out what they will want to do with that shit 
    * ton of text. But lets be nice to our client side colleagues.
-   * Send them the array of auras 
+   * Send them the array of auras that the user voted for the specific 
+   * business. They will not know what we did but we work in the 
+   * shadows always. 
    */
   return doc.usersVotedAura;
 }
