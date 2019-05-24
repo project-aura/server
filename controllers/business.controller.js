@@ -6,8 +6,6 @@ const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const CustomError = require('../helpers/CustomError');
 const Business = require('../models/business.model');
-const funnelAction = require('../helpers/funnel');
-const funnelZip = require('../helpers/funnelZip');
 
 /**
  * @param {Object} business Aura Business
@@ -204,10 +202,6 @@ const updateVotesAura = async (businessId, options) => {
       }
       returnToRouter = doc.usersVotedAura[userIndex].aura;
     } else {
-    // if(!doc.usersVotedAura[userIndex] || !doc.usersVotedAura[userIndex].aura) {
-    //   // CASE 2
-    //   returnToRouter = '[]';
-    // } 
     // CASE 2
     returnToRouter = '[]';
     }
