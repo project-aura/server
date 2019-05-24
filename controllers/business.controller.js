@@ -165,6 +165,14 @@ const updateVotesAura = async (businessId, options) => {
     usersVotedAura: business[0].usersVotedAura,
     auras: business[0].auras
   });
+  /**
+   * Cool, now we are done with all that. But we are not quite done.
+   * What are we going to send back to the client? We can send them a 
+   * clusterfuck of the JSON object returned by the query. Then they
+   * will have to figure out what they will want to do with that shit 
+   * ton of text. But lets be nice to our client side colleagues.
+   * Send them the array of auras 
+   */
   return doc.usersVotedAura;
 }
 
