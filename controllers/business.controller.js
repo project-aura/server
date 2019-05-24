@@ -219,7 +219,10 @@ const updateLike = async (businessId, options) => {
     likes: business[0].likes,
   });
   // Cool, now thats done. Time to send an object back as a response 
-  // back to the client. 
+  // back to the client. What are we going to send back?
+  // We can send a humongous clusterfuck of the business object
+  // and let the front end figure out what to do with that shit ton of 
+  
   return doc;
 }
 
