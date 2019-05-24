@@ -150,7 +150,6 @@ const updateVotesAura = async (businessId, options) => {
           business[0].usersVotedAura[userIndex].aura.length === 0) {
         // splice the object out of the usersVotedAura field
         // if the aura array is empty
-        console.log('splice');
         business[0].usersVotedAura.splice(userIndex, 1);
       }
     } else {
@@ -189,7 +188,6 @@ const updateVotesAura = async (businessId, options) => {
   let returnToRouter;
   if(!doc.usersVotedAura || doc.usersVotedAura.length === 0) {
     // CASE 1
-    console.log('c1');
     returnToRouter = '[]';
   } else {
     // find the index of the user 
@@ -202,11 +200,9 @@ const updateVotesAura = async (businessId, options) => {
     }
     if(!doc.usersVotedAura[userIndex] || !doc.usersVotedAura[userIndex].aura) {
       // CASE 2
-      console.log('c2');
       returnToRouter = '[]';
     } else {
       // CASE 3
-      console.log('c3');
       returnToRouter = doc.usersVotedAura[userIndex].aura;
     }
   }
