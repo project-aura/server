@@ -222,7 +222,9 @@ const updateLike = async (businessId, options) => {
   // back to the client. What are we going to send back?
   // We can send a humongous clusterfuck of the business object
   // and let the front end figure out what to do with that shit ton of 
-  
+  // text. But lets be nice to our client colleagues, and send them
+  // just the array of auras voted by the user for that particular business.
+  // They won't know we did it, but that's just us, we work in the shadows. 
   return doc;
 }
 
