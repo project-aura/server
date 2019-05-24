@@ -166,6 +166,7 @@ const updateVotesAura = async (businessId, options) => {
     auras: business[0].auras
   });
   /**
+   * =============================================================================
    * Cool, now thats done. Time to send an object back as a response 
    * back to the client. What are we going to send back?
    * We can send a humongous clusterfuck of the business object
@@ -173,6 +174,7 @@ const updateVotesAura = async (businessId, options) => {
    * text. But lets be nice to our client colleagues, and send them
    * just the array of auras voted by the user for that particular business.
    * They won't know we did it, but that's just us, we work in the shadows.
+   * ==============================================================================
    */ 
   return doc.usersVotedAura;
 }
