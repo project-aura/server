@@ -77,6 +77,7 @@ const readVotesAura = async (businessId, options) => {
     returnToRouter = '[]'
   } else {
     // attempt to find the user from user ID
+    let userIndex;
   }
 }
 
