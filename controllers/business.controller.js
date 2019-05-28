@@ -78,7 +78,22 @@ const readVotesAura = async (businessId, options) => {
   } else {
     // attempt to find the user from user ID
     let userIndex;
+    for(let i = 0; i < business.usersVotedAura.length; ++i) {
+      if(business.usersVotedAura[i].userId.toString() === options.userId.toString()) {
+        userIndex = i;
+        break;
+      }
+    }
+    if(userIndex >= business.usersVotedAura.length) {
+      // CASE 2: userIndex goes all the into the end and didnt find 
+      // the appropriate userId
+      returnToRouter = '[]';
+    } else {
+      // CASE 3: user has been found
+      returnToRouter = business.usersVotedAura[userIndex].aura;
+    }
   }
+  return returnToRouter;
 }
 
 /**
