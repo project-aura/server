@@ -76,7 +76,10 @@ const readVotesAura = async (businessId, options) => {
     // CASE 1
     console.log('c1');
     console.log(business.usersVotedAura);
-    returnToRouter = '[]'
+    returnToRouter = {
+      aura: '[]',
+      poll: business.auras,
+    }
   } else {
     // attempt to find the user from user ID
     let userIndex;
@@ -90,11 +93,17 @@ const readVotesAura = async (businessId, options) => {
       // CASE 2: userIndex goes all the into the end and didnt find 
       // the appropriate userId
       console.log('c2');
-      returnToRouter = '[]';
+      returnToRouter = {
+        aura: '[]',
+        poll: business.auras,
+      }
     } else {
       // CASE 3: user has been found
       console.log('c3');
-      returnToRouter = business.usersVotedAura[userIndex].aura;
+      returnToRouter = {
+        aura: business.usersVotedAura[userIndex].aura,
+        poll: business.auras,
+      };
     }
   }
   return returnToRouter;
@@ -238,7 +247,10 @@ const updateVotesAura = async (businessId, options) => {
   let returnToRouter;
   if(!doc.usersVotedAura || doc.usersVotedAura.length === 0) {
     // CASE 1
-    returnToRouter = '[]';
+    returnToRouter = {
+      aura: '[]',
+      poll: doc.auras,
+    };
   } else {
     if(!userSpliced) {
       // CASE 3
@@ -250,10 +262,16 @@ const updateVotesAura = async (businessId, options) => {
           break;
         }
       }
-      returnToRouter = doc.usersVotedAura[userIndex].aura;
+      returnToRouter = {
+        aura: doc.usersVotedAura[userIndex].aura,
+        poll: doc.auras,
+      };
     } else {
     // CASE 2
-    returnToRouter = '[]';
+    returnToRouter = {
+        aura: '[]',
+        poll: doc.auras,
+      };
     }
   }
   return returnToRouter;
