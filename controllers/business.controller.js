@@ -60,7 +60,17 @@ const readMany = async options => {
  */
 const readVotesAura = async (businessId, options) => {
   // Get the business from the business ID
-  const business = await Business.findOne()
+  const business = await Business.find({ _id: businessId });
+  /**
+   * From here, the business should have a usersVotedAura array
+   * whether it has something or not.
+   * CASES TO CONSIDER.
+   * 1. The usersVotedAura array is empty.
+   * 2. The usersVotedAura is not empty but the user HAS NOT 
+   * been recorded in the usersVotedAura.
+   * 3. The usersVotedAura is not empty and the user HAS BEEN
+   * recorded in the usersVotedAura
+   */
 }
 
 /**
