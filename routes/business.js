@@ -29,7 +29,7 @@ router.patch(
   })
 );
 
-// route for showing voted auras
+// route for showing voted auras on initial feedback click
 router.get(
   '/vote-auras',
   passport.authenticate('jwt', { session: false }),
