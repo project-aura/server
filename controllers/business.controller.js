@@ -50,6 +50,11 @@ const readMany = async options => {
   return returnAwait;
 };
 
+/**
+ * 
+ * @param {Object} options contains the businessID, userID
+ * and other optional parameters.
+ */
 const readVotesAura = async options => {
   // TODO
 }
@@ -317,6 +322,7 @@ const businessController = {
   createMany,
   readOne,
   readMany,
+  readVotesAura,
   renameField,
   updateOne,
   updateMany,
