@@ -266,12 +266,16 @@ const find = async (query, options) => {
     .regex(city || '')
     .where('categorySearch')
     .regex(category || '')
-    .skip(parseInt(page) * parseInt(results))
-    .limit(parseInt(results));
+    .skip(parseInt(page) * parseInt(results));
+  // .limit(parseInt(results));
+
   // activate these shits if all else fails
   // const cityFilter = await funnelZip(query.city, businesses);
   // const catFilter = await funnelAction(query.category, cityFilter);
-  return businesses;
+  return {
+    businesses: businesses.slice(0, results),
+    hasMoreResults: businesses.length > results,
+  };
 };
 
 const businessController = {
