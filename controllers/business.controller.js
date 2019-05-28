@@ -74,8 +74,6 @@ const readVotesAura = async (businessId, options) => {
    */
   if(!business.usersVotedAura || business.usersVotedAura.length === 0) {
     // CASE 1
-    console.log('c1');
-    console.log(business.usersVotedAura);
     returnToRouter = {
       aura: '[]',
       poll: business.auras,
@@ -92,14 +90,12 @@ const readVotesAura = async (businessId, options) => {
     if(userIndex >= business.usersVotedAura.length) {
       // CASE 2: userIndex goes all the into the end and didnt find 
       // the appropriate userId
-      console.log('c2');
       returnToRouter = {
         aura: '[]',
         poll: business.auras,
       }
     } else {
       // CASE 3: user has been found
-      console.log('c3');
       returnToRouter = {
         aura: business.usersVotedAura[userIndex].aura,
         poll: business.auras,
