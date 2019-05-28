@@ -51,6 +51,56 @@ const readMany = async options => {
 };
 
 /**
+ * @param {String} businessId contains the businessId of the 
+ * business.
+ * @param {Object} options contains the userID
+ * and other optional parameters.
+ * Client needs initial array of aura's voted on a business
+ * on intial click to feedback tab. 
+ */
+const readVotesAura = async (businessId, options) => {
+  // Get the business from the business ID
+  const business = await Business.findOne({ _id: businessId });
+  let returnToRouter;
+  /**
+   * From here, the business should have a usersVotedAura array
+   * whether it has something or not.
+   * CASES TO CONSIDER.
+   * 1. The usersVotedAura array is empty.
+   * 2. The usersVotedAura is not empty but the user HAS NOT 
+   * been recorded in the usersVotedAura.
+   * 3. The usersVotedAura is not empty and the user HAS BEEN
+   * recorded in the usersVotedAura
+   */
+  if(!business.usersVotedAura || business.usersVotedAura.length === 0) {
+    // CASE 1
+    console.log('c1');
+    console.log(business.usersVotedAura);
+    returnToRouter = '[]'
+  } else {
+    // attempt to find the user from user ID
+    let userIndex;
+    for(let i = 0; i < business.usersVotedAura.length; ++i) {
+      if(business.usersVotedAura[i].userId.toString() === options.userId.toString()) {
+        userIndex = i;
+        break;
+      }
+    }
+    if(userIndex >= business.usersVotedAura.length) {
+      // CASE 2: userIndex goes all the into the end and didnt find 
+      // the appropriate userId
+      console.log('c2');
+      returnToRouter = '[]';
+    } else {
+      // CASE 3: user has been found
+      console.log('c3');
+      returnToRouter = business.usersVotedAura[userIndex].aura;
+    }
+  }
+  return returnToRouter;
+}
+
+/**
  * 
  * @param {Object} options defines field to be renamed with new field
  * complains about rename being empty is the field to be renamed does 
@@ -313,6 +363,7 @@ const businessController = {
   createMany,
   readOne,
   readMany,
+  readVotesAura,
   renameField,
   updateOne,
   updateMany,
