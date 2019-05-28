@@ -30,7 +30,7 @@ router.patch(
 );
 
 // route for showing voted auras
-router.patch(
+router.get(
   '/vote-auras',
   passport.authenticate('jwt', { session: false }),
   asyncWrapper(async (req, res) => {
