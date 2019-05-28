@@ -61,6 +61,7 @@ const readMany = async options => {
 const readVotesAura = async (businessId, options) => {
   // Get the business from the business ID
   const business = await Business.find({ _id: businessId });
+  let returnToRouter;
   /**
    * From here, the business should have a usersVotedAura array
    * whether it has something or not.
@@ -71,6 +72,12 @@ const readVotesAura = async (businessId, options) => {
    * 3. The usersVotedAura is not empty and the user HAS BEEN
    * recorded in the usersVotedAura
    */
+  if(!business.usersVotedAura || business.usersVotedAura.length === 0) {
+    // CASE 1
+    returnToRouter = '[]'
+  } else {
+    // attempt to find the user from user ID
+  }
 }
 
 /**
