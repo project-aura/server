@@ -54,6 +54,8 @@ const readMany = async options => {
  * 
  * @param {Object} options contains the businessID, userID
  * and other optional parameters.
+ * Client needs initial array of aura's voted on a business
+ * on intial click to feedback tab. 
  */
 const readVotesAura = async options => {
   // TODO
