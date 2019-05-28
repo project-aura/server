@@ -50,6 +50,10 @@ const readMany = async options => {
   return returnAwait;
 };
 
+const readVotesAura = async options => {
+  // TODO
+}
+
 /**
  * 
  * @param {Object} options defines field to be renamed with new field
