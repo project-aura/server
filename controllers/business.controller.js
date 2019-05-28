@@ -58,7 +58,7 @@ const readMany = async options => {
  * on intial click to feedback tab. 
  */
 const readVotesAura = async options => {
-  // TODO
+  // Get the business from the business ID
 }
 
 /**
