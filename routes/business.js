@@ -34,7 +34,13 @@ router.get(
   '/vote-auras',
   passport.authenticate('jwt', { session: false }),
   asyncWrapper(async (req, res) => {
-    // TODO
+    const status = await businessController.readVotesAura(req.body.businessId, {
+      userId: req.user._id,
+      res,
+    });
+    res.status(200).json({
+      status
+    })
   })
 )
 

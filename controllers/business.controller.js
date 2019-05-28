@@ -60,7 +60,7 @@ const readMany = async options => {
  */
 const readVotesAura = async (businessId, options) => {
   // Get the business from the business ID
-  const business = await Business.find({ _id: businessId });
+  const business = await Business.findOne({ _id: businessId });
   let returnToRouter;
   /**
    * From here, the business should have a usersVotedAura array
@@ -74,6 +74,8 @@ const readVotesAura = async (businessId, options) => {
    */
   if(!business.usersVotedAura || business.usersVotedAura.length === 0) {
     // CASE 1
+    console.log('c1');
+    console.log(business.usersVotedAura);
     returnToRouter = '[]'
   } else {
     // attempt to find the user from user ID
@@ -87,9 +89,11 @@ const readVotesAura = async (businessId, options) => {
     if(userIndex >= business.usersVotedAura.length) {
       // CASE 2: userIndex goes all the into the end and didnt find 
       // the appropriate userId
+      console.log('c2');
       returnToRouter = '[]';
     } else {
       // CASE 3: user has been found
+      console.log('c3');
       returnToRouter = business.usersVotedAura[userIndex].aura;
     }
   }
