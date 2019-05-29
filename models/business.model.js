@@ -52,6 +52,9 @@ const schema = mongoose.Schema(
       studying: { type: Number, default: 0 },
       relaxing: { type: Number, default: 0 },
     },
+    usersVotedActivity: [
+      
+    ],
     usersLiked: [
       {
         userId: String,
