@@ -303,6 +303,8 @@ const updateVotesActivity = async (businessId, options) => {
      * 2. User exists but has less than 3 items on its 
      * activity array
      */
+  } else {
+    
   }
 }
 
