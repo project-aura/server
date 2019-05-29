@@ -278,9 +278,12 @@ const updateVotesAura = async (businessId, options) => {
  * @param {String} businessId Id of the business of interest
  * @param {Object} options contains userId, activity to be
  * voted for and any additional or optional parameters
+ * Lets limit votes to 3, just for fun. 
  */
 const updateVotesActivity = async (businessId, options) => {
-  // TODO
+  let usersSpliced = false;
+  const limitArray = 3;
+  const business = await Business.findOne({ _id: businessId });
 }
 
 /**
