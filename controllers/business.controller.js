@@ -323,7 +323,7 @@ const updateVotesActivity = async (businessId, options) => {
    * ================================================================================
    * Now think about what to return to the user.
    * Most likely, it will be the same as updateVoteAuras where the 
-   * activity array is returned along with the poll
+   * activity array is returned along with the poll.
    * ================================================================================
    */
 }
