@@ -273,6 +273,12 @@ const updateVotesAura = async (businessId, options) => {
   return returnToRouter;
 }
 
+/**
+ * 
+ * @param {String} businessId Id of the business of interest
+ * @param {Object} options contains userId, activity to be
+ * voted for and any additional or optional parameters
+ */
 const updateVotesActivity = async (businessId, options) => {
   // TODO
 }
