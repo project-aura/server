@@ -50,6 +50,7 @@ const schema = mongoose.Schema(
       drinking: { type: Number, default: 0 },
       dating: { type: Number, default: 0 },
       studying: { type: Number, default: 0 },
+      relaxing: { type: Number, default: 0 },
     },
     usersLiked: [
       {
