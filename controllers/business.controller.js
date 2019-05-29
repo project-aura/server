@@ -392,6 +392,7 @@ const businessController = {
   updateOne,
   updateMany,
   updateVotesAura,
+  updateVotesActivity,
   updateLike,
   deleteOne,
   deleteMany,
