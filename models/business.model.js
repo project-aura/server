@@ -53,7 +53,19 @@ const schema = mongoose.Schema(
       relaxing: { type: Number, default: 0 },
     },
     usersVotedActivity: [
-      
+      {
+        userId: String,
+        activity: [
+          {
+            type: String,
+          },
+        ],
+        // nest reference to object in here to allow populate()
+        objectReference: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'user',
+        },
+      },
     ],
     usersLiked: [
       {
