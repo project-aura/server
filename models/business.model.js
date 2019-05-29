@@ -48,6 +48,7 @@ const schema = mongoose.Schema(
     activities: {
       eating: { type: Number, default: 0 },
       drinking: { type: Number, default: 0 },
+      dating: {type: Number, default: 0 },
     },
     usersLiked: [
       {
