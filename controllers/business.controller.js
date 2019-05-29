@@ -293,8 +293,17 @@ const updateVotesActivity = async (businessId, options) => {
       break;
     }
   }
+  // voter is an entry in the usersVotedActivity
   // if no user was found OR the user has less than 3 votes,
   // enter this block
+  if(!voter || voter.activity.length < limitArray) {
+    /**
+     * CASES
+     * 1. No user yet 
+     * 2. User exists but has less than 3 items on its 
+     * activity array
+     */
+  }
 }
 
 /**
