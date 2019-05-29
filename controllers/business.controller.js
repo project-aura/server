@@ -286,6 +286,15 @@ const updateVotesActivity = async (businessId, options) => {
   const business = await Business.findOne({ _id: businessId });
   // find if the userId already exists in the business/
   // array of userIds
+  let voter;
+  for(let i = 0; i < business.usersVotedActivity.length; ++i) {
+    if(business.usersVotedActivity[i].userId.toString() === options.userId.toString()) {
+      voter = business.usersVotedActivity[i];
+      break;
+    }
+  }
+  // if no user was found OR the user has less than 3 votes,
+  // enter this block
 }
 
 /**
