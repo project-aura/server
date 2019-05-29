@@ -228,7 +228,8 @@ const updateVotesAura = async (businessId, options) => {
    * We can send a humongous clusterfuck of the business object
    * and let the front end figure out what to do with that shit ton of 
    * text. But lets be nice to our client colleagues, and send them
-   * just the array of auras voted by the user for that particular business.
+   * just the array of auras voted by the user for that particular business
+   * along with the poll of the current vote standings.
    * They won't know we did it, but that's just us, we work in the shadows.
    * ==============================================================================
    */ 
@@ -301,11 +302,30 @@ const updateVotesActivity = async (businessId, options) => {
      * CASES
      * 1. No user yet 
      * 2. User exists but has less than 3 items on its 
-     * activity array
+     * activity array. KEEP IN MIND that a downvote can
+     * still happen in here and even a possible SPLICE if user downvoted
+     * his/her only one vote. 
      */
   } else {
-    
+    /**
+     * Can a splice happen in here? No because all users in here
+     * has 3 votes already. Thus, it is just a downvote or a no more
+     * votes allowed
+     * CASES
+     * 1. User wants to downvote
+     * 2. User attempts a 4th upvote (not allowed)
+     */
   }
+  // Now that the business' usersVotedActivity and activity array have 
+  // been modified, shove it back to reflect in the database.
+
+  /**
+   * ================================================================================
+   * Now think about what to return to the user.
+   * Most likely, it will be the same as updateVoteAuras where the 
+   * activity array is returned along with the poll
+   * ================================================================================
+   */
 }
 
 /**
