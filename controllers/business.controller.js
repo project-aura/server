@@ -306,6 +306,21 @@ const updateVotesActivity = async (businessId, options) => {
      * still happen in here and even a possible SPLICE if user downvoted
      * his/her only one vote. 
      */
+    if(voter) {
+      // CASE 2
+    } else {
+      // CASE 1
+      // UPVOTE. Reassign voter.activity array into a temp storage
+      let actArr = [];
+      actArr.push(options.activity);
+      business.usersVotedActivity.push({
+        userId: options.userId,
+        // activity is an array, assign actArr to it
+        activity: actArr,
+        objectReference: options.userId,
+      });
+      business.activities[options.activity]++;
+    }
   } else {
     /**
      * Can a splice happen in here? No because all users in here
