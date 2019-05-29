@@ -51,6 +51,11 @@ const schema = mongoose.Schema(
       dating: { type: Number, default: 0 },
       studying: { type: Number, default: 0 },
       relaxing: { type: Number, default: 0 },
+      exercising: { type: Number, default: 0 },
+      gaming: { type: Number, default: 0 },
+      leisure: { type: Number, default: 0 },
+      pleasure: { type: Number, default: 0 },
+      hobbies: { type: Number, default: 0 },
     },
     usersVotedActivity: [
       {
