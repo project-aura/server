@@ -45,6 +45,9 @@ const schema = mongoose.Schema(
         },
       }
     ],
+    activities: {
+      eating: { type: Number, default: 0 },
+    },
     usersLiked: [
       {
         userId: String,
