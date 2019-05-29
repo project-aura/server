@@ -150,7 +150,7 @@ const updateVotesAura = async (businessId, options) => {
   let userSpliced = false;
   const business = await Business.find({ _id: businessId });
   // find if the userId already exists in the business' 
-  // array of userId.]s
+  // array of userIds
   let voter;
   for(let i = 0; i < business[0].usersVotedAura.length; ++i) {
     if(business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
@@ -284,6 +284,8 @@ const updateVotesActivity = async (businessId, options) => {
   let usersSpliced = false;
   const limitArray = 3;
   const business = await Business.findOne({ _id: businessId });
+  // find if the userId already exists in the business/
+  // array of userIds
 }
 
 /**
