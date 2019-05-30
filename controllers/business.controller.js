@@ -284,6 +284,7 @@ const updateVotesAura = async (businessId, options) => {
 const updateVotesActivity = async (businessId, options) => {
   let usersSpliced = false;
   const limitArray = 3;
+  let returnToRouter;
   const business = await Business.findOne({ _id: businessId });
   // find if the userId already exists in the business/
   // array of userIds
@@ -308,6 +309,41 @@ const updateVotesActivity = async (businessId, options) => {
      */
     if(voter) {
       // CASE 2
+      // find the user index
+      let userIndex;
+      for(let i = 0; i < business.usersVotedActivity; ++i) {
+        if(business.usersVotedActivity[i].userId.toString() === options.userId.toString()) {
+          userIndex = i;
+          break;
+        }
+      }
+      if(voter.activity.indexOf(options.activity) !== -1) {
+        // DOWNVOTE: voter desires to take back vote
+        // splice the activity out of the array voter.activity array.
+        const spliceActIndex = business.usersVotedActivity[userIndex].activity.indexOf(options.activity);
+        business.usersVotedActivity[userIndex].activity.splice(spliceActIndex, 1);
+        // proceed to decrement activity from vote takeback.
+        // DOWNVOTE
+        business.activities[options.activity] > 0 ?
+          business.activities[options.activity] -- 
+            : business.activities[options.activity] = 0;
+
+        // Proceed to check if the activity array is empty.
+        // Splice out of the usersVotedActivity array if the activity array
+        // is empty. No point in storing an object with an empty activity array.
+        if(!business.usersVotedActivity[userIndex].activity ||
+            business.usersVotedActivity[userIndex].activity.length === 0) {
+          // splice the object out of the usersVotedActivity field
+          // if the activity array is empty. Then set boolean userSpliced to true
+          business.usersVotedActivity.splice(userIndex, 1);
+          userSpliced = true;
+        }
+      } else {
+        // user is trying to vote for a different activity.
+        // UPVOTE this activity that the user is wanting to vote
+        business.usersVotedActivity[userIndex].activity.push(options.activity);
+        business.activities[options.activity]++;
+      }
     } else {
       // CASE 1
       // UPVOTE. Reassign voter.activity array into a temp storage
@@ -330,6 +366,33 @@ const updateVotesActivity = async (businessId, options) => {
      * 1. User wants to downvote
      * 2. User attempts a 4th upvote (not allowed)
      */
+    let userIndex;
+    for(let i = 0; i < business.usersVotedActivity; ++i) {
+      if(business.usersVotedActivity[i].userId.toString() === options.userId.toString()) {
+        userIndex = i;
+        break;
+      }
+    }
+    // HOLY SHIT, were repeating ourselves
+    if(voter.activity.indexOf(options.activity) !== -1) {
+      // CASE 1
+      // DOWNVOTE: voter desires to take back vote
+      // splice the activity out of the array voter.activity array.
+      const spliceActIndex = business.usersVotedActivity[userIndex].activity.indexOf(options.activity);
+      business.usersVotedActivity[userIndex].activity.splice(spliceActIndex, 1);
+      // proceed to decrement activity from vote takeback.
+      // DOWNVOTE
+      business.activities[options.activity] > 0 ?
+        business.activities[options.activity] -- 
+          : business.activities[options.activity] = 0;
+    } else {
+      // CASE 2
+      returnToRouter = {
+        message: 'You can only vote 3 times',
+      };
+      // just cut the shit and return
+      return returnToRouter;
+    }
   }
   // Now that the business' usersVotedActivity and activity array have 
   // been modified, shove it back to reflect in the database.
