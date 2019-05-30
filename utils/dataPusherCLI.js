@@ -7,6 +7,7 @@ const AuraBusiness = require('../helpers/AuraBusiness');
 const businessPhotosLA = require('../data/los-angeles-data/businessPhotosLA');
 const seedUserObject = require('../data/seedUsers.json');
 const invokeMysticalPowers = require('../gray-hat-alchemist/main');
+const converter = require('../middleware/converter');
 const businessController = require('../controllers/business.controller');
 const userController = require('../controllers/user.controller');
 
@@ -105,6 +106,8 @@ const businessRequestStrategy = async zipLocations => {
   }
   // Wait for each transform to be done.
   const transformedBusinessData = await Promise.all(transformedBusinessPromises);
+  converter.categoryConvert(transformedBusinessData);
+  converter.cityConvert(transformedBusinessData);
 
   return transformedBusinessData;
 };
@@ -169,8 +172,35 @@ const userSeeder = async rawUsers => {
 };
 
 // ===================================== Execution ===============================
-const zipCodes = ['90404', '90230', '90014', '90036'];
+const zipCodes = [
+  ['90404', '90230', '90036'],
+  ['90014', '91401', '91101'],
+  ['92663', '92802', '91748'],
+  ['92651', '92821'],
+];
 
-businessSeeder(zipCodes);
-// businessAdder(zipCodes);
-// userSeeder(seedUserObject.users);
+/**
+ * Adder: Recursive set timeout function to avoid yelp's rate limit on business calls
+ * @param {Number} counter Recursive call counter
+ */
+const addBusinesses = (counter = 0) => {
+  if (counter < zipCodes.length) {
+    setTimeout(function() {
+      businessAdder(zipCodes[counter]);
+      const newCounter = counter + 1;
+      addBusinesses(newCounter);
+    }, 20000);
+  }
+};
+
+/**
+ * Seeder: Recursive helper set timeout function to avoid yelp's rate limit on business calls
+ * @param {Number} counter Recursive call counter
+ */
+const seedBusinesses = () => {
+  businessController.deleteMany();
+  addBusinesses();
+};
+
+// Only runs a seed business functions for now.
+seedBusinesses();
