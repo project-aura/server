@@ -406,6 +406,7 @@ const updateVotesActivity = async (businessId, options) => {
    * CASES: 
    * 1. empty usersVotedActivity (business has no votes/voters at all)
    * 2. user is not in the usersVotedActivity(user has not voted)
+   * 3. user is in the usersVotedActivity(user has >= votes in particular business)
    */
 }
 
