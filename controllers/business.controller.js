@@ -403,6 +403,9 @@ const updateVotesActivity = async (businessId, options) => {
    * Most likely, it will be the same as updateVoteAuras where the 
    * activity array is returned along with the poll.
    * ================================================================================
+   * CASES: 
+   * 1. empty usersVotedActivity (business has no votes/voters at all)
+   * 2. user is not in the usersVotedActivity(user has not voted)
    */
 }
 
