@@ -282,7 +282,7 @@ const updateVotesAura = async (businessId, options) => {
  * Lets limit votes to 3, just for fun. 
  */
 const updateVotesActivity = async (businessId, options) => {
-  let usersSpliced = false;
+  let userSpliced = false;
   const limitArray = 3;
   let returnToRouter;
   const business = await Business.findOne({ _id: businessId });
@@ -412,7 +412,36 @@ const updateVotesActivity = async (businessId, options) => {
    * 2. user is not in the usersVotedActivity(user has not voted)
    * 3. user is in the usersVotedActivity(user has >= votes in particular business)
    */
-  
+  if(!doc.usersVotedActivity || doc.usersVotedActivity.length === 0) {
+    // CASE 1
+    returnToRouter = {
+      activity: '[]',
+      poll: doc.activities,
+    };
+  } else {
+    if(!userSpliced) {
+      // CASE 3
+      // find the index of the user
+      let userIndex;
+      for(let i = 0; i < doc.usersVotedActivity.length; ++i) {
+        if(doc.usersVotedActivity[i].userId.toString() === options.userId.toString()) {
+          userIndex = i;
+          break;
+        }
+      }
+      returnToRouter = {
+        activity: doc.usersVotedActivity[userIndex].activity,
+        poll: doc.activities,
+      };
+    } else {
+      // CASE 2
+      returnToRouter = {
+        activity: '[]',
+        poll: doc.activities,
+      };
+    }
+  }
+  return returnToRouter;
 }
 
 /**
