@@ -396,6 +396,10 @@ const updateVotesActivity = async (businessId, options) => {
   }
   // Now that the business' usersVotedActivity and activity array have 
   // been modified, shove it back to reflect in the database.
+  const doc = await updateOne(businessId, {
+    usersVotedActivity: business.usersVotedActivity, 
+    activities: business.activities,
+  });
 
   /**
    * ================================================================================
@@ -408,6 +412,7 @@ const updateVotesActivity = async (businessId, options) => {
    * 2. user is not in the usersVotedActivity(user has not voted)
    * 3. user is in the usersVotedActivity(user has >= votes in particular business)
    */
+  
 }
 
 /**
