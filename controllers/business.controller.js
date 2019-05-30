@@ -150,7 +150,7 @@ const updateVotesAura = async (businessId, options) => {
   let userSpliced = false;
   const business = await Business.find({ _id: businessId });
   // find if the userId already exists in the business' 
-  // array of userId.]s
+  // array of userIds
   let voter;
   for(let i = 0; i < business[0].usersVotedAura.length; ++i) {
     if(business[0].usersVotedAura[i].userId.toString() === options.userId.toString()) {
@@ -228,7 +228,8 @@ const updateVotesAura = async (businessId, options) => {
    * We can send a humongous clusterfuck of the business object
    * and let the front end figure out what to do with that shit ton of 
    * text. But lets be nice to our client colleagues, and send them
-   * just the array of auras voted by the user for that particular business.
+   * just the array of auras voted by the user for that particular business
+   * along with the poll of the current vote standings.
    * They won't know we did it, but that's just us, we work in the shadows.
    * ==============================================================================
    */ 
@@ -267,6 +268,176 @@ const updateVotesAura = async (businessId, options) => {
     returnToRouter = {
         aura: '[]',
         poll: doc.auras,
+      };
+    }
+  }
+  return returnToRouter;
+}
+
+/**
+ * 
+ * @param {String} businessId Id of the business of interest
+ * @param {Object} options contains userId, activity to be
+ * voted for and any additional or optional parameters
+ * Lets limit votes to 3, just for fun. 
+ */
+const updateVotesActivity = async (businessId, options) => {
+  let userSpliced = false;
+  const limitArray = 3;
+  let returnToRouter;
+  const business = await Business.findOne({ _id: businessId });
+  // find if the userId already exists in the business/
+  // array of userIds
+  let voter;
+  for(let i = 0; i < business.usersVotedActivity.length; ++i) {
+    if(business.usersVotedActivity[i].userId.toString() === options.userId.toString()) {
+      voter = business.usersVotedActivity[i];
+      break;
+    }
+  }
+  // voter is an entry in the usersVotedActivity
+  // if no user was found OR the user has less than 3 votes,
+  // enter this block
+  if(!voter || voter.activity.length < limitArray) {
+    /**
+     * CASES
+     * 1. No user yet 
+     * 2. User exists but has less than 3 items on its 
+     * activity array. KEEP IN MIND that a downvote can
+     * still happen in here and even a possible SPLICE if user downvoted
+     * his/her only one vote. 
+     */
+    if(voter) {
+      // CASE 2
+      // find the user index
+      let userIndex;
+      for(let i = 0; i < business.usersVotedActivity; ++i) {
+        if(business.usersVotedActivity[i].userId.toString() === options.userId.toString()) {
+          userIndex = i;
+          break;
+        }
+      }
+      if(voter.activity.indexOf(options.activity) !== -1) {
+        // DOWNVOTE: voter desires to take back vote
+        // splice the activity out of the array voter.activity array.
+        const spliceActIndex = business.usersVotedActivity[userIndex].activity.indexOf(options.activity);
+        business.usersVotedActivity[userIndex].activity.splice(spliceActIndex, 1);
+        // proceed to decrement activity from vote takeback.
+        // DOWNVOTE
+        business.activities[options.activity] > 0 ?
+          business.activities[options.activity] -- 
+            : business.activities[options.activity] = 0;
+
+        // Proceed to check if the activity array is empty.
+        // Splice out of the usersVotedActivity array if the activity array
+        // is empty. No point in storing an object with an empty activity array.
+        if(!business.usersVotedActivity[userIndex].activity ||
+            business.usersVotedActivity[userIndex].activity.length === 0) {
+          // splice the object out of the usersVotedActivity field
+          // if the activity array is empty. Then set boolean userSpliced to true
+          business.usersVotedActivity.splice(userIndex, 1);
+          userSpliced = true;
+        }
+      } else {
+        // user is trying to vote for a different activity.
+        // UPVOTE this activity that the user is wanting to vote
+        business.usersVotedActivity[userIndex].activity.push(options.activity);
+        business.activities[options.activity]++;
+      }
+    } else {
+      // CASE 1
+      // UPVOTE. Reassign voter.activity array into a temp storage
+      let actArr = [];
+      actArr.push(options.activity);
+      business.usersVotedActivity.push({
+        userId: options.userId,
+        // activity is an array, assign actArr to it
+        activity: actArr,
+        objectReference: options.userId,
+      });
+      business.activities[options.activity]++;
+    }
+  } else {
+    /**
+     * Can a splice happen in here? No because all users in here
+     * has 3 votes already. Thus, it is just a downvote or a no more
+     * votes allowed
+     * CASES
+     * 1. User wants to downvote
+     * 2. User attempts a 4th upvote (not allowed)
+     */
+    let userIndex;
+    for(let i = 0; i < business.usersVotedActivity; ++i) {
+      if(business.usersVotedActivity[i].userId.toString() === options.userId.toString()) {
+        userIndex = i;
+        break;
+      }
+    }
+    // HOLY SHIT, were repeating ourselves
+    if(voter.activity.indexOf(options.activity) !== -1) {
+      // CASE 1
+      // DOWNVOTE: voter desires to take back vote
+      // splice the activity out of the array voter.activity array.
+      const spliceActIndex = business.usersVotedActivity[userIndex].activity.indexOf(options.activity);
+      business.usersVotedActivity[userIndex].activity.splice(spliceActIndex, 1);
+      // proceed to decrement activity from vote takeback.
+      // DOWNVOTE
+      business.activities[options.activity] > 0 ?
+        business.activities[options.activity] -- 
+          : business.activities[options.activity] = 0;
+    } else {
+      // CASE 2
+      returnToRouter = {
+        message: 'You can only vote 3 times',
+      };
+      // just cut the shit and return
+      return returnToRouter;
+    }
+  }
+  // Now that the business' usersVotedActivity and activity array have 
+  // been modified, shove it back to reflect in the database.
+  const doc = await updateOne(businessId, {
+    usersVotedActivity: business.usersVotedActivity, 
+    activities: business.activities,
+  });
+
+  /**
+   * ================================================================================
+   * Now think about what to return to the user.
+   * Most likely, it will be the same as updateVoteAuras where the 
+   * activity array is returned along with the poll.
+   * ================================================================================
+   * CASES: 
+   * 1. empty usersVotedActivity (business has no votes/voters at all)
+   * 2. user is not in the usersVotedActivity(user has not voted)
+   * 3. user is in the usersVotedActivity(user has >= votes in particular business)
+   */
+  if(!doc.usersVotedActivity || doc.usersVotedActivity.length === 0) {
+    // CASE 1
+    returnToRouter = {
+      activity: '[]',
+      poll: doc.activities,
+    };
+  } else {
+    if(!userSpliced) {
+      // CASE 3
+      // find the index of the user
+      let userIndex;
+      for(let i = 0; i < doc.usersVotedActivity.length; ++i) {
+        if(doc.usersVotedActivity[i].userId.toString() === options.userId.toString()) {
+          userIndex = i;
+          break;
+        }
+      }
+      returnToRouter = {
+        activity: doc.usersVotedActivity[userIndex].activity,
+        poll: doc.activities,
+      };
+    } else {
+      // CASE 2
+      returnToRouter = {
+        activity: '[]',
+        poll: doc.activities,
       };
     }
   }
@@ -382,6 +553,7 @@ const businessController = {
   updateOne,
   updateMany,
   updateVotesAura,
+  updateVotesActivity,
   updateLike,
   deleteOne,
   deleteMany,

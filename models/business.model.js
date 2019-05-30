@@ -45,6 +45,33 @@ const schema = mongoose.Schema(
         },
       }
     ],
+    activities: {
+      eating: { type: Number, default: 0 },
+      drinking: { type: Number, default: 0 },
+      dating: { type: Number, default: 0 },
+      studying: { type: Number, default: 0 },
+      relaxing: { type: Number, default: 0 },
+      exercising: { type: Number, default: 0 },
+      gaming: { type: Number, default: 0 },
+      leisure: { type: Number, default: 0 },
+      pleasure: { type: Number, default: 0 },
+      hobbies: { type: Number, default: 0 },
+    },
+    usersVotedActivity: [
+      {
+        userId: String,
+        activity: [
+          {
+            type: String,
+          },
+        ],
+        // nest reference to object in here to allow populate()
+        objectReference: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'user',
+        },
+      },
+    ],
     usersLiked: [
       {
         userId: String,
