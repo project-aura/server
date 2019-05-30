@@ -311,7 +311,7 @@ const updateVotesActivity = async (businessId, options) => {
       // CASE 2
       // find the user index
       let userIndex;
-      for(let i = 0; i < business.usersVotedActivity; ++i) {
+      for(let i = 0; i < business.usersVotedActivity.length; ++i) {
         if(business.usersVotedActivity[i].userId.toString() === options.userId.toString()) {
           userIndex = i;
           break;
@@ -367,7 +367,7 @@ const updateVotesActivity = async (businessId, options) => {
      * 2. User attempts a 4th upvote (not allowed)
      */
     let userIndex;
-    for(let i = 0; i < business.usersVotedActivity; ++i) {
+    for(let i = 0; i < business.usersVotedActivity.length; ++i) {
       if(business.usersVotedActivity[i].userId.toString() === options.userId.toString()) {
         userIndex = i;
         break;
@@ -387,8 +387,17 @@ const updateVotesActivity = async (businessId, options) => {
           : business.activities[options.activity] = 0;
     } else {
       // CASE 2
+      let userIndex;
+      for(let i = 0; i < business.usersVotedActivity.length; ++i) {
+        if(business.usersVotedActivity[i].userId.toString() === options.userId.toString()) {
+          userIndex = i;
+          break;
+        }
+      }
       returnToRouter = {
         message: 'You can only vote 3 times',
+        activity: business.usersVotedActivity[userIndex].activity,
+        poll: business.activities,
       };
       // just cut the shit and return
       return returnToRouter;
