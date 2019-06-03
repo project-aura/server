@@ -23,9 +23,9 @@ router.patch(
       aura: req.body.aura,
       res,
     });
-    res.status(200).json({ 
-      status
-    })
+    res.status(200).json({
+      status,
+    });
   })
 );
 
@@ -39,8 +39,8 @@ router.get(
       res,
     });
     res.status(200).json({
-      status
-    })
+      status,
+    });
   })
 );
 
@@ -54,9 +54,9 @@ router.patch(
       activity: req.body.activity,
       res,
     });
-    res.status(200).json({ 
-      status
-    })
+    res.status(200).json({
+      status,
+    });
   })
 );
 
@@ -69,9 +69,9 @@ router.get(
       userId: req.user._id,
       res,
     });
-    res.status(200).json({ 
-      status
-    })
+    res.status(200).json({
+      status,
+    });
   })
 );
 
