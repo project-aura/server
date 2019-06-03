@@ -163,7 +163,7 @@ const updateVotesAura = async (businessId, options) => {
     // UPVOTE
     // Reassign voter.aura array into a temp storage
     // auraArr is the temp storage.
-    const auraArr = [];
+    let auraArr = [];
     auraArr.push(options.aura);
     business[0].usersVotedAura.push({
       userId: options.userId,
@@ -344,7 +344,7 @@ const updateVotesActivity = async (businessId, options) => {
     } else {
       // CASE 1
       // UPVOTE. Reassign voter.activity array into a temp storage
-      const actArr = [];
+      let actArr = [];
       actArr.push(options.activity);
       business.usersVotedActivity.push({
         userId: options.userId,
