@@ -211,20 +211,6 @@ class DataMaster {
     }
   }
   //================================================================================
-
-  //==================================== Find Single User ==========================
-
-  async findUserByUsername(username) {
-    if (!this.connected) {
-      this.connectForMutations(this.dbName);
-    }
-    try {
-      return await User.findOne({ username });
-    } catch (err) {
-      throw err;
-    }
-  }
-
  
 }
 
