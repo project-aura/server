@@ -85,31 +85,6 @@ class DataMaster {
     mongoose.connection.close();
     this.connected = false;
   }
-  //==============================================================================
-
-  //================================ Wrapper =====================================
-
-  //=================================find business================================
-  /**
-   * @param {*} req -> the request from the client
-   * @param {*} res -> the response from the server
-   * This function finds all the businesses. Filters based on
-   * aura and category filters.
-   */
-  find(req, res) {
-    if (!this.connected) {
-      this.connect();
-    }
-
-    Business.find()
-      .where('attributes.aura')
-      .regex(req.query.aura || '')
-      .where('city')
-      .regex(req.query.city || '')
-      .then(businesses => res.json(funnelAction(req.query.category, businesses)))
-      .catch(err => res.status(500).json({ message: err.message }));
-  }
-  //= =============================================================================
  
 }
 
