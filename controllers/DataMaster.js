@@ -225,22 +225,6 @@ class DataMaster {
     }
   }
 
-  /**
-   * Finds a single user by their username or _id
-   * @param {String} queryOptions -> search options
-   */
-  async findUserById(id) {
-    if (!this.connected) {
-      this.connectForMutations(this.dbName);
-    }
-    try {
-      return await User.findOne({ _id: id });
-    } catch (err) {
-      throw err;
-    }
-  }
-  //================================================================================
-
  
 }
 
