@@ -12,10 +12,6 @@
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const mongoose = require('mongoose');
-const CustomError = require('../helpers/CustomError');
-const Business = require('../models/business.model');
-const User = require('../models/user.model');
-const funnelAction = require('../helpers/funnel');
 
 class DataMaster {
   //=============================constructor=================================
