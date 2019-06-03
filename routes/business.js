@@ -23,11 +23,55 @@ router.patch(
       aura: req.body.aura,
       res,
     });
-    if (status === 'message: User has already voted for this business') {
-      res.status(200).json({ message: 'User has already voted for this business' });
-    } else {
-      res.status(200).json({ message: 'Vote/Unvote recorded' });
-    }
+    res.status(200).json({
+      status,
+    });
+  })
+);
+
+// route for showing voted auras on initial feedback click
+router.get(
+  '/vote-auras',
+  passport.authenticate('jwt', { session: false }),
+  asyncWrapper(async (req, res) => {
+    const status = await businessController.readVotesAura(req.query.businessId, {
+      userId: req.user._id,
+      res,
+    });
+    res.status(200).json({
+      status,
+    });
+  })
+);
+
+// route for voting for activities
+router.patch(
+  '/vote-activities',
+  passport.authenticate('jwt', { session: false }),
+  asyncWrapper(async (req, res) => {
+    const status = await businessController.updateVotesActivity(req.body.businessId, {
+      userId: req.user._id,
+      activity: req.body.activity,
+      res,
+    });
+    res.status(200).json({
+      status,
+    });
+  })
+);
+
+// route for displaying voted activities on intial feedback click
+router.get(
+  '/vote-activities',
+  passport.authenticate('jwt', { session: false }),
+  asyncWrapper(async (req, res) => {
+    const status = await businessController.updateVotesActivity(req.body.businessId, {
+      userId: req.user._id,
+      res,
+    });
+    res.status(200).json({
+      status,
+    });
   })
 );
 
