@@ -12,7 +12,6 @@
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const mongoose = require('mongoose');
-const CustomError = require('../helpers/CustomError');
 const Business = require('../models/business.model');
 const User = require('../models/user.model');
 const funnelAction = require('../helpers/funnel');
@@ -85,9 +84,8 @@ class DataMaster {
     mongoose.connection.close();
     this.connected = false;
   }
-  //==============================================================================
 
-  //================================ Wrapper =====================================
+   //================================ Wrapper =====================================
 
   //=================================find business================================
   /**
@@ -128,6 +126,7 @@ class DataMaster {
       .catch(err => console.error(err));
   }
   //= ========================================================================================
+
 
   //= =====================================add 1 business to database=========================
   /**
@@ -288,6 +287,7 @@ class DataMaster {
     }
   }
   //==========================================================================================
+ 
 }
 
 module.exports = DataMaster;

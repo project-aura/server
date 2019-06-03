@@ -23,9 +23,9 @@ router.patch(
       aura: req.body.aura,
       res,
     });
-    res.status(200).json({ 
-      status
-    })
+    res.status(200).json({
+      status,
+    });
   })
 );
 
@@ -34,14 +34,45 @@ router.get(
   '/vote-auras',
   passport.authenticate('jwt', { session: false }),
   asyncWrapper(async (req, res) => {
-    const status = await businessController.readVotesAura(req.body.businessId, {
+    const status = await businessController.readVotesAura(req.query.businessId, {
       userId: req.user._id,
       res,
     });
     res.status(200).json({
-      status
-    })
+      status,
+    });
   })
-)
+);
+
+// route for voting for activities
+router.patch(
+  '/vote-activities',
+  passport.authenticate('jwt', { session: false }),
+  asyncWrapper(async (req, res) => {
+    const status = await businessController.updateVotesActivity(req.body.businessId, {
+      userId: req.user._id,
+      activity: req.body.activity,
+      res,
+    });
+    res.status(200).json({
+      status,
+    });
+  })
+);
+
+// route for displaying voted activities on intial feedback click
+router.get(
+  '/vote-activities',
+  passport.authenticate('jwt', { session: false }),
+  asyncWrapper(async (req, res) => {
+    const status = await businessController.updateVotesActivity(req.body.businessId, {
+      userId: req.user._id,
+      res,
+    });
+    res.status(200).json({
+      status,
+    });
+  })
+);
 
 module.exports = router;
