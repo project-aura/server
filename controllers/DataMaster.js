@@ -190,27 +190,7 @@ class DataMaster {
   }
   //=================================================================================
 
-  //============================seed the user database for tests=====================
-  /**
-   * ABOUT THIS SEED: wipes out the database and adds the new seeded objects
-   * @param {*} addedUsers -> users to be added into the database
-   */
-  async seedUsers(addedUsers) {
-    if (!this.connected) {
-      this.connectForMutations(this.dbName);
-    }
-    try {
-      await User.deleteMany({});
-      await User.insertMany(addedUsers, { ordered: false });
-      this.disconnect();
-      return;
-    } catch (err) {
-      console.log(err);
-      this.disconnect();
-      throw err;
-    }
-  }
-  //================================================================================
+  
  
 }
 
