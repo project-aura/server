@@ -165,32 +165,6 @@ class DataMaster {
     }
   }
   //=================================================================================
-
-  /*
-   * This next section will be methods that involve the user model/schema
-   */
-
-  //==============================add a new user into the database===================
-  /**
-   * Adds a single user
-   * @param {*} addedUser -> the user object to be added into the database
-   */
-
-  async addUser(addedUser) {
-    if (!this.connected) {
-      this.connectForMutations(this.dbName);
-    }
-    try {
-      const user = await User.create(addedUser);
-      return user;
-    } catch (err) {
-      // HACK: Hike the error up to the router...
-      throw err;
-    }
-  }
-  //=================================================================================
-
-  
  
 }
 
