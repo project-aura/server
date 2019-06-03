@@ -241,20 +241,6 @@ class DataMaster {
   }
   //================================================================================
 
-  //==================================== Update Single User ==========================
-
-  /**
-   * Finds a single user by their username or _id
-   * @param {String} queryOptions -> search options
-   */
-  async updateUserPassword(_id, password) {
-    if (!this.connected) {
-      this.connectForMutations(this.dbName);
-    }
-    const doc = await User.updateOne({ _id }, { password }, { new: true });
-    console.log(doc);
-    return doc;
-  }
  
 }
 
