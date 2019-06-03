@@ -144,27 +144,6 @@ class DataMaster {
   }
   //=================================================================================
 
-  //===================================seed the database=============================
-  /**
-   * ABOUT THIS SEED: wipes out the database and adds the new seeded objects
-   * WARNING: wipes the database clean everytime and repopulates
-   * @param {*} addedDocuments -> objects to be added into the database.
-   */
-  async seedBusinesses(addedDocuments) {
-    if (!this.connected) {
-      this.connectForMutations(this.dbName);
-    }
-    try {
-      await Business.deleteMany({});
-      await Business.insertMany(addedDocuments, { ordered: false });
-      // this.disconnect();
-      return;
-    } catch (err) {
-      console.error(err);
-      this.disconnect();
-    }
-  }
-  //=================================================================================
  
 }
 
