@@ -129,20 +129,6 @@ class DataMaster {
   }
   //= ========================================================================================
 
-  //= =====================================add 1 business to database=========================
-  /**
-   * Not executed by the client, this is a server function.
-   * @param {*} addedDocument -> item/object to be added into the database
-   */
-  addToEntry(addedDocument) {
-    if (!this.connected) {
-      this.connectForMutations(this.dbName);
-    }
-    Business.create(addedDocument)
-      .then(() => this.disconnect())
-      .catch(err => console.error(err));
-  }
-  //=================================================================================
 
  
 }
