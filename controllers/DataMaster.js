@@ -110,26 +110,6 @@ class DataMaster {
       .catch(err => res.status(500).json({ message: err.message }));
   }
   //= =============================================================================
-
-  //= ====================find business by alias===================================
-  /**
-   * This function is not executed by the client. They don't need to know about
-   * this function.
-   * @param {*} aliasParameter -> parameter for the alias
-   */
-
-  findByAlias(aliasParameter) {
-    if (!this.connected) {
-      this.connect();
-    }
-    Business.find({ alias: aliasParameter })
-      .then(returnedObj => console.log(returnedObj))
-      .then(() => this.disconnect())
-      .catch(err => console.error(err));
-  }
-  //= ========================================================================================
-
-
  
 }
 
