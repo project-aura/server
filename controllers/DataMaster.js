@@ -255,20 +255,6 @@ class DataMaster {
     console.log(doc);
     return doc;
   }
-
-  /**
-   * Finds a single user by their username or _id
-   * @param {String} queryOptions -> search options
-   */
-  async updateUserDisplayName(_id, displayName) {
-    if (!this.connected) {
-      this.connectForMutations(this.dbName);
-    }
-    const query = User.updateOne({ _id }, { displayName });
-    return query;
-  }
-  //================================================================================
-
  
 }
 
