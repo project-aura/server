@@ -50,22 +50,25 @@ const readMany = async (options) => {
 
 /**
  * Updates a single feedback
- * @param {Object} feedback Aura feedback
+ * @param {Object} feedback Aura feedback Id
  * @param {Object} options Additional parameters
- * @returns Response
+ * @returns doc
+ * Updates one feedback
  */
-const updateOne = (feedback, options) => {
-    // TODO
+const updateOne = async (feedback, options) => {
+    const doc = await Feedback.findByIdAndUpdate(feedback, { $set: options }, { new: true });
+    return doc;
 };
 
 /**
  * Updates many feedback with a batch request
- * @param {Object} feedback Aura feedbackes
  * @param {Object} options Additional parameters
- * @returns Response
+ * @returns docs
+ * Updates all
  */
-const updateMany = (feedback, options) => {
-    // TODO
+const updateMany = async (options) => {
+    const docs = await Feedback.updateMany({}, { $set: options }, { new: true });
+    return docs;
 };
 
 /**

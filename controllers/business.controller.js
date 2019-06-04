@@ -120,7 +120,7 @@ const renameField = async options => {
  * Updates a single business
  * @param {Object} business Aura Business
  * @param {Object} options Additional parameters
- * @returns Response
+ * @returns doc
  */
 const updateOne = async (business, options) => {
   const doc = await Business.findByIdAndUpdate(business, { $set: options }, { new: true });
