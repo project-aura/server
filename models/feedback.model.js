@@ -26,16 +26,19 @@ const schema = mongoose.Schema(
     // in the specific business.
     aura: [
       {
+        // must be in sync with business aura array in usersVotedAura[]
         type: String,
       },
     ],
     activity: [
       {
+        // must be in sync with business activity in usersVotedActivity[]
         type: String,
       },
     ],
     attire: [
       {
+        // business model does not have this match yet.
         type: String,
       },
     ],
