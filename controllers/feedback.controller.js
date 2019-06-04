@@ -34,7 +34,7 @@ const createMany = async (feedback, options) => {
  * @param {Object} options defines what to find
  */
 const readOne = async (options) => {
-    const returnAwait = await Feedback.find(options);
+    const returnAwait = await Feedback.findOne(options);
     return returnAwait;
 };
 
