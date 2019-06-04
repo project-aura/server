@@ -1,7 +1,7 @@
 /**
  * A feedback is between a user and a business. It must be associated with 
  * both entities to exist. 
- * 
+ * Feedback is manipulated only by the user. 
  */
 const mongoose = require('mongoose');
 
