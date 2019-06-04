@@ -36,6 +36,7 @@ const schema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'feedback',
       },
+      associatedBusinessId: String,
     },
   ]
 });

@@ -89,6 +89,7 @@ const schema = mongoose.Schema(
           type: mongoose.Schema.Types.ObjectId,
           ref: 'feedback'
         },
+        associatedUserId: String,
       },
     ],
     address: String,
