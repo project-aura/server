@@ -168,6 +168,7 @@ const updateVotesAura = async (businessId, options) => {
     // UPVOTE
     // Reassign voter.aura array into a temp storage
     // auraArr is the temp storage.
+    // eslint-disable-next-line prefer-const
     let auraArr = [];
     auraArr.push(options.aura);
     business[0].usersVotedAura.push({
@@ -361,6 +362,7 @@ const updateVotesActivity = async (businessId, options) => {
     } else {
       // CASE 1
       // UPVOTE. Reassign voter.activity array into a temp storage
+      // eslint-disable-next-line prefer-const
       let actArr = [];
       actArr.push(options.activity);
       business.usersVotedActivity.push({
@@ -557,6 +559,9 @@ const find = async (query, options) => {
     .regex(city || '')
     .where('categorySearch')
     .regex(category || '')
+    .sort({
+      likes: -1,
+    })
     .skip(parseInt(page) * parseInt(results));
   // .limit(parseInt(results));
 
