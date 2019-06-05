@@ -65,6 +65,9 @@ const readMany = async (options) => {
  * 1. A user votes for an aura
  * 2. A user votes for an activity
  * 3. A user votes for an attire
+ * 4. A user comments on a business
+ * An update happens when the associated user already exists 
+ * in the business' feedback array.
  */
 const updateOne = async (feedback, options) => {
     const doc = await Feedback.findByIdAndUpdate(feedback, { $set: options }, { new: true });
