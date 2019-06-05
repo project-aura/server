@@ -6,6 +6,7 @@ const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const CustomError = require('../helpers/CustomError');
 const Business = require('../models/business.model');
+const Feedback = require('../models/feedback.model');
 
 /**
  * @param {Object} business Aura Business
@@ -120,7 +121,7 @@ const renameField = async options => {
  * Updates a single business
  * @param {Object} business Aura Business
  * @param {Object} options Additional parameters
- * @returns Response
+ * @returns doc
  */
 const updateOne = async (business, options) => {
   const doc = await Business.findByIdAndUpdate(business, { $set: options }, { new: true });
@@ -144,7 +145,11 @@ const updateMany = async options => {
  * @param {*} options -> additional params, userId is derived here.
  * This function is called whenever user upvotes/downvotes an aura
  * on the business. It calls the updateOne() method to update the
- * document whenever it is done
+ * document whenever it is done.
+ * Additional task of this control module is to notify the feedback 
+ * controller that a feedback is either created or needs to be updated.
+ * With that comes the task to update the feedback array of the particular
+ * business as well. 
  */
 const updateVotesAura = async (businessId, options) => {
   let userSpliced = false;
@@ -212,6 +217,14 @@ const updateVotesAura = async (businessId, options) => {
       business[0].auras[options.aura]++;
     }
   }
+  /**
+   * Notify the feedback controller of the changes that needs to be 
+   * reflected. Certain information must be present before proceeding 
+   * this route.
+   * 1. Is the feedback array empty?
+   * 2. Is the userId
+   */
+
   // now that the business' usersVotedAura and auras have been modified,
   // shove it back to reflect in the database.
   const doc = await updateOne(businessId, {
