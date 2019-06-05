@@ -11,7 +11,14 @@ const Feedback = require('../models/feedback.model');
  * Creates a single feedback
  * @param {Object} feedback Aura feedback
  * @param {Object} options Additional parameters (optional)
- * @returns Response
+ * @returns awaited object
+ * A feedback is created when:
+ * 1. A user votes for an aura
+ * 2. A user votes for an activity
+ * 3. A user votes for an attire
+ * 4. A user comments on business
+ * The associated user with a feedback must not exist in a business'
+ * feedback array in order for a feedback to be created.
  */
 const createOne = async (feedback, options) => {
     const returnAwait = await Feedback.create(feedback);
@@ -34,7 +41,7 @@ const createMany = async (feedback, options) => {
  * @param {Object} options defines what to find
  */
 const readOne = async (options) => {
-    const returnAwait = await Feedback.find(options);
+    const returnAwait = await Feedback.findOne(options);
     return returnAwait;
 };
 
@@ -50,22 +57,32 @@ const readMany = async (options) => {
 
 /**
  * Updates a single feedback
- * @param {Object} feedback Aura feedback
+ * @param {Object} feedback Aura feedback Id
  * @param {Object} options Additional parameters
- * @returns Response
+ * @returns doc
+ * Updates one feedback
+ * A feedback is updated when:
+ * 1. A user votes for an aura
+ * 2. A user votes for an activity
+ * 3. A user votes for an attire
+ * 4. A user comments on a business
+ * An update happens when the associated user already exists 
+ * in the business' feedback array.
  */
-const updateOne = (feedback, options) => {
-    // TODO
+const updateOne = async (feedback, options) => {
+    const doc = await Feedback.findByIdAndUpdate(feedback, { $set: options }, { new: true });
+    return doc;
 };
 
 /**
  * Updates many feedback with a batch request
- * @param {Object} feedback Aura feedbackes
  * @param {Object} options Additional parameters
- * @returns Response
+ * @returns docs
+ * Updates all
  */
-const updateMany = (feedback, options) => {
-    // TODO
+const updateMany = async (options) => {
+    const docs = await Feedback.updateMany({}, { $set: options }, { new: true });
+    return docs;
 };
 
 /**

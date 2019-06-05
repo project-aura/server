@@ -65,7 +65,7 @@ router.get(
   '/vote-activities',
   passport.authenticate('jwt', { session: false }),
   asyncWrapper(async (req, res) => {
-    const status = await businessController.updateVotesActivity(req.body.businessId, {
+    const status = await businessController.updateVotesActivity(req.query.businessId, {
       userId: req.user._id,
       res,
     });
