@@ -6,6 +6,7 @@ const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const CustomError = require('../helpers/CustomError');
 const Business = require('../models/business.model');
+const Feedback = require('../models/feedback.model');
 
 /**
  * @param {Object} business Aura Business
