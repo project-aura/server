@@ -148,6 +148,8 @@ const updateMany = async options => {
  * document whenever it is done.
  * Additional task of this control module is to notify the feedback 
  * controller that a feedback is either created or needs to be updated.
+ * With that comes the task to update the feedback array of the particular
+ * business as well. 
  */
 const updateVotesAura = async (businessId, options) => {
   let userSpliced = false;
