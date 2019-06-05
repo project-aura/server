@@ -222,7 +222,8 @@ const updateVotesAura = async (businessId, options) => {
    * reflected. Certain information must be present before proceeding 
    * this route.
    * 1. Is the feedback array empty?
-   * 2. Is the userId
+   * 2. Is the userId associated with a feedback already existing?
+   * 3. MORE TO FOLLOW.
    */
 
   // now that the business' usersVotedAura and auras have been modified,
