@@ -217,6 +217,14 @@ const updateVotesAura = async (businessId, options) => {
       business[0].auras[options.aura]++;
     }
   }
+  /**
+   * Notify the feedback controller of the changes that needs to be 
+   * reflected. Certain information must be present before proceeding 
+   * this route.
+   * 1. Is the feedback array empty?
+   * 2. Is the userId
+   */
+
   // now that the business' usersVotedAura and auras have been modified,
   // shove it back to reflect in the database.
   const doc = await updateOne(businessId, {
