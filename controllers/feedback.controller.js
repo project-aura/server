@@ -11,7 +11,8 @@ const Feedback = require('../models/feedback.model');
  * Creates a single feedback
  * @param {Object} feedback Aura feedback
  * @param {Object} options Additional parameters (optional)
- * @returns Response
+ * @returns awaited object
+ * A feedback is created when:
  */
 const createOne = async (feedback, options) => {
     const returnAwait = await Feedback.create(feedback);
