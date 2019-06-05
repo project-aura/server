@@ -145,7 +145,9 @@ const updateMany = async options => {
  * @param {*} options -> additional params, userId is derived here.
  * This function is called whenever user upvotes/downvotes an aura
  * on the business. It calls the updateOne() method to update the
- * document whenever it is done
+ * document whenever it is done.
+ * Additional task of this control module is to notify the feedback 
+ * controller that a feedback is either created or needs to be updated.
  */
 const updateVotesAura = async (businessId, options) => {
   let userSpliced = false;
