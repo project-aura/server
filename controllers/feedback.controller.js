@@ -13,6 +13,7 @@ const Feedback = require('../models/feedback.model');
  * @param {Object} options Additional parameters (optional)
  * @returns awaited object
  * A feedback is created when:
+ * 1. A user votes for an aura
  */
 const createOne = async (feedback, options) => {
     const returnAwait = await Feedback.create(feedback);
