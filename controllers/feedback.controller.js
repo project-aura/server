@@ -17,6 +17,8 @@ const Feedback = require('../models/feedback.model');
  * 2. A user votes for an activity
  * 3. A user votes for an attire
  * 4. A user comments on business
+ * The associated user with a feedback must not exist in a business'
+ * feedback array in order for a feedback to be created.
  */
 const createOne = async (feedback, options) => {
     const returnAwait = await Feedback.create(feedback);
