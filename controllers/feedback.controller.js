@@ -61,6 +61,10 @@ const readMany = async (options) => {
  * @param {Object} options Additional parameters
  * @returns doc
  * Updates one feedback
+ * A feedback is updated when:
+ * 1. A user votes for an aura
+ * 2. A user votes for an activity
+ * 3. A user votes for an attire
  */
 const updateOne = async (feedback, options) => {
     const doc = await Feedback.findByIdAndUpdate(feedback, { $set: options }, { new: true });
