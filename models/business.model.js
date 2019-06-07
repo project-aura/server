@@ -84,9 +84,13 @@ const schema = mongoose.Schema(
     ],
     feedback: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'feedback'
-      }
+        feedbackId: String,
+        objectReference: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'feedback'
+        },
+        associatedUserId: String,
+      },
     ],
     address: String,
     city: String,

@@ -5,6 +5,7 @@
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '/../.env') });
 const Business = require('../models/business.model');
+const Feedback = require('../models/feedback.model');
 
 /**
  * @param {Object} business Aura Business
@@ -119,7 +120,7 @@ const renameField = async options => {
  * Updates a single business
  * @param {Object} business Aura Business
  * @param {Object} options Additional parameters
- * @returns Response
+ * @returns doc
  */
 const updateOne = async (business, options) => {
   const doc = await Business.findByIdAndUpdate(business, { $set: options }, { new: true });
@@ -143,7 +144,11 @@ const updateMany = async options => {
  * @param {*} options -> additional params, userId is derived here.
  * This function is called whenever user upvotes/downvotes an aura
  * on the business. It calls the updateOne() method to update the
- * document whenever it is done
+ * document whenever it is done.
+ * Additional task of this control module is to notify the feedback 
+ * controller that a feedback is either created or needs to be updated.
+ * With that comes the task to update the feedback array of the particular
+ * business as well. 
  */
 const updateVotesAura = async (businessId, options) => {
   let userSpliced = false;
@@ -162,7 +167,8 @@ const updateVotesAura = async (businessId, options) => {
     // UPVOTE
     // Reassign voter.aura array into a temp storage
     // auraArr is the temp storage.
-    const auraArr = [];
+    // eslint-disable-next-line prefer-const
+    let auraArr = [];
     auraArr.push(options.aura);
     business[0].usersVotedAura.push({
       userId: options.userId,
@@ -213,6 +219,14 @@ const updateVotesAura = async (businessId, options) => {
       business[0].auras[options.aura]++;
     }
   }
+  /**
+   * Notify the feedback controller of the changes that needs to be 
+   * reflected. Certain information must be present before proceeding 
+   * this route.
+   * 1. Is the feedback array empty?
+   * 2. Is the userId
+   */
+
   // now that the business' usersVotedAura and auras have been modified,
   // shove it back to reflect in the database.
   const doc = await updateOne(businessId, {
@@ -345,6 +359,7 @@ const updateVotesActivity = async (businessId, options) => {
     } else {
       // CASE 1
       // UPVOTE. Reassign voter.activity array into a temp storage
+      // eslint-disable-next-line prefer-const
       let actArr = [];
       actArr.push(options.activity);
       business.usersVotedActivity.push({
@@ -541,6 +556,9 @@ const find = async (query, options) => {
     .regex(city || '')
     .where('categorySearch')
     .regex(category || '')
+    .sort({
+      likes: -1,
+    })
     .skip(parseInt(page) * parseInt(results));
   // .limit(parseInt(results));
 
