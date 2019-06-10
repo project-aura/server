@@ -37,7 +37,7 @@ const createMany = async (users, options) => {
  * @returns Response
  */
 const readOne = async (options) => {
-  const returnAwait = await User.findOne(options.id);
+  const returnAwait = await User.findOne(options);
   return returnAwait;
 };
 
@@ -58,7 +58,7 @@ const readMany = async options => {
 const readFavorites = async (options) => {
   const returnAwait = await User.findOne(options.id)
 
-  return returnAwait;
+  return returnAwait.favorites;
 }
 
 /**
