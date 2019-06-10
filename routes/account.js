@@ -66,4 +66,6 @@ router.patch(
   })
 );
 
+// route for retrieving a user's favorited businesses
+
 module.exports = router;
