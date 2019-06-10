@@ -33,7 +33,9 @@ router.get(
   passport.authenticate('jwt', { session: false }),
   asyncWrapper(async (req, res) => {
     // read user in here. interested in the user's favorites array
-    // populate90 on the user controller
+    // populate() on the user controller, an array of business objects 
+    // returned is ideal
+    const businesses = await userController.readMany();
   })
 );
 
