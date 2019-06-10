@@ -56,9 +56,11 @@ const readMany = async options => {
  * returns populated businesses  
  */
 const readFavorites = async (options) => {
-  const returnAwait = await User.findOne(options.id)
-
-  return returnAwait.favorites;
+  const returnAwait = await User
+    .findOne(options.id)
+    // THIS SHIT IS UNDER CONSTRUCTION
+    .populate('favorites.0.objectReference');
+  return returnAwait;
 }
 
 /**
