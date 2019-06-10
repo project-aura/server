@@ -67,5 +67,12 @@ router.patch(
 );
 
 // route for retrieving a user's favorited businesses
+router.get(
+  '/get-favorites',
+  passport.authenticate('jwt', { session: false }),
+  asyncWrapper(async (req, res) => {
+    
+  })
+);
 
 module.exports = router;
