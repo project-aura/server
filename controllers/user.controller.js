@@ -173,6 +173,7 @@ const userController = {
   createMany,
   readOne,
   readMany,
+  readFavorites,
   updateOne,
   updateMany,
   updateLike,
