@@ -50,6 +50,10 @@ const readMany = async options => {
   return returnAwait;
 };
 
+const readFavorites = async (options) => {
+  // TODO
+}
+
 /**
  * Updates a single user
  * @param {Object} user Aura user ID

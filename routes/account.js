@@ -21,7 +21,6 @@ router.get(
   '/read-user',
   passport.authenticate('jwt', { session: false }),
   asyncWrapper(async (req, res) => {
-    // analog: 0 -> basic readOne() just reads one user
     const user = await userController.readOne({ id: req.user._id });
     const userObj = user.toObject();
     res.status(200).json({ message: 'User has been read', user: userObj });
@@ -36,7 +35,7 @@ router.get(
     // read user in here. interested in the user's favorites array
     // populate() on the user controller, an array of business objects 
     // returned is ideal
-    const businesses = await userController.readOne({ id: req.user._id, analog: 1 });
+    const businesses = await userController.readFavorites({ id: req.user._id });
   })
 );
 
