@@ -56,8 +56,8 @@ const readMany = async options => {
  * returns populated businesses  
  */
 const readFavorites = async (options) => {
-  const returnAwait = await User.findOne(options.id);
-  //console.log(returnAwait.favorites[0].businessId);
+  const returnAwait = await User.findOne(options.id)
+
   return returnAwait;
 }
 
