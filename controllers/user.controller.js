@@ -33,12 +33,11 @@ const createMany = async (users, options) => {
 
 /**
  * Reads a single user
- * @param {string} id the id of what to find
- * @param {Object} options optional parameters
+ * @param {Object} options defines what to find, parameters. Mostly used
  * @returns Response
  */
-const readOne = async (id, options) => {
-  const returnAwait = await User.findOne(id);
+const readOne = async (options) => {
+  const returnAwait = await User.findOne(options.id);
   return returnAwait;
 };
 
