@@ -21,7 +21,8 @@ router.get(
   '/read-user',
   passport.authenticate('jwt', { session: false }),
   asyncWrapper(async (req, res) => {
-    const user = await userController.readOne(req.user._id);
+    // switch: 0 -> basic readOne() just reads one user
+    const user = await userController.readOne(req.user._id, { switch: 0 });
     const userObj = user.toObject();
     res.status(200).json({ message: 'User has been read', user: userObj });
   })
