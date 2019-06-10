@@ -32,7 +32,8 @@ router.get(
   '/get-favorites',
   passport.authenticate('jwt', { session: false }),
   asyncWrapper(async (req, res) => {
-    
+    // read user in here. interested in the user's favorites array
+    // populate90 on the user controller
   })
 );
 
