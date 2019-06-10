@@ -27,6 +27,15 @@ router.get(
   })
 );
 
+// route for retrieving a user's favorited businesses
+router.get(
+  '/get-favorites',
+  passport.authenticate('jwt', { session: false }),
+  asyncWrapper(async (req, res) => {
+    
+  })
+);
+
 router.patch(
   '/change-password',
   passport.authenticate('jwt', { session: false }),
@@ -63,15 +72,6 @@ router.patch(
       res
     });
     res.status(200).json({ message: 'Successfully added to favorites' });
-  })
-);
-
-// route for retrieving a user's favorited businesses
-router.get(
-  '/get-favorites',
-  passport.authenticate('jwt', { session: false }),
-  asyncWrapper(async (req, res) => {
-    
   })
 );
 
