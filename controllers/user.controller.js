@@ -50,8 +50,15 @@ const readMany = async options => {
   return returnAwait;
 };
 
+/**
+ * 
+ * @param {Object} options contains id, and optional parameters
+ * returns populated businesses  
+ */
 const readFavorites = async (options) => {
-  // TODO
+  const returnAwait = await User.findOne(options.id);
+  //console.log(returnAwait.favorites[0].businessId);
+  return returnAwait;
 }
 
 /**

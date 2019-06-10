@@ -218,7 +218,7 @@ const updateVotesAura = async (businessId, options) => {
       business[0].auras[options.aura]++;
     }
   }
-  /**
+  /** TO FUCKING DO
    * Notify the feedback controller of the changes that needs to be 
    * reflected. Certain information must be present before proceeding 
    * this route.
