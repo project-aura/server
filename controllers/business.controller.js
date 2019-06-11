@@ -34,7 +34,12 @@ const createMany = async (businesses, options) => {
 /**
  * Reads a single business
  * @param {Object} options defines what to find
- * @returns Response
+ * options.analog -> switch to determine if user wants a find by name
+ * find by name is tricky because characters needed to be trimmed to match
+ * user input. 
+ * Hence, this will use the analog === 1 configuration
+ * HINT: pass analog as 0 (ZERO) if normal readOne is desired
+ * @returns Found Object
  */
 const readOne = async options => {
   const returnAwait = await Business.findOne(options);
