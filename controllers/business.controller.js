@@ -42,7 +42,17 @@ const createMany = async (businesses, options) => {
  * @returns Found Object
  */
 const readOne = async options => {
-  const returnAwait = await Business.findOne(options);
+  let returnAwait;
+  switch(options.analog) {
+    case 1:
+      // lower case and replace spaces with dashes 
+      const lowerCasedDashed = options.query.replace(/\s+/g, '-').toLowerCase();
+      returnAwait = await Business.findOne({ alias: lowerCasedDashed });
+      break;
+    default:
+      returnAwait = await Business.findOne(options);
+      break;
+  }
   return returnAwait;
 };
 
