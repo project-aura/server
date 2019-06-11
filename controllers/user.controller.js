@@ -87,7 +87,6 @@ const readFavorites = async (options) => {
       stars: returnAwait.favorites[i].objectReference.stars,
       businessImage: returnAwait.favorites[i].objectReference.businessImage,
       categorySearch: returnAwait.favorites[i].objectReference.categorySearch,
-
     });
   }
   return returnToRouter;
