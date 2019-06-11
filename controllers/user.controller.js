@@ -71,6 +71,9 @@ const readFavorites = async (options) => {
       auras: returnAwait.favorites[i].auras,
       attributes: returnAwait.favorites[i].attributes,
       likes: returnAwait.favorites[i].likes,
+      feedback: returnAwait.favorites[i].feedback,
+      categories: returnAwait.favorites[i].categories,
+      displayAddress: returnAwait.favorites[i].displayAddress,
     });
   }
   return returnAwait;
