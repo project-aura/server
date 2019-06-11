@@ -67,29 +67,30 @@ const readFavorites = async (options) => {
   let returnToRouter = [];
   for(let i = returnAwait.favorites.length - 1; i > -1; --i) {
     returnToRouter.push({
-      _id: returnAwait.favorites[i]._id,
-      auras: returnAwait.favorites[i].auras,
-      attributes: returnAwait.favorites[i].attributes,
-      likes: returnAwait.favorites[i].likes,
-      feedback: returnAwait.favorites[i].feedback,
-      categories: returnAwait.favorites[i].categories,
-      displayAddress: returnAwait.favorites[i].displayAddress,
-      yelpId: returnAwait.favorites[i].yelpId,
-      name: returnAwait.favorites[i].name,
-      alias: returnAwait.favorites[i].alias,
-      address: returnAwait.favorites[i].address,
-      citySearch: returnAwait.favorites[i].citySearch,
-      state: returnAwait.favorites[i].state,
-      postalCode: returnAwait.favorites[i].postalCode,
-      latitude: returnAwait.favorites[i].latitude,
-      longitude: returnAwait.favorites[i].longitude,
-      url: returnAwait.favorites[i].url,
-      stars: returnAwait.favorites[i].stars,
-      businessImage: returnAwait.favorites[i].businessImage,
-      categorySearch: returnAwait.favorites[i].categorySearch,
+      _id: returnAwait.favorites[i].objectReference._id,
+      auras: returnAwait.favorites[i].objectReference.auras,
+      attributes: returnAwait.favorites[i].objectReference.attributes,
+      likes: returnAwait.favorites[i].objectReference.likes,
+      feedback: returnAwait.favorites[i].objectReference.feedback,
+      categories: returnAwait.favorites[i].objectReference.categories,
+      displayAddress: returnAwait.favorites[i].objectReference.displayAddress,
+      yelpId: returnAwait.favorites[i].objectReference.yelpId,
+      name: returnAwait.favorites[i].objectReference.name,
+      alias: returnAwait.favorites[i].objectReference.alias,
+      address: returnAwait.favorites[i].objectReference.address,
+      citySearch: returnAwait.favorites[i].objectReference.citySearch,
+      state: returnAwait.favorites[i].objectReference.state,
+      postalCode: returnAwait.favorites[i].objectReference.postalCode,
+      latitude: returnAwait.favorites[i].objectReference.latitude,
+      longitude: returnAwait.favorites[i].objectReference.longitude,
+      url: returnAwait.favorites[i].objectReference.url,
+      stars: returnAwait.favorites[i].objectReference.stars,
+      businessImage: returnAwait.favorites[i].objectReference.businessImage,
+      categorySearch: returnAwait.favorites[i].objectReference.categorySearch,
+
     });
   }
-  return returnAwait;
+  return returnToRouter;
 }
 
 /**
