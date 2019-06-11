@@ -58,8 +58,8 @@ const readMany = async options => {
 const readFavorites = async (options) => {
   const returnAwait = await User
     .findOne(options.id)
-    // THIS SHIT IS UNDER CONSTRUCTION
-    .populate('favorites.0.objectReference');
+    .populate('favorites.objectReference');
+   
   return returnAwait;
 }
 
