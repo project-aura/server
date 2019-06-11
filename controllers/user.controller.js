@@ -53,7 +53,7 @@ const readMany = async options => {
 /**
  * 
  * @param {Object} options contains id, and optional parameters
- * returns populated businesses  
+ * returns populated businesses from most recently pushed in array 
  */
 const readFavorites = async (options) => {
   const returnAwait = await User
