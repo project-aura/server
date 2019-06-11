@@ -34,10 +34,27 @@ const createMany = async (businesses, options) => {
 /**
  * Reads a single business
  * @param {Object} options defines what to find
- * @returns Response
+ * options.analog -> switch to determine if user wants a find by name
+ * find by name is tricky because characters needed to be trimmed to match
+ * user input. 
+ * Hence, this will use the analog === 1 configuration
+ * HINT: pass analog as 0 (ZERO) if normal readOne is desired
+ * @returns Found Object
  */
 const readOne = async options => {
-  const returnAwait = await Business.findOne(options);
+  let returnAwait;
+  switch(options.analog) {
+    case 1:
+      // lower case and replace spaces with dashes 
+      const lowerCasedDashed = options.businessName.replace(/\s+/g, '-').toLowerCase();
+      returnAwait = await Business.find()
+        .where('alias')
+        .regex(lowerCasedDashed);
+      break;
+    default:
+      returnAwait = await Business.findOne(options);
+      break;
+  }
   return returnAwait;
 };
 
@@ -218,12 +235,16 @@ const updateVotesAura = async (businessId, options) => {
       business[0].auras[options.aura]++;
     }
   }
-  /**
+  /** TO FUCKING DO
    * Notify the feedback controller of the changes that needs to be 
    * reflected. Certain information must be present before proceeding 
    * this route.
    * 1. Is the feedback array empty?
-   * 2. Is the userId
+   *    -> SOLUTION: Create feedback object and save the ID in the
+   *        feedback array
+   * 2. Is the userId associated with a feedback already existing?
+   *    -> SOLUTION: Update feedback object. Save accordingly.
+   * 3. MORE TO FOLLOW.
    */
 
   // now that the business' usersVotedAura and auras have been modified,

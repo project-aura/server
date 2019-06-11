@@ -43,7 +43,7 @@ router.post(
     }
 
     // find the user
-    const user = await userController.readOne({username: req.body.username});
+    const user = await userController.readOne({ username: req.body.username });
 
     // Check if User exists
     if (!user) throw new CustomError(404, 'Invalid username: please try again');

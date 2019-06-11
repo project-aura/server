@@ -33,10 +33,10 @@ const createMany = async (users, options) => {
 
 /**
  * Reads a single user
- * @param {Object} options defines what to find
+ * @param {Object} options defines what to find, parameters. Mostly used
  * @returns Response
  */
-const readOne = async options => {
+const readOne = async (options) => {
   const returnAwait = await User.findOne(options);
   return returnAwait;
 };
@@ -49,6 +49,48 @@ const readMany = async options => {
   const returnAwait = await User.find(options);
   return returnAwait;
 };
+
+/**
+ * 
+ * @param {Object} options contains id, and optional parameters
+ * returns populated businesses from most recently pushed in array 
+ */
+const readFavorites = async (options) => {
+  const returnAwait = await User
+    .findOne(options.id)
+    .populate('favorites.objectReference');
+  /**
+   * At this point, returnAwait now has its favorites array populated
+   * by the actual business ojects. Now, return the favorites array. 
+   * But not everything in there is going to be used by the client.
+   */ 
+  let returnToRouter = [];
+  for(let i = returnAwait.favorites.length - 1; i > -1; --i) {
+    returnToRouter.push({
+      _id: returnAwait.favorites[i].objectReference._id,
+      auras: returnAwait.favorites[i].objectReference.auras,
+      attributes: returnAwait.favorites[i].objectReference.attributes,
+      likes: returnAwait.favorites[i].objectReference.likes,
+      feedback: returnAwait.favorites[i].objectReference.feedback,
+      categories: returnAwait.favorites[i].objectReference.categories,
+      displayAddress: returnAwait.favorites[i].objectReference.displayAddress,
+      yelpId: returnAwait.favorites[i].objectReference.yelpId,
+      name: returnAwait.favorites[i].objectReference.name,
+      alias: returnAwait.favorites[i].objectReference.alias,
+      address: returnAwait.favorites[i].objectReference.address,
+      citySearch: returnAwait.favorites[i].objectReference.citySearch,
+      state: returnAwait.favorites[i].objectReference.state,
+      postalCode: returnAwait.favorites[i].objectReference.postalCode,
+      latitude: returnAwait.favorites[i].objectReference.latitude,
+      longitude: returnAwait.favorites[i].objectReference.longitude,
+      url: returnAwait.favorites[i].objectReference.url,
+      stars: returnAwait.favorites[i].objectReference.stars,
+      businessImage: returnAwait.favorites[i].objectReference.businessImage,
+      categorySearch: returnAwait.favorites[i].objectReference.categorySearch,
+    });
+  }
+  return returnToRouter;
+}
 
 /**
  * Updates a single user
@@ -169,6 +211,7 @@ const userController = {
   createMany,
   readOne,
   readMany,
+  readFavorites,
   updateOne,
   updateMany,
   updateLike,
