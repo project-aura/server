@@ -13,6 +13,14 @@ router.get(
   })
 );
 
+// route for finding business by name
+router.get(
+  '/read-business-by-name',
+  asyncWrapper(async (req, res) => {
+    
+  })  
+);
+
 // route for voting for auras
 router.patch(
   '/vote-auras',
