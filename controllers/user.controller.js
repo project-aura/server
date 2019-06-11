@@ -74,6 +74,17 @@ const readFavorites = async (options) => {
       feedback: returnAwait.favorites[i].feedback,
       categories: returnAwait.favorites[i].categories,
       displayAddress: returnAwait.favorites[i].displayAddress,
+      yelpId: returnAwait.favorites[i].yelpId,
+      name: returnAwait.favorites[i].name,
+      alias: returnAwait.favorites[i].alias,
+      address: returnAwait.favorites[i].address,
+      citySearch: returnAwait.favorites[i].citySearch,
+      state: returnAwait.favorites[i].state,
+      postalCode: returnAwait.favorites[i].postalCode,
+      latitude: returnAwait.favorites[i].latitude,
+      longitude: returnAwait.favorites[i].longitude,
+      url: returnAwait.favorites[i].url,
+      stars: returnAwait.favorites[i].stars,
     });
   }
   return returnAwait;
