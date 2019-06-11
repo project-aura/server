@@ -85,6 +85,8 @@ const readFavorites = async (options) => {
       longitude: returnAwait.favorites[i].longitude,
       url: returnAwait.favorites[i].url,
       stars: returnAwait.favorites[i].stars,
+      businessImage: returnAwait.favorites[i].businessImage,
+      categorySearch: returnAwait.favorites[i].categorySearch,
     });
   }
   return returnAwait;
