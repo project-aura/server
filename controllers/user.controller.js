@@ -68,6 +68,7 @@ const readFavorites = async (options) => {
   for(let i = returnAwait.favorites.length - 1; i > -1; --i) {
     returnToRouter.push({
       _id: returnAwait.favorites[i]._id,
+      auras: returnAwait.favorites[i].auras,
     });
   }
   return returnAwait;
