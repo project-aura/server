@@ -72,6 +72,9 @@ const schema = mongoose.Schema(
         },
       },
     ],
+    attires: {
+      // TODO
+    },
     usersLiked: [
       {
         userId: String,

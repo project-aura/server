@@ -21,9 +21,22 @@ router.get(
   '/read-user',
   passport.authenticate('jwt', { session: false }),
   asyncWrapper(async (req, res) => {
-    const user = await userController.readOne(req.user._id);
+    const user = await userController.readOne({ id: req.user._id });
     const userObj = user.toObject();
     res.status(200).json({ message: 'User has been read', user: userObj });
+  })
+);
+
+// route for retrieving a user's favorited businesses
+router.get(
+  '/read-user-favorites',
+  passport.authenticate('jwt', { session: false }),
+  asyncWrapper(async (req, res) => {
+    // read user in here. interested in the user's favorites array
+    // populate() on the user controller, an array of business objects 
+    // returned is ideal
+    const businesses = await userController.readFavorites({ id: req.user._id });
+    res.status(200).json({ message: `User's liked businesses`, businesses });
   })
 );
 

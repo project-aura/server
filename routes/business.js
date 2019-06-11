@@ -13,6 +13,16 @@ router.get(
   })
 );
 
+// route for finding business by name
+router.get(
+  '/read-business-by-name',
+  asyncWrapper(async (req, res) => {
+    const business = await businessController.readOne({ businessName: req.query.businessName, analog: 1  });
+    business ? res.status(200).json({ message: 'successfully found business', business })
+      : res.status(404).json({ message: 'business does not exist check spelling' })
+  })  
+);
+
 // route for voting for auras
 router.patch(
   '/vote-auras',
