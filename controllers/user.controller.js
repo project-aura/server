@@ -59,7 +59,17 @@ const readFavorites = async (options) => {
   const returnAwait = await User
     .findOne(options.id)
     .populate('favorites.objectReference');
-   
+  /**
+   * At this point, returnAwait now has its favorites array populated
+   * by the actual business ojects. Now, return the favorites array. 
+   * But not everything in there is going to be used by the client.
+   */ 
+  let returnToRouter = [];
+  for(let i = returnAwait.favorites.length - 1; i > -1; --i) {
+    returnToRouter.push({
+      _id: returnAwait.favorites[i]._id,
+    });
+  }
   return returnAwait;
 }
 
