@@ -17,9 +17,9 @@ router.get(
 router.get(
   '/read-business-by-name',
   asyncWrapper(async (req, res) => {
-    const business = await businessController.readOne({ query: req.query, analog: 1  });
+    const business = await businessController.readOne({ businessName: req.query.businessName, analog: 1  });
     business ? res.status(200).json({ message: 'successfully found business', business })
-      : res.status(404).jsone({ message: 'business does not exist check spelling' })
+      : res.status(404).json({ message: 'business does not exist check spelling' })
   })  
 );
 

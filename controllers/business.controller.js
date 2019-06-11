@@ -46,8 +46,10 @@ const readOne = async options => {
   switch(options.analog) {
     case 1:
       // lower case and replace spaces with dashes 
-      const lowerCasedDashed = options.query.replace(/\s+/g, '-').toLowerCase();
-      returnAwait = await Business.findOne({ alias: lowerCasedDashed });
+      const lowerCasedDashed = options.businessName.replace(/\s+/g, '-').toLowerCase();
+      returnAwait = await Business.find()
+        .where('alias')
+        .regex(lowerCasedDashed);
       break;
     default:
       returnAwait = await Business.findOne(options);
