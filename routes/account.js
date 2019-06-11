@@ -36,7 +36,7 @@ router.get(
     // populate() on the user controller, an array of business objects 
     // returned is ideal
     const businesses = await userController.readFavorites({ id: req.user._id });
-    res.json({ businesses });
+    res.status(200).json({ message: `User's liked businesses`, businesses });
   })
 );
 
