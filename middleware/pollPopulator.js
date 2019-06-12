@@ -35,6 +35,8 @@ const populate = async () => {
     const proc = await businessController.readMany({})
         .then(businesses => {
             for(let i = 0; i < businesses.length; ++i) {
+                // THIS SECTION IS THE AURAS poll
+                //=============================================================
                 let attributeAura = businesses[i].attributes.aura;
                 attributeAura = attributeAura.replace(/\s+/g, '');
                 // make the array, using commas as delimiters
@@ -58,6 +60,8 @@ const populate = async () => {
                 for(let k = 0; k < auraArray.length; ++k) {
                     businesses[i].auras[auraArray[k]]++;
                 }
+                // THIS SECTION IS THE ACTIVITIES poll 
+                //============================================================
                 // DONE. update DB
                 businessController.updateOne(businesses[i]._id, {
                     auras: businesses[i].auras,
