@@ -9,4 +9,5 @@ const DataMaster = require('../controllers/DataMaster');
 const businessController = require('../controllers/business.controller');
 
 const dataMaster = new DataMaster(process.env.ENVIRONMENT);
+dataMaster.connectForMutations(process.env.ENVIRONMENT);
 
