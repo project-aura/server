@@ -60,8 +60,11 @@ const populate = async () => {
                 for(let k = 0; k < auraArray.length; ++k) {
                     businesses[i].auras[auraArray[k]]++;
                 }
+                // DONE WITH AURAS
                 // THIS SECTION IS THE ACTIVITIES poll 
                 //============================================================
+
+
                 // DONE. update DB
                 businessController.updateOne(businesses[i]._id, {
                     auras: businesses[i].auras,
