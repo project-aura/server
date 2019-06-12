@@ -63,11 +63,34 @@ const populate = async () => {
                 // DONE WITH AURAS
                 // THIS SECTION IS THE ACTIVITIES poll 
                 //============================================================
-
+                let category = businesses[i].categorySearch;
+                category = category.replace(/\s+/g, '');
+                // build the array, using commas as delimiters, 
+                // REUSE cursor and toBeShovedInArray variables
+                cursor = 0;
+                toBeShovedInArray = '';
+                let activityArray = [];
+                while(cursor < category.length) {
+                    if(category[cursor] !== comma) {
+                        toBeShovedInArray += category[cursor];
+                    } else {
+                        // delimiter has been encountered
+                        activityArray.push(toBeShovedInArray);
+                        toBeShovedInArray = '';
+                    }
+                    cursor++;
+                }
+                // push one more for last entry
+                activityArray.push(toBeShovedInArray);
+                // SPREAD IT AGAIN..... 
+                for(let j = 0; j < activityArray.length; ++j) {
+                    businesses[i].activities[activityArray[j]]++;
+                }
 
                 // DONE. update DB
                 businessController.updateOne(businesses[i]._id, {
                     auras: businesses[i].auras,
+                    activities: businesses[i].activities,
                 });
             }
         });
