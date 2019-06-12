@@ -11,3 +11,13 @@ const businessController = require('../controllers/business.controller');
 const dataMaster = new DataMaster(process.env.ENVIRONMENT);
 dataMaster.connectForMutations(process.env.ENVIRONMENT);
 
+/**
+ * 1. Obtain all the businesses in the database (readMany)
+ * 2. For each business, read the attributtes.aura field
+ *      -> trim whitespace
+ *      -> place each word into an array with the commas as delimiters
+ *      -> for each entry in the array, find the appropriate key in the 
+ *          auras field and increment that
+ *      -> update the new auras field in the document
+ */
+
