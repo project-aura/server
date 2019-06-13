@@ -57,7 +57,7 @@ const readMany = async options => {
  */
 const readFavorites = async (options) => {
   const returnAwait = await User
-    .findOne(options.id)
+    .findOne(options._id)
     .populate('favorites.objectReference');
   /**
    * At this point, returnAwait now has its favorites array populated
