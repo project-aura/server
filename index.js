@@ -16,7 +16,7 @@ const app = express();
 
 // process.env -> change it accordingly! 
 const connector = new DataMaster();
-connector.connectForMutations(process.env.DB_NAME_TEST);
+connector.connectForMutations(process.env.DB_NAME);
 /* Added on 3/5/2019
  * 1. body parser middleware
  * 2. form data
